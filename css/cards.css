@@ -1,0 +1,23 @@
+.card {
+    opacity: 0.8;
+    box-shadow: 4px 4px 0 rgba(0,0,0,1);
+    transition: 0.2s;
+    float: left;
+    margin: 10px;
+    border:2px solid black;
+    width: 40%;
+}
+
+.card:hover {
+    box-shadow: 8px 8px 0 rgba(0,0,0,1);
+    opacity: 1;
+}
+
+/* img {
+    border-radius: 5px 5px 0 0;
+} */
+
+.container {
+    padding: 5px;
+    text-align: left;
+}
