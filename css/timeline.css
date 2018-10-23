@@ -44,12 +44,12 @@ body {
   -ms-transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  background-color: #ffda44;
+  background-color: #0680ff;
 }
 .timeline-event:hover .timeline-event-thumbnail {
-  -moz-box-shadow: inset 40em 0 0 0 #ffda44;
-  -webkit-box-shadow: inset 40em 0 0 0 #ffda44;
-  box-shadow: inset 40em 0 0 0 #ffda44;
+  -moz-box-shadow: inset 40em 0 0 0 #0680ff;
+  -webkit-box-shadow: inset 40em 0 0 0 #0680ff;
+  box-shadow: inset 40em 0 0 0 #0680ff;
   color: black;
 }
 
