@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<title>Anurag - Designer Artist Developer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Chakra+Petch|Muli" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Chivo" rel="stylesheet">
+<link rel="stylesheet" href="./css/timeline.css">
+<link rel="stylesheet" href="./css/basic.css">
+<link rel="stylesheet" href="./css/cards.css">
+<link rel="shortcut icon" href="./img/Asset.png" />
+
+<body>
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar" id="myNavbar">
+      <a class="w3-bar-item w3-button w3-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()"
+        title="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+      </a>
+      <a href="#home">
+        <img src="./img/Asset.png" style="width:30px">
+      </a>
+      <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-right">
+        <strong> Contact</strong>
+      </a>
+      <a href="#skills" class="w3-bar-item w3-button w3-hide-small w3-right">
+        <strong> Skills</strong>
+      </a>
+      <a href="#timeline" class="w3-bar-item w3-button w3-hide-small w3-right">
+        <strong> Timeline</strong>
+      </a>
+      <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small w3-right">
+        <strong> Work</strong>
+      </a>
+
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+      <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">Work</a>
+      <a href="#timeline" class="w3-bar-item w3-button" onclick="toggleFunction()">Timeline</a>
+      <a href="#skills" class="w3-bar-item w3-button" onclick="toggleFunction()">Skills</a>
+      <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">Contact</a>
+    </div>
+  </div>
+
+  <!-- First Parallax Image with Logo Text -->
+  <div class="bgimg-1 w3-display-container" id="home">
+    <div class="w3-display-left" style="white-space:nowrap;">
+      <p class="title-heading" style="font-family: 'Chakra Petch', sans-serif;">
+        <span style="background-color: black;color: white">Hey!</span>
+        <span class="w3-hide-small">I'm Anurag</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Container (About Section) -->
+  <div class="w3-black">
+    <div class="w3-content w3-container w3-padding-32" id="about">
+      <h3>About me</h3>
+      <p class="para-style">My name is
+        <strong>Anurag Kumar Singh.</strong>
+      </p>
+      <p class="para-style">I am a designer/developer based out of Bangalore, India. I currently work as a UI/ UX designer.</p>
+    </div>
+  </div>
+
+  <!-- Container (Portfolio Section) -->
+  <div class="w3-content w3-container w3-padding-32" id="portfolio">
+    <h3 class="w3-center">My Work</h3>
+    <br>
+
+    <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+    <div class="w3-row-padding w3-center">
+
+      <div class="w3-col m3 w3-display-container" style="margin: 0%;padding: 0%; max-width: 50%;">
+        <div class="card" onclick="onClick(this)" id="1">
+          <img src="./img/work/1avatar.png" style="width:100%">
+          <div class="container w3-black">
+            <h6>
+              Cloud serice
+              <br>webpage
+            </h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-col m3 w3-display-container" style="margin: 0%;padding: 0%; max-width: 50%;">
+        <div class="card" onclick="onClick(this)" id="2">
+          <img src="./img/work/2avatar.png" style="width:100%">
+          <div class="container w3-black">
+            <h6>
+              Dasboard
+              <br>design
+            </h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-col m3 w3-display-container" style="margin: 0%;padding: 0%; max-width: 50%;">
+        <div class="card" onclick="onClick(this)" id="3">
+          <img src="./img/work/3avatar.png" style="width:100%">
+          <div class="container w3-black">
+            <h6>
+              Mighty heros
+              <br>illustration
+            </h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-col m3 w3-display-container" style="margin: 0%;padding: 0%; max-width: 50%;">
+        <div class="card" onclick="onClick(this)" id="4">
+          <img src="./img/work/4avatar.png" style="width:100%">
+          <div class="container w3-black">
+            <h6>
+              Magic through
+              <br>pencils
+            </h6>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="w3-row-padding w3-center">
+
+      <div class="w3-col m3 w3-display-container" style="margin: 0%;padding: 0%; max-width: 50%;">
+        <div class="card" onclick="onClick(this)" id="5">
+          <img src="./img/work/5avatar.png" style="width:100%">
+          <div class="container w3-black">
+            <h6>
+              ParkIn mobile
+              <br>application
+            </h6>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-col m3 w3-display-container" style="margin: 0%;padding: 0%; max-width: 50%;">
+        <div class="card" onclick="onClick(this)" id="6">
+          <img src="./img/work/6avatar.png" style="width:100%">
+          <div class="container w3-black">
+            <h6>
+              Vortex
+              <br>symposium
+            </h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-col m3 w3-display-container" style="margin: 0%;padding: 0%;max-width: 50%;">
+        <div class="card" onclick="onClick(this)" id="7">
+          <img src="./img/work/7avatar.png" style="width:100%">
+          <div class="container w3-black">
+            <h6>
+              Space for
+              <br>craft
+            </h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-col m3 w3-display-container" style="margin: 0%;padding: 0%;max-width: 50%;">
+        <div class="card" onclick="onClick(this)" id="8">
+          <img src="./img/work/8avatar.png" style="width:100%">
+          <div class="container w3-black">
+            <h6>
+              Wall
+              <br>painting
+            </h6>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br>
+    <div class="w3-right" style="margin-right: 3%">
+      <a href="#contact" class="w3-hover-opacity">
+        discover more ></a>
+    </div>
+
+  </div>
+
+  <!-- Container (Challenges Section) -->
+  <div style="background-image:url(./img/challenges.png);">
+    <div class="w3-content w3-container w3-padding-32" id="challenges">
+      <h3 style="color: black;" class="w3-center">
+        <strong>11</strong> Days challenges</h3>
+      <p style="font-weight:600" class="w3-center"> These are challenges devised by me so as to enhance my skills by competing myself everyday for 11 days.
+        <br> More challenges yet to come.
+      </p>
+      <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+      <div class="w3-row-padding w3-center">
+
+        <div class="w3-col m3 w3-display-container" style="margin: 0%;padding: 0%; max-width: 50%;">
+          <div class="card2" onclick="location.href='microanimation.html';" id="9">
+            <img src="./img/microanimation_cover.jpg" style="width:100%">
+            <div class="container" style="background-color: black;color: white;">
+              <h6>
+                Micro
+                <br>animations
+              </h6>
+            </div>
+          </div>
+        </div>
+        <div class="w3-col m3 w3-display-container" style="margin: 0%;padding: 0%; max-width: 50%;">
+          <div class="card2" id="10">
+            <img src="./img/comingsoon.png" style="width:100%">
+            <div class="container" style="background-color: grey;color: white;">
+              <h6>
+                Graphic
+                <br>Poster
+              </h6>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col m3 w3-display-container" style="margin: 0%;padding: 0%; max-width: 50%;">
+          <div class="card2" id="11">
+            <img src="./img/comingsoon.png" style="width:100%">
+            <div class="container" style="background-color: grey;color: white;">
+              <h6>
+                Screen
+                <br>design
+              </h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col m3 w3-display-container" style="margin: 0%;padding: 0%; max-width: 50%;">
+          <div class="card2" id="12">
+            <img src="./img/comingsoon.png" style="width:100%">
+            <div class="container" style="background-color: grey;color: white;">
+              <h6>
+                Typography
+                <br>design
+              </h6>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="w3-black">
+    <div class="w3-content w3-container w3-padding-32" id="timeline">
+      <h3 class="w3-center">My Timeline</h3>
+      <ul class="timeline">
+        <li class="timeline-event">
+          <label class="timeline-event-icon"></label>
+          <div class="timeline-event-copy">
+            <p class="timeline-event-thumbnail">2012-2016</p>
+            <h3>Computer Science and Engineering</h3>
+            <h5>National Institute of Technology (NIT), Trichy</h5>
+            <p>Joined college for Bachelor of Technology. Started learing algorithms, data structures and various other concepts
+              related to field.</p>
+
+          </div>
+        </li>
+        <li class="timeline-event">
+          <label class="timeline-event-icon"></label>
+          <div class="timeline-event-copy">
+            <p class="timeline-event-thumbnail">2014-2016</p>
+            <h3>Head of Design group in dept.</h3>
+            <h5>NIT, Trichy</h5>
+            <p>
+              Rediscovered love towards design.
+              <strong>Bits and Bytes</strong> Newsletter was the first.
+              <strong>Vortex</strong>, the department fest was next. Also started
+              <strong>selling T-shirts</strong> online.
+            </p>
+          </div>
+        </li>
+        <li class="timeline-event">
+          <label class="timeline-event-icon"></label>
+          <div class="timeline-event-copy">
+            <p class="timeline-event-thumbnail">2016-2018</p>
+            <h3>Software Engineer</h3>
+            <h5>Philips Innovation Campus, Bangalore</h5>
+            <p>Worked as backend developer on
+              <strong>Java Spring</strong> for an year and then as a front-end developer in
+              <strong>Angular</strong>.</p>
+          </div>
+        </li>
+        <li class="timeline-event">
+          <label class="timeline-event-icon"></label>
+          <div class="timeline-event-copy">
+            <p class="timeline-event-thumbnail">2018-Present</p>
+            <h3>UI/UX Designer</h3>
+            <h5>People10 Technosoft Pvt. Ltd.</h5>
+            <p>Currently working here after accepting my &hearts; for design.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+    <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image">
+      <i class="fa fa-remove"></i>
+    </span>
+    <div class="w3-modal-content w3-animate-zoom w3-transparent w3-padding-32">
+      <p id="caption" class="w3-left w3-opacity w3-large"></p>
+      <br>
+      <img id="img01" class="w3-image  w3-center">
+    </div>
+  </div>
+
+  <!-- Container (Contact Section) -->
+  <div class="w3-light-grey">
+    <div class="w3-content w3-container w3-padding-32" id="skills">
+      <h3 class="w3-center">Skill set</h3>
+      <div class="w3-col m3">
+        <ul>
+          <li>
+            <h4 style="color: #0680ff;">Skills</h4>
+          </li>
+          <li>Graphic design</li>
+          <li>User Interface Design</li>
+          <li>Wireframing</li>
+          <li>Micro animations</li>
+        </ul>
+      </div>
+      <div class="w3-col m3">
+        <div style="margin-top: 52px;" class="w3-hide-small"></div>
+        <ul>
+          <li>User Research</li>
+          <li>Website development</li>
+          <li>Front-end development</li>
+          <li>Back-end development</li>
+        </ul>
+      </div>
+
+      <div class="w3-col m3">
+        <ul>
+          <li>
+            <h4 style="color: #0680ff;">Tools</h4>
+          </li>
+          <li>Adobe Photoshop</li>
+          <li>Adobe Illustrator</li>
+          <li>Adobe Xd</li>
+          <li>Adobe After Effects</li>
+        </ul>
+      </div>
+      <div class="w3-col m3">
+        <div style="margin-top: 52px;" class="w3-hide-small"></div>
+        <ul>
+          <li>Zeplin</li>
+          <li>Adobe Indesign</li>
+          <li>Visual Studio Code</li>
+          <li>IntelliJ IDEA</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container (Contact Section) -->
+  <div class="w3-content w3-container w3-padding-32" id="contact">
+    <h3 class="w3-center">Find me on</h3>
+
+    <div class="w3-row w3-padding-32 w3-section">
+
+      <div class="w3-col m4 w3-panel" style="padding-left:10%">
+        <div class="w3-xlarge w3-margin-bottom">
+          <a href="https://dribbble.com/anurag27k" target="_blank" class="w3-hover-opacity">
+            <img style="width: 30px" src="./img/dribbble.png">&nbsp;&nbsp;Dribbble</a>
+          <br>
+          <br>
+          <a href="https://www.behance.net/anurag27k" target="_blank" class="w3-hover-opacity">
+            <img style="width: 30px" src="./img/behance.png">&nbsp;&nbsp;Behance</a>
+          <br>
+          <br>
+          <a href="https://www.instagram.com/anurag27k" target="_blank" class="w3-hover-opacity">
+            <i class="fa fa-linkedin"></i>&nbsp;&nbsp;LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="w3-hide-small w3-col m3 w3-container">
+        <img style="width: 300px" src="./img/victory.svg">
+      </div>
+
+      <div class="w3-col m5 w3-panel" style="padding-left:10%">
+        <div class="w3-xlarge w3-margin-bottom">
+          <a href="mailto:anurag27k@gmail.com?Subject=Reaching%20out" class="w3-hover-opacity" target="_top">Send Mail</a>
+          <br>
+          <br>
+          <a href="./files/AnuragResume.pdf" class="w3-hover-opacity">Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-black w3-padding-16" style="text-align: center;">
+    <span>Made with &hearts; by me </span> &copy; 2018
+  </footer>
+
+  <script>
+
+    // Modal Image Gallery
+    function onClick(element) {
+      var imageSrc = "";
+      var imageContent = "";
+      switch (element.id) {
+        case "1":
+          imageSrc = "./img/work/1.jpg";
+          imageContent = "<strong>CLOUD SERVICE WEBPAGE</strong><br><br>This is a sample webpage which was created in Adobe Xd and Adobe Illustrator. This was made keeping in mind the current trends being followed. The color combination of yellow and purple is totally in trend.<br><br> The design is made according to the grid system. This contains varoius sections like company section, testimonial, feedback and others. ";
+          break;
+        case "2":
+          imageSrc = "./img/work/2.png";
+          imageContent = "<strong>DASHBOARD DESIGN</strong><br><br>A concept dashboard is being designed to show the air quality and its supporting factors. A dark theme is being followed. Minimal use of text and clean UI is kept in mind.";
+
+          break;
+        case "3":
+          imageSrc = "./img/work/3.gif";
+          imageContent = "<strong>MIGHTY HEROS ILLUSTRATION</strong><br><br>These illustration were made for a hackathon event in a company. The participants were divided into teams whose names are names of warrior classes.<br><br> The character illustrations are inspired from a channel named 'gigantic'. A series of flat and vibrant icons were made for this event.";
+          break;
+        case "4":
+          imageSrc = "./img/work/4.png";
+          imageContent = "<strong>MAGIC THROUGH PENCILS</strong><br><br>Love towards portrait sketching grew in me at a very early age. I represented school in 7th grade for portrait sketching where 28 other schools from all over India particiapted.<br><br>Sketching portraits helps me understand various shades of pencil and importance to details and proportion.";
+          break;
+        case "5":
+          imageSrc = "./img/work/5.png";
+          imageContent = "<strong>PARKIN MOBILE APPLICATION</strong><br><br>This is an mobile application which lets you find nearby available paking slots. Navigation feature is also present which is enabled by Google Maps. App also allows you to through your phone just by scanning the QR code.<br><br>The App uses simple but vibrant colors for its UI. Gradients are incorporated in header and footer in some places. Flat buttons are being used to a give a minimalistic look.";
+          break;
+        case "6":
+          imageSrc = "./img/work/6.png";
+          imageContent = "<strong>VORTEX SYMPOSIUM</strong><br><br>This was a Computer department symposium held in 2016. I along with my team supported with various posters, banners, pamphlets, social media, assets for webpage, etc.";
+          break;
+        case "7":
+          imageSrc = "./img/work/7.png";
+          imageContent = "<strong>SPACE FOR CRAFT</strong><br><br>This particular craft was made by combining 2 charts among which 1st was cut into strips horiontally and the other vertically. These both were then placed over each other. Strips of one chart were placed over the other making a mesh. This mesh was carefully created to make a portrait.";
+          break;
+        case "8":
+          imageSrc = "./img/work/8.jpg";
+          imageContent = "<strong>WALL PAINTINGS</strong><br><br>Wall painting were made by me along with the team while participating in cultural fests. The wall painting depicts a ray of hope despite of all evil around us.";
+          break;
+        default:
+          imageSrc = "./img/victory.svg";
+          imageContent = "That's all folks!";
+      }
+      document.getElementById("img01").src = imageSrc;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = imageContent;
+    }
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function toggleFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+  </script>
+
+</body>
+
+</html>
