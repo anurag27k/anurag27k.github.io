@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Anurag Kumar - UX Designer</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+sans-serif" rel="stylesheet">
+    <link rel="shortcut icon" href="../img/logoblue.png" />
+
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.5;
+            background-color: #343a40;
+            color: white;
+            font-family: 'IBMPlexSansBold';
+        }
+
+        @font-face {
+            font-family: "IBMPlexSansBold";
+            src: url("../files/IBMPlexSansBold.ttf");
+        }
+
+
+        h6 {
+            font-family: 'IBM Plex Mono', monospace;
+            letter-spacing: .2em;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        h5 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 500;
+            color: #6c757d;
+        }
+
+        h1 {
+            font-family: 'IBM Plex Mono', monospace;
+            color: #f4f1d0;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 30px;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+
+        }
+
+        .padding100 {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .fill {
+            min-height: 100vh;
+            height: 100vh;
+        }
+
+        .normalText {
+            font-size: 20px;
+        }
+
+        .borderCurved {
+            border-radius: 5px;
+            /* box-shadow: 0px 0px 5px slategray; */
+            /* -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3); */
+        }
+
+        .card {
+            opacity: 0.7;
+        }
+
+        .card:hover {
+            transition: all 0.4s;
+            -webkit-transition: all 0.4s;
+            /* box-shadow: 0px 0px 5px slategray; */
+            opacity: 1;
+            /* opacity: 0.5; */
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="width:100%; position: fixed;z-index: 10000;">
+            <div class="container">
+                <!-- <a href="#" class="nav-link"> -->
+                <img src="../img/logowhite.png" style="width: 30px;">
+                <!-- </a> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav" style="padding-left: 10px;">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#discover">Discover</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#download">Download</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container fill" style="padding-top: 35vh;">
+        <h1 style="font-size: 64px;">DISMISS FUNCTIONALITY</h1>
+        <p>Cerner Healthcare</p>
+        <h5 class="text-muted">
+            This functionality enables physicians to dismiss/delete the opportunities presented by the NLP Engine of the
+            system. The
+            goal was to find a path to perform the action keeping it least intrusive for the physician.
+        </h5>
+        <div class="row p-3">
+            <div class="col-sm-6" style="border-top:5px solid lightgray;">
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid " style="background-color:silver">
+        <div class="container padding100">
+            <!-- <h1 style="font-size: 64px; color: #343a40;">01</h1> -->
+
+
+            <h1>BRIEF</h1>
+            <h5>
+                Cerner provides EMR(Electronic Medical Record) systems to hosiptals for several purposes where one of
+                the jobs is to
+                assist physician to enter details and diagnosis of patients.
+                <br><br>
+                ChartAssist is a component of the system which serves physician by:
+                <br>
+                <ul>
+                    <li>Suggesting new missed diseases to add</li>
+                    <li>Suggesting errors from already added diseases</li>
+
+                </ul>
+            </h5>
+            <br>
+
+            <h1>PROBLEM STATEMENT</h1>
+            <h5>Make a flow for when a user selects the 'dismiss' action to remove a proposed documentation opportunity
+                or clinical
+                validation notification.
+            </h5>
+            <br>
+            <h5>Below shows the image of the current state where the component is on the left and the details
+                panel is on the right.
+            </h5>
+
+            <br>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/cerner/Cerner1.png" style="width: 90%;">
+                </div>
+            </div>
+            <br>
+
+            <h1>INITIAL EXPECTATIONS</h1>
+            <h5>
+                The initial solution for this problem, suggested by stakeholders, was to click on "Dismiss" button.
+                Eventually the click would lead to model window asking for confirmation.
+                <br><br>
+                <b>Problems with this solution:</b><br><br>
+                <ul>
+                    <li>Suggestions are already intrusive</li>
+                    <li>Confirmation box creates a sense of doubt in the physician</li>
+                    <li>Physician is already busy with patients so this is frustration</li>
+                    <li>Your first decision has to be reaffirmed, leading to cognitive dissonance</li>
+                    <li>Larger percentage of clicks increased – 1 to add problem, 2 to dismiss, 3 to undo</li>
+                    <li>Confirmation dialogue on a negative action is reserved for highly critical actions or to bypass
+                        warnings of high
+                        priority</li>
+
+                </ul>
+                <br>
+                Below is the flow of what is <b>actually required:</b>
+                <br>
+                <br>
+                <div class="row" style="text-align: center;">
+                    <div class="col-sm-12">
+                        <img src="../img/cerner/Cerner2.png" style="width: 90%;">
+                    </div>
+                </div>
+                <br>
+
+                Below is the flow of what is <b>was suggested by others:</b>
+                <br>
+                <br>
+                <div class="row" style="text-align: center;">
+                    <div class="col-sm-12">
+                        <img src="../img/cerner/Cerner3.png" style="width: 90%;">
+                    </div>
+                </div>
+                <br>
+
+            </h5>
+            <br>
+
+            <h1>SALIENT FEATURES SOLUTIONS NEED TO HAVE</h1>
+            <h5>
+                <ul>
+                    <li>The solution needs to unintrusive.</li>
+                    <li>Dismissal process should be simple and not with many steps.</li>
+                    <li>Click on "Dismiss" should change least number of elements.</li>
+                    <li>Minimum number of Refreshes need to be taken care of.</li>
+                    <li>Accidental dismissal/error should be handled.</li>
+                    <li>Error recovery should be easy to find and unintrusive.</li>
+                </ul>
+            </h5>
+            <br>
+
+            <h1>DESIGN SOLUTION SUGGESTION</h1>
+            <h5>When the physician decides to Dismiss the problem and clicks on the Dismiss button, the suggestion is
+                striked through.
+                Later when refreshed the suggestion gets added in a separate dismissed accordion something like recycle
+                bin.
+            </h5>
+            <br>
+            <br>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/cerner/Cerner4.png" style="width: 90%;">
+                </div>
+            </div>
+            <br>
+
+
+            <h1>TIME GRAPH</h1>
+            <h5>This is avery heavy application, so we need to keep in mind to least number of refreshes posssible. Every change of state leads to a whole screen refresh. Here we can see how at 3 different times:<br>
+                <ul>
+                    <li>After click of Dismiss</li>
+                    <li>Before refresh</li>
+                    <li>After refresh</li>
+                </ul>
+            </h5>
+            <br>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/cerner/Cerner5.png" style="width: 90%;">
+                </div>
+            </div>
+            <br>
+
+            <h5>Below is an example of how it was implemented:</h5>
+            <br>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/cerner/Cerner6.png" style="width: 90%;">
+                </div>
+            </div>
+            <br>
+
+
+
+            <h1>FUTURE DEVELOPMENTS</h1>
+            <h5>
+                <ul>
+                    <li>Make provision to collect comments on why this was dismissed without making it intrusive.</li>
+                    <li>Find a more inclusive way so that physicians use the suggestions more.</li>
+                </ul>
+            </h5>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="container-fluid" style="background-color: #343a40;text-align: center;">
+        <br>
+        <span>Made with
+            <span style="color: red">&hearts;</span> by me </span>
+        <span class="text-muted">&copy; 2020</span>
+        <br>
+        <br>
+    </div>
+
+</body>
