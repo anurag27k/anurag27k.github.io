@@ -13,7 +13,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+sans-serif" rel="stylesheet">
     <link rel="shortcut icon" href="../img/logoblue.png" />
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <style>
         html {
@@ -95,6 +95,10 @@
             opacity: 1;
             /* opacity: 0.5; */
         }
+
+        .mySlides {
+            display: none;
+        }
     </style>
 
 
@@ -169,16 +173,14 @@
             </h5>
             <br>
 
-            <h1>TEAM</h1>
-            <h5>Content Present. Need to upload.
-
-            </h5>
-            <br>
-
             <h1>DEMOGRAPHICS</h1>
-            <h5>Content Present. Need to upload. Pending info on DEMOGRAPHICS...
-
-            </h5>
+            <br>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/kitchen/Kitchen1.png" style="width: 90%;">
+                </div>
+            </div>
+            <br>
             <br>
 
             <h1>INTERVIEW SUMMARY</h1>
@@ -208,9 +210,76 @@
             <br>
 
             <h1>AFFINITY</h1>
-            <h5>Content Present. Need to upload.Pending info on AFFINITY:parts, Diag, collection...
-
+            <h5>
+                We conducted 19 interviews of 45 min to 1 hr of duration. For each of the interview we gathered around
+                50 insights.
+                Later we sat together as a team and interpreted each insight of each interview and categorised them in
+                one of these categories:
+                <ul>
+                    <li>DG - Demographics</li>
+                    <li>US - User Statement</li>
+                    <li>FQ - Followup Question</li>
+                    <li>IN - Insight</li>
+                    <li>CI - Cultural Insight</li>
+                    <li>BK - Breakdown</li>
+                    <li>OB - Observation</li>
+                    <li>DI - Design Insight</li>
+                </ul>
+                <br>
             </h5>
+
+            <h1>PARTS OF AFFINITY</h1>
+            <br>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/kitchen/Kitchenexplain.png" style="width: 90%;">
+                </div>
+            </div>
+
+            <h5>
+                Later we followed the bottomup approach to derive at summaries. For each of the summaries we have
+                generated
+                followup questions, design ideas and opportunities.
+                <br><br>
+                Below is the affinity we created:
+            </h5>
+            <br>
+            <!-- SLider open -->
+            <div class="w3-content w3-section">
+                <img class="mySlides" src="../img/kitchen/Kitchen2 – 1.png" style="width:90%">
+                <img class="mySlides" src="../img/kitchen/Kitchen2 – 2.png" style="width:90%">
+                <img class="mySlides" src="../img/kitchen/Kitchen2 – 3.png" style="width:90%">
+                <img class="mySlides" src="../img/kitchen/Kitchen2 – 4.png" style="width:90%">
+                <img class="mySlides" src="../img/kitchen/Kitchen2 – 5.png" style="width:90%">
+            </div><br>
+
+
+            <script>
+                var myIndex = 0;
+                carousel();
+
+                function carousel() {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    myIndex++;
+                    if (myIndex > x.length) { myIndex = 1 }
+                    x[myIndex - 1].style.display = "block";
+                    setTimeout(carousel, 3000); // Change image every 2 seconds
+                }
+            </script>
+            <!-- Slider Close -->
+
+            <h1>GROUPING OF SUMMARIES</h1>
+            <h5>Here we have classified our affinity one level higher and grouped them several categories.</h5><br>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/kitchen/Kitchen3.png" style="width: 90%;">
+                </div>
+            </div>
+            <br>
             <br>
 
             <h1>MOST IMPORTANT FINDINGS</h1>
@@ -231,11 +300,16 @@
             </h5>
             <br>
 
-            <h1>AFFINITY</h1>
-            <h5>Content Present. Need to upload.Pending info on User goals, Constraints, Problems, Opportunity...
-
+            <!-- <h1>AFFINITY ANALYSIS</h1>
+            <h5>
+                <ul>
+                    <li>Need to find probable soultions to the Problems and how people react</li>
+                    <li>Create multiple personas depicting varied users</li>
+                    <li>Understand how the solutions could be incorporated in Voice Assistant</li>
+                    <li>Propose soltions/features which could be implemented keeping the constraints in mind</li>
+                </ul>
             </h5>
-            <br>
+            </div> -->
 
             <h1>REVISED DESIGN BRIEF</h1>
             <h5>
@@ -268,7 +342,13 @@
             <br>
 
             <h1>FUTURE WORK</h1>
-            <h5>Content Present. Need to upload.
+            <h5>
+                <ul>
+                    <li>Need to find probable soultions to the Problems and how people react</li>
+                    <li>Create multiple personas depicting varied users</li>
+                    <li>Understand how the solutions could be incorporated in Voice Assistant</li>
+                    <li>Propose soltions/features which could be implemented keeping the constraints in mind</li>
+                </ul>
             </h5>
         </div>
     </div>
