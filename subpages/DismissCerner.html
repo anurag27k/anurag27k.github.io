@@ -153,7 +153,7 @@
             <!-- <h1 style="font-size: 64px; color: #343a40;">01</h1> -->
 
 
-            <h1>BRIEF</h1>
+            <h1>Brief</h1>
             <h5>
                 Cerner provides EMR(Electronic Medical Record) systems to hosiptals for several purposes where one of
                 the jobs is to
@@ -169,7 +169,7 @@
             </h5>
             <br>
 
-            <h1>PROBLEM STATEMENT</h1>
+            <h1>Problem Statement</h1>
             <h5>Make a flow for when a user selects the 'dismiss' action to remove a proposed documentation opportunity
                 or clinical
                 validation notification.
@@ -187,7 +187,7 @@
             </div>
             <br>
 
-            <h1>INITIAL EXPECTATIONS</h1>
+            <h1>Initial expectations</h1>
             <h5>
                 The initial solution for this problem, suggested by stakeholders, was to click on "Dismiss" button.
                 Eventually the click would lead to model window asking for confirmation.
@@ -228,7 +228,7 @@
             </h5>
             <br>
 
-            <h1>SALIENT FEATURES SOLUTIONS NEED TO HAVE</h1>
+            <h1>Salient features of required solution</h1>
             <h5>
                 <ul>
                     <li>The solution needs to unintrusive.</li>
@@ -241,7 +241,7 @@
             </h5>
             <br>
 
-            <h1>DESIGN SOLUTION SUGGESTION</h1>
+            <h1>Design solution suggested</h1>
             <h5>When the physician decides to Dismiss the problem and clicks on the Dismiss button, the suggestion is
                 striked through.
                 Later when refreshed the suggestion gets added in a separate dismissed accordion something like recycle
@@ -257,7 +257,7 @@
             <br>
 
 
-            <h1>TIME GRAPH</h1>
+            <h1>Time graph</h1>
             <h5>This is avery heavy application, so we need to keep in mind to least number of refreshes posssible. Every change of state leads to a whole screen refresh. Here we can see how at 3 different times:<br>
                 <ul>
                     <li>After click of Dismiss</li>
@@ -273,7 +273,10 @@
             </div>
             <br>
 
-            <h5>Below is an example of how it was implemented:</h5>
+            <h5>Below is an example of how it was implemented step by step. We can observe how the entries are moved between 
+                problems section and the dismissed section. We have timed it to be in the minimum number of clicks and with 
+                least amount of visual change so that the human eye can easily percieve it and not feel overwhelmed.
+            </h5>
             <br>
             <div class="row" style="text-align: center;">
                 <div class="col-sm-12">
@@ -284,7 +287,7 @@
 
 
 
-            <h1>FUTURE DEVELOPMENTS</h1>
+            <h1>Future developments</h1>
             <h5>
                 <ul>
                     <li>Make provision to collect comments on why this was dismissed without making it intrusive.</li>
