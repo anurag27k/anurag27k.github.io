@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Anurag Kumar - UX Designer</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+sans-serif" rel="stylesheet">
+    <link rel="shortcut icon" href="../img/logoblue.png" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700&display=swap" rel="stylesheet">
+
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.5;
+            background-color: #343a40;
+            color: white;
+            font-family: 'Rubik', sans-serif;
+
+        }
+
+        /* @font-face {
+            font-family: "IBMPlexSansBold";
+            src: url("../files/IBMPlexSansBold.ttf");
+        } */
+
+        h6 {
+            font-family: 'Rubik', sans-serif;
+            letter-spacing: .2em;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        h5 {
+            font-family: 'Rubik', sans-serif;
+            line-height: 1.5;
+            font-weight: 500;
+            color: #6c757d;
+        }
+
+        h1 {
+            font-family: 'Archivo', sans-serif;
+            color: #3198ff;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 30px;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+
+        }
+
+        .padding100 {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .fill {
+            min-height: 100vh;
+            height: 100vh;
+        }
+
+        .normalText {
+            font-size: 20px;
+        }
+
+        .borderCurved {
+            border-radius: 5px;
+            /* box-shadow: 0px 0px 5px slategray; */
+            /* -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3); */
+        }
+
+        .card {
+            opacity: 0.7;
+        }
+
+        .card:hover {
+            transition: all 0.4s;
+            -webkit-transition: all 0.4s;
+            /* box-shadow: 0px 0px 5px slategray; */
+            opacity: 1;
+            /* opacity: 0.5; */
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="width:100%; position: fixed;z-index: 10000;">
+            <div class="container">
+                <!-- <a href="#" class="nav-link"> -->
+                <img src="../img/logowhite.png" style="width: 30px;">
+                <!-- </a> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav" style="padding-left: 10px;">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#discover">Discover</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#download">Download</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="container fill" style="padding-top: 35vh;">
+        <h1 style="font-size: 64px;color:white;">CPINS</h1>
+        <p style="color: #f4f1d0;">People10 Technosoft</p>
+        <h5 class="text-muted">
+            This is an application used by technicians and non-technicians to record details of the suspect pacakage.
+        </h5>
+        <div class="row p-3">
+            <div class="col-sm-6" style="border-top:5px solid lightgray;">
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid " style="background-color:white;">
+        <div class="container padding100">
+            <!-- <h1 style="font-size: 64px; color: #343a40;">01</h1> -->
+            <h1>Initial requirements</h1>
+            <h5>
+                To allow the squads to capture details of suspect package and let other squads know and help about the
+                suspect package resolution.
+            </h5>
+            <br>
+
+            <h1>Research done</h1>
+            <h5>
+                To understand the context of the project we had did background research in order to find out more about
+                the problem scenario and the sensitivities involved.
+                <br><br>
+                <ul>
+                    <li>Bomb squad carry a lot of sensitive information which couldn't be dispensed to general public
+                    </li>
+                    <li>Privacy is a huge concern so must not be left unattended.</li>
+                    <li>The correctness and timing of info plays an important role.</li>
+                    <li>Steps should be intuitive and should be easy to understand as its a high risk scenario.</li>
+                    <li>Management of data and accounts should be appropriately handled by authorities.</li>
+
+                </ul>
+            </h5>
+            <br>
+
+            <h1>Process followed</h1>
+            <h5>The following diagram shows the steps which were followed during the project. The team included myself
+                as the lead
+                designer and the manager. Since the process was not defined previously, we had to come up and convince
+                the authoritiee
+                of the process which would be suitable.
+                <br>
+                <div class="row" style="text-align: center;">
+                    <div class="col-sm-12">
+                        <img src="../img/cpins/CPINS process.png" style="width: 90%;">
+                    </div>
+                </div>
+            </h5>
+            <br>
+            <h1>User profiles</h1>
+            <h5>The user profiles can be broadly categorized into 3 types. The profiles are divided based on their
+                privileges and roles.
+                <br>
+                <div class="row" style="text-align: center;">
+                    <div class="col-sm-12">
+                        <img src="../img/cpins/CPINS users.png" style="width: 90%;">
+                    </div>
+                </div>
+            </h5>
+            <br>
+            <h1>Ideation phase</h1>
+            <h5>We did multiple brainstorming sessions with the team for the application and with the developers so as
+                to
+                understand the feasibility issues. <br> After several Divergences and Convergences of ideas and
+                solutions
+                we can up with the main features the application must have. These features are demonstrated below.
+                <br>
+                <div class="row" style="text-align: center;">
+                    <div class="col-sm-12">
+                        <img src="../img/cpins/CPINS ideas.png" style="width: 90%;">
+                    </div>
+                </div>
+            </h5>
+            <br>
+            <h1>Whiteboard ideation</h1>
+            <h5>Below given are some of the handsketches where ideation was being brainstormed. Here we came up with the
+                approximate flows and the features the appication should have.
+            </h5>
+            <br>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/cpins/hand1.jpg" style="width: 50%;">
+                </div>
+            </div>
+            <br><br>
+            <h1>Information architecture</h1>
+            <h5>Below given is the basic information architechture of the application.
+            </h5>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/cpins/CPINS mobileIA.png" style="width: 90%;">
+                </div>
+            </div>
+            <br>
+            <h1>Design guidelines</h1>
+            <br>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/cpins/CPINS guide1.png" style="width: 90%;">
+                </div>
+            </div>
+            <br>
+            <h1>Mobile screens</h1>
+            <h5>Below given are some of the screens of the application. Since the requirement of the application was to
+                be simple,
+                the wireframes are omitted as they are very similar to the user interface.
+            </h5>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/cpins/CPINS mobilescreens.png" style="width: 90%;">
+                </div>
+            </div>
+            <br>
+            <hr>
+            <h1>Web application</h1>
+            <h5>A separate web application was proposed by us for the admins to manage the technicians' and
+                non-technicians'
+                account related activities.
+            </h5>
+            <br>
+            <h1>Why is it required</h1>
+            <h5>After a thorough look at the architecture of the application we felt the need of another application for
+                management
+                of accounts. Below some of the reasons are listed down.
+                <br><br>
+                <ul>
+                    <li>Initially all the entries added by a database programmer. Thus dependency on external role.</li>
+                    <li>The addition and deletion can't be done by the member of squad so the Trust and Privacy issue.
+                    </li>
+                    <li>Web interface could simplify the process of manage of squads and minimum external support would
+                        be required.</li>
+                </ul>
+            </h5>
+            <br>
+            <h1>Tasks aims</h1>
+            <h5>The web application would serve the following purpose of these following tasks.
+            </h5>
+            <br>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/cpins/CPINS webtasks.png" style="width: 90%;">
+                </div>
+            </div>
+            <br>
+            <h1>Whiteboard ideation</h1>
+            <h5>Below given are some of the handsketches where ideation was being brainstormed. Here we came up with the
+                approximate flows and the features the appication should have.
+            </h5><br>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/cpins/hand2.jpg" style="width: 70%;">
+                </div>
+            </div>
+            <br><br>
+            <h1>Information architecture</h1>
+            <h5>Below given is the basic information architechture of the application.
+            </h5>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/cpins/CPINS webIA.png" style="width: 90%;">
+                </div>
+            </div>
+            <br>
+            <h1>Wireframes</h1>
+            <h5>Below given are some of the wireframes for the application.
+            </h5>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/cpins/CPINS webwireframes.png" style="width: 90%;">
+                </div>
+            </div>
+            <br>
+
+            <h1>Design guidelines</h1>
+            <br>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/cpins/CPINS guide2.png" style="width: 90%;">
+                </div>
+            </div>
+
+            <br>
+            <h1>Web screens</h1>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="../img/cpins/CPINS webscreens.png" style="width: 100%;">
+                </div>
+            </div>
+            <br>
+            <h1>Conclusion</h1>
+            <h5>The application is currently in development phase. The initial requirement was to keep it simple so that
+                it comes
+                in handy during times of peril.
+                <br>
+                <br> A web application for admins was later proposed in order to manage for the account creation of the
+                technicians
+                and non-technicians.
+            </h5>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="container-fluid" style="background-color: #343a40;text-align: center;">
+        <br>
+        <span>Made with
+            <span style="color: red">&hearts;</span> by me </span>
+        <span class="text-muted">&copy; 2020</span>
+        <br>
+        <br>
+    </div>
+
+</body>
+
+</html>

@@ -10,101 +10,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+sans-serif" rel="stylesheet">
-    <link rel="shortcut icon" href="../img/logoblue.png" />
-
-    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600&display=swap" rel="stylesheet">
-
-
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            line-height: 1.5;
-            background-color: #343a40;
-            color: white;
-            font-family: 'Rubik', sans-serif;
-
-        }
-
-        /* @font-face {
-            font-family: "IBMPlexSansBold";
-            src: url("../files/IBMPlexSansBold.ttf");
-        } */
-
-        h6 {
-            font-family: 'Rubik', sans-serif;
-            letter-spacing: .2em;
-            font-weight: 600;
-            font-size: 12px;
-            color: #f4f1d0;
-        }
-
-        h5 {
-            font-family: 'Rubik', sans-serif;
-            line-height: 1.5;
-            font-weight: 500;
-            color: #6c757d;
-        }
-
-        h1 {
-            font-family: 'Archivo', sans-serif;
-            color: #3198ff;
-            font-weight: bold;
-        }
-
-        p {
-            font-size: 30px;
-        }
-
-        a,
-        a:hover {
-            text-decoration: none;
-
-        }
-
-        .padding100 {
-            padding-top: 50px;
-            padding-bottom: 50px;
-        }
-
-        .fill {
-            min-height: 100vh;
-            height: 100vh;
-        }
-
-        .normalText {
-            font-size: 20px;
-        }
-
-        .borderCurved {
-            border-radius: 5px;
-            /* box-shadow: 0px 0px 5px slategray; */
-            /* -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-            -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3); */
-        }
-
-        .card {
-            opacity: 0.7;
-        }
-
-        .card:hover {
-            transition: all 0.4s;
-            -webkit-transition: all 0.4s;
-            /* box-shadow: 0px 0px 5px slategray; */
-            opacity: 1;
-            /* opacity: 0.5; */
-        }
-        .thickfont{
-            font-family: 'Archivo', sans-serif;
-        }
-    </style>
-
+    <link rel="shortcut icon" href="./img/logoblue.png" />
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 
 </head>
 
@@ -138,406 +46,173 @@
     </div>
 
     <!-- intro -->
-    <div class="container fill" style="padding-top: 35vh;">
+    <div class="container fill" style="padding-top: 20vh;">
 
         <div class="row">
-            <div class="col-sm-8">
-                <h6>&mdash; ABOUT ME</h6>
+            <div class="col-sm-7">
+                <br><br>
+                <h1 style="font-size: 40px; color: white;">
+                    <i class="em em-wave anim" aria-role="presentation" aria-label="WAVING HAND SIGN"></i>
+                    Hey I'm Anurag!
+                </h1><br>
                 <br>
-                <p class="text-muted"> My name is
-                    <span class="text-light">Anurag Kumar Singh</span>.
-                    <br> I am a
-                    <span class="text-light"> UX designer</span> based out of Chennai, India.
-                    <br> Currently at
+                <p class="text-muted" style="font-weight: 600;">
+                    I design for User Experiences. I am based out of Chennai, India. Currently I am studying at<br>
                     <a href="http://www.idc.iitb.ac.in/ " class="text-light" target="_blank">IDC, IIT
-                        Bombay</a>.
+                        Bombay</a>
+                    <br><br>
+                    <a href="#download" class="text-light" style="font-weight: 500;">
+                        Contact details <i class="em em-point_down" aria-role="presentation"
+                            aria-label="WHITE DOWN POINTING BACKHAND INDEX"></i></a>
+
                 </p>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 <div class="d-none d-lg-block">
-                    <img src="./img/logoanim.gif" style="width: 90%;">
+                    <img src="./files/Profile figma.png" style="width: 100%;border-radius:50%">
+
                 </div>
             </div>
         </div>
+
+        <br><br>
+        <p style="text-align: center;">
+            <img src="./img/Memcall/downAnim.gif" width="2%">
+        </p>
     </div>
 
     <div class="container-fluid" id="discover" style="background-color:white">
 
 
-        <!-- People10 -->
+
         <div class="container padding100">
+            <h1 style="font-size: 50px; color: lightgray;">Featured Work</h1><br>
 
-            <br>
-            <h6 style="color: black;">&mdash; WORK</h6>
-            <br>
-            <h1 style="font-size: 64px; color: lightgray">01</h1>
-            <p style="color: black;">People10 Technosoft</p>
-            <h5 class="text-muted">
-                Here I was responsible for both development of UX and UI for various applications. I was also
-                responsible for designing Branding
-                Collateral.
-            </h5>
-            <div class="row p-3">
-                <div class="col-sm-6" style="border-top:5px solid lightgray;">
-                    <br>
-                </div>
-            </div>
+            <!-- Project 1 -->
+            <div class="card-div hoverfn" style="background: linear-gradient(to top left, #179033 0%, #004085 100%);">
 
-            <div class="card-deck">
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/cpins.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">CPINS</p>
-                        <a href="./subpages/CPINS.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/skyl.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">Skyl.ai</p>
-                        <a href="./subpages/skyl.html" class="ran stretched-link"></a>
-                    </div>
+                <div class="row" onclick="location.href='./subpages/DEShaw.html';"
+                    style="cursor: pointer;padding-left: 10px;">
+                    <div class="pointerFix col-sm-5">
+                        <br>
+                        <div class="badger">
+                            <p class="card-subtext">&nbsp; COMPANY PROJECT
+                                &nbsp;
+                            </p>
+                        </div>
 
-                </div>
-            </div>
-            <div class="d-none d-lg-block">
-                <br>
-            </div>
-            <div class="card-deck">
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/buildweek.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">Build Week</p>
-                        <a href="./subpages/build week.html" class="ran stretched-link"></a>
+                        <p class="card-maintext">Roadmap Planning Application</p>
+
+                        <p class="card-description">
+                            Web application for managers to perform yearly planning and employee management
+                        </p>
+                        <br>
+                        <img src="./img/DEShaw/DESCO_Logo-white.png" alt="Card image" style="width: 40%">
+                        <br><br>
                     </div>
-                </div>
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/branding.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">Branding Collateral</p>
-                        <a href="./subpages/branding.html" class="ran stretched-link"></a>
+                    <div class="pointerFix col-sm-6">
+                        <img src="../tryWebsite/img/DEShaw/deshawbanner.png" alt="Card image" style="width: 150%">
+                        <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
                     </div>
                 </div>
             </div>
+            <!--end of p1-->
+            <br><br>
+            <!-- Project 2 -->
+            <!--colors: #fb6060 #99bdd9 #232f3b-->
+            <div class="card-div hoverfn" style="background: linear-gradient(to top left, #99bdd9 0%, #232f3b 100%);">
+
+                <div class="row" onclick="location.href='./subpages/Memcall.html';"
+                    style="cursor: pointer;padding-left: 10px;">
+                    <div class="pointerFix col-sm-6">
+                        <br>
+                        <div class="badger">
+                            <p class="card-subtext">&nbsp; COLLEGE PROJECT
+                                &nbsp;
+                            </p>
+                        </div>
+
+                        <p class="card-maintext">MEMCALL : Design Fiction </p>
+                        <p class="card-description">
+                            Web application to book appointments for recalling and estimating old memories
+                        </p>
+                        <br>
+                        <img src="./img/Memcall/IDC logo.png" alt="Card image" style="width: 60%">
+                        <br><br>
+                    </div>
+                    <div class="pointerFix col-sm-6">
+                        <img src="./img/Memcall/memcallBanner.png" alt="Card image" style="width: 130%">
+                        <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
+                    </div>
+                </div>
+            </div>
+            <!--end of p2-->
+            <br><br>
+            <!-- Project 3 -->
+            <div class="card-div hoverfn" style="background: linear-gradient(to top left, #EED59A 0%, #BC4555 100%);">
+
+                <div class="row" onclick="location.href='./subpages/MaidForYou.html';"
+                    style="cursor: pointer;padding-left: 10px;">
+                    <div class="pointerFix col-sm-6">
+                        <br>
+                        <div class="badger">
+                            <p class="card-subtext">&nbsp; COLLEGE PROJECT
+                                &nbsp;
+                            </p>
+                        </div>
+
+                        <p class="card-maintext">Maid For You</p>
+                        <p class="card-description">
+                            Service Design that connects domestic helpers and householders to get jobs using minimal
+                            technology
+                        </p>
+                        <br>
+                        <img src="./img/MaidForYou/IDC logo.png" alt="Card image" style="width: 60%">
+                        <br><br>
+                    </div>
+                    <div class="pointerFix col-sm-6">
+                        <img src="./img/MaidForYou/maidBanner.png" alt="Card image"
+                            style="width: 120%;border-radius:20px; border:5px solid #EED59A">
+                        <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
+                    </div>
+                </div>
+            </div>
+            <!--end of p3-->
+            <br><br>
+
+            <br><br>
+            <p style="text-align: right;"><a href="./OtherProjects.html" class="text-dark">More Projects <i
+                        class="em em-point_right" aria-role="presentation"
+                        aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i> </a>
+            </p>
         </div>
 
-        <!-- Cerner -->
-        <div class="container padding100">
-
-            <h1 style="font-size: 64px; color: lightgray">02</h1>
-            <p style="color: black;">Cerner Healthcare</p>
-            <h5 class="text-muted">
-                Here I worked in Intelligence team and worked across company verticals on projects in AI domain and
-                Voice Assist.
-            </h5>
-            <div class="row p-3">
-                <div class="col-sm-6" style="border-top:5px solid lightgray;">
-                    <br>
-                </div>
-            </div>
-
-            <div class="card-deck">
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/cerner.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">Dismiss function</p>
-                        <a href="./subpages/DismissCerner.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-                <div class="card" style="border:none; background-color: transparent;">
-                </div>
-            </div>
-        </div>
-
-        <!-- Voice Assist Kitchen -->
-        <div class="container padding100">
-
-            <h1 style="font-size: 64px; color: lightgray">03</h1>
-            <p style="color: black;">Voice Assist Kitchen</p>
-            <h5 class="text-muted">
-                We as a team worked upon to perform this User Studies project inorder to find about the experience of
-                people in kitchen and how it be changed upon introduction of Voice Assistant.
-            </h5>
-            <div class="row p-3">
-                <div class="col-sm-6" style="border-top:5px solid lightgray;">
-                    <br>
-                </div>
-            </div>
-
-            <div class="card-deck">
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/kitchen.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">VA Kitchen</p>
-                        <a href="./subpages/kitchen.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-                <div class="card" style="border:none; background-color: transparent;">
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Technical Projects -->
-        <div class="container padding100">
-
-            <h1 style="font-size: 64px; color: lightgray">04</h1>
-            <p style="color: black;">Technical Projects</p>
-            <h5 class="text-muted">
-                These are a few of the technical projects that I have worked on in IIT Madras and Indira Gandhi Centre
-                for Atomic Research,
-                Kalpakkam(IGCAR).
-
-            </h5>
-            <div class="row p-3">
-                <div class="col-sm-6" style="border-top:5px solid lightgray;">
-                    <br>
-                </div>
-            </div>
-
-            <div class="card-deck">
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/IIT.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">Line Follower</p>
-                        <a href="./subpages/lineFollower.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/IGCAR.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">IGCAR Project</p>
-                        <a href="./subpages/IGCARproject.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ParkIn -->
-        <!-- <div class="container padding100">
-
-            <h1 style="font-size: 64px;">04</h1>
-            <p>ParkIn</p>
-            <h5 class="text-muted">
-                This is a project I worked on for a friend of mine. Here I designed both the UX and UI of the
-                application which
-                would allow
-                people to park their vehicles in available spaces.
-            </h5>
-            <div class="row p-3">
-                <div class="col-sm-6" style="border-top:5px solid lightgray;">
-                    <br>
-                </div>
-            </div>
-
-            <div class="card-deck">
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/parkIn – 1.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText">ParkIn</p>
-                        <a href="./subpages/ParkIn.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-                <div class="card" style="border:none; background-color: transparent;">
-                </div>
-            </div>
-        </div> -->
-
-
-        <!-- Self Projects -->
-        <div class="container padding100">
-
-            <h1 style="font-size: 64px; color: lightgray">05</h1>
-            <p style="color: black;">Self Projects</p>
-            <h5 class="text-muted">
-                These are the set of self projects which I devised myself to enhance my skills and learn about a
-                particular topic.
-
-            </h5>
-            <div class="row p-3">
-                <div class="col-sm-6" style="border-top:5px solid lightgray;">
-                    <br>
-                </div>
-            </div>
-
-            <div class="card-deck">
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/mobile screen.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">Mobile Screens</p>
-                        <a href="./subpages/mobile screen.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/microanim.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">Micro Animation</p>
-                        <a href="./subpages/microanimation.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="d-none d-lg-block">
-                <br>
-            </div>
-            <div class="card-deck">
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/aerohits.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">Aerohits</p>
-                        <a href="./subpages/Aerohits.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/game deisgn.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">Game Design</p>
-                        <a href="./subpages/game design.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Vortex -->
-        <div class="container padding100">
-
-            <h1 style="font-size: 64px; color: lightgray">06</h1>
-            <p style="color: black;">Vortex</p>
-            <h5 class="text-muted">
-                This are the college design groups which I headed. Vortex is the annual department symposium and Bits
-                and Bytes is the monthy
-                department newsletter.
-            </h5>
-            <div class="row p-3">
-                <div class="col-sm-6" style="border-top:5px solid lightgray;">
-                    <br>
-                </div>
-            </div>
-
-            <div class="card-deck">
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/vortex – 1.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">Vortex</p>
-                        <a href="./subpages/vortex.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-                <div class="card" style="border:none; background-color: transparent;">
-                </div>
-            </div>
-        </div>
-
-        <!-- Interests -->
-        <div class="container padding100">
-
-            <h1 style="font-size: 64px; color: lightgray">07</h1>
-            <p style="color: black;">Interests</p>
-            <h5 class="text-muted">
-                Below are some of the Interests that I follow. These can be categorised into art section. Art has always
-                been driving me
-                to push creativity.
-            </h5>
-            <div class="row p-3">
-                <div class="col-sm-6" style="border-top:5px solid lightgray;">
-                    <br>
-                </div>
-            </div>
-
-
-            <div class="card-deck">
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/portraits.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">Portraits</p>
-                        <a href="./subpages/portraits.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/typo.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">Typography</p>
-                        <a href="./subpages/typography.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="d-none d-lg-block">
-                <br>
-            </div>
-            <div class="card-deck">
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/wall.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">Wall painting</p>
-                        <a href="./subpages/wall painting.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-                <div class="card" style="border:none; background-color: transparent;">
-                    <img class="borderCurved" src="./img/craft.png" alt="Card image"
-                        style="width:100%;border: 1px solid lightgray;">
-                    <div class="card-img-overlay">
-                        <p class="card-title normalText thickfont">Craftwork</p>
-                        <a href="./subpages/crafts.html" class="ran stretched-link"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- find me -->
-    <div class="container padding100 pb-5">
-        <h6>&mdash; FIND ME</h6>
-        <br>
-        <div class="row" style="font-size: 24px; text-align: center;font-family: 'Archivo', sans-serif;">
-            <div class="col-sm-3">
-                <a href="https://www.linkedin.com/in/anurag27k/" target="_blank" class="text-light">LinkedIn</a>
-            </div>
-            <div class="col-sm-3">
-                <a href="https://www.behance.net/anurag27k" target="_blank" class="text-light">Behance</a>
-            </div>
-            <div class="col-sm-3">
-                <a href="https://dribbble.com/anurag27k" target="_blank" class="text-light">Dribbble</a>
-            </div>
-            <div class="col-sm-3">
-                <a href="https://www.instagram.com/dtoxix" target="_blank" class="text-light">Instagram</a>
-            </div>
-
-        </div>
     </div>
 
     <!-- download -->
     <div id="download" class="container padding100 pb-5">
-        <h6>&mdash; DOWNLOAD</h6>
-        <br>
-        <p class="text-muted">Wanna know more? Download my
-            <a href="./files/anuragResume.pdf" class="text-light">Resume</a>
-            <!-- or <a href="./files/anuragCV.pdf" class="text-light">CV</a> -->
-            <br> Or maybe just mail me at
+        <h1 style="font-size: 50px; color: white;opacity: 0.1;">Wanna know more?</h1><br>
+        <p class="text-muted" style="line-height:2;font-weight:600;">
+            <i class="em em-bookmark_tabs" aria-role="presentation" aria-label="BOOKMARK TABS"></i>
+            <a href="./files/anuragResume.pdf" class="text-light" target="_blank">Resume</a>
+            <br><i class="em em-briefcase" aria-role="presentation" aria-label="BRIEFCASE"></i>
+            <a href="https://www.linkedin.com/in/anurag27k/" class="text-light" target="_blank">LinkedIn</a>
+            <br><i class="em em-email" aria-role="presentation" aria-label="ENVELOPE"></i>
             <a href="mailto:anurag27k@gmail.com?Subject=Reaching%20out" class="text-light">anurag27k@gmail.com</a>
+            <br><br>
+            <a href="./404.html" class="text-light" style="font-weight: 500;">Find out what I am as a person
+                <i class="em em-point_right" aria-role="presentation"
+                    aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i></a>
         </p>
     </div>
 
 
     <!-- Footer -->
-    <div class="container-fluid" style="background-color: #343a40;text-align: center;">
+    <div class="container-fluid" style="background-color: black;text-align: center;">
         <br>
-        <span>Made with
+        <span>Designed and Developed with
             <span style="color: red">&hearts;</span> by me </span>
-        <span class="text-muted">&copy; 2020</span>
+        <span class="text-muted">&copy; 2021</span>
         <br>
         <br>
     </div>
