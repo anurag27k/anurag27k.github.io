@@ -11,7 +11,10 @@ html {
             color: white;
             font-family: 'Inter', sans-serif;
             cursor:url("./files/arrow1@2x.png"), url(foo.cur), auto;
-
+            
+            animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
         }
 
         @font-face {
@@ -255,4 +258,13 @@ span {
     opacity: 1;
     transform: translateY(5px);
   }
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
 }
