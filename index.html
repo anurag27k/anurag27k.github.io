@@ -17,6 +17,25 @@
 </head>
 
 <body>
+    <script>
+        //for fade in loading
+        $(document).on("scroll", function () {
+            var pageTop = $(document).scrollTop();
+            var pageBottom = pageTop + $(window).height();
+            var tags = $(".tag");
+
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i];
+
+                if ($(tag).position().top < pageBottom) {
+                    $(tag).addClass("visible");
+                } else {
+                    $(tag).removeClass("visible");
+                }
+            }
+        });
+
+    </script>
 
     <!-- Header -->
     <div class="">
@@ -87,30 +106,33 @@
             <h1 style="font-size: 70px; color: lightgray;">Featured Work</h1><br>
 
             <!-- Project 1 -->
-            <div class="card-div hoverfn" style="background: linear-gradient(to top left, #179033 0%, #004085 100%);">
+            <div class="tag">
+                <div class="card-div hoverfn "
+                    style="background: linear-gradient(to top left, #179033 0%, #004085 100%);">
 
-                <div class="row" onclick="location.href='./subpages/DEShaw.html';"
-                    style="cursor: pointer;padding-left: 10px;">
-                    <div class="pointerFix col-sm-5">
-                        <br>
-                        <div class="badger">
-                            <p class="card-subtext">&nbsp; COMPANY PROJECT
-                                &nbsp;
+                    <div class="row" onclick="location.href='./subpages/DEShaw.html';"
+                        style="cursor: pointer;padding-left: 10px;">
+                        <div class="pointerFix col-sm-5">
+                            <br>
+                            <div class="badger">
+                                <p class="card-subtext">&nbsp; COMPANY PROJECT
+                                    &nbsp;
+                                </p>
+                            </div>
+
+                            <p class="card-maintext">Roadmap Planning Application</p>
+
+                            <p class="card-description">
+                                Web application for managers to perform yearly planning and employee management
                             </p>
+                            <br>
+                            <img src="./img/DEShaw/DESCO_Logo-white.png" alt="Card image" style="width: 40%">
+                            <br><br>
                         </div>
-
-                        <p class="card-maintext">Roadmap Planning Application</p>
-
-                        <p class="card-description">
-                            Web application for managers to perform yearly planning and employee management
-                        </p>
-                        <br>
-                        <img src="./img/DEShaw/DESCO_Logo-white.png" alt="Card image" style="width: 40%">
-                        <br><br>
-                    </div>
-                    <div class="pointerFix col-sm-6">
-                        <img src="./img/DEShaw/deshawbanner.png" alt="Card image" style="width: 100%">
-                        <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
+                        <div class="pointerFix col-sm-6">
+                            <img src="./img/DEShaw/deshawbanner.png" alt="Card image" style="width: 100%">
+                            <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,60 +140,66 @@
             <br><br>
             <!-- Project 2 -->
             <!--colors: #fb6060 #99bdd9 #232f3b-->
-            <div class="card-div hoverfn" style="background: linear-gradient(to top left, #99bdd9 0%, #232f3b 100%);">
+            <div class="tag">
+                <div class="card-div hoverfn"
+                    style="background: linear-gradient(to top left, #99bdd9 0%, #232f3b 100%);">
 
-                <div class="row" onclick="location.href='./subpages/Memcall.html';"
-                    style="cursor: pointer;padding-left: 10px;">
-                    <div class="pointerFix col-sm-6">
-                        <br>
-                        <div class="badger">
-                            <p class="card-subtext">&nbsp; COLLEGE PROJECT
-                                &nbsp;
+                    <div class="row" onclick="location.href='./subpages/Memcall.html';"
+                        style="cursor: pointer;padding-left: 10px;">
+                        <div class="pointerFix col-sm-6">
+                            <br>
+                            <div class="badger">
+                                <p class="card-subtext">&nbsp; COLLEGE PROJECT
+                                    &nbsp;
+                                </p>
+                            </div>
+
+                            <p class="card-maintext">MEMCALL : Design Fiction Prototype</p>
+                            <p class="card-description">
+                                Web application to book appointments for recalling and estimating old memories
                             </p>
+                            <br>
+                            <img src="./img/Memcall/IDC logo.png" alt="Card image" style="width: 60%">
+                            <br><br>
                         </div>
-
-                        <p class="card-maintext">MEMCALL : Design Fiction Prototype</p>
-                        <p class="card-description">
-                            Web application to book appointments for recalling and estimating old memories
-                        </p>
-                        <br>
-                        <img src="./img/Memcall/IDC logo.png" alt="Card image" style="width: 60%">
-                        <br><br>
-                    </div>
-                    <div class="pointerFix col-sm-6">
-                        <img src="./img/Memcall/MemcallBanner.png" alt="Card image" style="width: 100%">
-                        <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
+                        <div class="pointerFix col-sm-6">
+                            <img src="./img/Memcall/MemcallBanner.png" alt="Card image" style="width: 100%">
+                            <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
+                        </div>
                     </div>
                 </div>
             </div>
             <!--end of p2-->
             <br><br>
             <!-- Project 3 -->
-            <div class="card-div hoverfn" style="background: linear-gradient(to top left, #EED59A 0%, #BC4555 100%);">
+            <div class="tag">
+                <div class="card-div hoverfn"
+                    style="background: linear-gradient(to top left, #EED59A 0%, #BC4555 100%);">
 
-                <div class="row" onclick="location.href='./subpages/MaidForYou.html';"
-                    style="cursor: pointer;padding-left: 10px;">
-                    <div class="pointerFix col-sm-6">
-                        <br>
-                        <div class="badger">
-                            <p class="card-subtext">&nbsp; COLLEGE PROJECT
-                                &nbsp;
+                    <div class="row" onclick="location.href='./subpages/MaidForYou.html';"
+                        style="cursor: pointer;padding-left: 10px;">
+                        <div class="pointerFix col-sm-6">
+                            <br>
+                            <div class="badger">
+                                <p class="card-subtext">&nbsp; COLLEGE PROJECT
+                                    &nbsp;
+                                </p>
+                            </div>
+
+                            <p class="card-maintext">Maid For You</p>
+                            <p class="card-description">
+                                Service Design that connects domestic helpers and householders to get jobs using minimal
+                                technology
                             </p>
+                            <br>
+                            <img src="./img/MaidForYou/IDC logo.png" alt="Card image" style="width: 60%">
+                            <br><br>
                         </div>
-
-                        <p class="card-maintext">Maid For You</p>
-                        <p class="card-description">
-                            Service Design that connects domestic helpers and householders to get jobs using minimal
-                            technology
-                        </p>
-                        <br>
-                        <img src="./img/MaidForYou/IDC logo.png" alt="Card image" style="width: 60%">
-                        <br><br>
-                    </div>
-                    <div class="pointerFix col-sm-6">
-                        <img src="./img/MaidForYou/maidBanner.png" alt="Card image"
-                            style="width: 100%;border-radius:20px; border:5px solid #EED59A">
-                        <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
+                        <div class="pointerFix col-sm-6">
+                            <img src="./img/MaidForYou/maidBanner.png" alt="Card image"
+                                style="width: 100%;border-radius:20px; border:5px solid #EED59A">
+                            <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
+                        </div>
                     </div>
                 </div>
             </div>

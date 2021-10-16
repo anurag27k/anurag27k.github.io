@@ -44,6 +44,26 @@
         </nav>
     </div>
 
+    <script>
+        //for fade in loading
+        $(document).on("scroll", function () {
+            var pageTop = $(document).scrollTop();
+            var pageBottom = pageTop + $(window).height();
+            var tags = $(".tag");
+
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i];
+
+                if ($(tag).position().top < pageBottom) {
+                    $(tag).addClass("visible");
+                } else {
+                    $(tag).removeClass("visible");
+                }
+            }
+        });
+
+    </script>
+
 
     <div class="container fill" style="padding-top: 25vh;">
 
@@ -94,130 +114,150 @@
         <div class="container padding100">
 
             <!-- start of content  -->
-            <br><h2>01</h2>
-            <h1>Problem statement</h1>
-            <h5>
-                People in our firm work cross functional, therefore sometimes it becomes difficult
+            <div class="tag">
                 <br>
-                <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
-                effectively <b>plan roadmaps</b>
+                <h2>01</h2>
+                <h1>Problem statement</h1>
+                <h5>
+                    People in our firm work cross functional, therefore sometimes it becomes difficult
+                    <br>
+                    <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
+                    effectively <b>plan roadmaps</b>
+                    <br>
+                    <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
+                    manage <b>unrealistic deadlines</b>
+                    <br>
+                    <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
+                    assign <b> efficiently</b>
+                    <br>
+                    <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
+                    see the <b>overall picture of the multiple projects in parallel</b>
+                    <br>
+                    <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
+                    to keep teams on the <b>same page</b>
+                </h5>
                 <br>
-                <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
-                manage <b>unrealistic deadlines</b>
-                <br>
-                <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
-                assign <b> efficiently</b>
-                <br>
-                <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
-                see the <b>overall picture of the multiple projects in parallel</b>
-                <br>
-                <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
-                to keep teams on the <b>same page</b>
-            </h5>
-            <br>
+            </div>
             <!-- end of content  -->
 
             <!-- start of content  -->
-            <br><h2>02</h2>
-            <h1>Requirements</h1>
-            <h5>
-                Design a web-based platform for:<br>
-                <i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
-                Effective <b>project planning</b> and management, which is well integrated with the existing
-                tools.
+            <div class="tag">
                 <br>
+                <h2>02</h2>
+                <h1>Requirements</h1>
+                <h5>
+                    Design a web-based platform for:<br>
+                    <i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
+                    Effective <b>project planning</b> and management, which is well integrated with the existing
+                    tools.
+                    <br>
 
-                <i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
-                Allows the higher authority to have an <b>overview related to the project/BU at a glance.</b>
+                    <i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
+                    Allows the higher authority to have an <b>overview related to the project/BU at a glance.</b>
+                    <br>
+
+                    <i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
+                    Manage time efficiently by <b>reducing manual data handling</b> during planning.<br>
+
+                    <i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
+                    Reduce <b>vague goal setting, enhance even workload distribution.</b><br>
+
+                    <i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
+                    Allow managers & stakeholders to <b>plan yearly or quarterly roadmap</b> well in advance, and
+                    track
+                    them over the year.
+                    <br>
+
+                    <i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
+                    Improve team communication, and <b>calculate project risks</b> well ahead.<br>
+
+                </h5>
                 <br>
-
-                <i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
-                Manage time efficiently by <b>reducing manual data handling</b> during planning.<br>
-
-                <i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
-                Reduce <b>vague goal setting, enhance even workload distribution.</b><br>
-
-                <i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
-                Allow managers & stakeholders to <b>plan yearly or quarterly roadmap</b> well in advance, and
-                track
-                them over the year.
-                <br>
-
-                <i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
-                Improve team communication, and <b>calculate project risks</b> well ahead.<br>
-
-            </h5>
-            <br>
+            </div>
             <!-- end of content  -->
 
             <!-- start of content  -->
-            <br><h2>03</h2>
-            <h1>Process Followed</h1>
-            <!-- <h5>
+            <div class="tag">
+                <br>
+                <h2>03</h2>
+                <h1>Process Followed</h1>
+                <!-- <h5>
                             Design a web-based platform for:
                         </h5> -->
-            <div class="row" style="text-align: center;">
-                <div class="col-sm-12">
-                    <img src="../img/DEShaw/uxProcess.PNG" style="width: 90%;">
+                <div class="row" style="text-align: center;">
+                    <div class="col-sm-12">
+                        <img src="../img/DEShaw/uxProcess.PNG" style="width: 90%;">
+                    </div>
                 </div>
+                <br>
             </div>
-            <br>
             <!-- end of content  -->
 
             <!-- start of content  -->
-            <br><h2>04</h2>
-            <h1>Contextual Analysis</h1>
-            <!-- card start -->
-            <div class="card-div" style="background: linear-gradient(to top left, darkgray 0%, gray 100%);">
-                <div class="badger">
-                    <p class="card-subtext">&nbsp; INFORMATION
-                        &nbsp;
+            <div class="tag">
+                <br>
+                <h2>04</h2>
+                <h1>Contextual Analysis</h1>
+                <!-- card start -->
+                <div class="card-div" style="background: linear-gradient(to top left, darkgray 0%, gray 100%);">
+                    <div class="badger">
+                        <p class="card-subtext">&nbsp; INFORMATION
+                            &nbsp;
+                        </p>
+                    </div>
+
+                    <!-- <p class="card-maintext">Roadmap Planning Application</p> -->
+
+                    <p class="card-description">
+                        The Contextual Analysis was proprietary so I cannot include here.
+                        I performed feature Analysis of each internal software and identified connections and gap areas.
                     </p>
                 </div>
-
-                <!-- <p class="card-maintext">Roadmap Planning Application</p> -->
-
-                <p class="card-description">
-                    The Contextual Analysis was proprietary so I cannot include here.
-                    I performed feature Analysis of each internal software and identified connections and gap areas.
-                </p>
+                <!--end of card-->
+                <br>
             </div>
-            <!--end of card-->
-            <br>
             <!-- end of content  -->
 
             <!-- start of content  -->
-            <br><h2>05</h2>
-            <h1>Company Matrix</h1>
-            <h5>
-                Below is the list of companies which were considered for comepetitive analysis
-            </h5>
-            <div class="row" style="text-align: center;">
-                <div class="col-sm-12">
-                    <img src="../img/DEShaw/CompanyAnalysis.PNG" style="width: 90%;border-radius:10px;">
+            <div class="tag">
+                <br>
+                <h2>05</h2>
+                <h1>Company Matrix</h1>
+                <h5>
+                    Below is the list of companies which were considered for comepetitive analysis
+                </h5>
+                <div class="row" style="text-align: center;">
+                    <div class="col-sm-12">
+                        <img src="../img/DEShaw/CompanyAnalysis.PNG" style="width: 90%;border-radius:10px;">
+                    </div>
                 </div>
+                <br>
             </div>
-            <br>
             <!-- end of content  -->
 
             <!-- start of content  -->
-            <br><h2>06</h2>
-            <h1>Feature Matrix</h1>
-            <h5>
-                Below is the list of features from the above companies which were considered for comepetitive analysis
-            </h5>
-            <div class="row" style="text-align: center;">
-                <div class="col-sm-12">
-                    <img src="../img/DEShaw/featureAnalysis.png" style="width: 90%;border-radius:10px">
+            <div class="tag">
+                <br>
+                <h2>06</h2>
+                <h1>Feature Matrix</h1>
+                <h5>
+                    Below is the list of features from the above companies which were considered for comepetitive
+                    analysis
+                </h5>
+                <div class="row" style="text-align: center;">
+                    <div class="col-sm-12">
+                        <img src="../img/DEShaw/featureAnalysis.png" style="width: 90%;border-radius:10px">
+                    </div>
                 </div>
+                <br>
             </div>
-            <br>
             <!-- end of content  -->
 
             <!-- start of content  -->
-            <div class="full-width-div" style="background-color:  rgba(0, 64, 133, 0.4);">
+            <div class="full-width-div tag" style="background-color:  rgba(0, 64, 133, 0.4);">
                 <div class="container">
-                    <br><h2 style="color: white;">07</h2>
+                    <br>
+                    <h2 style="color: white;">07</h2>
                     <h1>Sampling</h1>
 
                     <h5>The method followed was <b>“Stratified Sampling”</b>. The sampling in here is Mixed (homo +
@@ -278,479 +318,509 @@
             </div>
             <!-- end of content  -->
             <!-- start of content  -->
-            <br><h2>08</h2>
-            <h1>Affinity Analysis</h1>
-            <h5>
-                When all the data from the interviews was recorded, user insights were plotted into 5 sections. The
-                sections were
-                selected on the basis of initial requirements. The sections are:
-                <br><i class="em em-small_blue_diamond" aria-role="presentation"
-                    aria-label="SMALL BLUE DIAMOND"></i>Planning
-                <br><i class="em em-small_blue_diamond" aria-role="presentation"
-                    aria-label="SMALL BLUE DIAMOND"></i>Estimation
-                <br><i class="em em-small_blue_diamond" aria-role="presentation"
-                    aria-label="SMALL BLUE DIAMOND"></i>Priority setting
-                <br><i class="em em-small_blue_diamond" aria-role="presentation"
-                    aria-label="SMALL BLUE DIAMOND"></i>Allocation
-                <br><i class="em em-small_blue_diamond" aria-role="presentation"
-                    aria-label="SMALL BLUE DIAMOND"></i>Tracking
-
-            </h5><br>
-            <div class="w3-content w3-display-container">
-                <img class="mySlides1" src="../img/DEShaw/image 2.png" style="width:90%;border-radius:20px;">
-                <img class="mySlides1" src="../img/DEShaw/image 3.png" style="width:90%;border-radius:20px;">
-                <img class="mySlides1" src="../img/DEShaw/image 4.png" style="width:90%;border-radius:20px;">
-                <img class="mySlides1" src="../img/DEShaw/image 6.png" style="width:90%;border-radius:20px;">
-                <img class="mySlides1" src="../img/DEShaw/image 7.png" style="width:90%;border-radius:20px;">
-                <h1 style="text-align: center;">
-                    <br>
-                    <a onclick="plusDivs(-1,0)">
-                        Prev <i class="em em-point_left" aria-role="presentation"
-                            aria-label="WHITE LEFT POINTING BACKHAND INDEX"></i></a> &nbsp;
-                    <a onclick="plusDivs(1,0)">
-                        <i class="em em-point_right" aria-role="presentation"
-                            aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i> Next</a>
-                </h1>
-            </div>
-
-            <br>
-            <!-- end of content  -->
-            <!-- start of content  -->
-            <br><h2>09</h2>
-            <h1>Ideation</h1>
-            <h5>
-                Ideation was performed in multiple stages. I used brainstorming, brainwriting and mindmaps. I used
-                multiple methods so
-                as to gather as many insights as possible.
-                <br><br><b>
-                    <i class="em em-eight_pointed_black_star" aria-role="presentation"
-                        aria-label="EIGHT POINTED BLACK STAR"></i>
-                    Brainstorming</b><br>
-                I performed brainstorming of ideas with two of my mentors and other teammates. In here we discussed
-                orally out ideas of
-                what according to our understanding the application would shape out to be.
-                <br><br><b>
-                    <i class="em em-eight_pointed_black_star" aria-role="presentation"
-                        aria-label="EIGHT POINTED BLACK STAR"></i>
-                    Brainwriting</b><br>
-                Brainwriting is an alternative method to brainstorming. It is a technique for rapid idea generation that
-                eliminates many
-                of the pitfalls of traditional brainstorming meetings.
-                <br><br><b>
-                    <i class="em em-eight_pointed_black_star" aria-role="presentation"
-                        aria-label="EIGHT POINTED BLACK STAR"></i>
-                    Mindmaps</b><br>
-                In the method of ideation I also constructed two mindmaps. These mindmaps helped me in determining the
-                roles and
-                responsibilities of the different user groups. I have constructed mind maps for managers and individual
-                contributors.
+            <div class="tag">
                 <br>
+                <h2>08</h2>
+                <h1>Affinity Analysis</h1>
+                <h5>
+                    When all the data from the interviews was recorded, user insights were plotted into 5 sections. The
+                    sections were
+                    selected on the basis of initial requirements. The sections are:
+                    <br><i class="em em-small_blue_diamond" aria-role="presentation"
+                        aria-label="SMALL BLUE DIAMOND"></i>Planning
+                    <br><i class="em em-small_blue_diamond" aria-role="presentation"
+                        aria-label="SMALL BLUE DIAMOND"></i>Estimation
+                    <br><i class="em em-small_blue_diamond" aria-role="presentation"
+                        aria-label="SMALL BLUE DIAMOND"></i>Priority setting
+                    <br><i class="em em-small_blue_diamond" aria-role="presentation"
+                        aria-label="SMALL BLUE DIAMOND"></i>Allocation
+                    <br><i class="em em-small_blue_diamond" aria-role="presentation"
+                        aria-label="SMALL BLUE DIAMOND"></i>Tracking
 
-            </h5>
-            <div class="w3-content w3-display-container">
-                <img class="mySlides2" src="../img/DEShaw/MangerMindmap.png" style="width:90%;border-radius:20px;">
-                <img class="mySlides2" src="../img/DEShaw/ICMindmap.png" style="width:90%;border-radius:20px;">
-                <h1 style="text-align: center;"><br>
-                    <a onclick="plusDivs(-1,1)">
-                        Prev <i class="em em-point_left" aria-role="presentation"
-                            aria-label="WHITE LEFT POINTING BACKHAND INDEX"></i></a> &nbsp;
-                    <a onclick="plusDivs(1,1)">
-                        <i class="em em-point_right" aria-role="presentation"
-                            aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i> Next</a>
-                </h1>
-            </div>
-            <br>
-            <!-- end of content  -->
-            <!-- start of content  -->
-            <br><h2>10</h2>
-            <h1>Flows</h1>
-            <h5>
-                In this section I explored the task flows which could be present in the system. We can see the high
-                level flow of the
-                processes which happen in the system. All these were majorly catered to project management perspectives.
-            </h5><br>
-            <div class="w3-content w3-display-container">
-                <img class="mySlides3" src="../img/DEShaw/FlowBasic.png" style="width:90%;border-radius:20px;">
-                <img class="mySlides3" src="../img/DEShaw/FlowAllotment.png" style="width:90%;border-radius:20px;">
-                <img class="mySlides3" src="../img/DEShaw/FlowPriority.png" style="width:90%;border-radius:20px;">
-                <img class="mySlides3" src="../img/DEShaw/FlowUpdate.png" style="width:90%;border-radius:20px;">
-                <h1 style="text-align: center;"><br>
-                    <a onclick="plusDivs(-1,2)">
-                        Prev <i class="em em-point_left" aria-role="presentation"
-                            aria-label="WHITE LEFT POINTING BACKHAND INDEX"></i></a> &nbsp;
-                    <a onclick="plusDivs(1,2)">
-                        <i class="em em-point_right" aria-role="presentation"
-                            aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i> Next</a>
-                </h1>
-            </div>
-
-            <br>
-            <!-- end of content  -->
-            <!-- start of content  -->
-            <br><h2>11</h2>
-            <h1>Personas</h1>
-            <h5>
-                In the next stage personas were developed. Three personas were developed on the basis of the
-                roles and responsibilities of the people. We had to narrow down to 3 personas as the roles lying
-                within a particular persona dont vary much.
-
-            </h5><br>
-            <div class="w3-content w3-display-container">
-                <!-- persona 1 -->
-                <div class="mySlides4">
-                    <div class="row">
-                        <!--style="min-height:300px"-->
-                        <div class="col-sm-3">
-                            <!-- card start -->
-                            <div class="card-div" style="background-color: rgba(23, 144, 51, 0.8);;min-height:730px;">
-                                <div class="badger">
-                                    <p class="card-subtext">&nbsp; PERSONA 1
-                                        &nbsp;
-                                    </p>
-                                </div>
-                                <img src="../img/DEShaw/avataaars.png" style="width:90%;"><br><br>
-                                <b>Kavita</b> is 27 years old and is a software engineer in the firm. He has been
-                                working in the firm for the past 2.5 years.
-                                Apart from working as an Individual contributor he has to plan and set priority
-                                of the monthly tasks. He likes to keep
-                                his work organised but he finds that the firm doesn’t have any such tools. He
-                                switched to traditional method of pen and
-                                paper.<br><br>
-                            </div>
-                            <!--end of card-->
-                        </div>
-                        <div class="col-sm-9">
-                            <!-- card start -->
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="card-div"
-                                        style="background-color: rgba(23, 144, 51, 0.5);min-height:350px;">
-                                        <div class="badger">
-                                            <p class="card-subtext">&nbsp; ABOUT
-                                                &nbsp;
-                                            </p>
-                                        </div>
-                                        <b>Kavita</b><br>
-                                        27 years old<br>
-                                        Software Engineer<br>
-                                        <i class="em em-female_sign" aria-role="presentation" aria-label=""></i><br>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card-div"
-                                        style="background-color: rgba(23, 144, 51, 0.5);min-height:300px;">
-                                        <div class="badger">
-                                            <p class="card-subtext">&nbsp; GOALS
-                                                &nbsp;
-                                            </p>
-                                        </div>
-                                        <ol>
-                                            <li>Complete yearly goals<br></li>
-                                            <li>Organise his work so that doesn’t get overwhelmed with the work<br></li>
-                                            <li>Track the pending tasks so that he doesn’t miss out on tasks<br></li>
-                                            <li>Achieve personal goals/targets<br></li>
-                                            <li>Complete work on time<br></li>
-                                        </ol>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card-div"
-                                        style="background-color: rgba(23, 144, 51, 0.5);min-height:350px;">
-                                        <div class="badger">
-                                            <p class="card-subtext">&nbsp; TASKS
-                                                &nbsp;
-                                            </p>
-                                        </div>
-                                        <ol>
-                                            <li>Make weekly and monthly plans<br></li>
-                                            <li>Do the Prioritization for tasks<br></li>
-                                            <li>Track and maintain Tickets<br></li>
-                                        </ol>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end of card-->
-                            <br>
-                            <!-- card start -->
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="card-div"
-                                        style="background-color: rgba(23, 144, 51, 0.5);min-height:350px;">
-                                        <div class="badger">
-                                            <p class="card-subtext">&nbsp; PAINPOINTS
-                                                &nbsp;
-                                            </p>
-                                        </div>
-                                        <ol>
-                                            <li>Can’t see progress of tasks/projects progress<br></li>
-                                            <li>Can’t distinguish between priorities given by BUs<br></li>
-                                            <li>Can't pause long tasks and pick up small tasks for time being<br></li>
-                                            <li>Agile board is only developer focussed<br></li>
-                                        </ol>
-
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card-div"
-                                        style="background-color: rgba(23, 144, 51, 0.5);min-height:350px;">
-                                        <div class="badger">
-                                            <p class="card-subtext">&nbsp; BEHAVIOR
-                                                &nbsp;
-                                            </p>
-                                        </div>
-                                        <ol>
-                                            <li>Likes to divide the day between main work and mundane tasks<br></li>
-                                            <li>Uses notebook to track everyday things<br></li>
-                                            <li>Checks tools for the goals<br></li>
-                                        </ol>
-
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card-div"
-                                        style="background-color: rgba(23, 144, 51, 0.5);min-height:350px;">
-                                        <div class="badger">
-                                            <p class="card-subtext">&nbsp; NEEDS
-                                                &nbsp;
-                                            </p>
-                                        </div>
-                                        <ol>
-                                            <li>Feels that some tasks could be automated</li>
-                                            <li>Wants transparency as the task sizing is given manually</li>
-                                            <li>Wants to be able to see what people are working upon</li>
-                                            <li>Wants to modify the targets</li>
-                                        </ol>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end of card-->
-                        </div>
-
-
-                    </div>
+                </h5><br>
+                <div class="w3-content w3-display-container">
+                    <img class="mySlides1" src="../img/DEShaw/image 2.png" style="width:90%;border-radius:20px;">
+                    <img class="mySlides1" src="../img/DEShaw/image 3.png" style="width:90%;border-radius:20px;">
+                    <img class="mySlides1" src="../img/DEShaw/image 4.png" style="width:90%;border-radius:20px;">
+                    <img class="mySlides1" src="../img/DEShaw/image 6.png" style="width:90%;border-radius:20px;">
+                    <img class="mySlides1" src="../img/DEShaw/image 7.png" style="width:90%;border-radius:20px;">
+                    <h1 style="text-align: center;">
+                        <br>
+                        <a onclick="plusDivs(-1,0)">
+                            Prev <i class="em em-point_left" aria-role="presentation"
+                                aria-label="WHITE LEFT POINTING BACKHAND INDEX"></i></a> &nbsp;
+                        <a onclick="plusDivs(1,0)">
+                            <i class="em em-point_right" aria-role="presentation"
+                                aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i> Next</a>
+                    </h1>
                 </div>
-                <!-- end persona 1 -->
-                <!-- persona 2 -->
-                <div class="mySlides4">
-                    <div class="row">
-                        <!--style="min-height:300px"-->
-                        <div class="col-sm-3">
-                            <!-- card start -->
-                            <div class="card-div" style="background-color: rgba(0, 64, 133, 0.8);min-height:890px;">
-                                <div class="badger">
-                                    <p class="card-subtext">&nbsp; PERSONA 2
-                                        &nbsp;
-                                    </p>
-                                </div>
-                                <img src="../img/DEShaw/avataaars (1).png" style="width:90%;"><br><br>
-                                <b>Suresh</b> is 36 years old and is a project manager in the firm. She has been working in
-                                the firm from past 2.5 years. Her
-                                role requires her to make roadmap of the year, handle the resource allotment and
-                                calculate the risks and tackle them.
-                                She has a lot of data to handle. She makes custom excel sheets to handle her data. She
-                                finds tough to manage time. She
-                                wishes to have a tool to manage all this.
-                                <br><br>
-                            </div>
-                            <!--end of card-->
-                        </div>
-                        <div class="col-sm-9">
-                            <!-- card start -->
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="card-div"
-                                        style="background-color: rgba(0, 64, 133, 0.5);min-height:432px;">
-                                        <div class="badger">
-                                            <p class="card-subtext">&nbsp; ABOUT
-                                                &nbsp;
-                                            </p>
-                                        </div>
-                                        <b>Suresh</b><br>
-                                        36 years old<br>
-                                        Team Manager<br>
-                                        <i class="em em-male_sign" aria-role="presentation" aria-label=""></i><br>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card-div"
-                                        style="background-color: rgba(0, 64, 133, 0.5);min-height:432px;">
-                                        <div class="badger">
-                                            <p class="card-subtext">&nbsp; GOALS
-                                                &nbsp;
-                                            </p>
-                                        </div>
-                                        <ol>
-                                            <li>Present efficiently to the stakeholders</li>
-                                            <li>Track all the progress easily </li>
-                                            <li>Avoid slippages in projects</li>
-                                            <li>Make correct estimates of the work</li>
-                                        </ol>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card-div"
-                                        style="background-color: rgba(0, 64, 133, 0.5);min-height:432px;">
-                                        <div class="badger">
-                                            <p class="card-subtext">&nbsp; TASKS
-                                                &nbsp;
-                                            </p>
-                                        </div>
-                                        <ol>
-                                            <li>Make yearly, quarterly roadmaps</li>
-                                            <li>Identifying bottlenecks</li>
-                                            <li>Measure productivity and progress</li>
-                                            <li>Recruitment of new members</li>
-                                            <li>Talk with other managers and team and decide on roadmap</li>
-                                            <li>Set targets for the team to achieve</li>
-                                            <li>Explain employee benefits</li>
 
-                                        </ol>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end of card-->
-                            <br>
-                            <!-- card start -->
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="card-div"
-                                        style="background-color: rgba(0, 64, 133, 0.5);min-height:432px;">
-                                        <div class="badger">
-                                            <p class="card-subtext">&nbsp; PAINPOINTS
-                                                &nbsp;
-                                            </p>
-                                        </div>
-                                        <ol>
-                                            <li>Cant see progress of projects progress</li>
-                                            <li>The tasks are always over allocated</li>
-                                            <li>Need to take in consideration of the previous year slippage</li>
-                                            <li>Attrition and unplanned leaves might cause project delays</li>
-                                            <li>Cant get employee review properly</li>
-                                            <li>Difficulty in benefits verification</li>
-                                        </ol>
-
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card-div"
-                                        style="background-color: rgba(0, 64, 133, 0.5);min-height:432px;">
-                                        <div class="badger">
-                                            <p class="card-subtext">&nbsp; BEHAVIOR
-                                                &nbsp;
-                                            </p>
-                                        </div>
-                                        <ol>
-                                            <li>Maintains excel sheets for tracking employees’ task allotment</li>
-                                            <li>Check on previous year roadmap and compare with this years</li>
-                                        </ol>
-
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card-div"
-                                        style="background-color: rgba(0, 64, 133, 0.5);min-height:432px;">
-                                        <div class="badger">
-                                            <p class="card-subtext">&nbsp; NEEDS
-                                                &nbsp;
-                                            </p>
-                                        </div>
-                                        <ol>
-                                            <li>Wants to see how are the resources allocated live time</li>
-                                            <li>Wants to see the trends and patterns in the work</li>
-                                            <li>Wants to see the peak overloads</li>
-                                            <li>Want to see visual representation of progress</li>
-                                            <li>Want to see resource and feature dependency</li>
-
-                                        </ol>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end of card-->
-                        </div>
-
-
-                    </div>
-                </div>
-                <!-- end persona 2 -->
-
-
-                <h1 style="text-align: center;"><br>
-                    <a onclick="plusDivs(-1,3)">
-                        Prev <i class="em em-point_left" aria-role="presentation"
-                            aria-label="WHITE LEFT POINTING BACKHAND INDEX"></i></a> &nbsp;
-                    <a onclick="plusDivs(1,3)">
-                        <i class="em em-point_right" aria-role="presentation"
-                            aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i> Next</a>
-                </h1>
+                <br>
             </div>
-            <br>
             <!-- end of content  -->
             <!-- start of content  -->
-            <br><h2>12</h2>
-            <h1>Scope Redefine</h1>
-            <h5>
-                After understanding the scope of the project, It was realised that the amount of time is less to
-                implement all the features.
+            <div class="tag">
+                <br>
+                <h2>09</h2>
+                <h1>Ideation</h1>
+                <h5>
+                    Ideation was performed in multiple stages. I used brainstorming, brainwriting and mindmaps. I used
+                    multiple methods so
+                    as to gather as many insights as possible.
+                    <br><br><b>
+                        <i class="em em-eight_pointed_black_star" aria-role="presentation"
+                            aria-label="EIGHT POINTED BLACK STAR"></i>
+                        Brainstorming</b><br>
+                    I performed brainstorming of ideas with two of my mentors and other teammates. In here we discussed
+                    orally out ideas of
+                    what according to our understanding the application would shape out to be.
+                    <br><br><b>
+                        <i class="em em-eight_pointed_black_star" aria-role="presentation"
+                            aria-label="EIGHT POINTED BLACK STAR"></i>
+                        Brainwriting</b><br>
+                    Brainwriting is an alternative method to brainstorming. It is a technique for rapid idea generation
+                    that
+                    eliminates many
+                    of the pitfalls of traditional brainstorming meetings.
+                    <br><br><b>
+                        <i class="em em-eight_pointed_black_star" aria-role="presentation"
+                            aria-label="EIGHT POINTED BLACK STAR"></i>
+                        Mindmaps</b><br>
+                    In the method of ideation I also constructed two mindmaps. These mindmaps helped me in determining
+                    the
+                    roles and
+                    responsibilities of the different user groups. I have constructed mind maps for managers and
+                    individual
+                    contributors.
+                    <br>
 
-            </h5><br>
+                </h5>
+                <div class="w3-content w3-display-container">
+                    <img class="mySlides2" src="../img/DEShaw/MangerMindmap.png" style="width:90%;border-radius:20px;">
+                    <img class="mySlides2" src="../img/DEShaw/ICMindmap.png" style="width:90%;border-radius:20px;">
+                    <h1 style="text-align: center;"><br>
+                        <a onclick="plusDivs(-1,1)">
+                            Prev <i class="em em-point_left" aria-role="presentation"
+                                aria-label="WHITE LEFT POINTING BACKHAND INDEX"></i></a> &nbsp;
+                        <a onclick="plusDivs(1,1)">
+                            <i class="em em-point_right" aria-role="presentation"
+                                aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i> Next</a>
+                    </h1>
+                </div>
+                <br>
+            </div>
+            <!-- end of content  -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>10</h2>
+                <h1>Flows</h1>
+                <h5>
+                    In this section I explored the task flows which could be present in the system. We can see the high
+                    level flow of the
+                    processes which happen in the system. All these were majorly catered to project management
+                    perspectives.
+                </h5><br>
+                <div class="w3-content w3-display-container">
+                    <img class="mySlides3" src="../img/DEShaw/FlowBasic.png" style="width:90%;border-radius:20px;">
+                    <img class="mySlides3" src="../img/DEShaw/FlowAllotment.png" style="width:90%;border-radius:20px;">
+                    <img class="mySlides3" src="../img/DEShaw/FlowPriority.png" style="width:90%;border-radius:20px;">
+                    <img class="mySlides3" src="../img/DEShaw/FlowUpdate.png" style="width:90%;border-radius:20px;">
+                    <h1 style="text-align: center;"><br>
+                        <a onclick="plusDivs(-1,2)">
+                            Prev <i class="em em-point_left" aria-role="presentation"
+                                aria-label="WHITE LEFT POINTING BACKHAND INDEX"></i></a> &nbsp;
+                        <a onclick="plusDivs(1,2)">
+                            <i class="em em-point_right" aria-role="presentation"
+                                aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i> Next</a>
+                    </h1>
+                </div>
 
-            <div class="row">
-                <div class="col-sm-6">
-                    <!-- card start -->
-                    <div class="card-div" style="background-color:lightgreen">
-                        <div class="badger">
-                            <p class="card-subtext">&nbsp; SCOPE
-                                &nbsp;
+                <br>
+            </div>
+            <!-- end of content  -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>11</h2>
+                <h1>Personas</h1>
+                <h5>
+                    In the next stage personas were developed. Three personas were developed on the basis of the
+                    roles and responsibilities of the people. We had to narrow down to 3 personas as the roles lying
+                    within a particular persona dont vary much.
+
+                </h5><br>
+                <div class="w3-content w3-display-container">
+                    <!-- persona 1 -->
+                    <div class="mySlides4">
+                        <div class="row">
+                            <!--style="min-height:300px"-->
+                            <div class="col-sm-3">
+                                <!-- card start -->
+                                <div class="card-div"
+                                    style="background-color: rgba(23, 144, 51, 0.8);;min-height:730px;">
+                                    <div class="badger">
+                                        <p class="card-subtext">&nbsp; PERSONA 1
+                                            &nbsp;
+                                        </p>
+                                    </div>
+                                    <img src="../img/DEShaw/avataaars.png" style="width:90%;"><br><br>
+                                    <b>Kavita</b> is 27 years old and is a software engineer in the firm. He has been
+                                    working in the firm for the past 2.5 years.
+                                    Apart from working as an Individual contributor he has to plan and set priority
+                                    of the monthly tasks. He likes to keep
+                                    his work organised but he finds that the firm doesn’t have any such tools. He
+                                    switched to traditional method of pen and
+                                    paper.<br><br>
+                                </div>
+                                <!--end of card-->
+                            </div>
+                            <div class="col-sm-9">
+                                <!-- card start -->
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="card-div"
+                                            style="background-color: rgba(23, 144, 51, 0.5);min-height:350px;">
+                                            <div class="badger">
+                                                <p class="card-subtext">&nbsp; ABOUT
+                                                    &nbsp;
+                                                </p>
+                                            </div>
+                                            <b>Kavita</b><br>
+                                            27 years old<br>
+                                            Software Engineer<br>
+                                            <i class="em em-female_sign" aria-role="presentation" aria-label=""></i><br>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="card-div"
+                                            style="background-color: rgba(23, 144, 51, 0.5);min-height:300px;">
+                                            <div class="badger">
+                                                <p class="card-subtext">&nbsp; GOALS
+                                                    &nbsp;
+                                                </p>
+                                            </div>
+                                            <ol>
+                                                <li>Complete yearly goals<br></li>
+                                                <li>Organise his work so that doesn’t get overwhelmed with the work<br>
+                                                </li>
+                                                <li>Track the pending tasks so that he doesn’t miss out on tasks<br>
+                                                </li>
+                                                <li>Achieve personal goals/targets<br></li>
+                                                <li>Complete work on time<br></li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="card-div"
+                                            style="background-color: rgba(23, 144, 51, 0.5);min-height:350px;">
+                                            <div class="badger">
+                                                <p class="card-subtext">&nbsp; TASKS
+                                                    &nbsp;
+                                                </p>
+                                            </div>
+                                            <ol>
+                                                <li>Make weekly and monthly plans<br></li>
+                                                <li>Do the Prioritization for tasks<br></li>
+                                                <li>Track and maintain Tickets<br></li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end of card-->
+                                <br>
+                                <!-- card start -->
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="card-div"
+                                            style="background-color: rgba(23, 144, 51, 0.5);min-height:350px;">
+                                            <div class="badger">
+                                                <p class="card-subtext">&nbsp; PAINPOINTS
+                                                    &nbsp;
+                                                </p>
+                                            </div>
+                                            <ol>
+                                                <li>Can’t see progress of tasks/projects progress<br></li>
+                                                <li>Can’t distinguish between priorities given by BUs<br></li>
+                                                <li>Can't pause long tasks and pick up small tasks for time being<br>
+                                                </li>
+                                                <li>Agile board is only developer focussed<br></li>
+                                            </ol>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="card-div"
+                                            style="background-color: rgba(23, 144, 51, 0.5);min-height:350px;">
+                                            <div class="badger">
+                                                <p class="card-subtext">&nbsp; BEHAVIOR
+                                                    &nbsp;
+                                                </p>
+                                            </div>
+                                            <ol>
+                                                <li>Likes to divide the day between main work and mundane tasks<br></li>
+                                                <li>Uses notebook to track everyday things<br></li>
+                                                <li>Checks tools for the goals<br></li>
+                                            </ol>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="card-div"
+                                            style="background-color: rgba(23, 144, 51, 0.5);min-height:350px;">
+                                            <div class="badger">
+                                                <p class="card-subtext">&nbsp; NEEDS
+                                                    &nbsp;
+                                                </p>
+                                            </div>
+                                            <ol>
+                                                <li>Feels that some tasks could be automated</li>
+                                                <li>Wants transparency as the task sizing is given manually</li>
+                                                <li>Wants to be able to see what people are working upon</li>
+                                                <li>Wants to modify the targets</li>
+                                            </ol>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end of card-->
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- end persona 1 -->
+                    <!-- persona 2 -->
+                    <div class="mySlides4">
+                        <div class="row">
+                            <!--style="min-height:300px"-->
+                            <div class="col-sm-3">
+                                <!-- card start -->
+                                <div class="card-div" style="background-color: rgba(0, 64, 133, 0.8);min-height:890px;">
+                                    <div class="badger">
+                                        <p class="card-subtext">&nbsp; PERSONA 2
+                                            &nbsp;
+                                        </p>
+                                    </div>
+                                    <img src="../img/DEShaw/avataaars (1).png" style="width:90%;"><br><br>
+                                    <b>Suresh</b> is 36 years old and is a project manager in the firm. She has been
+                                    working
+                                    in
+                                    the firm from past 2.5 years. Her
+                                    role requires her to make roadmap of the year, handle the resource allotment and
+                                    calculate the risks and tackle them.
+                                    She has a lot of data to handle. She makes custom excel sheets to handle her data.
+                                    She
+                                    finds tough to manage time. She
+                                    wishes to have a tool to manage all this.
+                                    <br><br>
+                                </div>
+                                <!--end of card-->
+                            </div>
+                            <div class="col-sm-9">
+                                <!-- card start -->
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="card-div"
+                                            style="background-color: rgba(0, 64, 133, 0.5);min-height:432px;">
+                                            <div class="badger">
+                                                <p class="card-subtext">&nbsp; ABOUT
+                                                    &nbsp;
+                                                </p>
+                                            </div>
+                                            <b>Suresh</b><br>
+                                            36 years old<br>
+                                            Team Manager<br>
+                                            <i class="em em-male_sign" aria-role="presentation" aria-label=""></i><br>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="card-div"
+                                            style="background-color: rgba(0, 64, 133, 0.5);min-height:432px;">
+                                            <div class="badger">
+                                                <p class="card-subtext">&nbsp; GOALS
+                                                    &nbsp;
+                                                </p>
+                                            </div>
+                                            <ol>
+                                                <li>Present efficiently to the stakeholders</li>
+                                                <li>Track all the progress easily </li>
+                                                <li>Avoid slippages in projects</li>
+                                                <li>Make correct estimates of the work</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="card-div"
+                                            style="background-color: rgba(0, 64, 133, 0.5);min-height:432px;">
+                                            <div class="badger">
+                                                <p class="card-subtext">&nbsp; TASKS
+                                                    &nbsp;
+                                                </p>
+                                            </div>
+                                            <ol>
+                                                <li>Make yearly, quarterly roadmaps</li>
+                                                <li>Identifying bottlenecks</li>
+                                                <li>Measure productivity and progress</li>
+                                                <li>Recruitment of new members</li>
+                                                <li>Talk with other managers and team and decide on roadmap</li>
+                                                <li>Set targets for the team to achieve</li>
+                                                <li>Explain employee benefits</li>
+
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end of card-->
+                                <br>
+                                <!-- card start -->
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="card-div"
+                                            style="background-color: rgba(0, 64, 133, 0.5);min-height:432px;">
+                                            <div class="badger">
+                                                <p class="card-subtext">&nbsp; PAINPOINTS
+                                                    &nbsp;
+                                                </p>
+                                            </div>
+                                            <ol>
+                                                <li>Cant see progress of projects progress</li>
+                                                <li>The tasks are always over allocated</li>
+                                                <li>Need to take in consideration of the previous year slippage</li>
+                                                <li>Attrition and unplanned leaves might cause project delays</li>
+                                                <li>Cant get employee review properly</li>
+                                                <li>Difficulty in benefits verification</li>
+                                            </ol>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="card-div"
+                                            style="background-color: rgba(0, 64, 133, 0.5);min-height:432px;">
+                                            <div class="badger">
+                                                <p class="card-subtext">&nbsp; BEHAVIOR
+                                                    &nbsp;
+                                                </p>
+                                            </div>
+                                            <ol>
+                                                <li>Maintains excel sheets for tracking employees’ task allotment</li>
+                                                <li>Check on previous year roadmap and compare with this years</li>
+                                            </ol>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="card-div"
+                                            style="background-color: rgba(0, 64, 133, 0.5);min-height:432px;">
+                                            <div class="badger">
+                                                <p class="card-subtext">&nbsp; NEEDS
+                                                    &nbsp;
+                                                </p>
+                                            </div>
+                                            <ol>
+                                                <li>Wants to see how are the resources allocated live time</li>
+                                                <li>Wants to see the trends and patterns in the work</li>
+                                                <li>Wants to see the peak overloads</li>
+                                                <li>Want to see visual representation of progress</li>
+                                                <li>Want to see resource and feature dependency</li>
+
+                                            </ol>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end of card-->
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- end persona 2 -->
+
+
+                    <h1 style="text-align: center;"><br>
+                        <a onclick="plusDivs(-1,3)">
+                            Prev <i class="em em-point_left" aria-role="presentation"
+                                aria-label="WHITE LEFT POINTING BACKHAND INDEX"></i></a> &nbsp;
+                        <a onclick="plusDivs(1,3)">
+                            <i class="em em-point_right" aria-role="presentation"
+                                aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i> Next</a>
+                    </h1>
+                </div>
+                <br>
+            </div>
+            <!-- end of content  -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>12</h2>
+                <h1>Scope Redefine</h1>
+                <h5>
+                    After understanding the scope of the project, It was realised that the amount of time is less to
+                    implement all the features.
+
+                </h5><br>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <!-- card start -->
+                        <div class="card-div" style="background-color:lightgreen">
+                            <div class="badger">
+                                <p class="card-subtext">&nbsp; SCOPE
+                                    &nbsp;
+                                </p>
+                            </div>
+
+                            <p class="card-description black-text">
+                                The Scope was then reduced to Roadmap Planning and its components instead of project
+                                planning
                             </p>
                         </div>
-
-                        <p class="card-description black-text">
-                            The Scope was then reduced to Roadmap Planning and its components instead of project
-                            planning
-                        </p>
+                        <!--end of card-->
                     </div>
-                    <!--end of card-->
-                </div>
 
-                <div class="col-sm-6">
-                    <!-- card start -->
-                    <div class="card-div" style="background-color:lightblue;">
-                        <div class="badger">
-                            <p class="card-subtext">&nbsp; PERSONA
-                                &nbsp;
+                    <div class="col-sm-6">
+                        <!-- card start -->
+                        <div class="card-div" style="background-color:lightblue;">
+                            <div class="badger">
+                                <p class="card-subtext">&nbsp; PERSONA
+                                    &nbsp;
+                                </p>
+                            </div>
+
+                            <p class="card-description black-text">
+                                The Persona was then limited to Managers since they deal majorly with the
+                                planning and management
                             </p>
                         </div>
-
-                        <p class="card-description black-text">
-                            The Persona was then limited to Managers since they deal majorly with the
-                            planning and management
-                        </p>
+                        <!--end of card-->
                     </div>
-                    <!--end of card-->
                 </div>
-            </div>
 
-            <br><br>
+                <br><br>
+            </div>
             <!-- end of content  -->
             <!-- start of content  -->
-            <br><h2>13</h2>
-            <h1>Roadmap Planning</h1>
-            <h5>
-                Roadmap planning involves planning for the entire year.
-                The plan includes deliverables (high level projects), resources' distribution and
-                dependencies. Following is the approximate roadmap planning flow which I have discovered
-                from the other stakeholders. Roadmap planning process is divided into several steps. The steps
-                are then (mostly) boiled down to substeps. I have also identified Gap areas and Ideas for each step.
-            </h5>
-            <img src="../img/DEShaw/Roadmap.png" style="width:90%;border-radius:20px;">
-            <br><br>
+            <div class="tag">
+                <br>
+                <h2>13</h2>
+                <h1>Roadmap Planning</h1>
+                <h5>
+                    Roadmap planning involves planning for the entire year.
+                    The plan includes deliverables (high level projects), resources' distribution and
+                    dependencies. Following is the approximate roadmap planning flow which I have discovered
+                    from the other stakeholders. Roadmap planning process is divided into several steps. The steps
+                    are then (mostly) boiled down to substeps. I have also identified Gap areas and Ideas for each step.
+                </h5>
+                <img src="../img/DEShaw/Roadmap.png" style="width:90%;border-radius:20px;">
+                <br><br>
+            </div>
             <!-- end of content  -->
             <!-- start of content  -->
-            <div class="full-width-div" style="background-color: rgba(0, 64, 133, 0.4);">
+            <div class="full-width-div tag" style="background-color: rgba(0, 64, 133, 0.4);">
                 <div class="container">
-                    <br><h2 style="color: white;">14</h2>
+                    <br>
+                    <h2 style="color: white;">14</h2>
                     <h1>Prototyping and Hi-fidelity mocks</h1>
                     <h5>
                         Lofi mocks were developed initially so that I could come with quick and multiple options to
@@ -806,7 +876,8 @@
             </div>
             <!-- end of content  -->
             <!-- start of content  -->
-            <br><h2>15</h2>
+            <br>
+            <h2>15</h2>
             <h1>Features</h1>
             <h5>
                 In the image above you can see how a typical page would look in the application. On the left you have
@@ -819,7 +890,7 @@
             </h5>
             <br><br><br>
             <!-- feature start  -->
-            <div class="row">
+            <div class="row tag">
                 <div class="col-sm-5">
                     <h5>
                         <div class="badger-gray">
@@ -843,14 +914,15 @@
 
                 </div>
                 <div class="col-sm-6">
-                    <img src="../img/DEShaw/features/image 27.png" style="width:60%;box-shadow: 5px 5px 20px rgb(199, 199, 199);">
+                    <img src="../img/DEShaw/features/image 27.png"
+                        style="width:60%;box-shadow: 5px 5px 20px rgb(199, 199, 199);">
                 </div>
             </div>
             <!-- feature end  -->
             <br><br>
             <hr><br><br>
             <!-- feature start  -->
-            <div class="row">
+            <div class="row tag">
                 <div class="col-sm-1">
                 </div>
                 <div class="col-sm-6"><br><br>
@@ -882,7 +954,7 @@
             <br><br>
             <hr><br><br>
             <!-- feature start  -->
-            <div class="row">
+            <div class="row tag">
 
                 <div class="col-sm-5">
                     <h5>
@@ -913,7 +985,7 @@
             <br><br>
             <hr><br><br>
             <!-- feature start  -->
-            <div class="row">
+            <div class="row tag">
                 <div class="col-sm-8"><br><br><br>
                     <img src="../img/DEShaw/features/image 30.png" style="width:100%;">
                 </div>
@@ -950,7 +1022,7 @@
             <br><br>
             <hr><br><br>
             <!-- feature start  -->
-            <div class="row">
+            <div class="row tag">
                 <div class="col-sm-4">
                     <h5>
                         <div class="badger-gray">
@@ -980,7 +1052,7 @@
             <br><br>
             <hr><br><br>
             <!-- feature start  -->
-            <div class="row">
+            <div class="row tag">
                 <div class="col-sm-8"><br><br>
                     <img src="../img/DEShaw/features/Group 25.png" style="width:100%;">
                 </div>
@@ -1006,7 +1078,7 @@
             <br><br>
             <hr><br><br>
             <!-- feature start  -->
-            <div class="row">
+            <div class="row tag">
                 <div class="col-sm-4">
                     <h5>
                         <div class="badger-gray">
@@ -1037,7 +1109,7 @@
             <br><br>
             <hr><br><br>
             <!-- feature start  -->
-            <div class="row">
+            <div class="row tag">
                 <div class="col-sm-8"><br><br>
                     <img src="../img/DEShaw/features/Group 27.png" style="width:100%;">
                 </div>
@@ -1064,7 +1136,7 @@
             <br><br>
             <hr><br><br>
             <!-- feature start  -->
-            <div class="row">
+            <div class="row tag">
 
                 <div class="col-sm-4">
                     <h5>
@@ -1095,7 +1167,7 @@
             <br><br>
             <hr><br><br>
             <!-- feature start  -->
-            <div class="row">
+            <div class="row tag">
                 <div class="col-sm-7">
                     <img src="../img/DEShaw/features/Group 31.png" style="width:100%;">
                 </div>
@@ -1128,7 +1200,7 @@
             <br><br>
             <hr><br><br>
             <!-- feature start  -->
-            <div class="row">
+            <div class="row tag">
 
                 <div class="col-sm-5">
                     <h5>
@@ -1157,9 +1229,10 @@
             <br><br>
             <!-- end of content  -->
             <!-- start of content  -->
-            <div class="full-width-div" style="background-color: rgba(23, 144, 51, 0.4);">
+            <div class="full-width-div tag" style="background-color: rgba(23, 144, 51, 0.4);">
                 <div class="container">
-                    <br><h2 style="color: white;">16</h2>
+                    <br>
+                    <h2 style="color: white;">16</h2>
                     <h1>User Testing</h1>
                     <h5>
                         Due to lack of time, user testing was done in focus groups. A total of 3 focus groups were held
@@ -1173,8 +1246,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <!-- card start -->
-                            <div class="card-div"
-                                style="background-color: rgba(23, 144, 51, 0.6);;text-align: center;">
+                            <div class="card-div" style="background-color: rgba(23, 144, 51, 0.6);;text-align: center;">
                                 <div class="badger">
                                     <p class="card-subtext">&nbsp; FOCUS GROUP 1
                                         &nbsp;
@@ -1194,8 +1266,7 @@
                         </div>
                         <div class="col-sm-4">
                             <!-- card start -->
-                            <div class="card-div"
-                                style="background-color: rgba(23, 144, 51, 0.6);;text-align: center;">
+                            <div class="card-div" style="background-color: rgba(23, 144, 51, 0.6);;text-align: center;">
                                 <div class="badger">
                                     <p class="card-subtext">&nbsp; FOCUS GROUP 2
                                         &nbsp;
@@ -1213,8 +1284,7 @@
                         </div>
                         <div class="col-sm-4">
                             <!-- card start -->
-                            <div class="card-div"
-                                style="background-color: rgba(23, 144, 51, 0.6);;text-align: center;">
+                            <div class="card-div" style="background-color: rgba(23, 144, 51, 0.6);;text-align: center;">
                                 <div class="badger">
                                     <p class="card-subtext">&nbsp; FOCUS GROUP 3
                                         &nbsp;
@@ -1235,8 +1305,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <!-- card start -->
-                            <div class="card-div"
-                                style="background-color:white;min-height:300px;">
+                            <div class="card-div" style="background-color:white;min-height:300px;">
                                 <div class="badger">
                                     <p class="card-subtext">&nbsp; APPRECIATED FEATURES
                                         &nbsp;
@@ -1275,8 +1344,7 @@
                         </div>
                         <div class="col-sm-6">
                             <!-- card start -->
-                            <div class="card-div"
-                                style="background-color:white;min-height:300px;">
+                            <div class="card-div" style="background-color:white;min-height:300px;">
                                 <div class="badger">
                                     <p class="card-subtext">&nbsp; IMPROVEMENT AREAS
                                         &nbsp;
@@ -1285,29 +1353,29 @@
 
                                 <p class="card-description black-text">
 
-                                    <i class="em em-hammer_and_wrench" aria-role="presentation" aria-label=""></i>
+                                    <i class="em em-pick" aria-role="presentation" aria-label=""></i>
                                     Update Roadmap workflow to approval<br>
-                                    <i class="em em-hammer_and_wrench" aria-role="presentation" aria-label=""></i>
+                                    <i class="em em-pick" aria-role="presentation" aria-label=""></i>
                                     Ability to pick up items from backlog<br>
-                                    <i class="em em-hammer_and_wrench" aria-role="presentation" aria-label=""></i>
+                                    <i class="em em-pick" aria-role="presentation" aria-label=""></i>
                                     Ability to look at trends of projects<br>
-                                    <i class="em em-hammer_and_wrench" aria-role="presentation" aria-label=""></i>
+                                    <i class="em em-pick" aria-role="presentation" aria-label=""></i>
                                     Priority setting in Future goals and notes<br>
-                                    <i class="em em-hammer_and_wrench" aria-role="presentation" aria-label=""></i>
+                                    <i class="em em-pick" aria-role="presentation" aria-label=""></i>
                                     Able to see the project dependency<br>
-                                    <i class="em em-hammer_and_wrench" aria-role="presentation" aria-label=""></i>
+                                    <i class="em em-pick" aria-role="presentation" aria-label=""></i>
                                     Update Roadmap workflow to approval<br>
-                                    <i class="em em-hammer_and_wrench" aria-role="presentation" aria-label=""></i>
+                                    <i class="em em-pick" aria-role="presentation" aria-label=""></i>
                                     Ability to pick up items from backlog<br>
-                                    <i class="em em-hammer_and_wrench" aria-role="presentation" aria-label=""></i>
+                                    <i class="em em-pick" aria-role="presentation" aria-label=""></i>
                                     Ability to look at trends of projects<br>
-                                    <i class="em em-hammer_and_wrench" aria-role="presentation" aria-label=""></i>
+                                    <i class="em em-pick" aria-role="presentation" aria-label=""></i>
                                     Priority setting in Future goals and notes<br>
-                                    <i class="em em-hammer_and_wrench" aria-role="presentation" aria-label=""></i>
+                                    <i class="em em-pick" aria-role="presentation" aria-label=""></i>
                                     Able to see the project dependency<br>
-                                    <i class="em em-hammer_and_wrench" aria-role="presentation" aria-label=""></i>
+                                    <i class="em em-pick" aria-role="presentation" aria-label=""></i>
                                     More ideations need to be done with layouts<br>
-                                    <i class="em em-hammer_and_wrench" aria-role="presentation" aria-label=""></i>
+                                    <i class="em em-pick" aria-role="presentation" aria-label=""></i>
                                     Ability to decide hollistic goals for the company<br>
                                 </p>
                             </div>
@@ -1315,41 +1383,44 @@
                         </div>
                     </div>
                     <br><br>
-            
+
                 </div>
             </div>
             <!-- end of content  -->
             <!-- start of content  -->
-            <br><h2>17</h2>
-            <h1>Future Scope</h1>
-            <h5>
-                Below are some of the features in the roadmap planning process. Again due to time restrictions these
-                were kept for the
-                future scope. If these features could be implemented the tool could come out to be a really helpful
-                tool.
-                <br><br>
-                <i class="em em-flashlight" aria-role="presentation" aria-label="ELECTRIC TORCH"></i>
-                Updation of Roadmap in case of slippage<br>
-                <i class="em em-flashlight" aria-role="presentation" aria-label="ELECTRIC TORCH"></i>
-                Ability to look up at trends<br>
-                <i class="em em-flashlight" aria-role="presentation" aria-label="ELECTRIC TORCH"></i>
-                More tight integration with other tools<br>
-                <i class="em em-flashlight" aria-role="presentation" aria-label="ELECTRIC TORCH"></i>
-                Monthly/Weekly Project Planning<br>
-                <i class="em em-flashlight" aria-role="presentation" aria-label="ELECTRIC TORCH"></i>
-                Inclusion of level of employees<br>
-                <i class="em em-flashlight" aria-role="presentation" aria-label="ELECTRIC TORCH"></i>
-                Backlog Handling<br>
-                <i class="em em-flashlight" aria-role="presentation" aria-label="ELECTRIC TORCH"></i>
-                View Past Roadmap<br>
-            </h5><br>
-            <br>
+            <div class="tag">
+                <br>
+                <h2>17</h2>
+                <h1>Future Scope</h1>
+                <h5>
+                    Below are some of the features in the roadmap planning process. Again due to time restrictions these
+                    were kept for the
+                    future scope. If these features could be implemented the tool could come out to be a really helpful
+                    tool.
+                    <br><br>
+                    <i class="em em-flashlight" aria-role="presentation" aria-label="ELECTRIC TORCH"></i>
+                    Updation of Roadmap in case of slippage<br>
+                    <i class="em em-flashlight" aria-role="presentation" aria-label="ELECTRIC TORCH"></i>
+                    Ability to look up at trends<br>
+                    <i class="em em-flashlight" aria-role="presentation" aria-label="ELECTRIC TORCH"></i>
+                    More tight integration with other tools<br>
+                    <i class="em em-flashlight" aria-role="presentation" aria-label="ELECTRIC TORCH"></i>
+                    Monthly/Weekly Project Planning<br>
+                    <i class="em em-flashlight" aria-role="presentation" aria-label="ELECTRIC TORCH"></i>
+                    Inclusion of level of employees<br>
+                    <i class="em em-flashlight" aria-role="presentation" aria-label="ELECTRIC TORCH"></i>
+                    Backlog Handling<br>
+                    <i class="em em-flashlight" aria-role="presentation" aria-label="ELECTRIC TORCH"></i>
+                    View Past Roadmap<br>
+                </h5><br>
+                <br>
+            </div>
             <!-- end of content  -->
             <h2>Thank you for your time! <br><br>Look at other projects below</h2>
             <br>
 
             <div class="row">
-                <div class="col-sm-6"  onclick="location.href='./MaidForYou.html';" style="cursor: pointer;">
+                <div class="col-sm-6" onclick="location.href='./MaidForYou.html';" style="cursor: pointer;">
                     <!-- card start -->
                     <div class="card-div hoverfn"
                         style="background: linear-gradient(to top left, #EED59A 0%, #BC4555 100%);min-height:200px;">
@@ -1360,13 +1431,13 @@
                         </div>
 
                         <p class="card-maintext">Maid for you
-                            <i class="em em-arrow_upper_right" aria-role="presentation" aria-label="NORTH EAST ARROW"></i>
                         </p>
-                        <img src="../img/MaidForYou/maidBanner.png" style="width: 100%;border-radius:20px; border:5px solid #EED59A">
+                        <img src="../img/MaidForYou/maidBanner.png"
+                            style="width: 100%;border-radius:20px; border:5px solid #EED59A">
                     </div>
                     <!--end of card-->
                 </div>
-                <div class="col-sm-6"  onclick="location.href='./Memcall.html';" style="cursor: pointer;">
+                <div class="col-sm-6" onclick="location.href='./Memcall.html';" style="cursor: pointer;">
                     <!-- card start -->
                     <div class="card-div hoverfn"
                         style="background: linear-gradient(to top left, #99bdd9 0%, #232f3b 100%);min-height:300px;">
@@ -1375,9 +1446,8 @@
                                 &nbsp;
                             </p>
                         </div>
-                    
+
                         <p class="card-maintext">MEMCALL: Design Fiction
-                            <i class="em em-arrow_upper_right" aria-role="presentation" aria-label="NORTH EAST ARROW"></i>
                         </p>
                         <img src="../img/Memcall/MemcallBanner.png" style="width: 100%;">
                     </div>

@@ -11,8 +11,8 @@ html {
             color: white;
             font-family: 'Inter', sans-serif;
             cursor:url("./files/arrow1@2x.png"), url(foo.cur), auto;
-            
-            animation: fadeInAnimation ease 3s;
+
+            animation: fadeInAnimation ease 2s;
             animation-iteration-count: 1;
             animation-fill-mode: forwards;
         }
@@ -54,7 +54,7 @@ html {
         h1 {
             font-family: 'Bright', serif;
             color: Black;
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
 
         p {
@@ -267,4 +267,15 @@ span {
     100% {
         opacity: 1;
      }
+}
+
+.tag {
+  opacity: 0;
+  transform: translate(0, 10vh);
+  transition: all 1s;
+}
+
+.tag.visible {
+  opacity: 1;
+  transform: translate(0, 0);
 }

@@ -1,11 +1,9 @@
 //Smooth Scroll
-
 const scroll = new SmoothScroll('.nav-links, .arrow, #work, a[href*="#"]', {
     speed: 900,
 });
 
 //Text Fade
-
 // const text = document.querySelector(".intro-text");
 const text = "I design for User Experiences. I am based /out of Chennai, India. Currently I am /studying at IDC, IIT Bombay"
 // const strText = text.textContent;
@@ -49,3 +47,5 @@ function complete() {
     timer = null;
 }
 $(".blank").hide();
+
+

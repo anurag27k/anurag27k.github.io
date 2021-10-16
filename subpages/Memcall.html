@@ -45,6 +45,25 @@
         </nav>
     </div>
 
+    <script>
+        //for fade in loading
+        $(document).on("scroll", function () {
+            var pageTop = $(document).scrollTop();
+            var pageBottom = pageTop + $(window).height();
+            var tags = $(".tag");
+
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i];
+
+                if ($(tag).position().top < pageBottom) {
+                    $(tag).addClass("visible");
+                } else {
+                    $(tag).removeClass("visible");
+                }
+            }
+        });
+
+    </script>
 
     <div class="container fill" style="padding-top: 25vh;">
 
@@ -104,483 +123,547 @@
             <!-- end of content  -->
             <br>
             <!-- start of content  -->
-            <br>
-            <h2>01</h2>
-            <h1>Abstract</h1>
-            <h5>
-                Human storage capacity is enormous. Then why is itthat we keep forgetting things when we get new
-                memories? People
-                worldwide have researchedand found out that it's not the memory that hinders in the path, it's the
-                neural connectionsin
-                the brain that get weaker with time.
-            </h5>
-            <!-- card start -->
-            <div class="card-div" style="background-color:  rgba(0, 64, 133, 0.4);">
-                <div class="badger">
-                    <p class="card-subtext">&nbsp; WHAT IF
-                        &nbsp;
-                    </p>
-                </div>
-
-                <!-- <p class="card-maintext">Roadmap Planning Application</p> -->
-
-                <p class="card-description">
-                    What if you could remember the events of the past and howyou felt like then? In this project we look
-                    into a diegetic
-                    prototype which allows us to recollectold memories.
-                </p>
-            </div>
-            <!--end of card-->
-            <br>
-            <!-- end of content  -->
-
-            <!-- start of content  -->
-            <br>
-            <h2>02</h2>
-            <h1>Potential Artifacts</h1>
-            <div class="row">
-                <div class="col-sm-4">
-                    <!-- card start -->
-                    <div class="card-div" style="background-color:  rgba(35, 47, 59, 0.8);min-height:410px;">
-                        <div class="badger">
-                            <p class="card-subtext">&nbsp; 01
-                                &nbsp;
-                            </p>
-                        </div>
-
-                        <p class="card-maintext">Neurons accessing device</p>
-
-                        <p class="card-description">
-                            A device which accessed the neurons of the brain.This device could be attached to the brain
-                            and could note the activity
-                            of the brain andcontrol it in some manner.
-                        </p>
-                    </div>
-                    <!--end of card-->
-                </div>
-                <div class="col-sm-4">
-                    <!-- card start -->
-                    <div class="card-div" style="background-color:  rgba(35, 47, 59, 0.6);min-height:410px;">
-                        <div class="badger">
-                            <p class="card-subtext">&nbsp; 02
-                                &nbsp;
-                            </p>
-                        </div>
-
-                        <p class="card-maintext">Memory selector device</p>
-
-                        <p class="card-description">
-                            A device which selects the memory to be restored.It could give a visual glimpse of the
-                            memory to be restored. The person
-                            could look at thememory to be restored while being attached to the device.
-                        </p>
-                    </div>
-                    <!--end of card-->
-                </div>
-                <div class="col-sm-4">
-                    <!-- card start -->
-                    <div class="card-div" style="background-color:  rgba(35, 47, 59, 0.8);min-height:410px;">
-                        <div class="badger">
-                            <p class="card-subtext">&nbsp; 03
-                                &nbsp;
-                            </p>
-                        </div>
-
-                        <p class="card-maintext">Website book appointment</p>
-
-                        <p class="card-description">
-                            Put up a website which allows people to explore theproduct and understand how it helps. Also
-                            tell about the product and
-                            company.
-                        </p>
-                    </div>
-                    <!--end of card-->
-                </div>
-
-            </div>
-            <br>
-            <!-- end of content  -->
-
-            <!-- start of content  -->
-            <br>
-            <h2>03</h2>
-            <h1>What led to this</h1>
-            <h5>
-                The below are some of the events that I imagined whichmight have led to the developments in the MEMCALL
-                device.
+            <div class="tag">
                 <br>
-                <br><i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
-                Advancement in technology to study criminal caseshas gone so high that we are able to map out previous
-                memories
-                <br><i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
-                Distress among the public is grown so high becauseof the politicians. The unfulﬁlled promises and lies
-                told by them has
-                triggered this.
-                <br><i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
-                Humans have gained a ton of information that they have stopped feeling emotions and creating memories
-                all together.
-                <br><i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>
-                Alzheimer's patients have been able to return backto normal life, but need continuous assistance.
-            </h5>
+                <h2>01</h2>
+                <h1>Abstract</h1>
+                <h5>
+                    Human storage capacity is enormous. Then why is itthat we keep forgetting things when we get new
+                    memories? People
+                    worldwide have researchedand found out that it's not the memory that hinders in the path, it's the
+                    neural connectionsin
+                    the brain that get weaker with time.
+                </h5>
+                <!-- card start -->
+                <div class="card-div" style="background-color:  rgba(0, 64, 133, 0.4);">
+                    <div class="badger">
+                        <p class="card-subtext">&nbsp; WHAT IF
+                            &nbsp;
+                        </p>
+                    </div>
 
-            <br>
-            <!-- end of content  -->
+                    <!-- <p class="card-maintext">Roadmap Planning Application</p> -->
 
-            <!-- start of content  -->
-            <!-- card start -->
-            <div class="card-div" style="background-color:  rgba(0, 64, 133, 0.4);">
-                <div class="badger">
-                    <p class="card-subtext">&nbsp; CURRENT SCENE
-                        &nbsp;
+                    <p class="card-description">
+                        What if you could remember the events of the past and howyou felt like then? In this project we
+                        look
+                        into a diegetic
+                        prototype which allows us to recollectold memories.
                     </p>
                 </div>
-
-                <!-- <p class="card-maintext">Roadmap Planning Application</p> -->
-
-                <p class="card-description">
-                    People can restore the link to their old memory athome. A person can exactly remember the details
-                    and could exactly feel
-                    how he/she used tofeel. But the downside is that the person should let go of some of their current
-                    memories. Alsothe
-                    memories could be restored for a limited amount of time.
-
-                </p>
+                <!--end of card-->
+                <br>
             </div>
-            <!--end of card-->
-            <br>
             <!-- end of content  -->
 
             <!-- start of content  -->
-            <br>
-            <h2>04</h2>
-            <h1>When and Where</h1>
-            <h5>
-                <b>Year:</b> 2040 <br>
-                <b>Space:</b> The scientists have evolved the technologyto restore lost linkages to old memories by
-                stimulating
-                neurons. <br>
-                <b>People:</b> People nowadays have stopped feeling emotionsas they are extremely busy in chasing the
-                skill race.
-                People don't have time to developmemories. So they just cling to old ones.
-            </h5>
-            <br>
+            <div class="tag">
+                <br>
+                <h2>02</h2>
+                <h1>Potential Artifacts</h1>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <!-- card start -->
+                        <div class="card-div" style="background-color:  rgba(35, 47, 59, 0.8);min-height:410px;">
+                            <div class="badger">
+                                <p class="card-subtext">&nbsp; 01
+                                    &nbsp;
+                                </p>
+                            </div>
+
+                            <p class="card-maintext">Neurons accessing device</p>
+
+                            <p class="card-description">
+                                A device which accessed the neurons of the brain.This device could be attached to the
+                                brain
+                                and could note the activity
+                                of the brain andcontrol it in some manner.
+                            </p>
+                        </div>
+                        <!--end of card-->
+                    </div>
+                    <div class="col-sm-4">
+                        <!-- card start -->
+                        <div class="card-div" style="background-color:  rgba(35, 47, 59, 0.6);min-height:410px;">
+                            <div class="badger">
+                                <p class="card-subtext">&nbsp; 02
+                                    &nbsp;
+                                </p>
+                            </div>
+
+                            <p class="card-maintext">Memory selector device</p>
+
+                            <p class="card-description">
+                                A device which selects the memory to be restored.It could give a visual glimpse of the
+                                memory to be restored. The person
+                                could look at thememory to be restored while being attached to the device.
+                            </p>
+                        </div>
+                        <!--end of card-->
+                    </div>
+                    <div class="col-sm-4">
+                        <!-- card start -->
+                        <div class="card-div" style="background-color:  rgba(35, 47, 59, 0.8);min-height:410px;">
+                            <div class="badger">
+                                <p class="card-subtext">&nbsp; 03
+                                    &nbsp;
+                                </p>
+                            </div>
+
+                            <p class="card-maintext">Website book appointment</p>
+
+                            <p class="card-description">
+                                Put up a website which allows people to explore theproduct and understand how it helps.
+                                Also
+                                tell about the product and
+                                company.
+                            </p>
+                        </div>
+                        <!--end of card-->
+                    </div>
+
+                </div>
+                <br>
+            </div>
             <!-- end of content  -->
 
             <!-- start of content  -->
-            <div class="full-width-div" style="background-color:  rgba(157, 191, 207, 0.8);">
+            <div class="tag">
+                <br>
+                <h2>03</h2>
+                <h1>What led to this</h1>
+                <h5>
+                    The below are some of the events that I imagined whichmight have led to the developments in the
+                    MEMCALL
+                    device.
+                    <br>
+                    <br><i class="em em-small_blue_diamond" aria-role="presentation"
+                        aria-label="SMALL BLUE DIAMOND"></i>
+                    Advancement in technology to study criminal caseshas gone so high that we are able to map out
+                    previous
+                    memories
+                    <br><i class="em em-small_blue_diamond" aria-role="presentation"
+                        aria-label="SMALL BLUE DIAMOND"></i>
+                    Distress among the public is grown so high becauseof the politicians. The unfulﬁlled promises and
+                    lies
+                    told by them has
+                    triggered this.
+                    <br><i class="em em-small_blue_diamond" aria-role="presentation"
+                        aria-label="SMALL BLUE DIAMOND"></i>
+                    Humans have gained a ton of information that they have stopped feeling emotions and creating
+                    memories
+                    all together.
+                    <br><i class="em em-small_blue_diamond" aria-role="presentation"
+                        aria-label="SMALL BLUE DIAMOND"></i>
+                    Alzheimer's patients have been able to return backto normal life, but need continuous assistance.
+                </h5>
+
+                <br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <!-- card start -->
+                <div class="card-div" style="background-color:  rgba(0, 64, 133, 0.4);">
+                    <div class="badger">
+                        <p class="card-subtext">&nbsp; CURRENT SCENE
+                            &nbsp;
+                        </p>
+                    </div>
+
+                    <!-- <p class="card-maintext">Roadmap Planning Application</p> -->
+
+                    <p class="card-description">
+                        People can restore the link to their old memory athome. A person can exactly remember the
+                        details
+                        and could exactly feel
+                        how he/she used tofeel. But the downside is that the person should let go of some of their
+                        current
+                        memories. Alsothe
+                        memories could be restored for a limited amount of time.
+
+                    </p>
+                </div>
+                <!--end of card-->
+                <br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>04</h2>
+                <h1>When and Where</h1>
+                <h5>
+                    <b>Year:</b> 2040 <br>
+                    <b>Space:</b> The scientists have evolved the technologyto restore lost linkages to old memories by
+                    stimulating
+                    neurons. <br>
+                    <b>People:</b> People nowadays have stopped feeling emotionsas they are extremely busy in chasing
+                    the
+                    skill race.
+                    People don't have time to developmemories. So they just cling to old ones.
+                </h5>
+                <br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <div class="full-width-div" style="background-color:  rgba(157, 191, 207, 0.8);">
+                    <div class="container">
+                        <h2 style="color: white;">05</h2>
+                        <h1>Trends Observed</h1>
+                        <h5>
+                            <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
+                            Below mentioned are the trends that suggest such ascenario in future
+                            There are ﬁndings and research that to regain lostmemory you have lost by consciously trying
+                            to
+                            replicate the
+                            setting in
+                            every way possible
+                            <br><i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
+                            Experiment on mice by optogenetics, which led to themouse remembering the trauma it once
+                            had.
+
+                        </h5>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>06</h2>
+                <h1>User Journey</h1>
+                <h5>
+                    The person would initially book an appointment onthe web and add whatever details he/she has of the
+                    past
+                    memory to be
+                    restored. The personwould then visit the center for the procedure. He/she is asked to put on the
+                    equipmentfor the
+                    procedure. He/she is asked which present memories could be compromised as retrievalof old memories
+                    requires that. The
+                    user takes some time to adjust with the past memories.Later he/she goes back home.
+                </h5>
+                <img src="../img/Memcall/userJourney.png" style="width:90%;border-radius:20px;">
+
+                <br>
+            </div>
+            <!-- end of content  -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>07</h2>
+                <h1>System Details</h1>
+                <h5>
+                    In here I discovered how the entire system would work.The system connects the human whose memory
+                    needs
+                    to be retrieved
+                    through a headgearand a ﬁnger clip. Headgear gear is used to track neural signals and trigger by
+                    voice/image.Finger Clip
+                    stimulates electric signals. The machine is connected to the system which has informationabout the
+                    previous memories
+                    like images/videos/audio.
+                </h5>
+                <img src="../img/Memcall/system.png" style="width:80%;border-radius:20px;padding-left: 20%;">
+
+                <br><br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <div class="full-width-div" style="background-color:  rgba(157, 191, 207, 0.8);">
+                    <div class="container">
+                        <h2 style="color: white;">08</h2>
+                        <h1>Strategy for prototype</h1>
+                        <h5>
+                            The goal of the website was to make people believethat such a device is relatable to them
+                            and it
+                            could
+                            be helpful for
+                            them. The goal is to ﬁllin the gaps of desire to remember older memories. The website also
+                            allows the
+                            user to bookan
+                            appointment. The appointment booking procedure is similar to that in the current
+                            scenario.This
+                            makes the
+                            customer
+                            believe that he/she is actually booking an appointment. Error andextra(sometimes irrelevant)
+                            details are
+                            added in the
+                            prototype which make people believe inthe prototype. These details aid the mental model of
+                            the
+                            user.
+                            Attention to
+                            details isalso given in the information section of the company which makes people believe in
+                            the
+                            legitimacyof the
+                            prototype.
+                        </h5><br>
+
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- end of content  -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>09</h2>
+                <h1>Website flow</h1>
+                <img src="../img/Memcall/webiteflow.png" style="width:90%;border-radius:20px;">
+                <br>
+            </div>
+            <!-- end of content  -->
+            <br><br>
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>10</h2>
+                <h1>Information Architecture</h1>
+                <img src="../img/Memcall/ia.png" style="width:70%;border-radius:20px;padding-left: 20%;">
+
+                <br>
+            </div>
+            <!-- end of content  -->
+            <!-- start of content  -->
+            <div class="">
+                <br>
+                <h2>11</h2>
+                <h1>Features</h1>
+                <h5>The different sections of the website have been discussed below. </h5>
+                <br>
+
+                <!-- feature start  -->
+                <div class="row tag">
+                    <div class="col-sm-7">
+                        <img src="../img/Memcall/Group 19.png" style="width:100%;">
+                    </div>
+                    <div class="col-sm-5">
+                        <h5>
+                            <div class="badger-gray">
+                                <p class="card-subtext">&nbsp; 01
+                                    &nbsp;
+                                </p>
+                            </div>
+                            <b>
+                                <p>Questionnaire Section
+                                </p>
+                            </b>
+                            The questionnaire was divided into multiple sections.Initially the website asks about the
+                            age of
+                            the person. This is
+                            used to show memories onlybelow that age group. In the next section we ask the person which
+                            age
+                            group memory they wish
+                            torevive. This is a personalisation step so that the person doesn’t have to view scenarios
+                            ofother age groups. Due to
+                            time and resource constraints I had to skip this reﬁning step. Afterthis the person is
+                            provided
+                            with 3 scenarios and
+                            each scenario is followed by 4 questions relatedto the scenario. 1 generic question related
+                            to
+                            the scenario was also
+                            planned, but dueto constraints it could not be put.
+
+                        </h5>
+                        <a href="">Link to the Questions and Answers</a>
+                    </div>
+                </div>
+                <!-- feature end  -->
+                <br><br>
+                <hr><br><br>
+                <!-- feature start  -->
+                <div class="row tag">
+                    <div class="col-sm-5">
+                        <h5>
+                            <div class="badger-gray">
+                                <p class="card-subtext">&nbsp; 02
+                                    &nbsp;
+                                </p>
+                            </div>
+                            <b>
+                                <p>Booking Section
+                                </p>
+                            </b>
+                            This section allows you to book an appointment aswell as question about the functioning of
+                            the
+                            machine. An error page is
+                            added at the end whichleaves people thinking at the end. The interface is similar to that of
+                            the
+                            current bookingsystems.
+                            Additional details like the headgear and ﬁnger clip for memory estimation,
+                            SSDBF(SensationStored
+                            Data in Byte File) add
+                            to the details.
+                        </h5>
+                    </div>
+                    <div class="col-sm-7">
+                        <img src="../img/Memcall/Group 20.png" style="width:100%;">
+                    </div>
+
+                </div>
+                <!-- feature end  -->
+                <br><br>
+                <hr><br><br>
+                <!-- feature start  -->
+                <div class="row tag">
+                    <div class="col-sm-7">
+                        <img src="../img/Memcall/Group 21.png" style="width:100%;">
+                    </div>
+                    <div class="col-sm-5">
+                        <h5>
+                            <div class="badger-gray">
+                                <p class="card-subtext">&nbsp; 03
+                                    &nbsp;
+                                </p>
+                            </div>
+                            <b>
+                                <p>Error Section
+                                </p>
+                            </b>
+                            Initial thought was to implement downloading of PDFwith appointment details. Due to time
+                            constraints, this was not
+                            implemented. Also to leavethe users thinking the idea of an error page was introduced.
+
+                        </h5>
+                    </div>
+                </div>
+                <!-- feature end  -->
+                <br><br>
+                <hr><br><br>
+                <!-- feature start  -->
+                <div class="row tag">
+                    <div class="col-sm-5">
+                        <h5>
+                            <div class="badger-gray">
+                                <p class="card-subtext">&nbsp; 04
+                                    &nbsp;
+                                </p>
+                            </div>
+                            <b>
+                                <p>About Section
+                                </p>
+                            </b>
+                            The about section was introduced so that the peoplestart believing that such a company and
+                            its
+                            products exist. This
+                            includes 4 sections: 1. About
+                            This section contains the history of the company and its founder. 2. Products This section
+                            contains details about the
+                            product MEMCALL.It also contains a link to a prototype speciﬁcation document. 3. Goals This
+                            section contains the goals
+                            and objectives ofthe company. 4. Docs This section contains all the links to the
+                            documentsand
+                            external links.
+
+                        </h5>
+                    </div>
+                    <div class="col-sm-7">
+                        <img src="../img/Memcall/Group 22.png" style="width:100%;">
+                    </div>
+
+                </div>
+                <!-- feature end  -->
+            </div>
+            <!-- end of content  -->
+            <!-- start of content  -->
+
+            <div class="full-width-div tag" style="background-color:  rgba(157, 191, 207, 0.8);">
                 <div class="container">
-                    <h2 style="color: white;">05</h2>
-                    <h1>Trends Observed</h1>
-                    <h5>
-                        <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
-                        Below mentioned are the trends that suggest such ascenario in future
-                        There are ﬁndings and research that to regain lostmemory you have lost by consciously trying to
-                        replicate the
-                        setting in
-                        every way possible
-                        <br><i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
-                        Experiment on mice by optogenetics, which led to themouse remembering the trauma it once had.
-
+                    <h2 style="color: white;">12</h2>
+                    <h1>Supporting Artifacts</h1>
+                    <h5>Three supporting artifacts were added which explainedmore details about the product and which
+                        made the
+                        user question
+                        about the possible future which is portrayed in this project.
                     </h5>
-                    <br>
-                    <br>
-                </div>
-            </div>
-            <!-- end of content  -->
+                    <div class="row">
+                        <div class="col-sm-4"
+                            onclick="location.href='https://www.youtube.com/watch?v=fFXo9CeJRwQ&feature=youtu.be&ab_channel=AnuragKumar';"
+                            style="cursor: pointer;">
+                            <!-- card start -->
+                            <div class="card-div hoverfn" style="background-color:  rgba(230, 37, 11, 0.6);">
+                                <div class="badger">
+                                    <p class="card-subtext">&nbsp; GOTO YOUTUBE
+                                        &nbsp;
+                                    </p>
+                                </div>
 
-            <!-- start of content  -->
-            <br>
-            <h2>06</h2>
-            <h1>User Journey</h1>
-            <h5>
-                The person would initially book an appointment onthe web and add whatever details he/she has of the past
-                memory to be
-                restored. The personwould then visit the center for the procedure. He/she is asked to put on the
-                equipmentfor the
-                procedure. He/she is asked which present memories could be compromised as retrievalof old memories
-                requires that. The
-                user takes some time to adjust with the past memories.Later he/she goes back home.
-            </h5>
-            <img src="../img/Memcall/userJourney.png" style="width:90%;border-radius:20px;">
+                                <p class="card-maintext">Introduction video
+                                    <i class="em em-arrow_upper_right" aria-role="presentation"
+                                        aria-label="NORTH EAST ARROW"></i>
+                                </p>
 
-            <br>
-            <!-- end of content  -->
-            <!-- start of content  -->
-            <br>
-            <h2>07</h2>
-            <h1>System Details</h1>
-            <h5>
-                In here I discovered how the entire system would work.The system connects the human whose memory needs
-                to be retrieved
-                through a headgearand a ﬁnger clip. Headgear gear is used to track neural signals and trigger by
-                voice/image.Finger Clip
-                stimulates electric signals. The machine is connected to the system which has informationabout the
-                previous memories
-                like images/videos/audio.
-            </h5>
-            <img src="../img/Memcall/system.png" style="width:80%;border-radius:20px;padding-left: 20%;">
-
-            <br><br>
-            <!-- end of content  -->
-
-            <!-- start of content  -->
-            <div class="full-width-div" style="background-color:  rgba(157, 191, 207, 0.8);">
-                <div class="container">
-                    <h2 style="color: white;">08</h2>
-                    <h1>Strategy for prototype</h1>
-                    <h5>
-                        The goal of the website was to make people believethat such a device is relatable to them and it
-                        could
-                        be helpful for
-                        them. The goal is to ﬁllin the gaps of desire to remember older memories. The website also
-                        allows the
-                        user to bookan
-                        appointment. The appointment booking procedure is similar to that in the current scenario.This
-                        makes the
-                        customer
-                        believe that he/she is actually booking an appointment. Error andextra(sometimes irrelevant)
-                        details are
-                        added in the
-                        prototype which make people believe inthe prototype. These details aid the mental model of the
-                        user.
-                        Attention to
-                        details isalso given in the information section of the company which makes people believe in the
-                        legitimacyof the
-                        prototype.
-                    </h5><br>
-
-                    <br>
-                </div>
-            </div>
-            <!-- end of content  -->
-            <!-- start of content  -->
-            <br>
-            <h2>09</h2>
-            <h1>Website flow</h1>
-            <img src="../img/Memcall/webiteflow.png" style="width:90%;border-radius:20px;">
-            <br>
-            <!-- end of content  -->
-            <br><br>
-            <!-- start of content  -->
-            <br>
-            <h2>10</h2>
-            <h1>Information Architecture</h1>
-            <img src="../img/Memcall/ia.png" style="width:70%;border-radius:20px;padding-left: 20%;">
-
-            <br>
-            <!-- end of content  -->
-            <!-- start of content  -->
-            <br>
-            <h2>11</h2>
-            <h1>Features</h1>
-            <h5>The different sections of the website have been discussed below. </h5>
-            <br>
-            <!-- feature start  -->
-            <div class="row">
-                <div class="col-sm-7">
-                    <img src="../img/Memcall/Group 19.png" style="width:100%;">
-                </div>
-                <div class="col-sm-5">
-                    <h5>
-                        <div class="badger-gray">
-                            <p class="card-subtext">&nbsp; 01
-                                &nbsp;
-                            </p>
+                            </div>
+                            <!--end of card-->
                         </div>
-                        <b>
-                            <p>Questionnaire Section
-                            </p>
-                        </b>
-                        The questionnaire was divided into multiple sections.Initially the website asks about the age of
-                        the person. This is
-                        used to show memories onlybelow that age group. In the next section we ask the person which age
-                        group memory they wish
-                        torevive. This is a personalisation step so that the person doesn’t have to view scenarios
-                        ofother age groups. Due to
-                        time and resource constraints I had to skip this reﬁning step. Afterthis the person is provided
-                        with 3 scenarios and
-                        each scenario is followed by 4 questions relatedto the scenario. 1 generic question related to
-                        the scenario was also
-                        planned, but dueto constraints it could not be put.
+                        <div class="col-sm-4" onclick="location.href='../img/Memcall/Specs.pdf';"
+                            style="cursor: pointer;">
+                            <!-- card start -->
+                            <div class="card-div hoverfn" style="background-color:  rgba(0, 64, 133, 0.6);">
+                                <div class="badger">
+                                    <p class="card-subtext">&nbsp; GOTO DOCUMENT
+                                        &nbsp;
+                                    </p>
+                                </div>
 
-                    </h5>
-                    <a href="">Link to the Questions and Answers</a>
-                </div>
-            </div>
-            <!-- feature end  -->
-            <br><br>
-            <hr><br><br>
-            <!-- feature start  -->
-            <div class="row">
-                <div class="col-sm-5">
-                    <h5>
-                        <div class="badger-gray">
-                            <p class="card-subtext">&nbsp; 02
-                                &nbsp;
-                            </p>
+                                <p class="card-maintext">Specifications
+                                    <i class="em em-arrow_upper_right" aria-role="presentation"
+                                        aria-label="NORTH EAST ARROW"></i>
+                                </p>
+
+                            </div>
+                            <!--end of card-->
                         </div>
-                        <b>
-                            <p>Booking Section
-                            </p>
-                        </b>
-                        This section allows you to book an appointment aswell as question about the functioning of the
-                        machine. An error page is
-                        added at the end whichleaves people thinking at the end. The interface is similar to that of the
-                        current bookingsystems.
-                        Additional details like the headgear and ﬁnger clip for memory estimation, SSDBF(SensationStored
-                        Data in Byte File) add
-                        to the details.
-                    </h5>
-                </div>
-                <div class="col-sm-7">
-                    <img src="../img/Memcall/Group 20.png" style="width:100%;">
-                </div>
+                        <div class="col-sm-4" onclick="location.href='../img/Memcall/Disclaimer.pdf';"
+                            style="cursor: pointer;">
+                            <!-- card start -->
+                            <div class="card-div hoverfn" style="background-color:  rgba(23, 170, 3, 0.6);">
+                                <div class="badger">
+                                    <p class="card-subtext">&nbsp; GOTO DOCUMENT
+                                        &nbsp;
+                                    </p>
+                                </div>
 
-            </div>
-            <!-- feature end  -->
-            <br><br>
-            <hr><br><br>
-            <!-- feature start  -->
-            <div class="row">
-                <div class="col-sm-7">
-                    <img src="../img/Memcall/Group 21.png" style="width:100%;">
-                </div>
-                <div class="col-sm-5">
-                    <h5>
-                        <div class="badger-gray">
-                            <p class="card-subtext">&nbsp; 03
-                                &nbsp;
-                            </p>
+                                <p class="card-maintext">Disclaimer
+                                    <i class="em em-arrow_upper_right" aria-role="presentation"
+                                        aria-label="NORTH EAST ARROW"></i>
+                                </p>
+
+                            </div>
+                            <!--end of card-->
                         </div>
-                        <b>
-                            <p>Error Section
-                            </p>
-                        </b>
-                        Initial thought was to implement downloading of PDFwith appointment details. Due to time
-                        constraints, this was not
-                        implemented. Also to leavethe users thinking the idea of an error page was introduced.
-
-                    </h5>
-                </div>
-            </div>
-            <!-- feature end  -->
-            <br><br>
-            <hr><br><br>
-            <!-- feature start  -->
-            <div class="row">
-                <div class="col-sm-5">
-                    <h5>
-                        <div class="badger-gray">
-                            <p class="card-subtext">&nbsp; 04
-                                &nbsp;
-                            </p>
-                        </div>
-                        <b>
-                            <p>About Section
-                            </p>
-                        </b>
-                        The about section was introduced so that the peoplestart believing that such a company and its
-                        products exist. This
-                        includes 4 sections: 1. About
-                        This section contains the history of the company and its founder. 2. Products This section
-                        contains details about the
-                        product MEMCALL.It also contains a link to a prototype speciﬁcation document. 3. Goals This
-                        section contains the goals
-                        and objectives ofthe company. 4. Docs This section contains all the links to the documentsand
-                        external links.
-
-                    </h5>
-                </div>
-                <div class="col-sm-7">
-                    <img src="../img/Memcall/Group 22.png" style="width:100%;">
-                </div>
-
-            </div>
-            <!-- feature end  -->
-            <!-- end of content  -->
-            <!-- start of content  -->
-                        <div class="full-width-div" style="background-color:  rgba(157, 191, 207, 0.8);">
-                            <div class="container">
-            <h2 style="color: white;">12</h2>
-            <h1>Supporting Artifacts</h1>
-            <h5>Three supporting artifacts were added which explainedmore details about the product and which made the
-                user question
-                about the possible future which is portrayed in this project.
-            </h5>
-            <div class="row">
-                <div class="col-sm-4"
-                    onclick="location.href='https://www.youtube.com/watch?v=fFXo9CeJRwQ&feature=youtu.be&ab_channel=AnuragKumar';"
-                    style="cursor: pointer;">
-                    <!-- card start -->
-                    <div class="card-div hoverfn" style="background-color:  rgba(230, 37, 11, 0.6);">
-                        <div class="badger">
-                            <p class="card-subtext">&nbsp; GOTO YOUTUBE
-                                &nbsp;
-                            </p>
-                        </div>
-
-                        <p class="card-maintext">Introduction video
-                            <i class="em em-arrow_upper_right" aria-role="presentation"
-                                aria-label="NORTH EAST ARROW"></i>
-                        </p>
-
                     </div>
-                    <!--end of card-->
+
+                    <br><br>
                 </div>
-                <div class="col-sm-4" onclick="location.href='../img/Memcall/Specs.pdf';" style="cursor: pointer;">
-                    <!-- card start -->
-                    <div class="card-div hoverfn" style="background-color:  rgba(0, 64, 133, 0.6);">
-                        <div class="badger">
-                            <p class="card-subtext">&nbsp; GOTO DOCUMENT
-                                &nbsp;
-                            </p>
-                        </div>
-
-                        <p class="card-maintext">Specifications
-                            <i class="em em-arrow_upper_right" aria-role="presentation"
-                                aria-label="NORTH EAST ARROW"></i>
-                        </p>
-
-                    </div>
-                    <!--end of card-->
-                </div>
-                <div class="col-sm-4" onclick="location.href='../img/Memcall/Disclaimer.pdf';" style="cursor: pointer;">
-                    <!-- card start -->
-                    <div class="card-div hoverfn" style="background-color:  rgba(23, 170, 3, 0.6);">
-                        <div class="badger">
-                            <p class="card-subtext">&nbsp; GOTO DOCUMENT
-                                &nbsp;
-                            </p>
-                        </div>
-
-                        <p class="card-maintext">Disclaimer
-                            <i class="em em-arrow_upper_right" aria-role="presentation"
-                                aria-label="NORTH EAST ARROW"></i>
-                        </p>
-
-                    </div>
-                    <!--end of card-->
-                </div>
-            </div>
-
-            <br><br>    
-            </div>
             </div>
             <!-- end of content  -->
             <!-- start of content  -->
-            <br>
-            <h2>13</h2>
-            <h1>Results</h1>
-            <h5>The prototype was successfully developed and presented to the audience. The prototype is engaging and
-                deﬁnitely raises
-                some questions aboutthe future of mankind. Attention was given to the interface in order to make it look
-                futuristic.Some
-                additional features and reﬁnement could be added so that the questions arecatered to the chosen age
-                group and their age
-                of preference of memory retrieval.
-            </h5>>
+            <div class="tag">
+                <br>
+                <h2>13</h2>
+                <h1>Results</h1>
+                <h5>The prototype was successfully developed and presented to the audience. The prototype is engaging
+                    and
+                    deﬁnitely raises
+                    some questions aboutthe future of mankind. Attention was given to the interface in order to make it
+                    look
+                    futuristic.Some
+                    additional features and reﬁnement could be added so that the questions arecatered to the chosen age
+                    group and their age
+                    of preference of memory retrieval.
+                </h5>>
 
-            <br>
+                <br>
+            </div>
             <!-- end of content  -->
             <br><br>
 
@@ -600,8 +683,6 @@
                         </div>
 
                         <p class="card-maintext">Roadmap Planning Application
-                            <i class="em em-arrow_upper_right" aria-role="presentation"
-                                aria-label="NORTH EAST ARROW"></i>
                         </p>
                         <img src="../img/DEShaw/deshawbanner.png" style="width: 100%;">
                     </div>
@@ -618,8 +699,6 @@
                         </div>
 
                         <p class="card-maintext">Maid for you
-                            <i class="em em-arrow_upper_right" aria-role="presentation"
-                                aria-label="NORTH EAST ARROW"></i>
                         </p>
                         <img src="../img/MaidForYou/maidBanner.png"
                             style="width: 100%;border-radius:20px; border:5px solid #EED59A">

@@ -44,6 +44,26 @@
         </nav>
     </div>
 
+    <script>
+        //for fade in loading
+        $(document).on("scroll", function () {
+            var pageTop = $(document).scrollTop();
+            var pageBottom = pageTop + $(window).height();
+            var tags = $(".tag");
+
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i];
+
+                if ($(tag).position().top < pageBottom) {
+                    $(tag).addClass("visible");
+                } else {
+                    $(tag).removeClass("visible");
+                }
+            }
+        });
+
+    </script>
+
 
     <div class="container fill" style="padding-top: 25vh;">
 
@@ -76,7 +96,8 @@
             </div>
             <div class="col-sm-7">
                 <div class="d-none d-lg-block">
-                    <img src="../img/MaidForYou/maidBanner.png" style="width:120%;border-radius:20px; border:5px solid #EED59A">
+                    <img src="../img/MaidForYou/maidBanner.png"
+                        style="width:120%;border-radius:20px; border:5px solid #EED59A">
                 </div>
             </div>
 
@@ -93,57 +114,67 @@
         <div class="container padding100">
 
             <!-- start of content  -->
-            <br><h2>01</h2>
-            <h1>Project Brief</h1>
-            <h5>
-                Design a service that <b>connects domestic helpers and householders</b>, while ensuring transparency and
-                job security
-            </h5>
+            <div class="tag">
+                <br>
+                <h2>01</h2>
+                <h1>Project Brief</h1>
+                <h5>
+                    Design a service that <b>connects domestic helpers and householders</b>, while ensuring transparency
+                    and
+                    job security
+                </h5>
 
-            <br>
+                <br>
+            </div>
             <!-- end of content  -->
 
             <!-- start of content  -->
-            <br><h2>02</h1>
-            <h1>Primary Research</h1>
-            <h5>
-                We sent out a survey to around 200+ people finding out the situation of domestic helpers in their
-                locality. Some of the
-                questions asked and the answers we got are presented below.
-            </h5>
-            <br>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h5 style="text-align: center;"><b>What do you need a maid for?</b></h5>
-                    <img src="../img/MaidForYou/primary1.png" style="width:90%;border-radius:20px;">
+            <div class="tag">
+                <br>
+                <h2>02</h2>
+                <h1>Primary Research</h1>
+                <h5>
+                    We sent out a survey to around 200+ people finding out the situation of domestic helpers in
+                    their
+                    locality. Some of the
+                    questions asked and the answers we got are presented below.
+                </h5>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h5 style="text-align: center;"><b>What do you need a maid for?</b></h5>
+                        <img src="../img/MaidForYou/primary1.png" style="width:90%;border-radius:20px;">
+                    </div>
+                    <div class="col-sm-6">
+                        <h5 style="text-align: center;"><b>What is your living situation?</b></h5>
+                        <img src="../img/MaidForYou/primary2.png" style="width:90%;border-radius:20px;">
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <h5 style="text-align: center;"><b>What is your living situation?</b></h5>
-                    <img src="../img/MaidForYou/primary2.png" style="width:90%;border-radius:20px;">
+                <br><br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h5 style="text-align: center;"><b>What do you need a maid for?</b></h5>
+                        <img src="../img/MaidForYou/primary3.png" style="width:90%;border-radius:20px;">
+                    </div>
+                    <div class="col-sm-6">
+                        <h5 style="text-align: center;"><b>What is your living situation?</b></h5>
+                        <img src="../img/MaidForYou/primary4.png" style="width:90%;border-radius:20px;">
+                    </div>
                 </div>
+                <br>
+                <br>
             </div>
-            <br><br>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h5 style="text-align: center;"><b>What do you need a maid for?</b></h5>
-                    <img src="../img/MaidForYou/primary3.png" style="width:90%;border-radius:20px;">
-                </div>
-                <div class="col-sm-6">
-                    <h5 style="text-align: center;"><b>What is your living situation?</b></h5>
-                    <img src="../img/MaidForYou/primary4.png" style="width:90%;border-radius:20px;">
-                </div>
-            </div>
-            <br>
-            <br>
             <!-- end of content  -->
 
             <!-- start of content  -->
-            <div class="full-width-div" style="background-color:  rgba(238, 213, 154, 0.8);">
+            <div class="full-width-div tag" style="background-color:  rgba(238, 213, 154, 0.8);">
                 <div class="container">
-                    <br><h2  style="color:white;">03</h2>
+                    <br>
+                    <h2 style="color:white;">03</h2>
                     <h1>Secondary Research</h1>
                     <h5>
-                        We looked out at existing solutions for connecting maids and householders and registered in an
+                        We looked out at existing solutions for connecting maids and householders and registered in
+                        an
                         existing
                         application to
                         observe the customer’s side of service.
@@ -173,7 +204,8 @@
                                 <img src="../img/MaidForYou/housemaidforyou.png" style="width:90%;border-radius:20px;">
                                 <br><br>
                                 <p class="card-description black-text">
-                                    Housemaidforyou.com, a site that operates only in Bengaluru at present, offers only
+                                    Housemaidforyou.com, a site that operates only in Bengaluru at present, offers
+                                    only
                                     full-day
                                     maids for 8-9 hours.
                                 </p>
@@ -212,306 +244,361 @@
             <!-- end of content  -->
 
             <!-- start of content  -->
-            <br><h2>04</h2>
-            <h1>Personas</h1>
-            <img src="../img/MaidForYou/maid.png" alt="Card image" style="width: 90%;padding-left: 10%;">
-            <br><br>
-            <img src="../img/MaidForYou/householder.png" alt="Card image" style="width: 90%;padding-left: 10%;">
-            <br><br>
-            <!-- end of content  -->
-
-            <!-- start of content  -->
-            <br><h2>05</h2>
-            <h1>Service Ecosystem Map</h1>
-            <h5>
-                Mapping out the existing ecosystem and identifying potential areas for improvements or connections
-                helped us understand
-                how people make connections.
-            </h5>
-            <br>
-            <img src="../img/MaidForYou/ServiceEcosystem.png" alt="Card image" style="width: 90%;">
-            <br><br><br>
-            <!-- end of content  -->
-
-            <!-- start of content  -->
-            <br><h2>06</h2>
-            <h1>Customer Journey Map</h1>
-            <h5>
-                We then examined the existing process and created this customer journey map of both of our users,
-                side-by-side.
-            </h5>
-            <br>
-            <img src="../img/MaidForYou/CJM.png" alt="Card image" style="width: 100%;">
-            <br><br><br>
-            <!-- end of content  -->
-
-            <!-- start of content  -->
-            <br><h2>07</h2>
-            <h1>Insights & Pain Points</h1>
-            <h5>
-                We interviewed a few maids and householders and found some interesting insights and breakdowns.
-            </h5>
-            <br>
-            <img src="../img/MaidForYou//insights.png" alt="Card image" style="width: 80%;padding-left: 10%;">
-            <br><br><br>
-            <!-- end of content  -->
-
-            <!-- start of content  --><br>
-            <!-- card start -->
-            <div class="card-div" style="background-color:  rgba(238, 213, 154, 0.6 );">
-                <div class="badger">
-                    <p class="card-subtext">&nbsp; INFORMATION
-                        &nbsp;
-                    </p>
-                </div>
-
-                <p class="card-description black-text">
-                    Based on our research we created a solution which catered to both the domestic helpers and
-                    householders.
-                </p>
-            </div>
-            <!--end of card-->
-            <br><br><br>
-            <!-- end of content  -->
-
-            <!-- start of content  -->
-            <br><h2>08</h2>
-            <h1>Service Encounters in several stages</h1>
-            <h5>
-                While Core service encounters are essential to the service, Pre-Core and Post-Core encounters are
-                equally important. </h5>
-            <br>
-            <img src="../img/MaidForYou/Service Encounters.png" alt="Card image" style="width: 100%;padding-left: 5%;">
-            <br><br><br>
-            <!-- end of content  -->
-
-            <!-- start of content  -->
-            <br><h2>09</h2>
-            <h1>Mapping ideas to the levels of service value creation</h1>
-            <h5>
-                Many similar existing services do not give any importance to conflict resolution and often end up trying
-                to make just
-                the householders happy, ignoring the needs of the maid in the process. We consider both the domestic
-                helpers and the
-                householders important stakeholders and that is the transformational value of our service. </h5>
-            <br>
-            <img src="../img/MaidForYou/value creation.png" alt="Card image" style="width: 70%;padding-left: 10%;">
-            <br><br><br>
-            <!-- end of content  -->
-
-            <!-- start of content  -->
-            <br><h2>10</h2>
-            <h1>New Service Ecosystem Map</h1>
-            <h5>
-                Utilizing the old ecosystem and forging new connections helped us build a new and better service
-                ecosystem. </h5>
-            <br>
-            <img src="../img/MaidForYou/ServiceEcosystem2.png" alt="Card image" style="width: 90%;padding-left: 10%;">
-            <br><br><br>
-            <!-- end of content  -->
-
-            <!-- start of content  -->
-            <br><h2>11</h2>
-            <h1>Setting up of the service in the company</h1>
-            <h5>
-                Before the service can be provided, the necessary infrastructure needs to exist. So we also hashed out
-                how the company
-                would be set up. </h5>
-            <br>
-            <img src="../img/MaidForYou/service setup.png" alt="Card image" style="width: 70%;padding-left: 20%;">
-            <br><br><br>
-            <!-- end of content  -->
-
-            <!-- start of content  -->
-            <br><h2>12</h2>
-            <h1>Service Blueprint</h1>
-            <h5>
-                A service can be best explained using a detailed blueprint.</h5>
-
-            <div style="overflow: auto;  white-space: nowrap;  display: inline-block;width:1100px;">
-                <img src="../img/MaidForYou/blueprint.jpg" style="display: inline-block;width: 270%">
-            </div>
-            <br><br><br>
-
-            <!-- end of content  -->
-
-            <!-- start of content  -->
-            <br><h2>13</h2>
-            <h1>Touchpoint Design</h1>
-            <h5>
-                Each touchpoint is a way to reach our users and convey important information. The three most important
-                touchpoints of
-                our serv ice are the flyers, the WhatsApp Business account and the Moderators.</h5>
-            <br>
-            <img src="../img/MaidForYou/TPDeesign.png" alt="Card image" style="width: 80%;padding-left: 20%;">
-            <br><br><br>
-            <!-- end of content  -->
-
-            <!-- start of content  -->
-            <br><h2>14</h2>
-            <h1>Service Failure Recovery</h1>
-            <h5>
-                <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
-                <b>Encounter</b><br>
-                (Post-core) Padmini's maid has stopped coming after 2 weeks. At first, she thought she was sick, so she
-                called her
-                to
-                confirm. The maid did not pick up her calls. It has been 4 days since, and Padmini is getting stresses
-                by doing all
-                the
-                house work.sas
-            </h5>
-            <br>
-            <h5>
-                <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
-                <b>Goal</b><br>
-                To get her maid back
-            </h5>
-            <br>
-            <h5>
-                <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
-                <b>Action</b><br>
-                Padmini calls the moderator to figure out the situation
-            </h5>
-            <br>
-            <h5>
-                <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
-                <b>Encounter</b><br>
-                (Post-core) Padmini's maid has stopped coming after 2 weeks. At first, she thought she was sick, so she
-                called her
-                to
-                confirm. The maid did not pick up her calls. It has been 4 days since, and Padmini is getting stresses
-                by doing all
-                the
-                house work.
-            </h5>
-            <br>
-            <img src="../img/MaidForYou/recovery1.png" alt="Card image" style="width: 80%;padding-left: 20%;">
-            <br><br><br>
-            <!-- end of content  -->
-
-            <!-- start of content  -->
-            <br><h2>15</h2>
-            <h1>How Value Equation is affected</h1>
-            <!-- card start -->
-            <div class="card-div" style="background: linear-gradient(to top left,#BC4555 0%, #EED59A 100%);">
-                <div class="badger">
-                    <p class="card-subtext">&nbsp; VALUE EQUATION
-                        &nbsp;
-                    </p>
-                </div>
-                <img src="../img/MaidForYou/valueEquation.png" alt="Card image" style="width: 80%;padding-left: 20%;">
+            <div class="tag">
+                <br>
+                <h2>04</h2>
+                <h1>Personas</h1>
+                <img src="../img/MaidForYou/maid.png" alt="Card image" style="width: 90%;padding-left: 10%;">
+                <br><br>
+                <img src="../img/MaidForYou/householder.png" alt="Card image" style="width: 90%;padding-left: 10%;">
                 <br><br>
             </div>
-            <!--end of card-->
-            <br><br><br>
+            <!-- end of content  -->
 
-            <div class="row">
-                <div class="col-sm-6">
-                    <p style="color: darkgray;">For Domestic Helper</p>
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <hr>
-                        </div>
-                        <div class="col-sm-4"></div>
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>05</h2>
+                <h1>Service Ecosystem Map</h1>
+                <h5>
+                    Mapping out the existing ecosystem and identifying potential areas for improvements or
+                    connections
+                    helped us understand
+                    how people make connections.
+                </h5>
+                <br>
+                <img src="../img/MaidForYou/ServiceEcosystem.png" alt="Card image" style="width: 90%;">
+                <br><br><br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>06</h2>
+                <h1>Customer Journey Map</h1>
+                <h5>
+                    We then examined the existing process and created this customer journey map of both of our
+                    users,
+                    side-by-side.
+                </h5>
+                <br>
+                <img src="../img/MaidForYou/CJM.png" alt="Card image" style="width: 100%;">
+                <br><br><br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>07</h2>
+                <h1>Insights & Pain Points</h1>
+                <h5>
+                    We interviewed a few maids and householders and found some interesting insights and breakdowns.
+                </h5>
+                <br>
+                <img src="../img/MaidForYou//insights.png" alt="Card image" style="width: 80%;padding-left: 10%;">
+                <br><br><br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <!-- card start -->
+                <div class="card-div" style="background-color:  rgba(238, 213, 154, 0.6 );">
+                    <div class="badger">
+                        <p class="card-subtext">&nbsp; INFORMATION
+                            &nbsp;
+                        </p>
                     </div>
-                    <img src="../img/MaidForYou/maidpic.png" alt="Card image" style="width: 50%;padding-left: 20%;">
-                    <br><br>
-                    <h5>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <b>Benefits</b>
-                                <br><img src="../img/MaidForYou/GU.png" style="width: 15%;"> functional
-                                <br><img src="../img/MaidForYou/GU.png" style="width: 15%;"> emotional
-                                <br><img src="../img/MaidForYou/GU.png" style="width: 15%;"> social
-                            </div>
-                            <div class="col-sm-9">
-                                <b>Reasons</b>
-                                <br>Guarantee of minimum pay
-                                <br>Protection from abuse
-                                <br>No change
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <b>Costs</b>
-                                <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> monetary
-                                <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> time
-                                <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> efforts
-                                <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> psychic
-                                <br><img src="../img/MaidForYou/RU.png" style="width: 15%;"> social
-                            </div>
-                            <div class="col-sm-9">
-                                <b>Reasons</b>
-                                <br>Travel cost reduced to search for homes
-                                <br>Travel time reduced to search for homes
-                                <br>Efforts reduced to go around looking for houses
-                                <br>Reduced as the moderator takes care of issues
-                                <br>Increased as they need to talk to moderator
-                            </div>
-                        </div>
-                    </h5>
+
+                    <p class="card-description black-text">
+                        Based on our research we created a solution which catered to both the domestic helpers and
+                        householders.
+                    </p>
                 </div>
-                <div class="col-sm-6">
-                    <p style="color: darkgray;">For Householder</p>
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <hr>
-                        </div>
-                        <div class="col-sm-4"></div>
+                <!--end of card-->
+                <br><br><br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>08</h2>
+                <h1>Service Encounters in several stages</h1>
+                <h5>
+                    While Core service encounters are essential to the service, Pre-Core and Post-Core encounters
+                    are
+                    equally important. </h5>
+                <br>
+                <img src="../img/MaidForYou/Service Encounters.png" alt="Card image"
+                    style="width: 100%;padding-left: 5%;">
+                <br><br><br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>09</h2>
+                <h1>Mapping ideas to the levels of service value creation</h1>
+                <h5>
+                    Many similar existing services do not give any importance to conflict resolution and often end
+                    up trying
+                    to make just
+                    the householders happy, ignoring the needs of the maid in the process. We consider both the
+                    domestic
+                    helpers and the
+                    householders important stakeholders and that is the transformational value of our service. </h5>
+                <br>
+                <img src="../img/MaidForYou/value creation.png" alt="Card image" style="width: 70%;padding-left: 10%;">
+                <br><br><br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>10</h2>
+                <h1>New Service Ecosystem Map</h1>
+                <h5>
+                    Utilizing the old ecosystem and forging new connections helped us build a new and better service
+                    ecosystem. </h5>
+                <br>
+                <img src="../img/MaidForYou/ServiceEcosystem2.png" alt="Card image"
+                    style="width: 90%;padding-left: 10%;">
+                <br><br><br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>11</h2>
+                <h1>Setting up of the service in the company</h1>
+                <h5>
+                    Before the service can be provided, the necessary infrastructure needs to exist. So we also
+                    hashed out
+                    how the company
+                    would be set up. </h5>
+                <br>
+                <img src="../img/MaidForYou/service setup.png" alt="Card image" style="width: 70%;padding-left: 20%;">
+                <br><br><br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>12</h2>
+                <h1>Service Blueprint</h1>
+                <h5>
+                    A service can be best explained using a detailed blueprint.</h5>
+
+                <div style="overflow: auto;  white-space: nowrap;  display: inline-block;width:1100px;">
+                    <img src="../img/MaidForYou/blueprint.jpg" style="display: inline-block;width: 270%">
+                </div>
+                <br><br><br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>13</h2>
+                <h1>Touchpoint Design</h1>
+                <h5>
+                    Each touchpoint is a way to reach our users and convey important information. The three most
+                    important
+                    touchpoints of
+                    our serv ice are the flyers, the WhatsApp Business account and the Moderators.</h5>
+                <br>
+                <img src="../img/MaidForYou/TPDeesign.png" alt="Card image" style="width: 80%;padding-left: 20%;">
+                <br><br><br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>14</h2>
+                <h1>Service Failure Recovery</h1>
+                <h5>
+                    <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
+                    <b>Encounter</b><br>
+                    (Post-core) Padmini's maid has stopped coming after 2 weeks. At first, she thought she was sick,
+                    so she
+                    called her
+                    to
+                    confirm. The maid did not pick up her calls. It has been 4 days since, and Padmini is getting
+                    stresses
+                    by doing all
+                    the
+                    house work.sas
+                </h5>
+                <br>
+                <h5>
+                    <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
+                    <b>Goal</b><br>
+                    To get her maid back
+                </h5>
+                <br>
+                <h5>
+                    <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
+                    <b>Action</b><br>
+                    Padmini calls the moderator to figure out the situation
+                </h5>
+                <br>
+                <h5>
+                    <i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>
+                    <b>Encounter</b><br>
+                    (Post-core) Padmini's maid has stopped coming after 2 weeks. At first, she thought she was sick,
+                    so she
+                    called her
+                    to
+                    confirm. The maid did not pick up her calls. It has been 4 days since, and Padmini is getting
+                    stresses
+                    by doing all
+                    the
+                    house work.
+                </h5>
+                <br>
+                <img src="../img/MaidForYou/recovery1.png" alt="Card image" style="width: 80%;padding-left: 20%;">
+                <br><br><br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>15</h2>
+                <h1>How Value Equation is affected</h1>
+                <!-- card start -->
+                <div class="card-div" style="background: linear-gradient(to top left,#BC4555 0%, #EED59A 100%);">
+                    <div class="badger">
+                        <p class="card-subtext">&nbsp; VALUE EQUATION
+                            &nbsp;
+                        </p>
                     </div>
-                    <img src="../img/MaidForYou/ownerpic.png" alt="Card image" style="width: 50%;padding-left: 20%;">
+                    <img src="../img/MaidForYou/valueEquation.png" alt="Card image"
+                        style="width: 80%;padding-left: 20%;">
                     <br><br>
-                    <h5>
+                </div>
+                <!--end of card-->
+                <br><br><br>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p style="color: darkgray;">For Domestic Helper</p>
                         <div class="row">
-                            <div class="col-sm-3">
-                                <b>Benefits</b>
-                                <br><img src="../img/MaidForYou/GU.png" style="width: 15%;"> functional
-                                <br><img src="../img/MaidForYou/GU.png" style="width: 15%;"> emotional
-                                <br><img src="../img/MaidForYou/GU.png" style="width: 15%;"> social
+                            <div class="col-sm-8">
+                                <hr>
                             </div>
-                            <div class="col-sm-9">
-                                <b>Reasons</b>
-                                <br>Guarantee of getting a maid, even a replacement
-                                <br>Conflict resolution by moderator
-                                <br>No change
-                            </div>
+                            <div class="col-sm-4"></div>
                         </div>
-                        <br>
+                        <img src="../img/MaidForYou/maidpic.png" alt="Card image" style="width: 50%;padding-left: 20%;">
+                        <br><br>
+                        <h5>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <b>Benefits</b>
+                                    <br><img src="../img/MaidForYou/GU.png" style="width: 15%;"> functional
+                                    <br><img src="../img/MaidForYou/GU.png" style="width: 15%;"> emotional
+                                    <br><img src="../img/MaidForYou/GU.png" style="width: 15%;"> social
+                                </div>
+                                <div class="col-sm-9">
+                                    <b>Reasons</b>
+                                    <br>Guarantee of minimum pay
+                                    <br>Protection from abuse
+                                    <br>No change
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <b>Costs</b>
+                                    <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> monetary
+                                    <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> time
+                                    <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> efforts
+                                    <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> psychic
+                                    <br><img src="../img/MaidForYou/RU.png" style="width: 15%;"> social
+                                </div>
+                                <div class="col-sm-9">
+                                    <b>Reasons</b>
+                                    <br>Travel cost reduced to search for homes
+                                    <br>Travel time reduced to search for homes
+                                    <br>Efforts reduced to go around looking for houses
+                                    <br>Reduced as the moderator takes care of issues
+                                    <br>Increased as they need to talk to moderator
+                                </div>
+                            </div>
+                        </h5>
+                    </div>
+                    <div class="col-sm-6">
+                        <p style="color: darkgray;">For Householder</p>
                         <div class="row">
-                            <div class="col-sm-3">
-                                <b>Costs</b>
-                                <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> monetary
-                                <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> time
-                                <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> efforts
-                                <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> psychic
-                                <br><img src="../img/MaidForYou/RU.png" style="width: 15%;"> social
+                            <div class="col-sm-8">
+                                <hr>
                             </div>
-                            <div class="col-sm-9">
-                                <b>Reasons</b>
-                                <br>Travel cost reduced to search for maids
-                                <br>Travel time reduced to search for maids
-                                <br>Efforts reduced to call neighbors and ask guards
-                                <br>Reduced as the moderator takes care of issues
-                                <br>Increased as they need to talk to moderator
-                            </div>
+                            <div class="col-sm-4"></div>
                         </div>
-                    </h5>
+                        <img src="../img/MaidForYou/ownerpic.png" alt="Card image"
+                            style="width: 50%;padding-left: 20%;">
+                        <br><br>
+                        <h5>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <b>Benefits</b>
+                                    <br><img src="../img/MaidForYou/GU.png" style="width: 15%;"> functional
+                                    <br><img src="../img/MaidForYou/GU.png" style="width: 15%;"> emotional
+                                    <br><img src="../img/MaidForYou/GU.png" style="width: 15%;"> social
+                                </div>
+                                <div class="col-sm-9">
+                                    <b>Reasons</b>
+                                    <br>Guarantee of getting a maid, even a replacement
+                                    <br>Conflict resolution by moderator
+                                    <br>No change
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <b>Costs</b>
+                                    <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> monetary
+                                    <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> time
+                                    <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> efforts
+                                    <br><img src="../img/MaidForYou/GD.png" style="width: 15%;"> psychic
+                                    <br><img src="../img/MaidForYou/RU.png" style="width: 15%;"> social
+                                </div>
+                                <div class="col-sm-9">
+                                    <b>Reasons</b>
+                                    <br>Travel cost reduced to search for maids
+                                    <br>Travel time reduced to search for maids
+                                    <br>Efforts reduced to call neighbors and ask guards
+                                    <br>Reduced as the moderator takes care of issues
+                                    <br>Increased as they need to talk to moderator
+                                </div>
+                            </div>
+                        </h5>
+                    </div>
                 </div>
             </div>
             <!-- end of content  -->
             <br><br>
             <!-- start of content  -->
-            <div class="full-width-div" style="background-color:  rgba(238, 213, 154, 0.8);">
+            <div class="full-width-div tag" style="background-color:  rgba(238, 213, 154, 0.8);">
                 <div class="container">
                     <h2 style="color:white;">16</h2>
                     <h1>Result Video</h1>
                     <h5>
-                        In the below video you can see the how the solution is thought through. We can also observe user
+                        In the below video you can see the how the solution is thought through. We can also
+                        observe user
                         journey
                         of both the householders
-                        and the maids. In here, we have considered only one scenario. Error scenarios could be more
+                        and the maids. In here, we have considered only one scenario. Error scenarios could be
+                        more
                         explored in
                         the future.</h5>
                     <br>
@@ -529,47 +616,45 @@
             </div>
             <!-- end of content  -->
 
-            
+
             <!-- other projects  -->
             <<h2>Thank you for your time! <br><br>Look at other projects below</h2>
-            <br>
+                <br>
 
-            <div class="row">
-                <div class="col-sm-6"  onclick="location.href='./Memcall.html';" style="cursor: pointer;">
-                    <!-- card start -->
-                    <div class="card-div hoverfn"
-                        style="background: linear-gradient(to top left, #99bdd9 0%, #232f3b 100%);min-height:300px;">
-                        <div class="badger">
-                            <p class="card-subtext">&nbsp; COLLEGE PROJECT : IDC, IIT BOMBAY
-                                &nbsp;
+                <div class="row">
+                    <div class="col-sm-6" onclick="location.href='./Memcall.html';" style="cursor: pointer;">
+                        <!-- card start -->
+                        <div class="card-div hoverfn"
+                            style="background: linear-gradient(to top left, #99bdd9 0%, #232f3b 100%);min-height:300px;">
+                            <div class="badger">
+                                <p class="card-subtext">&nbsp; COLLEGE PROJECT : IDC, IIT BOMBAY
+                                    &nbsp;
+                                </p>
+                            </div>
+
+                            <p class="card-maintext">MEMCALL: Design Fiction
                             </p>
+                            <img src="../img/Memcall/MemcallBanner.png" style="width: 100%;">
                         </div>
-
-                        <p class="card-maintext">MEMCALL: Design Fiction
-                            <i class="em em-arrow_upper_right" aria-role="presentation" aria-label="NORTH EAST ARROW"></i>
-                        </p>
-                        <img src="../img/Memcall/MemcallBanner.png" style="width: 100%;">
+                        <!--end of card-->
                     </div>
-                    <!--end of card-->
-                </div>
-                <div class="col-sm-6"  onclick="location.href='./DEShaw.html';" style="cursor: pointer;">
-                    <!-- card start -->
-                    <div class="card-div hoverfn"
-                        style="background: linear-gradient(to top left, #179033 0%, #004085 100%);min-height:300px;">
-                        <div class="badger">
-                            <p class="card-subtext">&nbsp; COMPANY PROJECT : D. E. SHAW
-                                &nbsp;
+                    <div class="col-sm-6" onclick="location.href='./DEShaw.html';" style="cursor: pointer;">
+                        <!-- card start -->
+                        <div class="card-div hoverfn"
+                            style="background: linear-gradient(to top left, #179033 0%, #004085 100%);min-height:300px;">
+                            <div class="badger">
+                                <p class="card-subtext">&nbsp; COMPANY PROJECT : D. E. SHAW
+                                    &nbsp;
+                                </p>
+                            </div>
+
+                            <p class="card-maintext">Roadmap Planning Application
                             </p>
+                            <img src="../img/DEShaw/deshawbanner.png" style="width: 100%;">
                         </div>
-
-                        <p class="card-maintext">Roadmap Planning Application
-                            <i class="em em-arrow_upper_right" aria-role="presentation" aria-label="NORTH EAST ARROW"></i>
-                        </p>
-                        <img src="../img/DEShaw/deshawbanner.png" style="width: 100%;">
+                        <!--end of card-->
                     </div>
-                    <!--end of card-->
                 </div>
-            </div>
 
         </div>
     </div>
