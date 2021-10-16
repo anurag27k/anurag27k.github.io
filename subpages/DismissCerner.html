@@ -45,6 +45,26 @@
         </nav>
     </div>
 
+    <script>
+        //for fade in loading
+        $(document).on("scroll", function () {
+            var pageTop = $(document).scrollTop();
+            var pageBottom = pageTop + $(window).height();
+            var tags = $(".tag");
+
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i];
+
+                if ($(tag).position().top < pageBottom) {
+                    $(tag).addClass("visible");
+                } else {
+                    $(tag).removeClass("visible");
+                }
+            }
+        });
+
+    </script>
+
     <div class="container fill" style="padding-top: 35vh;">
         <h1 style="font-size: 64px;color:white">DISMISS FUNCTIONALITY</h1>
         <p style="color: #f4f1d0;">Cerner Healthcare</p>
@@ -64,148 +84,190 @@
         <div class="container padding100">
             <!-- <h1 style="font-size: 64px; color: #343a40;">01</h1> -->
 
-
-            <h1>Brief</h1>
-            <h5>
-                Cerner provides EMR(Electronic Medical Record) systems to hosiptals for several purposes where one of
-                the jobs is to
-                assist physician to enter details and diagnosis of patients.
-                <br><br>
-                ChartAssist is a component of the system which serves physician by:
+            <!-- content start/end -->
+            <div class="tag">
                 <br>
-                <ul>
-                    <li>Suggesting new missed diseases to add</li>
-                    <li>Suggesting errors from already added diseases</li>
+                <h2>01</h2>
+                <h1>Brief</h1>
+                <h5>
+                    Cerner provides EMR(Electronic Medical Record) systems to hosiptals for several purposes where one
+                    of
+                    the jobs is to
+                    assist physician to enter details and diagnosis of patients.
+                    <br><br>
+                    ChartAssist is a component of the system which serves physician by:
+                    <br>
+                    <ul>
+                        <li><i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>Suggesting new missed diseases to add</li>
+                        <li><i class="em em-small_blue_diamond" aria-role="presentation" aria-label="SMALL BLUE DIAMOND"></i>Suggesting errors from already added diseases</li>
 
-                </ul>
-            </h5>
-            <br>
-
-            <h1>Problem Statement</h1>
-            <h5>Make a flow for when a user selects the 'dismiss' action to remove a proposed documentation opportunity
-                or clinical
-                validation notification.
-            </h5>
-            <br>
-            <h5>Below shows the image of the current state where the component is on the left and the details
-                panel is on the right.
-            </h5>
-
-            <br>
-            <div class="row" style="text-align: center;">
-                <div class="col-sm-12">
-                    <img src="../img/cerner/Cerner1_2.png" style="width: 90%;">
-                </div>
+                    </ul>
+                </h5>
+                <br>
             </div>
-            <br>
 
-            <h1>Initial expectations</h1>
-            <h5>
-                The initial solution for this problem, suggested by stakeholders, was to click on "Dismiss" button.
-                Eventually the click would lead to model window asking for confirmation.
-                <br><br>
-                <b>Problems with this solution:</b><br><br>
-                <ul>
-                    <li>Suggestions are already intrusive</li>
-                    <li>Confirmation box creates a sense of doubt in the physician</li>
-                    <li>Physician is already busy with patients so this is frustration</li>
-                    <li>Your first decision has to be reaffirmed, leading to cognitive dissonance</li>
-                    <li>Larger percentage of clicks increased – 1 to add problem, 2 to dismiss, 3 to undo</li>
-                    <li>Confirmation dialogue on a negative action is reserved for highly critical actions or to bypass
-                        warnings of high
-                        priority</li>
-
-                </ul>
+            <!-- content start/end -->
+            <div class="tag">
                 <br>
-                Below is the flow of what is <b>actually required:</b>
+                <h2>02</h2>
+                <h1>Problem Statement</h1>
+                <h5>Make a flow for when a user selects the 'dismiss' action to remove a proposed documentation
+                    opportunity
+                    or clinical
+                    validation notification.
+                </h5>
+                <br>
+                <h5>Below shows the image of the current state where the component is on the left and the details
+                    panel is on the right.
+                </h5>
+
+                <br>
+                <div class="row" style="text-align: center;">
+                    <div class="col-sm-12">
+                        <img src="../img/cerner/Cerner1_2.png" style="width: 90%;">
+                    </div>
+                </div>
+                <br>
+            </div>
+
+            <!-- content start/end -->
+            <div class="tag">
+                <br>
+                <h2>03</h2>
+                <h1>Initial expectations</h1>
+                <h5>
+                    The initial solution for this problem, suggested by stakeholders, was to click on "Dismiss" button.
+                    Eventually the click would lead to model window asking for confirmation.
+                    <br><br>
+                    <b>Problems with this solution:</b><br><br>
+                    <ul>
+                        <li><i class="em em-octagonal_sign" aria-role="presentation" aria-label="OCTAGONAL SIGN"></i>Suggestions are already intrusive</li>
+                        <li><i class="em em-octagonal_sign" aria-role="presentation" aria-label="OCTAGONAL SIGN"></i>Confirmation box creates a sense of doubt in the physician</li>
+                        <li><i class="em em-octagonal_sign" aria-role="presentation" aria-label="OCTAGONAL SIGN"></i>Physician is already busy with patients so this is frustration</li>
+                        <li><i class="em em-octagonal_sign" aria-role="presentation" aria-label="OCTAGONAL SIGN"></i>Your first decision has to be reaffirmed, leading to cognitive dissonance</li>
+                        <li><i class="em em-octagonal_sign" aria-role="presentation" aria-label="OCTAGONAL SIGN"></i>Larger percentage of clicks increased – 1 to add problem, 2 to dismiss, 3 to undo</li>
+                        <li><i class="em em-octagonal_sign" aria-role="presentation" aria-label="OCTAGONAL SIGN"></i>Confirmation dialogue on a negative action is reserved for highly critical actions or to
+                            bypass
+                            warnings of high
+                            priority</li>
+
+                    </ul>
+                    <br>
+                    Below is the flow of what is <b>actually required:</b>
+                    <br>
+                    <br>
+                    <div class="row" style="text-align: center;">
+                        <div class="col-sm-12">
+                            <img src="../img/cerner/Cerner2.png" style="width: 90%;">
+                        </div>
+                    </div>
+                    <br>
+
+                    Below is the flow of what is <b>was suggested by others:</b>
+                    <br>
+                    <br>
+                    <div class="row" style="text-align: center;">
+                        <div class="col-sm-12">
+                            <img src="../img/cerner/Cerner3.png" style="width: 90%;">
+                        </div>
+                    </div>
+                    <br>
+
+                </h5>
+                <br>
+            </div>
+
+            <!-- content start/end -->
+            <div class="tag">
+                <br>
+                <h2>04</h2>
+                <h1>Salient features of required solution</h1>
+                <h5>
+                    <ul>
+                        <li><i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>The solution needs to unintrusive.</li>
+                        <li><i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>Dismissal process should be simple and not with many steps.</li>
+                        <li><i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>Click on "Dismiss" should change least number of elements.</li>
+                        <li><i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>Minimum number of Refreshes need to be taken care of.</li>
+                        <li><i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>Accidental dismissal/error should be handled.</li>
+                        <li><i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i>Error recovery should be easy to find and unintrusive.</li>
+                    </ul>
+                </h5>
+                <br>
+            </div>
+
+            <!-- content start/end -->
+            <div class="tag">
+                <br>
+                <h2>05</h2>
+                <h1>Design solution suggested</h1>
+                <h5>When the physician decides to Dismiss the problem and clicks on the Dismiss button, the suggestion
+                    is
+                    striked through.
+                    Later when refreshed the suggestion gets added in a separate dismissed accordion something like
+                    recycle
+                    bin.
+                </h5>
                 <br>
                 <br>
                 <div class="row" style="text-align: center;">
                     <div class="col-sm-12">
-                        <img src="../img/cerner/Cerner2.png" style="width: 90%;">
+                        <img src="../img/cerner/Cerner4.png" style="width: 90%;">
                     </div>
                 </div>
                 <br>
+            </div>
 
-                Below is the flow of what is <b>was suggested by others:</b>
+            <!-- content start/end -->
+            <div class="tag">
                 <br>
+                <h2>06</h2>
+                <h1>Time graph</h1>
+                <h5>This is avery heavy application, so we need to keep in mind to least number of refreshes posssible.
+                    Every change of state leads to a whole screen refresh. Here we can see how at 3 different times:<br>
+                    <ul>
+                        <li><i class="em em-small_orange_diamond" aria-role="presentation" aria-label="SMALL ORANGE DIAMOND"></i>After click of Dismiss</li>
+                        <li><i class="em em-small_orange_diamond" aria-role="presentation" aria-label="SMALL ORANGE DIAMOND"></i>Before refresh</li>
+                        <li><i class="em em-small_orange_diamond" aria-role="presentation" aria-label="SMALL ORANGE DIAMOND"></i>After refresh</li>
+                    </ul>
+                </h5>
                 <br>
                 <div class="row" style="text-align: center;">
                     <div class="col-sm-12">
-                        <img src="../img/cerner/Cerner3.png" style="width: 90%;">
+                        <img src="../img/cerner/Cerner5.png" style="width: 90%;">
                     </div>
                 </div>
                 <br>
 
-            </h5>
-            <br>
-
-            <h1>Salient features of required solution</h1>
-            <h5>
-                <ul>
-                    <li>The solution needs to unintrusive.</li>
-                    <li>Dismissal process should be simple and not with many steps.</li>
-                    <li>Click on "Dismiss" should change least number of elements.</li>
-                    <li>Minimum number of Refreshes need to be taken care of.</li>
-                    <li>Accidental dismissal/error should be handled.</li>
-                    <li>Error recovery should be easy to find and unintrusive.</li>
-                </ul>
-            </h5>
-            <br>
-
-            <h1>Design solution suggested</h1>
-            <h5>When the physician decides to Dismiss the problem and clicks on the Dismiss button, the suggestion is
-                striked through.
-                Later when refreshed the suggestion gets added in a separate dismissed accordion something like recycle
-                bin.
-            </h5>
-            <br>
-            <br>
-            <div class="row" style="text-align: center;">
-                <div class="col-sm-12">
-                    <img src="../img/cerner/Cerner4.png" style="width: 90%;">
+                <h5>Below is an example of how it was implemented step by step. We can observe how the entries are moved
+                    between
+                    problems section and the dismissed section. We have timed it to be in the minimum number of clicks
+                    and
+                    with
+                    least amount of visual change so that the human eye can easily percieve it and not feel overwhelmed.
+                </h5>
+                <br>
+                <div class="row" style="text-align: center;">
+                    <div class="col-sm-12">
+                        <img src="../img/cerner/Cerner6.png" style="width: 90%;">
+                    </div>
                 </div>
+                <br><br>
             </div>
-            <br>
 
 
-            <h1>Time graph</h1>
-            <h5>This is avery heavy application, so we need to keep in mind to least number of refreshes posssible. Every change of state leads to a whole screen refresh. Here we can see how at 3 different times:<br>
-                <ul>
-                    <li>After click of Dismiss</li>
-                    <li>Before refresh</li>
-                    <li>After refresh</li>
-                </ul>
-            </h5>
-            <br>
-            <div class="row" style="text-align: center;">
-                <div class="col-sm-12">
-                    <img src="../img/cerner/Cerner5.png" style="width: 90%;">
-                </div>
+            <!-- content start/end -->
+            <div class="tag">
+                <br>
+                <h2>07</h2>
+                <h1>Future developments</h1>
+                <h5>
+                    <ul>
+                        <li>Make provision to collect comments on why this was dismissed without making it intrusive.
+                        </li>
+                        <li>Find a more inclusive way so that physicians use the suggestions more.</li>
+                    </ul>
+                </h5>
             </div>
-            <br>
-
-            <h5>Below is an example of how it was implemented step by step. We can observe how the entries are moved between 
-                problems section and the dismissed section. We have timed it to be in the minimum number of clicks and with 
-                least amount of visual change so that the human eye can easily percieve it and not feel overwhelmed.
-            </h5>
-            <br>
-            <div class="row" style="text-align: center;">
-                <div class="col-sm-12">
-                    <img src="../img/cerner/Cerner6.png" style="width: 90%;">
-                </div>
-            </div>
-            <br><br>
-
-
-
-            <h1>Future developments</h1>
-            <h5>
-                <ul>
-                    <li>Make provision to collect comments on why this was dismissed without making it intrusive.</li>
-                    <li>Find a more inclusive way so that physicians use the suggestions more.</li>
-                </ul>
-            </h5>
         </div>
     </div>
     <!-- Footer -->
