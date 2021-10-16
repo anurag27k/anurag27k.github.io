@@ -15,8 +15,13 @@ html {
         }
 
         @font-face {
-            font-family: "Grafik";
-            src: url("./fonts/Grafier-Variable.ttf");
+            font-family: "Bright";
+            src: url("./fonts/Bright\ DEMO.otf");
+        }
+
+        @font-face {
+            font-family: "Butler";
+            src: url("./fonts/Butler/Butler-Black.woff");
         }
 
         h6 {
@@ -35,11 +40,18 @@ html {
             font-size: 1rem;
         }
 
+        h2{
+            /* font-family: 'Butler', serif; */
+            font-size: 48px; 
+            font-weight: bolder;
+            line-height: 0.7;
+            color: lightgray;
+        }
+
         h1 {
-            font-family: 'Grafik', serif;
+            font-family: 'Bright', serif;
             color: Black;
-            font-weight: bold;
-            font-size: 1.50rem;
+            font-size: 3rem;
         }
 
         p {
