@@ -14,10 +14,10 @@ html {
 
         }
 
-        /* @font-face {
-            font-family: "IBMPlexSansBold";
-            src: url("../files/IBMPlexSansBold.ttf");
-        } */
+        @font-face {
+            font-family: "Grafik";
+            src: url("./fonts/Grafier-Variable.ttf");
+        }
 
         h6 {
             font-family: 'Inter', sans-serif;
@@ -36,7 +36,7 @@ html {
         }
 
         h1 {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Grafik', serif;
             color: Black;
             font-weight: bold;
             font-size: 1.50rem;
