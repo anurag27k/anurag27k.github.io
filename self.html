@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Anurag Kumar - UX Designer</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="./img/logoblue.png" />
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="width:100%; position: fixed;z-index: 10000;">
+            <div class="container">
+                <!-- <a href="#" class="nav-link"> -->
+                <img src="./img/logowhite.png" style="width: 30px;">
+                <!-- </a> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav" style="padding-left: 10px;">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html#discover">Discover</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html#download">Download</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        //for fade in loading
+        $(document).on("scroll", function () {
+            var pageTop = $(document).scrollTop();
+            var pageBottom = pageTop + $(window).height();
+            var tags = $(".tag");
+
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i];
+
+                if ($(tag).position().top < pageBottom) {
+                    $(tag).addClass("visible");
+                } else {
+                    $(tag).removeClass("visible");
+                }
+            }
+        });
+
+    </script>
+
+    <div class="container" style="padding-top: 15vh;min-height: 35vh; height: 35vh;">
+        <h1>
+            <h1 style="font-size: 70px; color: white;opacity: 0.1;">About Me</h1>
+            <hr><br>
+    </div>
+
+    <div class="container-fluid" id="discover" style="background-color:white;padding-top: 50px;">
+        <div class="container">
+            <!-- Content start -->
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="./img/self/self1.png" style="width: 80%;border-radius:50%">
+                </div>
+
+                <div class="col-sm-8 black-text">
+                    <br>
+                    <p>For starters, my full name is <b>Anurag Kumar Singh.</b><br>
+                        I am basically from Uttar Pradesh, but all my life I have spent in Chennai. So the places I have
+                        stayed:
+                        <img src="./img/self/locations.png" style="width: 100%;">
+                    </p>
+                </div>
+            </div>
+            <!-- Content end -->
+            <br><br>
+            <!-- Content start -->
+            <div class="row tag">
+                <div class="col-sm-4">
+                    <img src="./img/self/self2.png" style="width: 80%;border-radius:50%">
+                </div>
+                <div class="col-sm-8 black-text">
+                    <br>
+                    <p>My curiosity lingers in the wild. I love talking about topics of philosophy
+                        and listen to Ghalib. I am always curious how humans can defy the known patterns.<br>I have a soft 
+                        spot for accessibilty in products<br>
+
+                    </p>
+
+                </div>
+            </div>
+            <!-- Content end -->
+            <br><br>
+            <!-- Content start -->
+            <div class="row tag">
+                <div class="col-sm-4">
+                    <img src="./img/self/self3.png" style="width: 80%;border-radius:50%">
+                </div>
+                <div class="col-sm-8 black-text">
+                    <br>
+                    <p>There are a ton of things which I like to do. I keep experimenting with new hobbies (or
+                        interests)
+                        so I can only list a few over here:<br>
+                        <i class="em em-notes" aria-role="presentation" aria-label="MULTIPLE MUSICAL NOTES"></i>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="em em-badminton_racquet_and_shuttlecock"
+                            aria-role="presentation" aria-label="BADMINTON RACQUET AND SHUTTLECOCK"></i>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<i class="em em-pencil2" aria-role="presentation"
+                            aria-label="PENCIL"></i>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<i class="em em-tv" aria-role="presentation"
+                            aria-label="TELEVISION"></i>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<i class="em em-book" aria-role="presentation"
+                            aria-label="OPEN BOOK"></i>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<i class="em em-beach_with_umbrella" aria-role="presentation"
+                            aria-label=""></i>
+
+                    </p>
+
+                </div>
+            </div>
+            <!-- Content end -->
+        </div>
+
+    </div>
+
+    <!-- download -->
+    <div id="download" class="container padding100 pb-5">
+        <h1 style="font-size: 70px; color: white;opacity: 0.1;">Wanna know more</h1><br>
+        <p class="text-muted" style="line-height:2;font-weight:600;">
+            <i class="em em-bookmark_tabs" aria-role="presentation" aria-label="BOOKMARK TABS"></i>
+            <a href="./files/anuragResume.pdf" class="text-light" target="_blank">Resume</a>
+            <!-- <br><i class="em em-briefcase" aria-role="presentation" aria-label="BRIEFCASE"></i>
+            <a href="https://www.linkedin.com/in/anurag27k/" class="text-light" target="_blank">LinkedIn</a>
+            <br><i class="em em-email" aria-role="presentation" aria-label="ENVELOPE"></i>
+            <a href="mailto:anurag27k@gmail.com?Subject=Reaching%20out" class="text-light">anurag27k@gmail.com</a> -->
+            <br><br>
+            <a href="./404.html" class="text-light" style="font-weight: 500;">Find out what I am as a person
+                <i class="em em-point_right" aria-role="presentation"
+                    aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i></a>
+        </p>
+    </div>
+
+
+    <!-- Footer -->
+    <div class="container-fluid" style="background-color: black;text-align: center;">
+        <br>
+        <h6>Designed and Developed with
+            <i class="em em-heart" aria-role="presentation" aria-label="HEAVY BLACK HEART"></i>
+            by me &copy; 2021
+        </h6>
+        <br>
+    </div>
+
+</body>
+
+</html>
