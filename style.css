@@ -16,6 +16,11 @@ html {
             animation-iteration-count: 1;
             animation-fill-mode: forwards;
         }
+        
+        img{
+            border-radius: 8px;
+            
+        }
 
         @font-face {
             font-family: "Bright";

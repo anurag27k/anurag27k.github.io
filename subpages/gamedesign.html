@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Anurag Kumar - UX Designer</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../img/logoblue.png" />
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+    <!-- Header -->
+    <div class="">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="width:100%; position: fixed;z-index: 10000;">
+            <div class="container">
+                <!-- <a href="#" class="nav-link"> -->
+                <img src="../img/logowhite.png" style="width: 30px;">
+                <!-- </a> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav" style="padding-left: 10px;">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#discover">Discover</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#download">Download</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        //for fade in loading
+        $(document).on("scroll", function () {
+            var pageTop = $(document).scrollTop();
+            var pageBottom = pageTop + $(window).height();
+            var tags = $(".tag");
+
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i];
+
+                if ($(tag).position().top < pageBottom) {
+                    $(tag).addClass("visible");
+                } else {
+                    $(tag).removeClass("visible");
+                }
+            }
+        });
+
+    </script>
+
+    <div class="container fill" style="padding-top: 35vh;">
+        <h1 style="font-size: 64px;color:white">GAME DESIGN</h1>
+        <p style="color: #f4f1d0;">Self Project</p>
+        <h5 class="text-muted">
+            These are a couple of games which were designed and developed by me using a software called BuildBox.
+        </h5>
+        <div class="row p-3">
+            <div class="col-sm-6" style="border-top:5px solid lightgray;">
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid " style="background-color:white">
+        <div class="container padding100">
+            <!-- <h1 style="font-size: 64px; color: #343a40;">01</h1> -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>01</h2>
+                <h1>Taz Escape</h1>
+                <h5>This is the second game that I designed. This is an infinite jumper where the player faces various
+                    obstacles
+                    to cross. Here the player has to keep jumping and avoid the pointed obstacles and land on the flat
+                    surface.
+                    Aim of the game is to reach as high as possible.
+                    <br>
+                    <br> Below are some of the screen shots of the game.
+                </h5>
+
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="../img/game/game21.png" style="width: 90%;">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="../img/game/game22.png" style="width: 90%;">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="../img/game/game23.png" style="width: 90%;">
+                    </div>
+                </div>
+                <br>
+                <h5>
+                    It was my second game. I created a character named Taz. I also designed the levels and the
+                    background. I
+                    prefered keeping
+                    a dark theme and gave it a tunnel kind of apperance. I also defined how the obstacles would be and
+                    how
+                    they
+                    would react with the player.
+                    <br>
+                    <br>
+                    <a href="mailto:anurag27k@gmail.com?Subject=Reaching%20out" style="text-decoration-line: underline;"
+                        class="text-light">
+                        Email me for APK ></a>
+                </h5>
+            </div>
+
+            <!-- <h1 style="font-size: 64px; color: #343a40;">02</h1> -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>02</h2>
+                <h1>Forest Runner</h1>
+                <h5>This is the first game that I designed. This is an infinite runner where the player faces various
+                    obstacles to
+                    cross. Here the player has to jump across the obstacles and keep running in the foreward direction.
+                    <br>
+                    <br> Below are some of the screen shots of the game.
+                </h5>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="../img/game/game11.png" style="width: 90%;">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="../img/game/game12.png" style="width: 90%;">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="../img/game/game13.png" style="width: 90%;">
+                    </div>
+                </div>
+
+                <br>
+                <h5>
+                    Since it was my first game I came up with the idea of a very simple game. In this game I
+                    experimented
+                    with the already available
+                    backgrounds, character sprites and obstacles and how they would interact with the player.
+                    <br>
+                    <br>
+                    <a href="mailto:anurag27k@gmail.com?Subject=Reaching%20out" style="text-decoration-line: underline;"
+                        class="text-light">
+                        Email me for APK ></a>
+                </h5>
+            </div>
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>03</h2>
+                <h1>Cubetastic</h1>
+                <h5>This is the 3rd game that I designed and developed. In this game we as a player are a box. The main aim is 
+                    to avoid all the obstacles in the way. There are 3 levels currently, more are intented to be developed.
+                    This game was made on Unity engine
+                    <br>
+                    <br> Below are some of the screen shots of the game.
+                </h5>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="../img/game/image 48.png" style="width: 90%;">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="../img/game/image 47.png" style="width: 90%;border: 2px solid rgb(222, 222, 222);">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="../img/game/image 49.png" style="width: 90%;border: 2px solid rgb(222, 222, 222);">
+                    </div>
+                </div>
+            
+                <br>
+                <h5>
+                   
+                    <a href="mailto:anurag27k@gmail.com?Subject=Reaching%20out" style="text-decoration-line: underline;"
+                        class="text-light">
+                        Email me for APK ></a>
+                </h5>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="container-fluid" style="background-color: black;text-align: center;">
+        <br>
+        <h6>Designed and Developed with
+            <i class="em em-heart" aria-role="presentation" aria-label="HEAVY BLACK HEART"></i>
+            by me &copy; 2021
+        </h6>
+        <br>
+    </div>
+
+</body>
