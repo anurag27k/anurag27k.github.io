@@ -34,7 +34,7 @@ html {
 
         h6 {
             font-family: 'Inter', sans-serif;
-            /* letter-spacing: .2em; */
+            letter-spacing: .2em;
             font-weight: 600;
             font-size: 12px;
         }
