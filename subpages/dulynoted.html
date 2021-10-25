@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Anurag Kumar - UX Designer</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../img/logoblue.png" />
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+</head>
+
+<body style="background: linear-gradient(to top left,#EED59A 0%, #BC4555 100%);">
+    <!-- Header -->
+    <div class="">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="width:100%; position: fixed;z-index: 10000;">
+            <div class="container">
+                <!-- <a href="#" class="nav-link"> -->
+                <img src="../img/logowhite.png" style="width: 30px;">
+                <!-- </a> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav" style="padding-left: 10px;">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#discover">Discover</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#download">Download</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        //for fade in loading
+        $(document).on("scroll", function () {
+            var pageTop = $(document).scrollTop();
+            var pageBottom = pageTop + $(window).height();
+            var tags = $(".tag");
+
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i];
+
+                if ($(tag).position().top < pageBottom) {
+                    $(tag).addClass("visible");
+                } else {
+                    $(tag).removeClass("visible");
+                }
+            }
+        });
+
+    </script>
+
+
+    <div class="container fill" style="padding-top: 25vh;">
+
+        <div class="row">
+            <div class="col-sm-5">
+
+                <!-- <a href="../index.html" class="text-light" style="font-weight: 500;">
+                    <i class="em em-point_left" aria-role="presentation"
+                        aria-label="WHITE LEFT POINTING BACKHAND INDEX"></i>
+                    Go back to Home </a>
+                <br><br><br><br><br> -->
+
+                <div class="badger">
+                    <p class="card-subtext">&nbsp; COLLEGE PROJECT
+                        &nbsp;
+                    </p>
+                </div>
+                <br>
+                <p class="card-maintext">Maid For You</p>
+                <p class="card-description">
+                    Service Design that connects domestic helpers and householders to get jobs using minimal technology
+                </p>
+                <div class="row p-3">
+                    <div class="col-sm-6" style="border-top:5px solid black;opacity: 0.1;">
+                        <br>
+                    </div>
+                </div>
+                <br>
+                <img src="../img/MaidForYou/IDC logo.png" alt="Card image" style="width: 70%">
+            </div>
+            <div class="col-sm-7">
+                <div class="d-none d-lg-block">
+                    <img src="../img/MaidForYou/maidBanner.png"
+                        style="width:120%;border-radius:20px; border:5px solid #EED59A">
+                </div>
+            </div>
+
+        </div>
+
+        <br><br><br>
+        <p style="text-align: center;">
+            <img src="../img/Memcall/downAnim.gif" width="2%">
+        </p>
+
+    </div>
+
+    <div class="container-fluid " style="background-color:white;">
+        <div class="container padding100">
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>01</h2>
+                <h1>Project Brief</h1>
+                <h5>
+                    Design a service that <b>connects domestic helpers and householders</b>, while ensuring transparency
+                    and
+                    job security
+                </h5>
+
+                <br>
+            </div>
+            <!-- end of content  -->
+
+
+            <!-- start of content  -->
+            <div class="full-width-div tag" style="background-color:  rgba(238, 213, 154, 0.8);">
+                <div class="container">
+                    <br>
+                    <h2 style="color:white;">03</h2>
+                    <h1>Secondary Research</h1>
+                    <h5>
+                        We looked out at existing solutions for connecting maids and householders and registered in
+                        an
+                        existing
+                        application to
+                        observe the customer’s side of service.
+                    </h5>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <!-- card start -->
+                            <div class="card-div" style="background-color:white;min-height: 330px;">
+                                <br>
+                                <img src="../img/MaidForYou/bookmybai.png" style="width:90%;border-radius:20px;">
+                                <br><br>
+                                <p class="card-description black-text">
+                                    Bookmybai.com, a domestic help aggregator claims to have over 10,000 registered
+                                    house help
+                                    based on region, religion and
+                                    language.
+
+                                </p>
+                            </div>
+                            <!--end of card-->
+                        </div>
+                        <div class="col-sm-4">
+                            <!-- card start -->
+                            <div class="card-div" style="background-color:white;min-height: 330px;">
+                                <br>
+                                <img src="../img/MaidForYou/housemaidforyou.png" style="width:90%;border-radius:20px;">
+                                <br><br>
+                                <p class="card-description black-text">
+                                    Housemaidforyou.com, a site that operates only in Bengaluru at present, offers
+                                    only
+                                    full-day
+                                    maids for 8-9 hours.
+                                </p>
+                            </div>
+                            <!--end of card-->
+                        </div>
+                        <div class="col-sm-4">
+                            <!-- card start -->
+                            <div class="card-div" style="background-color:white;min-height: 330px;">
+                                <br>
+                                <img src="../img/MaidForYou/helper4u.png" style="width:50%;border-radius:20px;">
+                                <br><br>
+                                <p class="card-description black-text">
+                                    Helper4U.in lets prospective employers filter out the type of maid they seek and
+                                    even lets
+                                    them directly interview the
+                                    help over the phone or through a video chat.
+
+                                </p>
+                            </div>
+                            <!--end of card-->
+                        </div>
+                    </div>
+
+                    <br><br>
+                </div>
+            </div>
+
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>04</h2>
+                <h1>Personas</h1>
+                <img src="../img/MaidForYou/maid.png" alt="Card image" style="width: 90%;padding-left: 10%;">
+                <br><br>
+            </div>
+            <!-- end of content  -->
+
+
+            <br><br>
+            <!-- other projects  -->
+            <h2>Thank you for your time! <br>Look at other projects below</h2>
+            <br>
+
+            <div class="row">
+                <div class="col-sm-6" onclick="location.href='./Memcall.html';" style="cursor: pointer;">
+                    <!-- card start -->
+                    <div class="card-div hoverfn"
+                        style="background: linear-gradient(to top left, #99bdd9 0%, #232f3b 100%);min-height:300px;">
+                        <div class="badger">
+                            <p class="card-subtext">&nbsp; COLLEGE PROJECT : IDC, IIT BOMBAY
+                                &nbsp;
+                            </p>
+                        </div>
+
+                        <p class="card-maintext">MEMCALL: Design Fiction
+                        </p>
+                        <img src="../img/Memcall/MemcallBanner.png" style="width: 100%;">
+                    </div>
+                    <!--end of card-->
+                </div>
+                <div class="col-sm-6" onclick="location.href='./DEShaw.html';" style="cursor: pointer;">
+                    <!-- card start -->
+                    <div class="card-div hoverfn"
+                        style="background: linear-gradient(to top left, #179033 0%, #004085 100%);min-height:300px;">
+                        <div class="badger">
+                            <p class="card-subtext">&nbsp; COMPANY PROJECT : D. E. SHAW
+                                &nbsp;
+                            </p>
+                        </div>
+
+                        <p class="card-maintext">Roadmap Planning Application
+                        </p>
+                        <img src="../img/DEShaw/deshawbanner.png" style="width: 100%;">
+                    </div>
+                    <!--end of card-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid" style="background-color: black;text-align: center;">
+        <br>
+        <h6>Designed and Developed with
+            <i class="em em-heart" aria-role="presentation" aria-label="HEAVY BLACK HEART"></i>
+            by me &copy; 2021
+        </h6>
+        <br>
+    </div>
+
+    <script>
+        var slideIndex = [1, 1, 1, 1, 1];
+        var slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4", "mySlides5"]
+        showDivs(1, 0);
+        showDivs(1, 1);
+        showDivs(1, 2);
+        showDivs(1, 3);
+        showDivs(1, 4);
+
+        function plusDivs(n, no) {
+            showDivs(slideIndex[no] += n, no);
+        }
+
+        function showDivs(n, no) {
+            var i;
+            var x = document.getElementsByClassName(slideId[no]);
+            if (n > x.length) { slideIndex[no] = 1 }
+            if (n < 1) { slideIndex[no] = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex[no] - 1].style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
