@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Anurag Kumar - UX Designer</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../img/logoblue.png" />
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+</head>
+
+<body style="background: linear-gradient(to top left,#f1742b 0%, #a77d56 100%);">
+    <!-- Header -->
+    <div class="">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="width:100%; position: fixed;z-index: 10000;">
+            <div class="container">
+                <!-- <a href="#" class="nav-link"> -->
+                <img src="../img/logowhite.png" style="width: 30px;">
+                <!-- </a> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav" style="padding-left: 10px;">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#discover">Discover</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#download">Download</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        //for fade in loading
+        $(document).on("scroll", function () {
+            var pageTop = $(document).scrollTop();
+            var pageBottom = pageTop + $(window).height();
+            var tags = $(".tag");
+
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i];
+
+                if ($(tag).position().top < pageBottom) {
+                    $(tag).addClass("visible");
+                } else {
+                    $(tag).removeClass("visible");
+                }
+            }
+        });
+
+    </script>
+
+
+    <div class="container fill" style="padding-top: 25vh;">
+
+        <div class="row">
+            <div class="col-sm-5">
+
+                <!-- <a href="../index.html" class="text-light" style="font-weight: 500;">
+                    <i class="em em-point_left" aria-role="presentation"
+                        aria-label="WHITE LEFT POINTING BACKHAND INDEX"></i>
+                    Go back to Home </a>
+                <br><br><br><br><br> -->
+
+                <div class="badger">
+                    <p class="card-subtext">&nbsp; COLLEGE PROJECT
+                        &nbsp;
+                    </p>
+                </div>
+                <br>
+                <p class="card-maintext">DINE AR</p>
+                <p class="card-description">
+                    Designed and developed an AR application to get to know about how the food looks and compare its
+                    size.
+                </p>
+                <div class="row p-3">
+                    <div class="col-sm-6" style="border-top:5px solid black;opacity: 0.1;">
+                        <br>
+                    </div>
+                </div>
+                <br>
+                <img src="../img/MaidForYou/IDC logo.png" alt="Card image" style="width: 70%">
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-6">
+                <div class="d-none d-lg-block">
+                    <img src="../img/ar/ar banner.png"
+                        style="width:100%;box-shadow: 0px 0px 20px rgb(68, 45, 23);border-radius:10px;">
+                </div>
+            </div>
+
+        </div>
+
+        <br><br>
+        <p style="text-align: center;">
+            <img src="../img/Memcall/downAnim.gif" width="2%">
+        </p>
+
+    </div>
+
+    <div class="container-fluid " style="background-color:white;">
+        <div class="container padding100">
+            <!-- start of content  -->
+            <h1>Prototype link</h1>
+            <p>
+                <a style="color: #99bdd9" target="_blank" class="fancyBorder hoverfn"
+                    href="https://dinear.github.io/"><b>View
+                        prototype LIVE (View on Mobile) </b>
+                    <i class="em em-point_right" aria-role="presentation"
+                        aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i> </a>
+            </p>
+
+            <!-- end of content  -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>01</h2>
+                <h1>Problem statement</h1>
+                <h5>
+                    We all have been to different kinds of restaurants. Everytime we visit a new one the menu might get
+                    confusing in
+                    terms
+                    of the portion/ quantity of the food they would serve.<br><br>
+                    Generally, a menu would have quantities like - ½ plate, 4 pieces, 3 nos, but it is hard for us to
+                    visualise how
+                    much the
+                    half plate or how big the 4 pieces would be. This often leads to wastage of food or the customer
+                    still remains
+                    hungry
+                    because of the longer serving cycle.<br><br>
+                    We are trying to solve the problem with the use of Augmented Reality to help customers better
+                    visualise the
+                    quantity of
+                    the food of their plates/ tables.
+                </h5>
+
+                <br>
+            </div>
+            <!-- end of content  -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>02</h2>
+                <h1>User flow</h1>
+                <br>
+                <img src="../img/ar/flow.png" style="width:90%;">
+                <br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="full-width-div tag" style="background-color:  rgba(207, 202, 157, 0.8);">
+                <div class="container">
+                    <br>
+                    <h2 class="white-text">03</h2>
+                    <h1>Features</h1>
+                    <h5>
+                        Since it was a redesign project, I focused majorly on the simplicity of interface and the
+                        microinteractions that can be
+                        utilised to simplify information presentation to new visitors on the website.
+                    </h5>
+                    <br>
+                    <div class="row">
+
+                        <div class="col-sm-3" style="background-color:white; border-radius:10px; margin:10px">
+                            <br>
+                            <h2>#1</h2>
+                            <h5>Comparison: Compare the sizes of same items or different</h5>
+                            <br>
+                        </div>
+                        <div class="col-sm-3" style="background-color:white; border-radius:10px; margin:10px">
+                            <br>
+                            <h2>#2</h2>
+                            <h5>Waiting Time: Would know expected waiting time for the order</h5>
+                            <br>
+                        </div>
+                        <div class="col-sm-3" style="background-color:white; border-radius:10px; margin:10px">
+                            <br>
+                            <h2>#3</h2>
+                            <h5>Data about food: E.g, Calories, spiciness, making time.</h5>
+                            <br>
+                        </div>
+                        <div class="col-sm-3" style="background-color:white; border-radius:10px; margin:10px">
+                            <br>
+                            <h2>#4</h2>
+                            <h5>Related Dishes: In taste, category, Quantity</h5>
+                            <br>
+                        </div>
+                        <div class="col-sm-3" style="background-color:white; border-radius:10px; margin:10px">
+                            <br>
+                            <h2>#5</h2>
+                            <h5>Waiting Time: Expected waiting time for the order</h5>
+                            <br>
+                        </div>
+                        <div class="col-sm-3" style="background-color:white; border-radius:10px; margin:10px">
+                            <br>
+                            <h2>#6</h2>
+                            <h5>Customization: would be able to create custom orders easily</h5>
+                            <br>
+                        </div>
+
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+            <!-- end of content  -->
+            <br>
+            <!-- start of content  -->
+            <div class="tag">
+                <h2>04</h2>
+                <h1>Steps</h1>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <h5>
+                            Here are some of the steps how a person can get to know about how to use this service.
+                            <br><br>
+                            <b>Scan QR code</b>
+                            <br>
+                            The user scans a QR code or type the link which takes them to the DINE-AR webpage
+
+                            <br><br>
+                            <b>Open Website</b>
+                            <br>
+                            The website loads with the list of menu items to visualise in AR
+
+                            <br><br>
+                            <b>View menu in AR on website</b>
+                            <br>
+                            The user can browse through the menu items.
+
+                            <br><br>
+                            <b>Scan surface</b>
+                            <br>
+                            The user tap to enter AR mode to visualise the food item.
+
+                            <br><br>
+                            <b>Show food in AR</b>
+                            <br>
+                            The user can then view the food item n Augmented Reality
+
+                        </h5>
+                        
+                    </div>
+                    <div class="col-sm-5">
+                        
+                        <img src="../img/ar/sketch.png" style="width:80%;">
+                        <br><br>
+
+                    </div>
+                </div>
+
+                <br>
+            </div>
+            <!-- end of content  -->
+
+<!-- start of content  -->
+<div class="">
+    <br>
+    <h2>07</h2>
+    <h1>Final design</h1>
+    <h5>
+        For the final design and implementation our team designed the prototype of Adobe Xd. We made sure
+        that the
+        schedule is easy to navigate and gives adequate amount of information.
+        Programming of this schedule was again split among the team mates and was completed in 2 weeks of
+        time in
+        HTML, CSS and Javascipt. Some of the features for the final design are shown below.
+    </h5>
+    <br><br>
+    </h5>
+    <br><br>
+    <!-- feature start  -->
+    <div class="row tag">
+        <div class="col-sm-7">
+            <img src="../img/ar/home.png" style="width:100%;">
+        </div>
+        <div class="col-sm-5">
+            <h5>
+                <div class="badger-gray">
+                    <p class="card-subtext">&nbsp; 01
+                        &nbsp;
+                    </p>
+                </div>
+                <b>
+                    <p>Home
+                    </p>
+                </b>
+                In here we can the landing page. When clicked upon enter the menu, the person is taken into AR mode where he/she can 
+                select whichever food the person wishes to visualise. For placement there is white circle which appears. When tapped on it 
+                the object is placed above the circle.
+            </h5>
+            <!-- <a href="">Link to the Questions and Answers</a> -->
+        </div>
+    </div>
+    <!-- feature end  -->
+    <br><br>
+    <hr><br><br>
+    <!-- feature start  -->
+    <div class="row tag">
+        <div class="col-sm-5">
+            <h5>
+                <div class="badger-gray">
+                    <p class="card-subtext">&nbsp; 02
+                        &nbsp;
+                    </p>
+                </div>
+                <b>
+                    <p>Food details
+                    </p>
+                </b>
+                Along the food we can also see the amount of calories, fat and other values right next to AR food item. This helps the person 
+                to know these values without looking them up elsewhere
+
+
+            </h5>
+        </div>
+        <div class="col-sm-7">
+            <img src="../img/ar/ar banner.png" style="width:100%;">
+        </div>
+
+    </div>
+    <!-- feature end  -->
+    <br><br>
+    <hr><br><br>
+    <!-- feature start  -->
+    <div class="row tag">
+        <div class="col-sm-7">
+            <img src="../img/ar/compare.png" style="width:100%;">
+        </div>
+        <div class="col-sm-5">
+            <h5>
+                <div class="badger-gray">
+                    <p class="card-subtext">&nbsp; 03
+                        &nbsp;
+                    </p>
+                </div>
+                <b>
+                    <p>Size Comparison
+                    </p>
+                </b>
+                There is size comparison visualization available for specific foods. For example, we have 3 sizes for pizza.
+
+            </h5>
+            <!-- <a href="">Link to the Questions and Answers</a> -->
+        </div>
+    </div>
+    <!-- feature end  -->
+    <br><br>
+    <hr><br><br>
+    <!-- feature start  -->
+    <div class="row tag">
+        <div class="col-sm-5">
+            <h5>
+                <div class="badger-gray">
+                    <p class="card-subtext">&nbsp; 04
+                        &nbsp;
+                    </p>
+                </div>
+                <b>
+                    <p>Suggested dishes
+                    </p>
+                </b>
+                For some items suggestions are also provided. But they are provided at a farther distance so as to avoid confusion. For example,
+                brownie can be suggested with coffee/tea.
+    
+            </h5>
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-5">
+            <img src="../img/ar/suggest.png" style="width:60%;">
+        </div>
+    
+    </div>
+    <!-- feature end  -->
+    <br>
+</div>
+<!-- end of content  -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>06</h2>
+                <h1>Future Scope</h1>
+                <br>
+                <h5>
+                    <ol>
+                        <li>Make models for more food items</li>
+                        <li>Realtime data about food status</li>
+                        <li>Option to customize food in AR</li>
+                        <li>Currently only accessible on android, try for iOS</li>
+                    </ol>
+                </h5>
+                <br><br>
+            </div>
+            <!-- end of content  -->
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid" style="background-color: black;text-align: center;">
+        <br>
+        <h6>Designed and Developed with
+            <i class="em em-heart" aria-role="presentation" aria-label="HEAVY BLACK HEART"></i>
+            by me &copy; 2021
+        </h6>
+        <br>
+    </div>
+
+    <script>
+        var slideIndex = [1, 1, 1, 1, 1];
+        var slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4", "mySlides5"]
+        showDivs(1, 0);
+        showDivs(1, 1);
+        showDivs(1, 2);
+        showDivs(1, 3);
+        showDivs(1, 4);
+
+        function plusDivs(n, no) {
+            showDivs(slideIndex[no] += n, no);
+        }
+
+        function showDivs(n, no) {
+            var i;
+            var x = document.getElementsByClassName(slideId[no]);
+            if (n > x.length) { slideIndex[no] = 1 }
+            if (n < 1) { slideIndex[no] = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex[no] - 1].style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
