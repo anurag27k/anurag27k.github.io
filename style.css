@@ -7,15 +7,8 @@ html {
             transition-timing-function: ease-in-out;
             transition: 0.5s;
             line-height: 1.5;
-            /* background: linear-gradient(to top left, black 0%, #343a40 100%); */
-            /* background-image: url('https://i.gifer.com/Ebwn.gif');*/
-            background-image: url('https://i.gifer.com/HLPS.gif');
-            /* background-image: url('https://i.gifer.com/7l68.gif'); */
-            /* background-image: url('https://i.gifer.com/3aNP.gif'); */
-            /* background-image: url('https://i.gifer.com/P9q.gif'); */
-            /* background-image: url('https://i.gifer.com/Layx.gif'); */
-            /* background-image: url('./img/bggif.gif'); */
-            background-size:auto;
+            background: linear-gradient(to top left, black 0%, #343a40 100%);
+            
 
             color: white;
             font-family: 'Inter', sans-serif;
