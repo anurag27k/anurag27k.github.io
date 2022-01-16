@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Anurag Kumar - UX Designer</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../img/logoblue.png" />
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+</head>
+<!-- colors : #99bdd9 #232f3b #fb6060 -->
+
+<body style="background: linear-gradient(to top left, #99bdd9 0%, #232f3b 100%);">
+    <!-- Header -->
+    <div class="">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="width:100%; position: fixed;z-index: 10000;">
+            <div class="container">
+                <!-- <a href="#" class="nav-link"> -->
+                <img src="../img/logowhite.png" style="width: 30px;">
+                <!-- </a> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav" style="padding-left: 10px;">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#discover">Discover</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#download">Download</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        //for fade in loading
+        $(document).on("scroll", function () {
+            var pageTop = $(document).scrollTop();
+            var pageBottom = pageTop + $(window).height();
+            var tags = $(".tag");
+
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i];
+
+                if ($(tag).position().top < pageBottom) {
+                    $(tag).addClass("visible");
+                } else {
+                    $(tag).removeClass("visible");
+                }
+            }
+        });
+
+    </script>
+
+    <div class="container fill" style="padding-top: 25vh;">
+
+        <div class="row">
+            <div class="col-sm-5">
+
+                <!-- <a href="../index.html" class="text-light" style="font-weight: 500;">
+                    <i class="em em-point_left" aria-role="presentation"
+                        aria-label="WHITE LEFT POINTING BACKHAND INDEX"></i>
+                    Go back to Home </a>
+                <br><br><br><br><br> -->
+
+                <div class="badger">
+                    <p class="card-subtext">&nbsp; COLLEGE PROJECT
+                        &nbsp;
+                    </p>
+                </div>
+                <br>
+                <p class="card-maintext">Enabling visually
+                    impaired to depict
+                    line charts</p>
+                <p class="card-description">
+                    A Tangible solution which allows the visually impaired to feel as well create their own line charts
+                </p>
+                <div class="row p-3">
+                    <div class="col-sm-6" style="border-top:5px solid black;opacity: 0.1;">
+                        <br>
+                    </div>
+                </div>
+                <br>
+                <img src="../img/Memcall/IDC logo.png" alt="Card image" style="width:70%">
+            </div>
+            <div class="col-sm-7">
+                <div class="d-none d-lg-block">
+                    <img src="../img/p2/cover.png" style="width:100%;">
+                </div>
+            </div>
+
+        </div>
+
+        <p style="text-align: center;">
+            <img src="../img/Memcall/downAnim.gif" width="2%">
+        </p>
+
+    </div>
+
+    <div class="container-fluid " style="background-color: white;">
+        <div class="container padding100">
+            <!-- start of content  -->
+            <h1>Video Demo link</h1>
+            <h4>
+                <a style="color: #99bdd9" target="_blank" class="fancyBorder hoverfn"
+                    href="https://youtu.be/I9zBnq8jXFY"><b>View on YouTube (https://youtu.be/I9zBnq8jXFY)</b>
+                    <i class="em em-point_right" aria-role="presentation"
+                        aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i> </a>
+            </h4>
+
+            <!-- end of content  -->
+            <br>
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>01</h2>
+                <h1>Introduction</h1>
+                <h5>
+                    We would be suggesting a novel method, through a
+                    prototype, to create their own specific type of line
+                    chart. The prototype would be initially taught by
+                    Teachers of the visually impaired. But later the
+                    students can learn to use the prototype on their
+                    own. This prototype would help the users
+                    understand the concept of line charts as well as
+                    depict them.
+                </h5>
+                <img src="../img/p2/intro.png" width="100%" alt="Intro img from ppt">
+                <br>
+                <!-- card start -->
+                <div class="card-div" style="background-color:  rgba(0, 64, 133, 0.4);">
+                    <div class="badger">
+                        <p class="card-subtext">&nbsp; DID YOU KNOW?
+                            &nbsp;
+                        </p>
+                    </div>
+
+                    <!-- <p class="card-maintext">Roadmap Planning Application</p> -->
+
+                    <p class="card-description">
+                        This is the first interactive prototype which allows the blind to create their own line charts
+                        with this precision
+                    </p>
+                </div>
+                <!--end of card-->
+                <br>
+            </div>
+            <!-- end of content  -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>02</h2>
+                <h1>Understanding the visually impaired users</h1>
+                <h5>
+                    Visually impaired is a blanket term that refers to a condition where the person does not have a
+                    perfect or near perfect
+                    vision, which cannot be repaired via usual means, such as glasses or contacts. The major medium of
+                    communication is
+                    through voice or touch. Understanding charts is hard as visually impaired people find it difficult
+                    to make a mental
+                    model of the visualization. Also the mental model of the visually impaired is different from that of
+                    a sighted person.
+                </h5>
+                <img src="../img/p2/intervention.png" width="80%" alt="Intro img from ppt">
+                <br>
+            </div>
+            <!-- end of content  -->
+
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>03</h2>
+                <h1>Existing methods of line chart accessibility</h1>
+                <h5>
+                    The current methods of line chart accessibility could be divided into majorly 2 types: textual and
+                    tactiles.
+                </h5>
+                <h5><b>1. Textual</b></h5>
+                <img src="../img/p2/tables.png" width="80%" alt="Images of printing, etc machines">
+                <hr>
+                <h5><b>2. Tactile and Haptics</b></h5>
+                <img src="../img/p2/assitivetech.png" width="80%" alt="Images of printing, etc machines">
+                <hr>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h5>
+                            <b>3. Screen Readers</b>
+                        </h5>
+                        <img src="../img/p2/screenreaders.png" width="100%" alt="Images of printing, etc machines">
+                    </div>
+                    <div class="col-sm-6">
+                        <h5>
+                            <b>4. Guidelines for accessibility</b><br><br>
+                            ● WCAG guidelines<br>
+                            ● Penn State’s accessibility guidelines<br>
+                            ● Diagram Center’s guidelines<br>
+                            ● CFPB’s guidelines<br>
+
+                        </h5>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <!-- end of content  -->
+            <!-- start of content  -->
+            <div class="full-width-div tag" style="background-color: rgba(23, 144, 51, 0.4);">
+                <div class="container">
+                    <h2 style="color: white;">05</h2>
+                    <h1>Primary Research</h1>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <!-- card start -->
+                            <div class="card-div" style="background-color:  rgba(23, 144, 51, 0.6);">
+
+                                <i class="em em-eye" aria-role="presentation" aria-label=""></i>
+                                1 Blind, currently doing his PhD in IITB
+
+                            </div>
+                            <!--end of card-->
+                        </div>
+                        <div class="col-sm-3">
+                            <!-- card start -->
+                            <div class="card-div" style="background-color:  rgba(23, 144, 51, 0.6);">
+
+                                <i class="em em-eye" aria-role="presentation" aria-label=""></i>
+                                2 Blind, currently doing their PhD in TISS
+
+                            </div>
+                            <!--end of card-->
+                        </div>
+                        <div class="col-sm-3">
+                            <!-- card start -->
+                            <div class="card-div" style="background-color:  rgba(23, 144, 51, 0.6);">
+
+                                <i class="em em-female_curly_haired" aria-role="presentation" aria-label=""></i>
+                                1 Computer Teacher in VM School for Blind
+
+                            </div>
+                            <!--end of card-->
+                        </div>
+                        <div class="col-sm-3">
+                            <!-- card start -->
+                            <div class="card-div" style="background-color:  rgba(23, 144, 51, 0.6);">
+
+                                <i class="em em-female_curly_haired" aria-role="presentation" aria-label=""></i>
+                                1 Mathematics Teacher in VM School for Blind
+
+                            </div>
+                            <!--end of card-->
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <!-- card start -->
+                            <div class="card-div" style="background-color:  white;">
+                                <div class="badger">
+                                    <p class="card-subtext">&nbsp; INSIGHTS FROM BLIND
+                                        &nbsp;
+                                    </p>
+                                </div>
+
+                                <p class="card-description black-text">
+                                    <i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    Charts are not taught properly in schools.
+                                    <br><i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    They have heard of concepts of bar, pie and line charts but are not confident
+                                    on
+                                    explaining
+                                    <br><i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    One person tried to demonstrate bar charts:
+                                    <br><i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    They demonstrated on it on the palm
+
+                                    <br><i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    He mentioned that there are 2 axes perpendicular to each other.
+                                    <br><i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    They are aware that values are represented on 'horizontal' bars (they showed
+                                    with
+                                    their fingers)
+
+                                </p>
+                            </div>
+                            <!--end of card-->
+                        </div>
+                        <div class="col-sm-4">
+                            <!-- card start -->
+                            <div class="card-div" style="background-color:  white;">
+                                <div class="badger">
+                                    <p class="card-subtext">&nbsp; COMPUTER TEACHER
+                                        &nbsp;
+                                    </p>
+                                </div>
+
+                                <p class="card-description black-text">
+                                    <i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    The students are taught some applications: Windows, Office, Browsers and their
+                                    icons
+
+                                    <br><i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    The sample layout is presented for these applications using swell sheets.
+                                    <br><i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    The students are taught the concepts of lines, shapes, inclinations, textures
+                                    again
+                                    using swell papers.
+                                    <br><i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>The school normally uses a JAWS screen
+                                    reader. JAWS is costly but has several
+                                    features.
+
+                                    <br><i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    Students are taught several shortcuts for completing tasks in the system.
+
+                                    </ol>
+                                </p>
+                            </div>
+                            <!--end of card-->
+                        </div>
+                        <div class="col-sm-4">
+                            <!-- card start -->
+                            <div class="card-div" style="background-color: white;">
+                                <div class="badger">
+                                    <p class="card-subtext">&nbsp; MATHEMATICS TEACHER
+                                        &nbsp;
+                                    </p>
+                                </div>
+
+                                <p class="card-description black-text">
+                                    <i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    Most blind schools don't have mathematics as a subject .
+                                    <br><i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    Students are taught using several tools: like abacus, tactile graph kit, Taylor
+                                    frame and Braille slate
+                                    <br><i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    Students are taught concepts of basic arithmetic operations using Taylor frames.
+
+                                    <br><i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    For charts, people are taught using graph kits (swoll paper books) which contain
+                                    embossed diagrams.
+
+
+                                    <br><i class="em em-small_orange_diamond" aria-role="presentation"
+                                        aria-label="SMALL ORANGE DIAMOND"></i>
+                                    Students at times go to higher secondary schools if they wish to learn higher
+                                    mathematics.
+
+                                </p>
+                            </div>
+                            <!--end of card-->
+                        </div>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+            <!-- end of content  -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>06</h2>
+                <h1>Existing Implemented solutions
+                </h1>
+                <div class="row">
+                    <div class="col-sm-6" style="padding: 2%;">
+                        <img src="../img/p2/sr1.png" width="50%" alt="Push pin" width="100%">
+                        <h5>
+                            <b>Pushpin board technique</b><br>
+                            The students are taught to plot a series of x and y values on the board using the pushpins,
+                            then they are joined together with the rubber bands.
+                            <br>
+                            <i>Limitations:</i>
+                            <ol>
+                                <li>No proper demarcation of the grids</li>
+                                <li>The points(pins) are very sharp</li>
+                                <li>Rubberband can snap and pushpins might fly off in random directions.</li>
+                            </ol>
+
+                        </h5>
+                    </div>
+                    <div class="col-sm-6" style="padding: 2%;">
+                        <img src="../img/p2/sr2.png" width="50%" alt="Push pin" width="100%">
+                        <h5>
+                            <b>Charts on Swell paper</b><br>
+                            In this we can see embossed paper with grid lines and clay to make a line chart.
+                            A person can compare multiple lines as we go.
+                            <br>
+                            <i>Limitations:</i>
+                            <ol>
+                                <li>No sure how to handle the clay</li>
+                                <li>Movement of clay affects other points</li>
+                                <li>No units in between 2 labels</li>
+                            </ol>
+                        </h5>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-6" style="padding: 2%;">
+                        <img src="../img/p2/sr3.png" width="50%" alt="Push pin" width="100%">
+                        <h5>
+                            <b>3D printed charts</b><br>
+                            The charts in here are 3d printed along with the grids and labels and can be felt by
+                            touching the ridges.
+                            <br>
+                            <i>Limitations:</i>
+                            <ol>
+                                <li>The charts are static</li>
+                                <li>These dont enable people to make their own charts</li>
+                                <li>High printing cost if multiple graphs required</li>
+                            </ol>
+                        </h5>
+                    </div>
+                    <div class="col-sm-6" style="padding: 2%;">
+                        <img src="../img/p2/sr4.png" width="50%" alt="Push pin" width="100%">
+                        <h5>
+                            <b>Tangible Graph Builder</b><br>
+                            This is a tangible graph builder in which
+                            the author has explored creation of charts using basic 3d objects. The grid is made up of
+                            straws.<br>
+                            <i>Limitations:</i>
+                            <ol>
+                                <li>The points on the chart(3D objects) can be toppled as the visually impaired moves
+                                    his/her hands</li>
+                                <li>There no physical connection between the points of a line</li>
+                                <li>The grid is flimsy and may cause hindrance to the user</li>
+                            </ol>
+                        </h5>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <!-- end of content  -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>07</h2>
+                <h1>Brainstorming</h1>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h5>
+                            <b>Possible Gestures</b>
+                        </h5>
+                        <img src="../img/p2/gestures.png" width="80%" alt="Images of printing, etc machines">
+                    </div>
+                    <div class="col-sm-4">
+                        <h5>
+                            <b>Feedback types</b>
+                        </h5>
+                        <img src="../img/p2/feedback.png" width="80%" alt="Images of printing, etc machines">
+                    </div>
+                    <div class="col-sm-4">
+                        <h5>
+                            <b>Should (or shouldn't) be</b>
+                        </h5>
+                        <img src="../img/p2/shouldnt.png" width="80%" alt="Images of printing, etc machines">
+                    </div>
+                </div>
+
+                <br>
+            </div>
+            <!-- end of content  -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>08</h2>
+                <h1>Ideation sketches</h1>
+                <br>
+                <img src="../img/p2/ideation.png" width="70%" alt="Ideation sketches">
+                <br>
+            </div>
+            <!-- end of content  -->
+            <!-- start of content  -->
+            <div class="tag">
+                <br>
+                <h2>09</h2>
+                <h1>Prototype Design</h1>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img src="../img/p2/proto.png" width="100%" alt="Full Prototype">
+                    </div>
+                    <div class="col-sm-6">
+                        <img src="../img/p2/real.png" alt="Full Prototype" width="80%">
+                    </div>
+                    <br>
+                </div>
+                <!-- end of content  -->
+                <!-- start of content  -->
+                <div class="tag">
+                    <br>
+                    <h2>10</h2>
+                    <h1>Components Design</h1>
+                    <h5>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img src="../img/p2/orientation.png" width="50%" alt="Full Prototype">
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="../img/p2/label.png" width="70%" alt="Full Prototype">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <b>Orientation piece</b><br>
+                                If the participant follows a raised diagonal ridge from the bottom left corner, s/he
+                                will reach
+                                the centerpiece of the
+                                prototype (chart grid)
+                            </div>
+                            <div class="col-sm-6">
+                                <b>Labels</b><br>
+                                There are slots on the left of y axis and bottom of x axis for labels. The labels are
+                                sort of
+                                plugs which magnetically attach
+                                in the slots. The labels are square tiles with braille printed onto them.
+                            </div>
+                        </div>
+                        <hr>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img src="../img/p2/grid.png" width="100%" alt="Full Prototype">
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="../img/p2/knob.png" width="60%" alt="Full Prototype">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <b>The chart grid</b><br>
+                                The ridges are continuous in nature, that is, a ridge which has originated from y axis
+                                runs till
+                                the end of the
+                                prototype despite the interruptions by the slots.
+                            </div>
+                            <div class="col-sm-6">
+                                <b>Knob</b><br>
+                                The knob can move in the slot in both directions using a push or pull on the knob.
+                                Whenever the
+                                knob moves it provides
+                                tactile feedback.
+                            </div>
+                        </div>
+                    </h5>
+                    <br>
+                </div>
+                <!-- end of content  -->
+                <!-- start of content  -->
+                <div class="tag">
+                    <br>
+                    <h2>11</h2>
+                    <h1>Prototype specifications</h1>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img src="../img/p2/wire.jpeg" alt="Full Prototype" width="100%">
+                        </div>
+                        <div class="col-sm-6">
+                            <img src="../img/p2/knob wire.png" alt="Full Prototype" width="80%">
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <!-- end of content  -->
+                <!-- start of content  -->
+                <div class="tag">
+                    <br>
+                    <h2>12</h2>
+                    <h1>Modularity</h1>
+                    <h5>The design of modular pieces is shown in the image. However some part of modularity has been
+                        retained in labels. The
+                        labels have a plug-switch mechanism along with magnets. The labels on both the axes can be
+                        changed
+                        according to the
+                        convenience.</h5>
+                    <img src="../img/p2/modular.png" alt="Modularity" width="40%">
+                    <br>
+                </div>
+                <!-- end of content  -->
+                <!-- start of content  -->
+                <div class="tag">
+                    <br>
+                    <h2>13</h2>
+                    <h1>Working and Testing</h1>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h5>
+                                The <b>working</b> is demonstrated in the video below. Focus is on explaing the
+                                prototype, reading a chart and changing values.
+                            </h5>
+                            <iframe width="500" height="290"
+                                src="https://youtube.com/embed/I9zBnq8jXFY?autoplay=1&mute=1">
+                            </iframe>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5>
+                                Here we can see <b>testing</b> of the prototype by a blind person. The person is asked
+                                to
+                                think
+                                aloud while doing the task given.
+                            </h5>
+                            <iframe width="500" height="290" src="https://youtube.com/embed/4RiUGyljR4U">
+                            </iframe>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <!-- end of content  -->
+                <!-- start of content  -->
+                <div class="tag">
+                    <br>
+                    <h2>14</h2>
+                    <h1>Testing protocol</h1>
+                    <h5><i class="em em-pencil2" aria-role="presentation" aria-label="PENCIL"></i>
+                        Participants are initially <mark>briefed about charts and tables</mark>. In charts too, They are
+                        briefed only
+                        about line charts. They
+                        were also explained the concepts of x and y axis through a smaller prototype.
+                        <br><br>
+                        <i class="em em-pencil2" aria-role="presentation" aria-label="PENCIL"></i>
+                        Initially the moderator places the supplementary prototype in front of the participant and
+                        explains
+                        the basic concepts
+                        and allows the person to <mark>feel the prototype</mark>.
+                        <br><br>
+                        <i class="em em-pencil2" aria-role="presentation" aria-label="PENCIL"></i>
+                        Later the participant is introduced to the main prototype. The prototype is <mark>aligned to the
+                            participant</mark>. Initially the
+                        participant is encouraged to feel the axes of the prototype.
+                        <br><br>
+                        <i class="em em-pencil2" aria-role="presentation" aria-label="PENCIL"></i>
+                        After the training, the participant <mark>performs the tasks</mark>. When the participant was
+                        ready, s/he
+                        heard
+                        the title of a graph.
+                        The participant was instructed that
+                        after s/he ﬁnds the answer, s/he should immediately say it aloud.
+                        <br><br>
+                        <i class="em em-pencil2" aria-role="presentation" aria-label="PENCIL"></i>
+                        On each chart the participant is asked to perform 4 tasks. The moderator informs at the end of
+                        every
+                        task. Below is the
+                        <mark>order of the tasks</mark> for each participant and it remains the same for all.
+                        <ol>
+                            <li>Reading a chart</li>
+                            <li>Finding the highest peak and lowest dips</li>
+                            <li>Understanding the trends in the chart</li>
+                            <li>Correlating the charts with a given table</li>
+                        </ol>
+
+                    </h5>
+                    <br>
+                </div>
+                <!-- end of content  -->
+                <!-- start of content  -->
+                <div class="full-width-div tag" style="background-color: rgba(23, 144, 51, 0.4);">
+                    <div class="container">
+                        <h2 class="white-text">15</h2>
+                        <h1>Testing insights</h1>
+                        <br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <i class="em em-bulb" aria-role="presentation" aria-label="ELECTRIC LIGHT BULB"></i> 2 of 4 people found it a little
+                                    <mark>difficult to initially get familiar</mark> with
+                                    the
+                                    concept
+                                    of line charts. <br><br>
+                                    <i class="em em-bulb" aria-role="presentation" aria-label="ELECTRIC LIGHT BULB"></i> All of them had heard about line
+                                    charts but had <mark>never learnt</mark> about them.
+                                    <br><br>
+                                    <i class="em em-bulb" aria-role="presentation" aria-label="ELECTRIC LIGHT BULB"></i> People also <mark>used the raise ridge</mark>
+                                    (on the label) to guide themselves to the
+                                    value of
+                                    x or y. <br><br>
+                                    <i class="em em-bulb" aria-role="presentation" aria-label="ELECTRIC LIGHT BULB"></i> 2 of 4 participants were <mark>easily
+                                    able to move the knobs</mark> after figuring out
+                                    the
+                                    direction of force.<br><br>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <i class="em em-bulb" aria-role="presentation" aria-label="ELECTRIC LIGHT BULB"></i> They also complained that the
+                                    <mark>labels were small</mark> and not easy to read.<br><br>
+                                    <i class="em em-bulb" aria-role="presentation" aria-label="ELECTRIC LIGHT BULB"></i> The people also insisted on
+                                    <mark>cheaper solutions</mark> which could be affordable.
+                                    <br><br>
+                                    <i class="em em-bulb" aria-role="presentation" aria-label="ELECTRIC LIGHT BULB"></i> One of the participants wished
+                                    that the product can be <mark>learnt on its own</mark>
+                                    without the
+                                    help of a separate
+                                    instructor.
+                                    <br><br>
+                                    <i class="em em-bulb" aria-role="presentation" aria-label="ELECTRIC LIGHT BULB"></i> People also insisted on having
+                                    <mark>arrow markers indicating the directions</mark> of
+                                    x
+                                    and y
+                                    axes.<br><br>
+                                </div>
+                            </div>
+
+
+                        <br>
+                    </div>
+                </div>
+                <!-- end of content  -->
+                <!-- start of content  -->
+                <div class="tag">
+                    <br>
+                    <h2>16</h2>
+                    <h1>Limitations</h1>
+                    <h5>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <i class="em em-hammer" aria-role="presentation" aria-label="HAMMER"></i> The solution
+                                focus was very narrow and
+                                <mark>focussed only on line charts</mark>.There were
+                                5 entries on
+                                y axis. <br><br>
+                                <i class="em em-hammer" aria-role="presentation" aria-label="HAMMER"></i> The spring
+                                coil mechanism had its flaws. The
+                                farthest knob was difficult to
+                                move as it had
+                                the <mark>highest tension</mark>.
+                                <br><br>
+                                <i class="em em-hammer" aria-role="presentation" aria-label="HAMMER"></i> Even though
+                                these participants were unaware of
+                                the concepts of line charts,
+                                <mark>students should
+                                have been considered</mark> for
+                                the testing. <br><br>
+                                <i class="em em-hammer" aria-role="presentation" aria-label="HAMMER"></i> The braille
+                                <mark>labels could have been bigger</mark> so
+                                as to promote easier
+                                understanding.<br><br>
+                                <i class="em em-hammer" aria-role="presentation" aria-label="HAMMER"></i> Ease of
+                                <mark>learning factor</mark> has not been taken
+                                into consideration. <br><br>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <i class="em em-hammer" aria-role="presentation" aria-label="HAMMER"></i> The
+                                line charts represented in this design closely resemble the <mark>bar charts</mark>.
+                                <br><br>
+                                <i class="em em-hammer" aria-role="presentation" aria-label="HAMMER"></i>
+                                Learnability aspect and how the <mark>learnings after this experiment can be used
+                                later</mark> in their
+                                life is also not
+                                measured. <br><br>
+                                <i class="em em-hammer" aria-role="presentation" aria-label="HAMMER"></i> The
+                                coiled string poses some amount of <mark>threat if it gets snapped</mark> out of place.
+                                <br><br>
+                                <i class="em em-hammer" aria-role="presentation" aria-label="HAMMER"></i> Knob
+                                design and the design to keep the <mark>string taught could be improved</mark>.<br><br>
+                                <i class="em em-hammer" aria-role="presentation" aria-label="HAMMER"></i>
+                                <mark>Scaling up</mark> to add more values also leads to drastic increase of size of
+                                prototype. <br><br>
+
+                            </div>
+                        </div>
+
+                    </h5>
+                    <br>
+                </div>
+                <!-- end of content  -->
+                <br><br>
+                <!-- other projects  -->
+                <h2>Thank you for your time! <br>Look at other projects below</h2>
+                <br>
+
+                <div class="row">
+                    <div class="col-sm-6" onclick="location.href='./DEShaw.html';" style="cursor: pointer;">
+                        <!-- card start -->
+                        <div class="card-div hoverfn"
+                            style="background: linear-gradient(to top left, #179033 0%, #004085 100%);min-height:300px;">
+                            <div class="badger">
+                                <p class="card-subtext">&nbsp; COMPANY PROJECT : D. E. SHAW
+                                    &nbsp;
+                                </p>
+                            </div>
+
+                            <p class="card-maintext">Roadmap Planning Application
+                            </p>
+                            <img src="../img/DEShaw/deshawbanner.png" style="width: 100%;">
+                        </div>
+                        <!--end of card-->
+                    </div>
+                    <div class="col-sm-6" onclick="location.href='./MaidForYou.html';" style="cursor: pointer;">
+                        <!-- card start -->
+                        <div class="card-div hoverfn"
+                            style="background: linear-gradient(to top left, #EED59A 0%, #BC4555 100%);min-height:200px;">
+                            <div class="badger">
+                                <p class="card-subtext">&nbsp; COLLEGE PROJECT : IDC, IIT BOMBAY
+                                    &nbsp;
+                                </p>
+                            </div>
+
+                            <p class="card-maintext">Maid for you
+                            </p>
+                            <img src="../img/MaidForYou/maidBanner.png"
+                                style="width: 100%;border-radius:20px; border:5px solid #EED59A">
+                        </div>
+                        <!--end of card-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="container-fluid" style="background-color: black;text-align: center;">
+            <br>
+            <h6>Designed and Developed with
+                <i class="em em-heart" aria-role="presentation" aria-label="HEAVY BLACK HEART"></i>
+                by me &copy; 2021
+            </h6>
+            <br>
+        </div>
+
+        <script>
+            var slideIndex = [1, 1, 1, 1, 1];
+            var slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4", "mySlides5"]
+            showDivs(1, 0);
+            showDivs(1, 1);
+            showDivs(1, 2);
+            showDivs(1, 3);
+            showDivs(1, 4);
+
+            function plusDivs(n, no) {
+                showDivs(slideIndex[no] += n, no);
+            }
+
+            function showDivs(n, no) {
+                var i;
+                var x = document.getElementsByClassName(slideId[no]);
+                if (n > x.length) { slideIndex[no] = 1 }
+                if (n < 1) { slideIndex[no] = x.length }
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                x[slideIndex[no] - 1].style.display = "block";
+            }
+        </script>
+</body>
+
+</html>

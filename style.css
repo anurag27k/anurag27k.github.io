@@ -7,12 +7,21 @@ html {
             transition-timing-function: ease-in-out;
             transition: 0.5s;
             line-height: 1.5;
-            background: linear-gradient(to top left, black 0%, #343a40 100%);
+            /* background: linear-gradient(to top left, black 0%, #343a40 100%); */
+            /* background-image: url('https://i.gifer.com/Ebwn.gif');*/
+            background-image: url('https://i.gifer.com/HLPS.gif');
+            /* background-image: url('https://i.gifer.com/7l68.gif'); */
+            /* background-image: url('https://i.gifer.com/3aNP.gif'); */
+            /* background-image: url('https://i.gifer.com/P9q.gif'); */
+            /* background-image: url('https://i.gifer.com/Layx.gif'); */
+            /* background-image: url('./img/bggif.gif'); */
+            background-size:auto;
+
             color: white;
             font-family: 'Inter', sans-serif;
             cursor:url("./files/arrow1@2x.png"), url(foo.cur), auto;
 
-            animation: fadeInAnimation ease 2s;
+            animation: fadeInAnimation ease 0.5s;
             animation-iteration-count: 1;
             animation-fill-mode: forwards;
         }
@@ -64,6 +73,7 @@ html {
 
         p {
             font-size: 28px;
+            font-family: 'Bright', serif;
         }
 
         a,
@@ -162,7 +172,7 @@ html {
             font-weight: 600;
         }
         .card-maintext{
-            font-weight: 600;
+            font-family: 'Bright', serif;
             font-size: 1.75rem;
         }
         .card-description{
