@@ -25,13 +25,23 @@ html {
         }
 
         @font-face {
-            font-family: "Bright";
+            font-family: "Circular";
             src: url("./fonts/circular-std-medium-500.ttf");
         }
 
         @font-face {
             font-family: "Butler";
             src: url("./fonts/Butler/Butler-Black.woff");
+        }
+
+        @font-face {
+            font-family: "Bright";
+            src: url("./fonts/Bright\ DEMO.otf");
+        }
+
+        @font-face {
+            font-family: "Grafier";
+            src: url("./fonts/Grafier-BlackText.otf");
         }
 
         h6 {
@@ -59,14 +69,14 @@ html {
         }
 
         h1 {
-            font-family: 'Bright', serif;
+            font-family: 'Circular', serif;
             color: Black;
             font-size: 2rem;
         }
 
         p {
             font-size: 28px;
-            font-family: 'Bright', serif;
+            font-family: 'Circular', serif;
         }
 
         a,
@@ -165,7 +175,7 @@ html {
             font-weight: 600;
         }
         .card-maintext{
-            font-family: 'Bright', serif;
+            font-family: 'Circular', serif;
             font-size: 1.75rem;
         }
         .card-description{
