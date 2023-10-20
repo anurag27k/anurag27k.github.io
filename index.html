@@ -1,266 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Anurag Kumar - UX Designer</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="./img/logoblue.png" />
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        body {
-            /* background-image: url(./img/gif2.gif); */
-            /* background-image: url('https://media.giphy.com/media/TxVVB6PfWMjE4/giphy.gif'); */
-            background-image: url('https://i.gifer.com/HLPS.gif');
-            /* background-image: url('https://i.gifer.com/Ebwn.gif'); */
-            /* background-image: url('https://i.gifer.com/7l68.gif'); */
-            /* background-image: url('https://i.gifer.com/3aNP.gif'); */
-            /* background-image: url('https://i.gifer.com/P9q.gif'); */
-            /* background-image: url('https://i.gifer.com/Layx.gif'); */
-            /* background-image: url('./img/bggif.gif'); */
-            background-size: auto;
-            
-        }
+      body {
+        /* background-image: url(./img/gif2.gif); */
+        /* background-image: url('https://media.giphy.com/media/TxVVB6PfWMjE4/giphy.gif'); */
+        background-image: url("https://i.gifer.com/HLPS.gif");
+        /* background-image: url('https://i.gifer.com/Ebwn.gif'); */
+        /* background-image: url('https://i.gifer.com/7l68.gif'); */
+        /* background-image: url('https://i.gifer.com/3aNP.gif'); */
+        /* background-image: url('https://i.gifer.com/P9q.gif'); */
+        /* background-image: url('https://i.gifer.com/Layx.gif'); */
+        /* background-image: url('./img/bggif.gif'); */
+        background-size: auto;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        //for fade in loading
-        $(document).on("scroll", function () {
-            var pageTop = $(document).scrollTop();
-            var pageBottom = pageTop + $(window).height();
-            var tags = $(".tag");
+      //for fade in loading
+      $(document).on("scroll", function () {
+        var pageTop = $(document).scrollTop();
+        var pageBottom = pageTop + $(window).height();
+        var tags = $(".tag");
 
-            for (var i = 0; i < tags.length; i++) {
-                var tag = tags[i];
+        for (var i = 0; i < tags.length; i++) {
+          var tag = tags[i];
 
-                if ($(tag).position().top < pageBottom) {
-                    $(tag).addClass("visible");
-                } else {
-                    $(tag).removeClass("visible");
-                }
-            }
-        });
-
+          if ($(tag).position().top < pageBottom) {
+            $(tag).addClass("visible");
+          } else {
+            $(tag).removeClass("visible");
+          }
+        }
+      });
     </script>
 
     <!-- Header -->
     <div class="">
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="width:100%; position: fixed;z-index: 10000;">
-            <div class="container">
-                <!-- <a href="#" class="nav-link"> -->
-                <img src="./img/logowhite.png" style="width: 1.75rem;">
-                <!-- </a> -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav" style="padding-left: 10px;">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#discover">Discover</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#download">Download</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+      <nav
+        class="navbar navbar-expand-md bg-dark navbar-dark"
+        style="width: 100%; position: fixed; z-index: 10000"
+      >
+        <div class="container">
+          <!-- <a href="#" class="nav-link"> -->
+          <img src="./img/logowhite.png" style="width: 1.75rem" />
+          <!-- </a> -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapsibleNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav" style="padding-left: 10px">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#discover">Discover</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#download">Download</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
 
     <!-- intro -->
-    <div class="container fill" style="padding-top: 20vh;">
-        <div style="background-color: rgb(38, 37, 48);padding: 3%;border-radius:20px;">
-            <div class="row">
-                <div class="col-sm-7">
-                    <br>
-                    <h1 style="font-size: 50px; color: white;">
-                        Hello,
-                        <img class="rotate" src="./files/star1.png" width="10%;">
-                    
-                         <br>Anurag Here!
-                    </h1>
-                    <br><br>
-                    <p style="opacity: 0.3; font-size: 1.5rem;line-height: 1.5;">I design Human Experiences for making
-                        life simpler. Currently I am designing experiences at
-                    </p>
-                    <!-- <p class="intro-text text-muted" id="abcd" style="font-weight: 600;"></p> -->
-                    <br><br>
-                    <img class="rotate" src="./files/star2.png" width="5%;">&nbsp;
-                    <img src="./img/Oracle_white.svg" width="30%;border-radius:0">
-                    <img class="rotate" src="./files/star2.png" width="5%;">
-                    <br><br>
+    <div class="container fill" style="padding-top: 20vh">
+      <div
+        style="
+          background-color: rgb(38, 37, 48);
+          padding: 3%;
+          border-radius: 20px;
+        "
+      >
+        <div class="row">
+          <div class="col-sm-7">
+            <br />
+            <h1 style="font-size: 50px; color: white">
+              Hello,
+              <img class="rotate" src="./files/star1.png" width="10%;" />
 
-                </div>
-                <div class="col-sm-5">
-                    <div class="d-none d-lg-block">
-                        <br><br>
-                        <img src="./files/Profile4.gif" style="width: 140%;border-radius:50%">
-                    </div>
-                </div>
+              <br />Anurag Here!
+            </h1>
+            <br /><br />
+            <p style="opacity: 0.3; font-size: 1.5rem; line-height: 1.5">
+              I design Human Experiences for making life simpler. Currently I am
+              designing experiences at
+            </p>
+            <!-- <p class="intro-text text-muted" id="abcd" style="font-weight: 600;"></p> -->
+            <br /><br />
+            <img class="rotate" src="./files/star2.png" width="5%;" />&nbsp;
+            <img src="./img/Oracle_white.svg" width="30%;border-radius:0" />
+            <img class="rotate" src="./files/star2.png" width="5%;" />
+            <br /><br />
+          </div>
+          <div class="col-sm-1">
+            <br />
+            <img class="rotate" src="./files/star2.png" width="100%;" />
+            <br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br />
+            <img class="rotate" src="./files/star2.png" width="100%;" />
+          </div>
+          <div class="col-sm-3">
+            <div class="d-none d-lg-block">
+              <br /><br />
+              <img
+                src="./files/Profile4.gif"
+                style="width: 230%; margin: 0 0 0 -150px"
+              />
             </div>
-            
+          </div>
+          <div class="col-sm-1">
+            <br />
+            <img class="rotate" src="./files/star2.png" width="100%;" />
+            <br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br />
+            <img class="rotate" src="./files/star2.png" width="100%;" />
+          </div>
         </div>
+      </div>
 
-        <br>
-        <p style="text-align: center;">
-            <img src="./img/Memcall/downAnim.gif" width="2%">
-            <!-- <h5 style="text-align: center;color:rgb(100, 100, 100);">SCROLL DOWN</h5> -->
-        </p>
+      <br />
+      <p style="text-align: center">
+        <img src="./img/Memcall/downAnim.gif" width="2%" />
+        <!-- <h5 style="text-align: center;color:rgb(100, 100, 100);">SCROLL DOWN</h5> -->
+      </p>
     </div>
 
-    <div class="container-fluid" id="discover" style="background-color:white">
+    <div class="container-fluid" id="discover" style="background-color: white">
+      <div class="container padding100">
+        <h1 style="color: lightgray">In Focus</h1>
+        <br />
+        <!-- Project 1 -->
+        <div class="tag">
+          <div
+            class="card-div hoverfn"
+            style="
+              background: linear-gradient(
+                to top left,
+                #179033 0%,
+                #004085 100%
+              );
+            "
+          >
+            <div
+              class="row"
+              onclick="location.href='./subpages/DEShaw.html';"
+              style="cursor: pointer; padding-left: 10px"
+            >
+              <div class="pointerFix col-sm-6">
+                <br />
+                <div class="badger">
+                  <h6 class="card-subtext">&nbsp; INTERNSHIP PROJECT &nbsp;</h6>
+                </div>
 
-        <div class="container padding100">
-            <h1 style="color: lightgray;">In Focus
-            </h1><br>
-            <!-- Project 1 -->
-            <div class="tag">
-                <div class="card-div hoverfn " style="background: linear-gradient(to top left, #179033 0%, #004085 100%);">
-            
-                    <div class="row" onclick="location.href='./subpages/DEShaw.html';" style="cursor: pointer;padding-left: 10px;">
-                        <div class="pointerFix col-sm-6">
-                            <br>
-                            <div class="badger">
-                                <h6 class="card-subtext">&nbsp; INTERNSHIP PROJECT
-                                    &nbsp;
-                                </h6>
-                            </div>
-            
-                            <p class="card-maintext">Roadmap Planning Application</p>
-            
-                            <p class="card-description">
-                                Web application for managers to perform yearly planning and employee management
-                            </p>
-                            <br><br><br><br>
-                            <img src="./img/DEShaw/DESCO_Logo-white.png" alt="Card image" style="width: 40%">
-                            <br><br>
-                        </div>
-                        <div class="pointerFix col-sm-6">
-                            <img src="./img/DEShaw/deshawbanner.png" alt="Card image" style="width: 102.8%">
-                            <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
-                        </div>
-                    </div>
-                </div>
+                <p class="card-maintext">Roadmap Planning Application</p>
+
+                <p class="card-description">
+                  Web application for managers to perform yearly planning and
+                  employee management
+                </p>
+                <br /><br /><br /><br />
+                <img
+                  src="./img/DEShaw/DESCO_Logo-white.png"
+                  alt="Card image"
+                  style="width: 40%"
+                />
+                <br /><br />
+              </div>
+              <div class="pointerFix col-sm-6">
+                <img
+                  src="./img/DEShaw/deshawbanner.png"
+                  alt="Card image"
+                  style="width: 102.8%"
+                />
+                <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
+              </div>
             </div>
-            <!--end of p1-->
-            <br><br>
-            
-            <!-- Project 1 -->
-            <div class="tag">
-                <div class="card-div hoverfn " style="background: linear-gradient(to top left,#EED59A 0%, #BC4555 100%);">
-            
-                    <div class="row" onclick="location.href='./subpages/CPINS.html';"
-                        style="cursor: pointer;padding-left: 10px;">
-                        <div class="pointerFix col-sm-6">
-                            <br>
-                            <div class="badger">
-                                <h6 class="card-subtext">&nbsp; WORK PROJECT
-                                    &nbsp;
-                                </h6>
-                            </div>
-            
-                            <p class="card-maintext">Events recorder</p>
-            
-                            <p class="card-description">
-                                Bomb squad can record and report details of the suspect pacakage and the ones nearby. Other squads
-                                can then
-                                find nearby incidents and either resolve them or guide others.
-                            </p>
-                            <br><br><br>
-                            <img src="./img/people10WhiteLogo.svg" alt="Card image" style="width: 25%">
-                            <br><br>
-                        </div>
-                        <div class="pointerFix col-sm-6">
-                            <img src="./img/cpins/CPINScover.png" alt="Card image" style="width: 100%">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end of p1-->
-            <br><br>
-            <!-- Project 1 -->
-            <div class="tag">
-                <div class="card-div hoverfn " style="background: linear-gradient(to top left, #185e0d  0%, #c9c30e  100%);">
-        
-                <div class="row" onclick="location.href='./subpages/idearise.html';" style="cursor: pointer;padding-left: 10px;">
-                    <div class="pointerFix col-sm-6">
-                        <br>
-                        <div class="badger">
-                            <h6 class="card-subtext">&nbsp; COLLEGE PROJECT
-                                &nbsp;
-                            </h6>
-                        </div>
-        
-                        <p class="card-maintext">Idearise: Ideation Tool</p>
-        
-                        <p class="card-description">
-                           A tool which acts as scaffolding and fascilates ideation process from scratch to the end. Idyate helps users in generating ideas and prioritizing the Ideas as well.
-                        </p>
-                        <br><br><br>
-                        <img src="./img/MaidForYou/IDC logo.png" alt="Card image" style="width: 60%">
-                        <br><br>
-                    </div>
-                    <div class="pointerFix col-sm-6">
-                        <img src="./img/idearise/cover.png" alt="Card image" style="width: 102.8%">
-                        <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
         <!--end of p1-->
-        <br><br>
-            <!-- Project 3 -->
-            <div class="tag">
-                <div class="card-div hoverfn"
-                    style="background: linear-gradient(to top left, #ffa2c1 0%, #844cb8 100%);">
+        <br /><br />
 
-                    <div class="row" onclick="location.href='./subpages/blind.html';"
-                        style="cursor: pointer;padding-left: 10px;">
-                        <div class="pointerFix col-sm-6">
-                            <br>
-                            <div class="badger">
-                                <h6 class="card-subtext">&nbsp; COLLEGE PROJECT
-                                    &nbsp;
-                                </h6>
-                            </div>
-
-                            <p class="card-maintext">Enabling visually
-                                impaired to <br>depict
-                                line charts</p>
-                            <p class="card-description">
-                                A Tangible solution which allows the visually impaired to feel as well create their own
-                                line charts
-                            </p>
-                            <br><br>
-                            <img src="./img/MaidForYou/IDC logo.png" alt="Card image" style="width: 60%">
-                            <br><br>
-                        </div>
-                        <div class="pointerFix col-sm-6">
-                            <img src="./img/p2/cover.png" alt="Card image" width="100%">
-                            <!-- style="width: 100%;border-radius:20px; border:5px solid #EED59A"> -->
-                            <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
-                        </div>
-                    </div>
+        <!-- Project 1 -->
+        <div class="tag">
+          <div
+            class="card-div hoverfn"
+            style="
+              background: linear-gradient(
+                to top left,
+                #eed59a 0%,
+                #bc4555 100%
+              );
+            "
+          >
+            <div
+              class="row"
+              onclick="location.href='./subpages/CPINS.html';"
+              style="cursor: pointer; padding-left: 10px"
+            >
+              <div class="pointerFix col-sm-6">
+                <br />
+                <div class="badger">
+                  <h6 class="card-subtext">&nbsp; WORK PROJECT &nbsp;</h6>
                 </div>
-            </div>
-            <!--end of p3-->
-            
 
-            <!-- Project 2 -->
-            <!--colors: #fb6060 #99bdd9 #232f3b-->
-            <!-- <div class="tag">
+                <p class="card-maintext">Events recorder</p>
+
+                <p class="card-description">
+                  Bomb squad can record and report details of the suspect
+                  pacakage and the ones nearby. Other squads can then find
+                  nearby incidents and either resolve them or guide others.
+                </p>
+                <br /><br /><br />
+                <img
+                  src="./img/people10WhiteLogo.svg"
+                  alt="Card image"
+                  style="width: 25%"
+                />
+                <br /><br />
+              </div>
+              <div class="pointerFix col-sm-6">
+                <img
+                  src="./img/cpins/CPINScover.png"
+                  alt="Card image"
+                  style="width: 100%"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end of p1-->
+        <br /><br />
+        <!-- Project 1 -->
+        <div class="tag">
+          <div
+            class="card-div hoverfn"
+            style="
+              background: linear-gradient(
+                to top left,
+                #185e0d 0%,
+                #c9c30e 100%
+              );
+            "
+          >
+            <div
+              class="row"
+              onclick="location.href='./subpages/idearise.html';"
+              style="cursor: pointer; padding-left: 10px"
+            >
+              <div class="pointerFix col-sm-6">
+                <br />
+                <div class="badger">
+                  <h6 class="card-subtext">&nbsp; COLLEGE PROJECT &nbsp;</h6>
+                </div>
+
+                <p class="card-maintext">Idearise: Ideation Tool</p>
+
+                <p class="card-description">
+                  A tool which acts as scaffolding and fascilates ideation
+                  process from scratch to the end. Idyate helps users in
+                  generating ideas and prioritizing the Ideas as well.
+                </p>
+                <br /><br /><br />
+                <img
+                  src="./img/MaidForYou/IDC logo.png"
+                  alt="Card image"
+                  style="width: 60%"
+                />
+                <br /><br />
+              </div>
+              <div class="pointerFix col-sm-6">
+                <img
+                  src="./img/idearise/cover.png"
+                  alt="Card image"
+                  style="width: 102.8%"
+                />
+                <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end of p1-->
+        <br /><br />
+        <!-- Project 3 -->
+        <div class="tag">
+          <div
+            class="card-div hoverfn"
+            style="
+              background: linear-gradient(
+                to top left,
+                #ffa2c1 0%,
+                #844cb8 100%
+              );
+            "
+          >
+            <div
+              class="row"
+              onclick="location.href='./subpages/blind.html';"
+              style="cursor: pointer; padding-left: 10px"
+            >
+              <div class="pointerFix col-sm-6">
+                <br />
+                <div class="badger">
+                  <h6 class="card-subtext">&nbsp; COLLEGE PROJECT &nbsp;</h6>
+                </div>
+
+                <p class="card-maintext">
+                  Enabling visually impaired to <br />depict line charts
+                </p>
+                <p class="card-description">
+                  A Tangible solution which allows the visually impaired to feel
+                  as well create their own line charts
+                </p>
+                <br /><br />
+                <img
+                  src="./img/MaidForYou/IDC logo.png"
+                  alt="Card image"
+                  style="width: 60%"
+                />
+                <br /><br />
+              </div>
+              <div class="pointerFix col-sm-6">
+                <img src="./img/p2/cover.png" alt="Card image" width="100%" />
+                <!-- style="width: 100%;border-radius:20px; border:5px solid #EED59A"> -->
+                <!-- <a href="./subpages/portraits.html" class="ran stretched-link"></a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end of p3-->
+
+        <!-- Project 2 -->
+        <!--colors: #fb6060 #99bdd9 #232f3b-->
+        <!-- <div class="tag">
                 <div class="card-div hoverfn"
                     style="background: linear-gradient(to top left, #99bdd9 0%, #232f3b 100%);">
 
@@ -289,48 +388,75 @@
                     </div>
                 </div>
             </div> -->
-            <!--end of p2-->
+        <!--end of p2-->
 
-            <br><br>
-            <h1 style="color: lightgray;"><a href="./otherwork.html" style="text-decoration: none;color: lightgray;">Other Work</a></h1>
-
-
-        </div>
-
+        <br /><br />
+        <h1 style="color: lightgray">
+          <a
+            href="./otherwork.html"
+            style="text-decoration: none; color: lightgray"
+            >Other Work</a
+          >
+        </h1>
+      </div>
     </div>
 
     <!-- download -->
     <div id="download" class="container padding100 pb-5">
-        <div style="background-color: rgb(38, 37, 48);padding: 5%;border-radius:20px;">
-            <h1 style="font-size: 50px; color: white;opacity: 1;">Wanna know more 
-                <img class="rotate" src="./files/star1.png" width="10%;">
-            </h1><br>
-            <!-- <p class="text-muted" style="line-height:2;"> -->
-                <p style="opacity: 0.3; font-size: 1.5rem;line-height: 1.5;">
-                <a href="./files/anuragResume.pdf" class="text-light" target="_blank">Resume</a>
-                <br><a href="https://www.linkedin.com/in/anurag27k/" class="text-light" target="_blank">LinkedIn</a>
+      <div
+        style="
+          background-color: rgb(38, 37, 48);
+          padding: 5%;
+          border-radius: 20px;
+        "
+      >
+        <h1 style="font-size: 50px; color: white; opacity: 1">
+          Wanna know more
+          <img class="rotate" src="./files/star1.png" width="10%;" />
+        </h1>
+        <br />
+        <!-- <p class="text-muted" style="line-height:2;"> -->
+        <p style="opacity: 0.3; font-size: 1.5rem; line-height: 1.5">
+          <a href="./files/anuragResume.pdf" class="text-light" target="_blank"
+            >Resume</a
+          >
+          <br /><a
+            href="https://www.linkedin.com/in/anurag27k/"
+            class="text-light"
+            target="_blank"
+            >LinkedIn</a
+          >
 
-                <br><a href="mailto:anurag27k@gmail.com?Subject=Reaching%20out" class="text-light">anurag27k@gmail.com</a>
-                <br><br>
-            
-                <a href="./self.html" class="text-light" style="font-weight: 500;">Know more about me
-                  </a>            
+          <br /><a
+            href="mailto:anurag27k@gmail.com?Subject=Reaching%20out"
+            class="text-light"
+            >anurag27k@gmail.com</a
+          >
+          <br /><br />
 
-            </p>
-        </div>
+          <a href="./self.html" class="text-light" style="font-weight: 500"
+            >Know more about me
+          </a>
+        </p>
+      </div>
     </div>
-
 
     <!-- Footer -->
-    <div class="container-fluid" style="background-color: black;text-align: center;">
-        <br>
-        <h6>Designed and Developed with
-            <i class="em em-heart" aria-role="presentation" aria-label="HEAVY BLACK HEART"></i>
-            by me &copy; 2023
-        </h6>
-        <br>
+    <div
+      class="container-fluid"
+      style="background-color: black; text-align: center"
+    >
+      <br />
+      <h6>
+        Designed and Developed with
+        <i
+          class="em em-heart"
+          aria-role="presentation"
+          aria-label="HEAVY BLACK HEART"
+        ></i>
+        by me &copy; 2023
+      </h6>
+      <br />
     </div>
-
-</body>
-
+  </body>
 </html>

@@ -1,225 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Anurag Kumar - UX Designer</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="./img/logoblue.png" />
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
     <style>
-
+      body {
+        /* background-image: url(./img/gif2.gif); */
+        /* background-image: url('https://media.giphy.com/media/TxVVB6PfWMjE4/giphy.gif'); */
+        background-image: url("https://i.gifer.com/HLPS.gif");
+        /* background-image: url('https://i.gifer.com/Ebwn.gif'); */
+        /* background-image: url('https://i.gifer.com/7l68.gif'); */
+        /* background-image: url('https://i.gifer.com/3aNP.gif'); */
+        /* background-image: url('https://i.gifer.com/P9q.gif'); */
+        /* background-image: url('https://i.gifer.com/Layx.gif'); */
+        /* background-image: url('./img/bggif.gif'); */
+        background-size: auto;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- Header -->
     <div class="">
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="width:100%; position: fixed;z-index: 10000;">
-            <div class="container">
-                <!-- <a href="#" class="nav-link"> -->
-                <img src="./img/logowhite.png" style="width: 30px;">
-                <!-- </a> -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav" style="padding-left: 10px;">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./index.html#discover">Discover</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./index.html#download">Download</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+      <nav
+        class="navbar navbar-expand-md bg-dark navbar-dark"
+        style="width: 100%; position: fixed; z-index: 10000"
+      >
+        <div class="container">
+          <!-- <a href="#" class="nav-link"> -->
+          <img src="./img/logowhite.png" style="width: 30px" />
+          <!-- </a> -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapsibleNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav" style="padding-left: 10px">
+              <li class="nav-item">
+                <a class="nav-link" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./index.html#discover">Discover</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./index.html#download">Download</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
 
     <script>
-        //for fade in loading
-        $(document).on("scroll", function () {
-            var pageTop = $(document).scrollTop();
-            var pageBottom = pageTop + $(window).height();
-            var tags = $(".tag");
+      //for fade in loading
+      $(document).on("scroll", function () {
+        var pageTop = $(document).scrollTop();
+        var pageBottom = pageTop + $(window).height();
+        var tags = $(".tag");
 
-            for (var i = 0; i < tags.length; i++) {
-                var tag = tags[i];
+        for (var i = 0; i < tags.length; i++) {
+          var tag = tags[i];
 
-                if ($(tag).position().top < pageBottom) {
-                    $(tag).addClass("visible");
-                } else {
-                    $(tag).removeClass("visible");
-                }
-            }
-        });
-
+          if ($(tag).position().top < pageBottom) {
+            $(tag).addClass("visible");
+          } else {
+            $(tag).removeClass("visible");
+          }
+        }
+      });
     </script>
 
-    <div class="container" style="padding-top: 15vh;min-height: 35vh; height: 35vh;">
+    <div
+      class="container-fluid"
+      id="discover"
+      style="background-color: rgb(38, 37, 48); padding-top: 50px"
+    >
+      <div
+        class="container"
+        style="padding-top: 6vh; min-height: 20vh; height: 20vh"
+      >
         <!-- <div style="background-color: rgb(50, 50, 50);padding: 3%;border-radius:20px;"> -->
-            <div>
-        <h1 style="font-size: 70px; color: white;opacity: 0.1;">About Me</h1>
+        <div>
+          <h1 style="font-size: 50px; color: white; opacity: 1">
+            <img class="rotate" src="./files/star2.png" width="5%;" />
+            About Me <img class="rotate" src="./files/star2.png" width="5%;" />
+          </h1>
         </div>
-        <hr><br>
+        <br />
+      </div>
     </div>
 
-    <div class="container-fluid" id="discover" style="background-color:white;padding-top: 50px;">
-        <div class="container">
+    <div
+      class="container-fluid"
+      id="discover"
+      style="background-color: white; padding-top: 50px"
+    >
+      <div class="container">
+        <!-- Content start -->
+        <div class="row">
+          <div class="col-sm-7">
+            <img
+              src="./img/self/profilepic.jpeg"
+              style="width: 80%; border-radius: 10px"
+            />
+          </div>
+
+          <div class="col-sm-5 black-text">
+            <br />
+            <p>
+              For starters, my full name is <b>Anurag Kumar Singh.</b><br />
+              I am basically from Uttar Pradesh, but all my life I have spent in
+              Chennai. So I've been to:<br /><br />
+              <img src="./img/self/location - Copy.png" style="width: 78%" />
+              <img
+                src="./img/self/location - Copy (2).png"
+                style="width: 90%"
+              />
+            </p>
+          </div>
+        </div>
+        <!-- Content end -->
+        <br /><br />
+        <!-- start of content  -->
+        <div
+          class="full-width-div tag"
+          style="background-color: rgba(0, 64, 133, 0.4)"
+        >
+          <div class="container">
+            <br />
             <!-- Content start -->
             <div class="row">
-                <div class="col-sm-7">
-                    <img src="./img/self/profilepic.jpeg" style="width: 80%;border-radius:10px;">
-                </div>
-
-                <div class="col-sm-5 black-text">
-                    <br>
-                    <p>For starters, my full name is <b>Anurag Kumar Singh.</b><br>
-                        I am basically from Uttar Pradesh, but all my life I have spent in Chennai. So I've been to:<br><br>
-                        <img src="./img/self/location - Copy.png" style="width: 78%;">
-                        <img src="./img/self/location - Copy (2).png" style="width: 90%;">
-                    </p>
-                </div>
+              <div class="col-sm-8">
+                <br />
+                <p>
+                  My curiosity lingers in the wild. I love talking about topics
+                  of philosophy and listen to old classics. I am always curious
+                  how humans can defy the known patterns. I have a soft spot for
+                  accessibilty in products.<br />
+                </p>
+              </div>
+              <div class="col-sm-4">
+                <img
+                  src="./img/self/self2.png"
+                  style="width: 80%; border-radius: 50%"
+                />
+              </div>
             </div>
             <!-- Content end -->
-            <br><br>
-            <!-- start of content  -->
-            <div class="full-width-div tag" style="background-color:  rgba(0, 64, 133, 0.4);">
-                <div class="container">
-                    <br>
-                    <!-- Content start -->
-                    <div class="row ">
-                        
-                        <div class="col-sm-8 ">
-                            <br>
-                            <p>My curiosity lingers in the wild. I love talking about topics of philosophy
-                                and listen to old classics. I am always curious how humans can defy the known
-                                patterns. I have a
-                                soft
-                                spot for accessibilty in products.<br>
+            <br /><br />
+            <!-- Content start -->
+            <div class="row">
+              <div class="col-sm-4">
+                <img
+                  src="./img/self/self3.png"
+                  style="width: 80%; border-radius: 50%"
+                />
+              </div>
+              <div class="col-sm-8">
+                <br />
+                <p>
+                  There are a ton of things which I like to do. I keep
+                  experimenting with new hobbies (or interests) so I can only
+                  list a few over here:<br />
+                  <i
+                    class="em em-notes"
+                    aria-role="presentation"
+                    aria-label="MULTIPLE MUSICAL NOTES"
+                  ></i>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+                    class="em em-badminton_racquet_and_shuttlecock"
+                    aria-role="presentation"
+                    aria-label="BADMINTON RACQUET AND SHUTTLECOCK"
+                  ></i>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i
+                    class="em em-pencil2"
+                    aria-role="presentation"
+                    aria-label="PENCIL"
+                  ></i>
 
-                            </p>
-
-                        </div>
-                        <div class="col-sm-4">
-                            <img src="./img/self/self2.png" style="width: 80%;border-radius:50%">
-                        </div>
-                    </div>
-                    <!-- Content end -->
-                    <br><br>
-                    <!-- Content start -->
-                    <div class="row ">
-                        <div class="col-sm-4">
-                            <img src="./img/self/self3.png" style="width: 80%;border-radius:50%">
-                        </div>
-                        <div class="col-sm-8 ">
-                            <br>
-                            <p>There are a ton of things which I like to do. I keep experimenting with new hobbies (or
-                                interests)
-                                so I can only list a few over here:<br>
-                                <i class="em em-notes" aria-role="presentation" aria-label="MULTIPLE MUSICAL NOTES"></i>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="em em-badminton_racquet_and_shuttlecock"
-                                    aria-role="presentation" aria-label="BADMINTON RACQUET AND SHUTTLECOCK"></i>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<i class="em em-pencil2" aria-role="presentation"
-                                    aria-label="PENCIL"></i>
-
-                                &nbsp;&nbsp;&nbsp;&nbsp;<i class="em em-tv" aria-role="presentation"
-                                    aria-label="TELEVISION"></i>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<i class="em em-book" aria-role="presentation"
-                                    aria-label="OPEN BOOK"></i>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<i class="em em-beach_with_umbrella" aria-role="presentation"
-                                    aria-label=""></i>
-
-                            </p>
-
-                        </div>
-                    </div>
-
-                    <!-- Content end -->
-
-                    <br>
-                </div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i
+                    class="em em-tv"
+                    aria-role="presentation"
+                    aria-label="TELEVISION"
+                  ></i>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i
+                    class="em em-book"
+                    aria-role="presentation"
+                    aria-label="OPEN BOOK"
+                  ></i>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i
+                    class="em em-beach_with_umbrella"
+                    aria-role="presentation"
+                    aria-label=""
+                  ></i>
+                </p>
+              </div>
             </div>
-            <!-- end of content  -->
 
-            <br><br>
-            <h1 style="font-size: 70px; color: lightgray;">Some random work</h1><br>
-            <!-- Photo Grid -->
-            <div class="row1">
-                <div class="column1">
-                    <img src="./img/self/1.png" style="width:100%">
-                    <img src="./img/self/2.gif" style="width:100%">
-                    <img src="./img/self/3.png" style="width:100%">
-                    <img src="./img/self/4.png" style="width:100%">
-                    <img src="./img/self/17.jpeg" style="width:100%">
+            <!-- Content end -->
 
-                </div>
-                <div class="column1">
-                    <img src="./img/self/5.jpg" style="width:100%">
-                    <img src="./img/self/6.jpg" style="width:100%">
-                    <img src="./img/self/7.png" style="width:100%">
-                    <img src="./img/self/8.png" style="width:100%">
-                    <img src="./img/self/18.jpeg" style="width:100%">
-
-                </div>
-                <div class="column1">
-                    <img src="./img/self/9.png" style="width:100%">
-                    <img src="./img/self/10.jpeg" style="width:100%">
-                    <img src="./img/self/11.png" style="width:100%">
-                    <img src="./img/self/12.png" style="width:100%">
-                    
-                </div>
-                <div class="column1">
-                    <img src="./img/self/13.png" style="width:100%">
-                    <img src="./img/self/14.png" style="width:100%">
-                    <img src="./img/self/15.png" style="width:100%">
-                    <img src="./img/self/16.png" style="width:100%">
-                    <img src="./img/self/19.jpeg" style="width:100%">
-                    <img src="./img/self/20.jpeg" style="width:100%">
-                </div>
-            </div>
-            <!-- content grid end  -->
-            <br><br>
+            <br />
+          </div>
         </div>
-    </div>
+        <!-- end of content  -->
 
+        <br /><br />
+        <h1 style="font-size: 70px; color: lightgray">Some random work</h1>
+        <br />
+        <!-- Photo Grid -->
+        <div class="row1">
+          <div class="column1">
+            <img src="./img/self/1.png" style="width: 100%" />
+            <img src="./img/self/2.gif" style="width: 100%" />
+            <img src="./img/self/3.png" style="width: 100%" />
+            <img src="./img/self/4.png" style="width: 100%" />
+            <img src="./img/self/17.jpeg" style="width: 100%" />
+          </div>
+          <div class="column1">
+            <img src="./img/self/5.jpg" style="width: 100%" />
+            <img src="./img/self/6.jpg" style="width: 100%" />
+            <img src="./img/self/7.png" style="width: 100%" />
+            <img src="./img/self/8.png" style="width: 100%" />
+            <img src="./img/self/18.jpeg" style="width: 100%" />
+          </div>
+          <div class="column1">
+            <img src="./img/self/9.png" style="width: 100%" />
+            <img src="./img/self/10.jpeg" style="width: 100%" />
+            <img src="./img/self/11.png" style="width: 100%" />
+            <img src="./img/self/12.png" style="width: 100%" />
+          </div>
+          <div class="column1">
+            <img src="./img/self/13.png" style="width: 100%" />
+            <img src="./img/self/14.png" style="width: 100%" />
+            <img src="./img/self/15.png" style="width: 100%" />
+            <img src="./img/self/16.png" style="width: 100%" />
+            <img src="./img/self/19.jpeg" style="width: 100%" />
+            <img src="./img/self/20.jpeg" style="width: 100%" />
+          </div>
+        </div>
+        <!-- content grid end  -->
+        <br /><br />
+      </div>
+    </div>
 
     <!-- download -->
     <div id="download" class="container padding100 pb-5">
-        <div>
-            <h1 style="font-size: 70px; color: white;opacity: 0.1;">Wanna know more</h1><br>
-            <p class="text-muted" style="line-height:2;">
-                <a href="./files/anuragResume.pdf" class="text-light" target="_blank">Resume</a>
-                <br><a href="https://www.linkedin.com/in/anurag27k/" class="text-light" target="_blank">LinkedIn</a>
-    
-                <br><a href="mailto:anurag27k@gmail.com?Subject=Reaching%20out" class="text-light">anurag27k@gmail.com</a>
-                <br>
-            </p>
-        </div>
-    </div>
+      <div
+        style="
+          background-color: rgb(38, 37, 48);
+          padding: 5%;
+          border-radius: 20px;
+        "
+      >
+        <h1 style="font-size: 50px; color: white; opacity: 1">
+          Wanna know more
+          <img class="rotate" src="./files/star1.png" width="10%;" />
+        </h1>
+        <br />
+        <!-- <p class="text-muted" style="line-height:2;"> -->
+        <p style="opacity: 0.3; font-size: 1.5rem; line-height: 1.5">
+          <a href="./files/anuragResume.pdf" class="text-light" target="_blank"
+            >Resume</a
+          >
+          <br /><a
+            href="https://www.linkedin.com/in/anurag27k/"
+            class="text-light"
+            target="_blank"
+            >LinkedIn</a
+          >
 
+          <br /><a
+            href="mailto:anurag27k@gmail.com?Subject=Reaching%20out"
+            class="text-light"
+            >anurag27k@gmail.com</a
+          >
+        </p>
+      </div>
+    </div>
 
     <!-- Footer -->
-    <div class="container-fluid" style="background-color: black;text-align: center;">
-        <br>
-        <h6>Designed and Developed with
-            <i class="em em-heart" aria-role="presentation" aria-label="HEAVY BLACK HEART"></i>
-            by me &copy; 2023
-        </h6>
-        <br>
+    <div
+      class="container-fluid"
+      style="background-color: black; text-align: center"
+    >
+      <br />
+      <h6>
+        Designed and Developed with
+        <i
+          class="em em-heart"
+          aria-role="presentation"
+          aria-label="HEAVY BLACK HEART"
+        ></i>
+        by me &copy; 2023
+      </h6>
+      <br />
     </div>
-
-</body>
-
+  </body>
 </html>

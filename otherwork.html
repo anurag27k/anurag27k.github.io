@@ -1,412 +1,635 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Anurag Kumar - UX Designer</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="./img/logoblue.png" />
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        body {
-            background-image: url(./img/gif2.gif);
-            /* background-image: url('https://media.giphy.com/media/TxVVB6PfWMjE4/giphy.gif'); */
-            /* background-image: url('https://i.gifer.com/HLPS.gif'); */
-            /* background-image: url('https://i.gifer.com/Ebwn.gif'); */
-            /* background-image: url('https://i.gifer.com/7l68.gif'); */
-            /* background-image: url('https://i.gifer.com/3aNP.gif'); */
-            /* background-image: url('https://i.gifer.com/P9q.gif'); */
-            /* background-image: url('https://i.gifer.com/Layx.gif'); */
-            /* background-image: url('./img/bggif.gif'); */
-            background-size: auto;
-        }
+      body {
+        /* background-image: url(./img/gif2.gif); */
+        /* background-image: url('https://media.giphy.com/media/TxVVB6PfWMjE4/giphy.gif'); */
+        background-image: url("https://i.gifer.com/HLPS.gif");
+        /* background-image: url('https://i.gifer.com/Ebwn.gif'); */
+        /* background-image: url('https://i.gifer.com/7l68.gif'); */
+        /* background-image: url('https://i.gifer.com/3aNP.gif'); */
+        /* background-image: url('https://i.gifer.com/P9q.gif'); */
+        /* background-image: url('https://i.gifer.com/Layx.gif'); */
+        /* background-image: url('./img/bggif.gif'); */
+        background-size: auto;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        //for fade in loading
-        $(document).on("scroll", function () {
-            var pageTop = $(document).scrollTop();
-            var pageBottom = pageTop + $(window).height();
-            var tags = $(".tag");
+      //for fade in loading
+      $(document).on("scroll", function () {
+        var pageTop = $(document).scrollTop();
+        var pageBottom = pageTop + $(window).height();
+        var tags = $(".tag");
 
-            for (var i = 0; i < tags.length; i++) {
-                var tag = tags[i];
+        for (var i = 0; i < tags.length; i++) {
+          var tag = tags[i];
 
-                if ($(tag).position().top < pageBottom) {
-                    $(tag).addClass("visible");
-                } else {
-                    $(tag).removeClass("visible");
-                }
-            }
-        });
-
+          if ($(tag).position().top < pageBottom) {
+            $(tag).addClass("visible");
+          } else {
+            $(tag).removeClass("visible");
+          }
+        }
+      });
     </script>
 
     <!-- Header -->
     <div class="">
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="width:100%; position: fixed;z-index: 10000;">
-            <div class="container">
-                <!-- <a href="#" class="nav-link"> -->
-                <img src="./img/logowhite.png" style="width: 1.75rem;">
-                <!-- </a> -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav" style="padding-left: 10px;">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#discover">Discover</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#download">Download</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+      <nav
+        class="navbar navbar-expand-md bg-dark navbar-dark"
+        style="width: 100%; position: fixed; z-index: 10000"
+      >
+        <div class="container">
+          <!-- <a href="#" class="nav-link"> -->
+          <img src="./img/logowhite.png" style="width: 1.75rem" />
+          <!-- </a> -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapsibleNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav" style="padding-left: 10px">
+              <li class="nav-item">
+                <a class="nav-link" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#discover">Discover</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#download">Download</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
 
-    <br><br>
-
-    <div class="container-fluid" id="discover" style="background-color:white">
-
-        <div class="container padding100">
-            
-            <h1 style="font-size: 70px; color: lightgray;font-family: 'Bright', sans-serif;text-align: center;"">Other Work</h1>
-            <hr>
-
-            <!-- project start -->
-            <img src=" ./idclogo.png" style="width: 15%;">
-                <h1>IDC School of Design, IIT Bombay</h1><br>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="hoverfn" src="./img/MaidForYou/cover.png" width="100%"
-                            onclick="location.href='./subpages/MaidForYou.html';" style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>Maid for You</b><br>
-                            This connects domestic helpers and householders to get jobs
-                            
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; SERVICE DESIGN
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="hoverfn" src="./img/Memcall/Memcallcover.png" width="100%"
-                            onclick="location.href='./subpages/Memcall.html';"style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>Memcall - Design Fiction</b><br>
-                            Web app to book appointments for recalling old memories
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; WEBSITE DESIGN
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="hoverfn" src="./img/Gappe/Cover2.png" width="100%"
-                            onclick="location.href='./subpages/gappekadabba.html';"style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>Gappe Ka Dabba</b><br>
-                            Tangible interaction. Treated sound as an tangible object.
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; TANGIBLE INTERACTION
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="hoverfn" src="./img/icord/cover2.png" width="100%"
-                            onclick="location.href='./subpages/icord21.html';"style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>ICoRD Schedule</b><br>
-                            Redesigned and coded the ICoRD Schedule
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; WEBSITE REDESIGN
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    
-                    
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="hoverfn" src="./img/viz/cover.png" width="100%"
-                            onclick="location.href='./subpages/hindudatapoint.html';"style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>Hindu Data Redesign</b><br>
-                            Data Viz of redesigning of a Hindu data point article
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; SERVICE DESIGN
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="hoverfn" src="./img/ar/ar banner.png" width="100%" onclick="location.href='./subpages/dinear.html';"style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>Dine AR</b><br>
-                            Developed an AR Application to view/compare food menu
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; AUGUMENTED REALITY
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="" src="./img/duly noted/dulynoted.png" width="100%"style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>Duly Noted</b><br>
-                            Embedded notes and sectioned recordings in zoom
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; FEATURE ADDITION
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    
-                    <div class="col-sm-3">
-                    </div>
-                </div>
-                <!--Project end-->
-                <br><br>
-                <!-- project start -->
-                <img src="./cernerlogo.png" style="width: 12%;">
-                <h1>Cerner Healthcare</h1><br>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="hoverfn" src="./img/cerner/cover.png" width="100%"
-                            onclick="location.href='./subpages/DismissCerner.html';"style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>Dismiss functionality</b><br>
-                            Dismiss/delete the opportunities presented by the
-                            NLP Engine
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; AI SUGGESTION DESIGN
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-3"></div>
-                </div>
-                <!--Project end-->
-                <br><br>
-                <!-- project start -->
-                <img src="./p10logo.png" style="width: 10%;">
-                <h1>People10 Technosoft</h1><br>
-                <div class="row">
-                    
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="hoverfn" src="./img/skyl/website_b.png" width="100%"
-                            onclick="location.href='./subpages/skyl.html';"style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>Skyl.ai webpage</b><br>
-                            Mobile app for data-entry jobs + Marketing page
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; WEBSITE DESIGN
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="hoverfn" src="./img/buildweek/characters_b.png" width="100%"
-                            onclick="location.href='./subpages/branding.html';"style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>Branding</b><br>
-                            Designed posters, badges, standees and newsletters
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; BRANDING
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    <div class="col-sm-3">
-                    
-                    </div>
-                    <div class="col-sm-3"></div>
-                </div>
-                <!--Project end-->
-                <br><br>
-                <!-- project start -->
-                <!-- <img src="./cernerlogo.png" style="width: 15%;"> -->
-                <h1>Other Projects</h1><br>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="hoverfn" src="./img/game/cover.png" width="100%"
-                            onclick="location.href='./subpages/gamedesign.html';"style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>Game Design</b><br>
-                            Designed games for mobiles and PC using Unity/Builbox
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; GAME DESIGN
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="hoverfn" src="./img/microanimation/dance.gif" width="100%"
-                            onclick="location.href='./subpages/microanimation.html';"style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>Micro-Animations</b><br>
-                            Designed 1 microanimation per day for 11 days straight
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; MICRO ANIMATION
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="hoverfn" src="./img/mobile screens/screens.png" width="100%"
-                            onclick="location.href='./subpages/mobilescreen.html';"style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>Screen Challenge</b><br>
-                            Designed 1 mobile screen per day for 11 days straight
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; UI DESIGN
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    <div class="col-sm-3"></div>
-                </div>
-                <!--Project end-->
-                <br><br>
-                <!-- project start -->
-                <!-- <img src="./cernerlogo.png" style="width: 15%;"> -->
-                <h1>Technical Projects</h1><br>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="hoverfn" src="./igcarlogo_b.png" width="100%"
-                            onclick="location.href='./subpages/IGCARproject.html';"style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>IGCAR Project</b><br>
-                            This was project in IGCAR Kalpakkam where I created a Concept Simulation of
-                            Safety Related Service Water System.
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; SIMULATOR DESIGN
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    <div class="col-sm-3">
-                        <!-- start of card  -->
-                        <img class="hoverfn" src="./iitmlogo_b.png" width="100%"
-                            onclick="location.href='./subpages/lineFollower.html';"style="margin-bottom:10px;">
-                        <p class="card-description" style="color: black;margin: 0px;">
-                            <b>Line follower</b><br>
-                            This was workshop conducted in IIT madras as a part of Shastra 2013 to create a line
-                            follower with object detection.
-                            <div class="badger">
-                                <h6 class="card-subtext white-text">&nbsp; MICROCONTROLLER
-                                    &nbsp;
-                                </h6>
-                            </div>
-                        </p>
-                        <!--end of card-->
-                    </div>
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-3"></div>
-                </div>
-                <!--Project end-->
-                <br><br>
-
-
-
-
+    <div
+      class="container-fluid"
+      id="discover"
+      style="background-color: rgb(38, 37, 48); padding-top: 50px"
+    >
+      <div
+        class="container"
+        style="padding-top: 6vh; min-height: 20vh; height: 20vh"
+      >
+        <!-- <div style="background-color: rgb(50, 50, 50);padding: 3%;border-radius:20px;"> -->
+        <div>
+          <h1 style="font-size: 50px; color: white; opacity: 1">
+            <img class="rotate" src="./files/star2.png" width="5%;" />
+            Other Works
+            <img class="rotate" src="./files/star2.png" width="5%;" />
+          </h1>
         </div>
+        <br />
+      </div>
+    </div>
 
+    <div class="container-fluid" id="discover" style="background-color: white">
+      <div class="container padding100">
+        <!-- project start -->
+        <img src=" ./idclogo.png" style="width: 15%" />
+        <h1>IDC School of Design, IIT Bombay</h1>
+        <br />
+        <div class="row">
+          <!-- start of card  -->
+          <div class="col-sm-4" style="border-radius: 10px">
+            <div class="hoverfn">
+              <img
+                src="./img/MaidForYou/cover.png"
+                width="100%"
+                onclick="location.href='./subpages/MaidForYou.html';"
+                style="border-radius: 10px 10px 0px 0px"
+              />
+              <div
+                style="
+                  padding: 20px 20px 10px 20px;
+                  background-color: black;
+                  border-radius: 0px 0px 10px 10px;
+                "
+              >
+                <h4 class="bolder">Maid for You<br /></h4>
+                <p class="card-description">
+                  This connects domestic helpers and householders to get jobs
+                </p>
+                <div class="badger-gray">
+                  <h6 class="card-subtext black-text">
+                    &nbsp; SERVICE DESIGN &nbsp;
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end of card-->
+          <!-- start of card  -->
+          <div class="col-sm-4" style="border-radius: 10px">
+            <div class="hoverfn">
+              <img
+                src="./img/Memcall/Memcallcover.png"
+                width="100%"
+                onclick="location.href='./subpages/Memcall.html';"
+                style="border-radius: 10px 10px 0px 0px"
+              />
+              <div
+                style="
+                  padding: 20px 20px 10px 20px;
+                  background-color: black;
+                  border-radius: 0px 0px 10px 10px;
+                "
+              >
+                <h4 class="bolder">Memcall - Design Fiction<br /></h4>
+                <p class="card-description">
+                  Web app to book appointments for recalling old memories
+                </p>
+                <div class="badger-gray">
+                  <h6 class="card-subtext black-text">
+                    &nbsp; WEBSITE DESIGN &nbsp;
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end of card-->
+          <!-- start of card  -->
+          <div class="col-sm-4" style="border-radius: 10px">
+            <div class="hoverfn">
+              <img
+                src="./img/Gappe/Cover2.png"
+                width="100%"
+                onclick="location.href='./subpages/gappekadabba.html';"
+                style="border-radius: 10px 10px 0px 0px"
+              />
+              <div
+                style="
+                  padding: 20px 20px 10px 20px;
+                  background-color: black;
+                  border-radius: 0px 0px 10px 10px;
+                "
+              >
+                <h4 class="bolder">Gappe Ka Dabba<br /></h4>
+                <p class="card-description">
+                  Tangible interaction. Treated sound as an tangible object.
+                </p>
+                <div class="badger-gray">
+                  <h6 class="card-subtext black-text">
+                    &nbsp; TANGIBLE INTERACTION &nbsp;
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end of card-->
+        </div>
+        <br />
+        <div class="row">
+          <!-- start of card  -->
+          <div class="col-sm-4" style="border-radius: 10px">
+            <div class="hoverfn">
+              <img
+                src="./img/icord/cover2.png"
+                width="100%"
+                onclick="location.href='./subpages/icord21.html';"
+                style="border-radius: 10px 10px 0px 0px"
+              />
+              <div
+                style="
+                  padding: 20px 20px 10px 20px;
+                  background-color: black;
+                  border-radius: 0px 0px 10px 10px;
+                "
+              >
+                <h4 class="bolder">ICoRD Schedule<br /></h4>
+                <p class="card-description">
+                  Redesigned and coded the ICoRD Schedule
+                </p>
+                <div class="badger-gray">
+                  <h6 class="card-subtext black-text">
+                    &nbsp; WEBSITE REDESIGN &nbsp;
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end of card-->
+          <!-- start of card  -->
+          <div class="col-sm-4" style="border-radius: 10px">
+            <div class="hoverfn">
+              <img
+                src="./img/viz/cover.png"
+                width="100%"
+                onclick="location.href='./subpages/hindudatapoint.html';"
+                style="border-radius: 10px 10px 0px 0px"
+              />
+              <div
+                style="
+                  padding: 20px 20px 10px 20px;
+                  background-color: black;
+                  border-radius: 0px 0px 10px 10px;
+                "
+              >
+                <h4 class="bolder">Hindu Data Redesign<br /></h4>
+                <p class="card-description">
+                  Data Viz of redesigning of a Hindu data point article
+                </p>
+                <div class="badger-gray">
+                  <h6 class="card-subtext black-text">
+                    &nbsp; SERVICE DESIGN &nbsp;
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end of card-->
+          <!-- start of card  -->
+          <div class="col-sm-4" style="border-radius: 10px">
+            <div class="hoverfn">
+              <img
+                src="./img/ar/ar banner.png"
+                width="100%"
+                onclick="location.href='./subpages/dinear.html';"
+                style="border-radius: 10px 10px 0px 0px"
+              />
+              <div
+                style="
+                  padding: 20px 20px 10px 20px;
+                  background-color: black;
+                  border-radius: 0px 0px 10px 10px;
+                "
+              >
+                <h4 class="bolder">Dine AR<br /></h4>
+                <p class="card-description">
+                  Developed an AR Application to view/compare food menu
+                </p>
+                <div class="badger-gray">
+                  <h6 class="card-subtext black-text">
+                    &nbsp; AUGUMENTED REALITY &nbsp;
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end of card-->
+        </div>
+        <!--Project end-->
+        <br /><br />
+        <!-- project start -->
+        <img src="./cernerlogo.png" style="width: 12%" />
+        <h1>Cerner Healthcare</h1>
+        <br />
+        <div class="row">
+          <!-- start of card  -->
+          <div class="col-sm-4" style="border-radius: 10px">
+            <div class="hoverfn">
+              <img
+                src="./img/cerner/cover.png"
+                width="100%"
+                onclick="location.href='./subpages/DismissCerner.html';"
+                style="border-radius: 10px 10px 0px 0px"
+              />
+              <div
+                style="
+                  padding: 20px 20px 10px 20px;
+                  background-color: black;
+                  border-radius: 0px 0px 10px 10px;
+                "
+              >
+                <h4 class="bolder">Dismiss functionality<br /></h4>
+                <p class="card-description">
+                  Dismiss/delete the opportunities presented by the NLP Engine
+                </p>
+                <div class="badger-gray">
+                  <h6 class="card-subtext black-text">
+                    &nbsp; AI SUGGESTION DESIGN &nbsp;
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end of card-->
+
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4"></div>
+        </div>
+        <!--Project end-->
+        <br /><br />
+        <!-- project start -->
+        <img src="./p10logo.png" style="width: 10%" />
+        <h1>People10 Technosoft</h1>
+        <br />
+        <div class="row">
+          <!-- start of card  -->
+          <div class="col-sm-4" style="border-radius: 10px">
+            <div class="hoverfn">
+              <img
+                src="./img/skyl/website_b.png"
+                width="100%"
+                onclick="location.href='./subpages/skyl.html';"
+                style="border-radius: 10px 10px 0px 0px"
+              />
+              <div
+                style="
+                  padding: 20px 20px 10px 20px;
+                  background-color: black;
+                  border-radius: 0px 0px 10px 10px;
+                "
+              >
+                <h4 class="bolder">Skyl.ai webpage<br /></h4>
+                <p class="card-description">
+                  Mobile app for data-entry jobs + Marketing page
+                </p>
+                <div class="badger-gray">
+                  <h6 class="card-subtext black-text">
+                    &nbsp; WEBSITE DESIGN &nbsp;
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end of card-->
+          <!-- start of card  -->
+          <div class="col-sm-4" style="border-radius: 10px">
+            <div class="hoverfn">
+              <img
+                src="./img/buildweek/characters_b.png"
+                width="100%"
+                onclick="location.href='./subpages/branding.html';"
+                style="border-radius: 10px 10px 0px 0px"
+              />
+              <div
+                style="
+                  padding: 20px 20px 10px 20px;
+                  background-color: black;
+                  border-radius: 0px 0px 10px 10px;
+                "
+              >
+                <h4 class="bolder">Branding<br /></h4>
+                <p class="card-description">
+                  Designed posters, badges, standees and newsletters
+                </p>
+                <div class="badger-gray">
+                  <h6 class="card-subtext black-text">
+                    &nbsp; BRANDING &nbsp;
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end of card-->
+
+          <div class="col-sm-4"></div>
+        </div>
+        <!--Project end-->
+        <br /><br />
+        <!-- project start -->
+        <!-- <img src="./cernerlogo.png" style="width: 15%;"> -->
+        <h1>Other Projects</h1>
+        <br />
+        <div class="row">
+          <!-- start of card  -->
+          <div class="col-sm-4" style="border-radius: 10px">
+            <div class="hoverfn">
+              <img
+                src="./img/game/cover.png"
+                width="100%"
+                onclick="location.href='./subpages/gamedesign.html';"
+                style="border-radius: 10px 10px 0px 0px"
+              />
+              <div
+                style="
+                  padding: 20px 20px 10px 20px;
+                  background-color: black;
+                  border-radius: 0px 0px 10px 10px;
+                "
+              >
+                <h4 class="bolder">Game Design<br /></h4>
+                <p class="card-description">
+                  Designed games for mobiles and PC using Unity/Builbox
+                </p>
+                <div class="badger-gray">
+                  <h6 class="card-subtext black-text">
+                    &nbsp; GAME DESIGN &nbsp;
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end of card-->
+          <!-- start of card  -->
+          <div class="col-sm-4" style="border-radius: 10px">
+            <div class="hoverfn">
+              <img
+                src="./img/microanimation/dance.gif"
+                width="100%"
+                onclick="location.href='./subpages/microanimation.html';"
+                style="border-radius: 10px 10px 0px 0px"
+              />
+              <div
+                style="
+                  padding: 20px 20px 10px 20px;
+                  background-color: black;
+                  border-radius: 0px 0px 10px 10px;
+                "
+              >
+                <h4 class="bolder">Micro-Animations<br /></h4>
+                <p class="card-description">
+                  Designed 1 microanimation per day for 11 days straight
+                </p>
+                <div class="badger-gray">
+                  <h6 class="card-subtext black-text">
+                    &nbsp; MICRO ANIMATION &nbsp;
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end of card-->
+          <!-- start of card  -->
+          <div class="col-sm-4" style="border-radius: 10px">
+            <div class="hoverfn">
+              <img
+                src="./img/mobile screens/screens.png"
+                width="100%"
+                onclick="location.href='./subpages/mobilescreen.html';"
+                style="border-radius: 10px 10px 0px 0px"
+              />
+              <div
+                style="
+                  padding: 20px 20px 10px 20px;
+                  background-color: black;
+                  border-radius: 0px 0px 10px 10px;
+                "
+              >
+                <h4 class="bolder">Screen Challenge<br /></h4>
+                <p class="card-description">
+                  Designed 1 mobile screen per day for 11 days straight
+                </p>
+                <div class="badger-gray">
+                  <h6 class="card-subtext black-text">
+                    &nbsp; UI DESIGN &nbsp;
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end of card-->
+        </div>
+        <!--Project end-->
+        <br /><br />
+        <!-- project start -->
+        <!-- <img src="./cernerlogo.png" style="width: 15%;"> -->
+        <h1>Technical Projects</h1>
+        <br />
+        <div class="row">
+          <!-- start of card  -->
+          <div class="col-sm-4" style="border-radius: 10px">
+            <div class="hoverfn">
+              <img
+                src="./igcarlogo_b.png"
+                width="100%"
+                onclick="location.href='./subpages/IGCARproject.html';"
+                style="border-radius: 10px 10px 0px 0px"
+              />
+              <div
+                style="
+                  padding: 20px 20px 10px 20px;
+                  background-color: black;
+                  border-radius: 0px 0px 10px 10px;
+                "
+              >
+                <h4 class="bolder">IGCAR Project<br /></h4>
+                <p class="card-description">
+                  This was project in IGCAR Kalpakkam where I created a Concept
+                  Simulation of Safety Related Service Water System.
+                </p>
+                <div class="badger-gray">
+                  <h6 class="card-subtext black-text">
+                    &nbsp; SIMULATOR DESIGN &nbsp;
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end of card-->
+          <!-- start of card  -->
+          <div class="col-sm-4" style="border-radius: 10px">
+            <div class="hoverfn">
+              <img
+                src="./iitmlogo_b.png"
+                width="100%"
+                onclick="location.href='./subpages/lineFollower.html';"
+                style="border-radius: 10px 10px 0px 0px"
+              />
+              <div
+                style="
+                  padding: 20px 20px 10px 20px;
+                  background-color: black;
+                  border-radius: 0px 0px 10px 10px;
+                "
+              >
+                <h4 class="bolder">Line follower<br /></h4>
+                <p class="card-description">
+                  Workshop conducted in IIT madras as a part of Shastra 2013 to
+                  create a line follower with object detection.
+                </p>
+                <div class="badger-gray">
+                  <h6 class="card-subtext black-text">
+                    &nbsp; MICROCONTROLLER &nbsp;
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end of card-->
+
+          <div class="col-sm-4"></div>
+        </div>
+        <!--Project end-->
+        <br /><br />
+      </div>
     </div>
 
     <!-- download -->
     <div id="download" class="container padding100 pb-5">
-        <div style="background-color: rgb(38, 37, 48);padding: 5%;border-radius:20px;">
-            <h1 style="font-size: 70px; color: white;opacity: 0.1;">Wanna know more</h1><br>
-            <p class="text-muted" style="line-height:2;">
-                <a href="./files/anuragResume.pdf" class="text-light" target="_blank">Resume</a>
-                <br><a href="https://www.linkedin.com/in/anurag27k/" class="text-light" target="_blank">LinkedIn</a>
+      <div
+        style="
+          background-color: rgb(38, 37, 48);
+          padding: 5%;
+          border-radius: 20px;
+        "
+      >
+        <h1 style="font-size: 50px; color: white; opacity: 1">
+          Wanna know more
+          <img class="rotate" src="./files/star1.png" width="10%;" />
+        </h1>
+        <br />
+        <!-- <p class="text-muted" style="line-height:2;"> -->
+        <p style="opacity: 0.3; font-size: 1.5rem; line-height: 1.5">
+          <a href="./files/anuragResume.pdf" class="text-light" target="_blank"
+            >Resume</a
+          >
+          <br /><a
+            href="https://www.linkedin.com/in/anurag27k/"
+            class="text-light"
+            target="_blank"
+            >LinkedIn</a
+          >
 
-                <br><a href="mailto:anurag27k@gmail.com?Subject=Reaching%20out" class="text-light">anurag27k@gmail.com</a>
-                <br><br>
+          <br /><a
+            href="mailto:anurag27k@gmail.com?Subject=Reaching%20out"
+            class="text-light"
+            >anurag27k@gmail.com</a
+          >
+          <br /><br />
 
-                <a href="./self.html" class="text-light" style="font-weight: 500;">Find out what I am as a person
-                    <i class="em em-point_right" aria-role="presentation"
-                        aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i></a>
-
-            </p>
-        </div>
+          <a href="./self.html" class="text-light" style="font-weight: 500"
+            >Know more about me
+          </a>
+        </p>
+      </div>
     </div>
-
 
     <!-- Footer -->
-    <div class="container-fluid" style="background-color: black;text-align: center;">
-        <br>
-        <h6>Designed and Developed with
-            <i class="em em-heart" aria-role="presentation" aria-label="HEAVY BLACK HEART"></i>
-            by me &copy; 2023
-        </h6>
-        <br>
+    <div
+      class="container-fluid"
+      style="background-color: black; text-align: center"
+    >
+      <br />
+      <h6>
+        Designed and Developed with
+        <i
+          class="em em-heart"
+          aria-role="presentation"
+          aria-label="HEAVY BLACK HEART"
+        ></i>
+        by me &copy; 2023
+      </h6>
+      <br />
     </div>
-
-</body>
-
+  </body>
 </html>
