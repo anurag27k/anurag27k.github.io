@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
     <style>
-      .rotate {
-        transform: rotate(
-          45deg
-        ); /* You can change the degree value as needed */
+      /* styles.css */
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
       }
+
+      .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .video-background video {
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1;
+      }
+
+      /* Add styling to your other content as needed */
     </style>
   </head>
   <body>
-      <img src="your-image.jpg" alt="Your Image" class="rotate" />
-     
+    <div class="video-background">
+      <video autoplay loop muted>
+        <source src="./files/vecteezy1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <!-- Your content goes here -->
+    </div>
   </body>
 </html>
- 
