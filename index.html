@@ -56,25 +56,21 @@
     </script>
 
     <!-- Header -->
-    <div class="">
+    <div>
       <nav
-        class="navbar navbar-expand-md bg-dark navbar-dark"
+        class="navbar navbar-expand-md navbar-dark"
         style="width: 100%; position: fixed; z-index: 10000"
       >
         <div class="container">
-          <!-- <a href="#" class="nav-link"> -->
-          <img src="./img/logowhite.png" style="width: 1.75rem" />
-          <!-- </a> -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#collapsibleNavbar"
+          <!--  Remove justify-content-end class to allign on left -->
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="collapsibleNavbar"
           >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav" style="padding-left: 10px">
+            <ul
+              class="navbar-nav"
+              style="padding-left: 10px; padding-top: 20px"
+            >
               <li class="nav-item">
                 <a class="nav-link" href="#">Home</a>
               </li>
@@ -89,6 +85,7 @@
         </div>
       </nav>
     </div>
+    <!-- Header End -->
 
     <!-- Video code start -->
     <div class="video-background">
@@ -157,9 +154,13 @@
       </p>
     </div>
 
-    <div class="container-fluid" id="discover" style="background-color: white">
+    <div
+      class="container-fluid"
+      id="discover"
+      style="background-image: url('./files/stone-texture.jpg')"
+    >
       <div class="container padding100">
-        <h1 style="color: lightgray">In Focus</h1>
+        <h1 style="color: grey">In Focus</h1>
         <br />
         <!-- Project 1 -->
         <div class="tag">
@@ -396,9 +397,7 @@
 
         <br /><br />
         <h1 style="color: lightgray">
-          <a
-            href="./otherwork.html"
-            style="text-decoration: none; color: lightgray"
+          <a href="./otherwork.html" style="text-decoration: none; color: grey"
             >Other Works</a
           >
         </h1>
