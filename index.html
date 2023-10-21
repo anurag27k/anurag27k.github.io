@@ -18,7 +18,16 @@
       href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
       rel="stylesheet"
     />
-
+    <!-- for text reveal -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://use.typekit.net/nkf7vww.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/ScrollTrigger.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CustomEase3.min.js"></script>
+    <!-- end:for text reveal -->
     <style>
       body {
         /* background-image: url(./img/gif2.gif); */
@@ -53,6 +62,57 @@
           }
         }
       });
+      //end
+
+      //start:text reveral
+      window.addEventListener("load", function () {
+        gsap.registerPlugin(CustomEase);
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Wrap every letter
+        const textRevealElements = document.querySelectorAll(".reveal-text");
+
+        textRevealElements.forEach((element) => {
+          element.innerHTML = element.textContent.replace(
+            /([-A-Za-z0-9!$#%^&*@()_+|~=`{}\[\]:";'<>?,.\/]+)/g,
+            '<div class="word">$1</div>'
+          );
+
+          let words = element.querySelectorAll(".word");
+          words.forEach((word) => {
+            word.innerHTML = word.textContent.replace(
+              /[-A-Za-z0-9!$#%^&*@()_+|~=`{}\[\]:";'<>?,.\/]/g,
+              "<div class='perspective'><div class='letter'><div>$&</div></div></div>"
+            );
+          });
+
+          const letters = element.querySelectorAll(".letter");
+
+          let tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: element,
+              toggleActions: "restart none none reset",
+            },
+          });
+          tl.set(element, { autoAlpha: 1 });
+          tl.fromTo(
+            letters,
+            1.6,
+            {
+              transformOrigin: "center",
+              rotationY: 90,
+              x: 30,
+            },
+            {
+              rotationY: 0.1,
+              x: 0,
+              stagger: 0.025,
+              ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
+            }
+          );
+        });
+      });
+      //end:text reveeal
     </script>
 
     <!-- Header -->
@@ -103,13 +163,20 @@
         <div class="row">
           <div class="col-sm-7">
             <br />
-            <h1 style="font-size: 50px; color: white">
+            <img
+              class="rotate"
+              src="./files/star1.png"
+              width="10%;"
+            /><br /><br />
+            <h1 style="font-size: 50px; color: white" class="reveal-text">
               Hello,
-              <img class="rotate" src="./files/star1.png" width="10%;" />
 
-              <br />Anurag Here!
+              <br />
+
+              Anurag Here!
             </h1>
-            <br /><br />
+
+            <br />
             <p style="opacity: 0.3; font-size: 1.5rem; line-height: 1.5">
               I design Human Experiences for making life simpler. Currently I am
               designing experiences at
@@ -406,9 +473,12 @@
     <!-- download -->
     <div id="download" class="container padding100 pb-5">
       <div style="background-color: black; padding: 5%; border-radius: 20px">
-        <h1 style="font-size: 50px; color: white; opacity: 1">
+        <img class="rotate" src="./files/star1.png" width="5%;" /><br /><br />
+        <h1
+          style="font-size: 50px; color: white; opacity: 1"
+          class="reveal-text"
+        >
           Know more
-          <img class="rotate" src="./files/star1.png" width="10%;" />
         </h1>
         <br />
         <!-- <p class="text-muted" style="line-height:2;"> -->

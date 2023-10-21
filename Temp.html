@@ -1,44 +1,77 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
     <style>
       /* styles.css */
-      body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
+      #content-to-hide {
+        display: none;
       }
 
-      .video-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: -1;
-      }
-
-      .video-background video {
-        position: absolute;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -1;
+      button {
+        padding: 0.5rem;
       }
 
       /* Add styling to your other content as needed */
     </style>
+    <script>
+      const hiddenContent = document.querySelector("#content-to-hide"); // get the div element containing the paragraphs to be revealed
+      const paragraphs = hiddenContent.querySelectorAll("p"); // get all the paragraph elements inside the div
+      const revealedContent = document.querySelector("#content-to-reveal"); // get the div element that will show the typing effect
+      const startButton = document.querySelector("#start-the-effect"); // get the button element to start the effect
+
+      let i = 0; // initialize a counter variable
+      let speed = 50; // set the typing speed
+
+      function type() {
+        if (i < paragraphs.length) {
+          const paragraph = document.createElement("p"); // create a new paragraph element
+          revealedContent.appendChild(paragraph); // add the new paragraph to the revealed content div
+
+          const text = paragraphs[i].innerText; // get the text content of the current paragraph
+          const letters = text.split(""); // split the text into an array of individual letters
+
+          let j = 0; // initialize another counter variable
+
+          const intervalId = setInterval(() => {
+            if (j < letters.length) {
+              paragraph.innerHTML += letters[j]; // add the next letter to the paragraph
+              j++; // increment the counter variable
+            } else {
+              clearInterval(intervalId); // stop the interval once all the letters have been added
+              i++; // increment the outer counter variable to move on to the next paragraph
+              type(); // call the type function recursively to start typing the next paragraph immediately
+            }
+          }, speed);
+        }
+      }
+      if (window.addEventListener) {
+        window.addEventListener("load", startClock, false); //W3C
+      } else {
+        window.attachEvent("onload", startClock); //IE
+      }
+      function startClock() {
+        //do onload work
+
+        hiddenContent.style.display = "none"; // hide the original content
+        revealedContent.style.display = "block"; // show the revealed content
+        type(); // start the typing effect
+      }
+    </script>
   </head>
   <body>
-    <div class="video-background">
-      <video autoplay loop muted>
-        <source src="./files/vecteezy1.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <!-- Your content goes here -->
+    <p>
+      This is an attempt to create a text reveal effect, kind of like simulating
+      ChatGPT reponses.
+    </p>
+
+    <div id="content-to-hide">
+      <p>Here's the first paragraph of text.</p>
+      <p>Second paragraph of text is now showing.</p>
+      <p>Third paragraph is revealed last. It works, lovely stuff!</p>
     </div>
+
+    <button id="start-the-effect">Start The Effectss</button>
+
+    <div id="content-to-reveal"></div>
   </body>
 </html>
