@@ -18,32 +18,37 @@
 <!-- colors : #99bdd9 #232f3b #fb6060 -->
 
 <body style="background: linear-gradient(to top left, #ffa2c1 0%, #844cb8 100%);">
-    <!-- Header -->
-    <div class="">
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="width:100%; position: fixed;z-index: 10000;">
-            <div class="container">
-                <!-- <a href="#" class="nav-link"> -->
-                <img src="../img/logowhite.png" style="width: 30px;">
-                <!-- </a> -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav" style="padding-left: 10px;">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html#discover">Discover</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html#download">Download</a>
-                        </li>
-                    </ul>
+        <!-- Header -->
+        <div>
+            <nav
+              class="navbar navbar-expand-md navbar-dark"
+              style="width: 100%; position: fixed; z-index: 10000"
+            >
+              <div class="container">
+                <!--  Remove justify-content-end class to allign on left -->
+                <div
+                  class="collapse navbar-collapse justify-content-end"
+                  id="collapsibleNavbar"
+                >
+                  <ul
+                    class="navbar-nav"
+                    style="padding-left: 10px; padding-top: 20px"
+                  >
+                    <li class="nav-item">
+                      <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../index.html#discover">Discover</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../index.html#download">Download</a>
+                    </li>
+                  </ul>
                 </div>
-            </div>
-        </nav>
-    </div>
+              </div>
+            </nav>
+          </div>
+          <!-- Header End -->
 
     <script>
         //for fade in loading
@@ -776,58 +781,12 @@
                 </div>
                 <!-- end of content  -->
                 <br><br>
-                <!-- other projects  -->
-                <h2>Thank you for your time! <br>Look at other projects below</h2>
-                <br>
-
-                <div class="row">
-                    <div class="col-sm-6" onclick="location.href='./DEShaw.html';" style="cursor: pointer;">
-                        <!-- card start -->
-                        <div class="card-div hoverfn"
-                            style="background: linear-gradient(to top left, #179033 0%, #004085 100%);min-height:300px;">
-                            <div class="badger">
-                                <p class="card-subtext">&nbsp; COMPANY PROJECT : D. E. SHAW
-                                    &nbsp;
-                                </p>
-                            </div>
-
-                            <p class="card-maintext">Roadmap Planning Application
-                            </p>
-                            <img src="../img/DEShaw/deshawbanner.png" style="width: 100%;">
-                        </div>
-                        <!--end of card-->
-                    </div>
-                    <div class="col-sm-6" onclick="location.href='./MaidForYou.html';" style="cursor: pointer;">
-                        <!-- card start -->
-                        <div class="card-div hoverfn"
-                            style="background: linear-gradient(to top left, #EED59A 0%, #BC4555 100%);min-height:200px;">
-                            <div class="badger">
-                                <p class="card-subtext">&nbsp; COLLEGE PROJECT : IDC, IIT BOMBAY
-                                    &nbsp;
-                                </p>
-                            </div>
-
-                            <p class="card-maintext">Maid for you
-                            </p>
-                            <img src="../img/MaidForYou/maidBanner.png"
-                                style="width: 100%;border-radius:20px; border:5px solid #EED59A">
-                        </div>
-                        <!--end of card-->
-                    </div>
-                </div>
+                
 
             </div>
         </div>
 
-        <!-- Footer -->
-        <div class="container-fluid" style="background-color: black;text-align: center;">
-            <br>
-            <h6>Designed and Developed with
-                <i class="em em-heart" aria-role="presentation" aria-label="HEAVY BLACK HEART"></i>
-                by me &copy; 2021
-            </h6>
-            <br>
-        </div>
+        
 
         <script>
             var slideIndex = [1, 1, 1, 1, 1];
