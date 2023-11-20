@@ -174,10 +174,11 @@ a:hover {
 }
 .badger-gray {
   background-color: white;
-  opacity: 0.2;
+  opacity: 0.8;
   border-radius: 17px;
   width: fit-content;
   max-width: max-content;
+  color: #000;
 }
 .card-subtext {
   padding: 5px;
