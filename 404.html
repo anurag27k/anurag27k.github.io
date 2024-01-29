@@ -19,7 +19,33 @@
       rel="stylesheet"
     />
   </head>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
+    body {
+      transition-timing-function: ease-in-out;
+      transition: 0.5s;
+      line-height: 1.5;
+      background: linear-gradient(to top left, black 0%, #343a40 100%);
+
+      color: white;
+      font-family: "Inter", sans-serif;
+      cursor: url("./files/cursor1.png"), url(foo.cur), auto;
+
+      animation: fadeInAnimation ease 0.5s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+    p {
+      font-size: 28px;
+      font-family: "Barlow", serif;
+    }
+    h1 {
+      font-family: "Hatton", serif;
+    }
+  </style>
   <body>
     <!-- intro -->
     <div class="container fill" style="padding-top: 25vh">
