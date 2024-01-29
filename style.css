@@ -69,6 +69,10 @@ h5 {
   font-size: 1rem;
 }
 
+h4 {
+  font-size: 1.2rem;
+}
+
 h2 {
   font-family: "Hatton", serif;
   font-size: 48px;
@@ -158,6 +162,17 @@ a:hover {
   transform: scale(1.03);
   cursor: url("./files/cursor2.png"), url(foo.cur), auto;
 }
+.hoverfnNoZoom {
+  opacity: 0.5;
+  transition: 0.5s;
+  transition-timing-function: ease-in-out;
+}
+.hoverfnNoZoom:hover {
+  transition: 0.5s;
+  box-shadow: 0px 0px 50px lightgrey;
+  opacity: 1;
+  cursor: url("./files/cursor2.png"), url(foo.cur), auto;
+}
 .pointerFix {
   cursor: url("./files/cursor2.png"), url(foo.cur), auto;
 }
@@ -174,7 +189,7 @@ a:hover {
 }
 .badger-gray {
   background-color: white;
-  opacity: 0.8;
+  opacity: 0.2;
   border-radius: 17px;
   width: fit-content;
   max-width: max-content;
