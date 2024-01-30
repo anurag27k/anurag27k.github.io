@@ -7,7 +7,7 @@ body {
   transition-timing-function: ease-in-out;
   transition: 0.5s;
   line-height: 1.5;
-  background: linear-gradient(to top left, black 0%, #343a40 100%);
+  background-color: #000;
 
   color: white;
   font-family: "Inter", sans-serif;
