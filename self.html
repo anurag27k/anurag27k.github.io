@@ -36,39 +36,36 @@
 
   <body>
     <!-- Header -->
-    <div class="">
+    <div>
       <nav
-        class="navbar navbar-expand-md bg-dark navbar-dark"
+        class="navbar navbar-expand-md navbar-dark"
         style="width: 100%; position: fixed; z-index: 10000"
       >
         <div class="container">
-          <!-- <a href="#" class="nav-link"> -->
-          <img src="./img/logowhite.png" style="width: 30px" />
-          <!-- </a> -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#collapsibleNavbar"
+          <!--  Remove justify-content-end class to allign on left -->
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="collapsibleNavbar"
           >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav" style="padding-left: 10px">
+            <ul
+              class="navbar-nav"
+              style="padding-left: 10px; padding-top: 20px"
+            >
               <li class="nav-item">
                 <a class="nav-link" href="./index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./index.html#discover">Discover</a>
+                <a class="nav-link" href="#discover">Discover</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./index.html#download">Download</a>
+                <a class="nav-link" href="#download">Download</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </div>
+    <!-- Header End -->
 
     <!-- Video code start -->
     <div class="video-background">
@@ -105,10 +102,7 @@
     >
       <!-- <div style="background-color: rgb(50, 50, 50);padding: 3%;border-radius:20px;"> -->
       <div>
-        <h1 style="font-size: 50px; color: white; opacity: 1">
-          <img class="rotate" src="./files/star2.png" width="5%;" />
-          About Me <img class="rotate" src="./files/star2.png" width="5%;" />
-        </h1>
+        <h1 style="font-size: 50px; color: white; opacity: 1">About me</h1>
       </div>
       <br />
     </div>
@@ -130,16 +124,22 @@
 
           <div class="col-sm-5 black-text">
             <br />
-            <p>
-              For starters, my full name is <b>Anurag Kumar Singh.</b><br />
-              I am basically from Uttar Pradesh, but all my life I have spent in
-              Chennai. So I've been to:<br /><br />
-              <img src="./img/self/location - Copy.png" style="width: 78%" />
+            <h4 style="line-height: 1.5">
+              For starters, my full name is <br />
+              <b>Anurag Kumar Singh.</b><br />
+              <hr />
+              My origin is from Uttar Pradesh, but all my life I have spent in
+              Chennai. Later I have worked in Bengaluru and after that studies
+              in Bombay. So I've been to:<br /><br />
+              <img
+                src="./img/self/location - Copy.png"
+                style="width: 78%"
+              /><br /><br />
               <img
                 src="./img/self/location - Copy (2).png"
                 style="width: 90%"
               />
-            </p>
+            </h4>
           </div>
         </div>
         <!-- Content end -->
@@ -228,7 +228,7 @@
         <!-- end of content  -->
 
         <br /><br />
-        <h1 style="font-size: 70px; color: lightgray">Some random work</h1>
+        <h1 style="font-size: 48px; color: lightgray">Some random work</h1>
         <br />
         <!-- Photo Grid -->
         <div class="row1">
@@ -269,48 +269,54 @@
     <!-- download -->
     <div id="download" class="container padding100 pb-5">
       <div style="background-color: black; padding: 5%; border-radius: 20px">
-        <h1 style="font-size: 50px; color: white; opacity: 1">
-          Wanna know more
-          <img class="rotate" src="./files/star1.png" width="10%;" />
-        </h1>
+        <img class="rotate" src="./files/star1.png" width="5%;" /><br /><br />
+        <h1 style="font-size: 50px; color: white; opacity: 1">Know more</h1>
         <br />
         <!-- <p class="text-muted" style="line-height:2;"> -->
         <p style="opacity: 0.3; font-size: 1.5rem; line-height: 1.5">
+          <img src="./files/rightarrow.gif" width="3%;" />
+          &nbsp;
+
           <a href="./files/anuragResume.pdf" class="text-light" target="_blank"
-            >Resume</a
+            >Download Resume</a
           >
-          <br /><a
+          <br />
+          <img src="./files/rightarrow.gif" width="3%;" />
+          &nbsp;
+          <a
             href="https://www.linkedin.com/in/anurag27k/"
             class="text-light"
             target="_blank"
-            >LinkedIn</a
+            >Find me on LinkedIn</a
           >
 
-          <br /><a
+          <br />
+          <img src="./files/rightarrow.gif" width="3%;" />
+          &nbsp;
+          <a
             href="mailto:anurag27k@gmail.com?Subject=Reaching%20out"
             class="text-light"
-            >anurag27k@gmail.com</a
+            >Email at anurag27k@gmail.com</a
           >
+
+          <!--
+          <a href="./self.html" class="text-light" style="font-weight: 500"
+            >Know more about me
+          </a> -->
         </p>
       </div>
-    </div>
-
-    <!-- Footer -->
-    <div
-      class="container-fluid"
-      style="background-color: black; text-align: center"
-    >
       <br />
-      <h6>
-        Designed and Developed with
-        <i
-          class="em em-heart"
-          aria-role="presentation"
-          aria-label="HEAVY BLACK HEART"
-        ></i>
-        by me &copy; 2023
-      </h6>
-      <br />
+      <div class="row">
+        <div class="col-sm-6">
+          <h5 class="text-light">ALL RIGHTS RESERVED &copy; 2024</h5>
+        </div>
+        <div class="col-sm-6">
+          <h5 class="text-light" style="text-align: right">
+            DESIGNED AND DEVELOPED BY ANURAG
+          </h5>
+        </div>
+      </div>
     </div>
+    <!-- download end -->
   </body>
 </html>
