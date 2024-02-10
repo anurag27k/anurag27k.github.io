@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- <link rel="shortcut icon" href="./img/logoblue.png" /> -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <title>Salary Negotiator</title>
+    <style>
+      body {
+        padding: 2% 5% 2% 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- start:Script for salary negotiator -->
+    <script>
+      function myFunction() {
+        var inhand = Math.round(
+          parseFloat(document.getElementById("inhand").value)
+        );
+        var joiningBonus = Math.round(
+          parseFloat(document.getElementById("joiningBonus").value)
+        );
+        var performanceBonus = Math.round(
+          parseFloat(document.getElementById("performanceBonus").value)
+        );
+        var stocksYearly = Math.round(
+          parseFloat(document.getElementById("stocksYearly").value)
+        );
+        var stocksYears = Math.round(
+          parseFloat(document.getElementById("stocksYears").value)
+        );
+
+        var inhand_e = Math.round(
+          parseFloat(document.getElementById("inhand_e").value)
+        );
+        var joiningBonus_e = Math.round(
+          parseFloat(document.getElementById("joiningBonus_e").value)
+        );
+        var performanceBonus_e = Math.round(
+          parseFloat(document.getElementById("performanceBonus_e").value)
+        );
+        var stocksYearly_e = Math.round(
+          parseFloat(document.getElementById("stocksYearly_e").value)
+        );
+        var stocksYears_e = Math.round(
+          parseFloat(document.getElementById("stocksYears_e").value)
+        );
+
+        var ctc =
+          inhand + joiningBonus + performanceBonus + stocksYearly * stocksYears;
+
+        var ctc1 = inhand + joiningBonus + performanceBonus + stocksYearly;
+
+        var ctc2 = inhand + performanceBonus + stocksYearly;
+
+        var ctc_e =
+          inhand_e +
+          joiningBonus_e +
+          performanceBonus_e +
+          stocksYearly_e * stocksYears_e;
+
+        var ctc1_e =
+          inhand_e + joiningBonus_e + performanceBonus_e + stocksYearly_e;
+
+        var ctc2_e = inhand_e + performanceBonus_e + stocksYearly_e;
+
+        document.getElementById("ctc").value = ctc;
+        document.getElementById("ctc1").value = ctc1;
+        document.getElementById("ctc2").value = ctc2;
+
+        document.getElementById("ctc_e").value =
+          ctc_e + " (" + Math.round(((ctc_e - ctc) * 100) / ctc) + "% Hike)";
+        document.getElementById("ctc1_e").value =
+          ctc1_e +
+          " (" +
+          Math.round(((ctc1_e - ctc1) * 100) / ctc1) +
+          "% Hike)";
+        document.getElementById("ctc2_e").value =
+          ctc2_e +
+          " (" +
+          Math.round(((ctc2_e - ctc2) * 100) / ctc2) +
+          "% Hike)";
+
+        document.getElementById("inhand_e_hike").value = Math.round(
+          (100 *
+            (parseFloat(document.getElementById("inhand_e").value) -
+              parseFloat(document.getElementById("inhand").value))) /
+            parseFloat(document.getElementById("inhand").value)
+        );
+        document.getElementById("joiningBonus_e_hike").value = Math.round(
+          (100 *
+            (parseFloat(document.getElementById("joiningBonus_e").value) -
+              parseFloat(document.getElementById("joiningBonus").value))) /
+            parseFloat(document.getElementById("joiningBonus").value)
+        );
+        document.getElementById("performanceBonus_e_hike").value = Math.round(
+          (100 *
+            (parseFloat(document.getElementById("performanceBonus_e").value) -
+              parseFloat(document.getElementById("performanceBonus").value))) /
+            parseFloat(document.getElementById("performanceBonus").value)
+        );
+        document.getElementById("stocksYearly_e_hike").value = Math.round(
+          (100 *
+            (parseFloat(document.getElementById("stocksYearly_e").value) -
+              parseFloat(document.getElementById("stocksYearly").value))) /
+            parseFloat(document.getElementById("stocksYearly").value)
+        );
+        document.getElementById("stocksYears_e_hike").value = Math.round(
+          (100 *
+            (parseFloat(document.getElementById("stocksYears_e").value) -
+              parseFloat(document.getElementById("stocksYears").value))) /
+            parseFloat(document.getElementById("stocksYears").value)
+        );
+
+        document.getElementById("ctc_e_spl").value = Math.round(
+          ((ctc_e - ctc) * 100) / ctc
+        );
+
+        //document.getElementById("inhand_e").value = parseFloat(document.getElementById("inhand_e_hike").value)*parseFloat(document.getElementById("inhand").value)/100 + parseFloat(document.getElementById("inhand").value);
+        //document.getElementById("joiningBonus_e").value = parseFloat(document.getElementById("joiningBonus_e_hike").value)*parseFloat(document.getElementById("joiningBonus").value)/100 + parseFloat(document.getElementById("joiningBonus").value);
+        //document.getElementById("performanceBonus_e").value = parseFloat(document.getElementById("performanceBonus_e_hike").value)*parseFloat(document.getElementById("performanceBonus").value)/100 + parseFloat(document.getElementById("performanceBonus").value);
+        //document.getElementById("stocksYearly_e").value = parseFloat(document.getElementById("stocksYearly_e_hike").value)*parseFloat(document.getElementById("stocksYearly").value)/100 + parseFloat(document.getElementById("stocksYearly").value);
+      }
+
+      function cleanup() {
+        window.location.reload();
+      }
+    </script>
+    <!-- end:Script for salary negotiator -->
+
+    <!-- Main content -->
+
+    <div class="row">
+      <div class="col-sm-8">
+        <h1>
+          🎯 Salary Negotiator &nbsp;<button
+            type="button"
+            class="btn btn-info"
+            onclick="cleanup()"
+          >
+            Cleanup
+          </button>
+        </h1>
+      </div>
+
+      <div
+        class="col-sm-4"
+        style="opacity: 0.4; display: flex; align-items: center"
+      >
+        Designed and developed by&nbsp;<a href="https://anurag27k.github.io/"
+          >Anurag Kumar Singh</a
+        >
+      </div>
+    </div>
+
+    <br />
+    <!-- <p>Designed and developed by Anurag</p> -->
+    <div class="alert alert-primary" role="alert">
+      <strong>INFO:</strong> You can input your salary and your desired salary
+      to see how much hike you should expect.<br />
+    </div>
+    <br />
+    <form action="/action_page.php">
+      <div class="row">
+        <!-- start:current salary -->
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-10"><h4>Current Salary</h4></div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  id="dummy"
+                  value="0"
+                  style="visibility: hidden"
+                  readonly
+                />
+              </div>
+            </div>
+          </div>
+
+          <hr />
+          <!-- s:summary -->
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <label for="ctc">CTC</label>
+              <input
+                class="form-control"
+                type="number"
+                id="ctc"
+                value="0"
+                readonly
+              />
+            </div>
+            <div class="col-sm-4 form-group">
+              <label for="ctc">CTC 1st year</label>
+              <input
+                class="form-control"
+                type="number"
+                id="ctc1"
+                value="0"
+                readonly
+              />
+            </div>
+            <div class="col-sm-4 form-group">
+              <label for="ctc">CTC 2nd year onwards</label>
+              <input
+                class="form-control"
+                type="number"
+                id="ctc2"
+                value="0"
+                readonly
+              />
+            </div>
+          </div>
+          <hr />
+          <!-- e:summary -->
+          <div class="form-group">
+            <label for="inhand">In hand salary</label>
+            <input
+              type="number"
+              class="form-control"
+              id="inhand"
+              value="0"
+              onchange="myFunction()"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="joiningBonus">Joining bonus</label>
+            <input
+              type="number"
+              class="form-control"
+              id="joiningBonus"
+              value="0"
+              onchange="myFunction()"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="performanceBonus">Performance bonus</label>
+            <input
+              type="number"
+              class="form-control"
+              id="performanceBonus"
+              value="0"
+              onchange="myFunction()"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="stocksYearly">Stocks per year</label>
+            <input
+              type="number"
+              class="form-control"
+              id="stocksYearly"
+              value="0"
+              onchange="myFunction()"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="stocksYears">Stocks for years</label>
+            <input
+              type="number"
+              class="form-control"
+              id="stocksYears"
+              value="0"
+              onchange="myFunction()"
+            />
+          </div>
+        </div>
+        <!-- end:current salary -->
+        <!-- start:Expected salary -->
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-8"><h4>Expected Salary</h4></div>
+            <div class="col-sm-2" style="padding-top: 1%; visibility: hidden">
+              Overall %
+            </div>
+            <div class="col-sm-2" style="visibility: hidden">
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  id="ctc_e_spl"
+                  value="0"
+                />
+              </div>
+            </div>
+          </div>
+
+          <hr />
+          <!-- s:summary -->
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <label for="ctc_e">CTC</label>
+              <input
+                class="form-control"
+                type="text"
+                id="ctc_e"
+                value="0"
+                readonly
+              />
+            </div>
+            <div class="col-sm-4 form-group">
+              <label for="ctc1_e">CTC 1st year</label>
+              <input
+                class="form-control"
+                type="text"
+                id="ctc1_e"
+                value="0"
+                readonly
+              />
+            </div>
+            <div class="col-sm-4 form-group">
+              <label for="ctc2_e">CTC 2nd year onwards</label>
+              <input
+                class="form-control"
+                type="text"
+                id="ctc2_e"
+                value="0"
+                readonly
+              />
+            </div>
+          </div>
+          <hr />
+          <!-- e:summary -->
+
+          <div class="row">
+            <div class="col-sm-10 form-group">
+              <label for="inhand_e">In hand salary</label>
+              <input
+                type="number"
+                class="form-control"
+                id="inhand_e"
+                value="0"
+                onchange="myFunction()"
+              />
+            </div>
+            <!-- <div class="col-sm-1" style="display: flex; align-items: center">
+              OR
+            </div> -->
+            <div class="col-sm-2 form-group">
+              <label for="inhand_e_hike">% Hike</label>
+              <input
+                type="number"
+                class="form-control"
+                id="inhand_e_hike"
+                value="0"
+                onchange="myFunction()"
+                readonly
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-10 form-group">
+              <label for="joiningBonus_e">Joining bonus</label>
+              <input
+                type="number"
+                class="form-control"
+                id="joiningBonus_e"
+                value="0"
+                onchange="myFunction()"
+              />
+            </div>
+            <div class="col-sm-2 form-group">
+              <label for="joiningBonus_e_hike">% Hike</label>
+              <input
+                type="number"
+                class="form-control"
+                id="joiningBonus_e_hike"
+                value="0"
+                onchange="myFunction()"
+                readonly
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-10 form-group">
+              <label for="performanceBonus_e">Performance bonus</label>
+              <input
+                type="number"
+                class="form-control"
+                id="performanceBonus_e"
+                value="0"
+                onchange="myFunction()"
+              />
+            </div>
+            <div class="col-sm-2 form-group">
+              <label for="performanceBonus_e_hike">% Hike</label>
+              <input
+                type="number"
+                class="form-control"
+                id="performanceBonus_e_hike"
+                value="0"
+                onchange="myFunction()"
+                readonly
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-10 form-group">
+              <label for="stocksYearly_e">Stocks per year</label>
+              <input
+                type="number"
+                class="form-control"
+                id="stocksYearly_e"
+                value="0"
+                onchange="myFunction()"
+              />
+            </div>
+            <div class="col-sm-2 form-group">
+              <label for="stocksYearly_e_hike">% Hike</label>
+              <input
+                type="number"
+                class="form-control"
+                id="stocksYearly_e_hike"
+                value="0"
+                onchange="myFunction()"
+                readonly
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-10 form-group">
+              <label for="stocksYears_e">Stocks for years</label>
+              <input
+                type="number"
+                class="form-control"
+                id="stocksYears_e"
+                value="0"
+                onchange="myFunction()"
+              />
+            </div>
+            <div class="col-sm-2 form-group">
+              <label for="stocksYears_e_hike">% Hike</label>
+              <input
+                type="number"
+                class="form-control"
+                id="stocksYears_e_hike"
+                value="0"
+                onchange="myFunction()"
+                readonly
+              />
+            </div>
+          </div>
+          <!-- end:Expected salary -->
+        </div>
+      </div>
+    </form>
+
+    <!-- End Main content -->
+  </body>
+</html>
