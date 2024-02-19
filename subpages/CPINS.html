@@ -74,62 +74,82 @@
       });
     </script>
 
-    <!-- <div class="container fill" style="padding-top: 25vh;">
-
-        <div class="row">
-            <div class="col-sm-5">
-
-                <div class="badger">
-                    <p class="card-subtext">&nbsp; ICoRD’21
-                        &nbsp;
-                    </p>
-                </div>
-                <br>
-                <p class="card-maintext">ICoRD’21 Interactive Schedule</p>
-                <p class="card-description">
-                    Designed and developed an interactive version of the ICoRD '21 (International Conference for
-                    Research in Design) schedule.
-                    This conference is held every 2 years and was hosted in IDC, IIT Bombay in 2021.
-                </p>
-                <div class="row p-3">
-                    <div class="col-sm-6" style="border-top:5px solid black;opacity: 0.1;">
-                        <br>
-                    </div>
-                </div>
-                <br>
-                <img src="../img/MaidForYou/IDC logo.png" alt="Card image" style="width: 70%">
-            </div>
-
-            <div class="col-sm-7">
-                <div class="d-none d-lg-block">
-                    <img src="../img/icord/cover.png" style="width:130%;">
-                </div>
-            </div>
-
-        </div>
-
-        <br><br>
-        <p style="text-align: center;">
-            <img src="../img/Memcall/downAnim.gif" width="2%">
-        </p>
-
-    </div> -->
-
     <div class="container-fluid" style="background-color: #262d4f">
       <div class="container padding100">
         <!-- start of content  -->
-        <img src="../img//cpins/new/1.png" style="width: 100%" />
-        <img src="../img//cpins/new/2.png" style="width: 100%" />
-        <img src="../img//cpins/new/3.png" style="width: 100%" />
-        <img src="../img//cpins/new/4.png" style="width: 100%" />
-        <img src="../img//cpins/new/5.png" style="width: 100%" />
-        <img src="../img//cpins/new/6.png" style="width: 100%" />
+        <div class="">
+          <img src="../img//cpins/new/1.png" style="width: 100%" />
+        </div>
+        <div class="tag">
+          <img src="../img//cpins/new/2.png" style="width: 100%" />
+        </div>
+        <div class="tag">
+          <img src="../img//cpins/new/3.png" style="width: 100%" />
+        </div>
+        <div class="tag">
+          <img src="../img//cpins/new/4.png" style="width: 100%" />
+        </div>
+        <div class="tag">
+          <img src="../img//cpins/new/5.png" style="width: 100%" />
+        </div>
+        <div class="tag">
+          <img src="../img//cpins/new/6.png" style="width: 100%" />
+        </div>
 
+        <!-- Footer -->
+        <div
+          class="row tag"
+          style="
+            background-color: black;
+            padding: 3%;
+            border-radius: 20px;
+            margin-top: 50px;
+          "
+        >
+          <div class="col-sm-3">
+            <img
+              class="rotate"
+              src="https://anurag27k.github.io/files/star1.png"
+              width="25%;"
+            />
+          </div>
+          <div class="col-sm-6">
+            <h1 style="text-align: center; font-size: 50px; color: white">
+              Thanks for reading!
+            </h1>
+          </div>
+          <div class="col-sm-3">
+            <img
+              class="rotate"
+              src="https://anurag27k.github.io/files/star1.png"
+              width="25%;"
+              style="float: right"
+            />
+          </div>
+        </div>
+        <!-- Footer end -->
         <!-- end of content  -->
       </div>
     </div>
 
     <script>
+      //for fade in loading
+      $(document).on("scroll", function () {
+        var pageTop = $(document).scrollTop();
+        var pageBottom = pageTop + $(window).height();
+        var tags = $(".tag");
+
+        for (var i = 0; i < tags.length; i++) {
+          var tag = tags[i];
+
+          if ($(tag).position().top < pageBottom) {
+            $(tag).addClass("visible");
+          } else {
+            $(tag).removeClass("visible");
+          }
+        }
+      });
+      //for fade in loading
       var slideIndex = [1, 1, 1, 1, 1];
       var slideId = [
         "mySlides1",
