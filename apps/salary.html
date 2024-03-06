@@ -49,6 +49,7 @@
     <!-- start:Script for salary negotiator -->
     <script>
       function myFunction() {
+        //getting all values
         var inhand = Math.round(
           parseFloat(document.getElementById("inhand").value)
         );
@@ -63,6 +64,12 @@
         );
         var stocksYears = Math.round(
           parseFloat(document.getElementById("stocksYears").value)
+        );
+        var othersFixed = Math.round(
+          parseFloat(document.getElementById("othersFixed").value)
+        );
+        var othersVariable = Math.round(
+          parseFloat(document.getElementById("othersVariable").value)
         );
 
         var inhand_e = Math.round(
@@ -80,25 +87,62 @@
         var stocksYears_e = Math.round(
           parseFloat(document.getElementById("stocksYears_e").value)
         );
+        var othersFixed_e = Math.round(
+          parseFloat(document.getElementById("othersFixed_e").value)
+        );
+        var othersVariable_e = Math.round(
+          parseFloat(document.getElementById("othersVariable_e").value)
+        );
 
+        //assigning current ctc
         var ctc =
-          inhand + joiningBonus + performanceBonus + stocksYearly * stocksYears;
+          inhand +
+          joiningBonus +
+          performanceBonus +
+          stocksYearly * stocksYears +
+          othersFixed +
+          othersVariable;
 
-        var ctc1 = inhand + joiningBonus + performanceBonus + stocksYearly;
+        var ctc1 =
+          inhand +
+          joiningBonus +
+          performanceBonus +
+          stocksYearly +
+          othersFixed +
+          othersVariable;
 
-        var ctc2 = inhand + performanceBonus + stocksYearly;
+        var ctc2 =
+          inhand +
+          performanceBonus +
+          stocksYearly +
+          othersFixed +
+          othersVariable;
 
+        //assigning new ctc
         var ctc_e =
           inhand_e +
           joiningBonus_e +
           performanceBonus_e +
-          stocksYearly_e * stocksYears_e;
+          stocksYearly_e * stocksYears_e +
+          othersFixed_e +
+          othersVariable_e;
 
         var ctc1_e =
-          inhand_e + joiningBonus_e + performanceBonus_e + stocksYearly_e;
+          inhand_e +
+          joiningBonus_e +
+          performanceBonus_e +
+          stocksYearly_e +
+          othersFixed_e +
+          othersVariable_e;
 
-        var ctc2_e = inhand_e + performanceBonus_e + stocksYearly_e;
+        var ctc2_e =
+          inhand_e +
+          performanceBonus_e +
+          stocksYearly_e +
+          othersFixed_e +
+          othersVariable_e;
 
+        //putting ctc values in webpage
         document.getElementById("ctc").value = ctc;
         document.getElementById("ctc1").value = ctc1;
         document.getElementById("ctc2").value = ctc2;
@@ -116,6 +160,7 @@
           Math.round(((ctc2_e - ctc2) * 100) / ctc2) +
           "% Hike)";
 
+        //calulating %hikes
         document.getElementById("inhand_e_hike").value = Math.round(
           (100 *
             (parseFloat(document.getElementById("inhand_e").value) -
@@ -140,21 +185,81 @@
               parseFloat(document.getElementById("stocksYearly").value))) /
             parseFloat(document.getElementById("stocksYearly").value)
         );
-        document.getElementById("stocksYears_e_hike").value = Math.round(
+        document.getElementById("othersFixed_e_hike").value = Math.round(
           (100 *
-            (parseFloat(document.getElementById("stocksYears_e").value) -
-              parseFloat(document.getElementById("stocksYears").value))) /
-            parseFloat(document.getElementById("stocksYears").value)
+            (parseFloat(document.getElementById("othersFixed_e").value) -
+              parseFloat(document.getElementById("othersFixed").value))) /
+            parseFloat(document.getElementById("othersFixed").value)
+        );
+        document.getElementById("othersVariable_e_hike").value = Math.round(
+          (100 *
+            (parseFloat(document.getElementById("othersVariable_e").value) -
+              parseFloat(document.getElementById("othersVariable").value))) /
+            parseFloat(document.getElementById("othersVariable").value)
         );
 
         document.getElementById("ctc_e_spl").value = Math.round(
-          ((ctc_e - ctc) * 100) / ctc
+          ((ctc1_e - ctc1) * 100) / ctc1
+        );
+      }
+
+      function myFunction2() {
+        //get expected %
+        var ctc_e_spl = Math.round(
+          parseFloat(document.getElementById("ctc_e_spl").value)
         );
 
-        //document.getElementById("inhand_e").value = parseFloat(document.getElementById("inhand_e_hike").value)*parseFloat(document.getElementById("inhand").value)/100 + parseFloat(document.getElementById("inhand").value);
-        //document.getElementById("joiningBonus_e").value = parseFloat(document.getElementById("joiningBonus_e_hike").value)*parseFloat(document.getElementById("joiningBonus").value)/100 + parseFloat(document.getElementById("joiningBonus").value);
-        //document.getElementById("performanceBonus_e").value = parseFloat(document.getElementById("performanceBonus_e_hike").value)*parseFloat(document.getElementById("performanceBonus").value)/100 + parseFloat(document.getElementById("performanceBonus").value);
-        //document.getElementById("stocksYearly_e").value = parseFloat(document.getElementById("stocksYearly_e_hike").value)*parseFloat(document.getElementById("stocksYearly").value)/100 + parseFloat(document.getElementById("stocksYearly").value);
+        //updating values accoridingly
+
+        //inhand gets hike others remain same
+        document.getElementById("inhand_e").value = Math.round(
+          parseFloat(document.getElementById("inhand").value) +
+            parseFloat(document.getElementById("inhand").value) *
+              0.01 *
+              ctc_e_spl +
+            parseFloat(document.getElementById("joiningBonus").value) *
+              0.01 *
+              ctc_e_spl +
+            parseFloat(document.getElementById("performanceBonus").value) *
+              0.01 *
+              ctc_e_spl +
+            parseFloat(document.getElementById("stocksYearly").value) *
+              0.01 *
+              ctc_e_spl +
+            parseFloat(document.getElementById("othersFixed").value) *
+              0.01 *
+              ctc_e_spl +
+            parseFloat(document.getElementById("othersVariable").value) *
+              0.01 *
+              ctc_e_spl
+        );
+
+        document.getElementById("joiningBonus_e").value = Math.round(
+          parseFloat(document.getElementById("joiningBonus").value)
+        );
+
+        document.getElementById("performanceBonus_e").value = Math.round(
+          parseFloat(document.getElementById("performanceBonus").value)
+        );
+
+        document.getElementById("stocksYearly_e").value = Math.round(
+          parseFloat(document.getElementById("stocksYearly").value)
+        );
+
+        document.getElementById("stocksYears_e").value = Math.round(
+          parseFloat(document.getElementById("stocksYears").value)
+        );
+
+        document.getElementById("othersFixed_e").value = Math.round(
+          parseFloat(document.getElementById("othersFixed").value)
+        );
+
+        document.getElementById("othersVariable_e").value = Math.round(
+          parseFloat(document.getElementById("othersVariable").value)
+        );
+
+        //to update hike%
+        myFunction();
       }
 
       function cleanup() {
@@ -191,16 +296,22 @@
     <br />
     <!-- <p>Designed and developed by Anurag</p> -->
     <div class="alert alert-primary" role="alert">
-      <strong>INFO:</strong> You can input your salary and your desired salary
-      to see how much hike you should expect.<br />
+      <strong>INFO:</strong> <br />
+      <ul>
+        <li>
+          You can input your salary and your desired salary to see how much hike
+          you should expect.
+        </li>
+        <li>People normally ask for hikes on 1st year of salary</li>
+      </ul>
     </div>
     <br />
     <form action="/action_page.php">
       <div class="row">
         <!-- start:current salary -->
         <div class="col-sm-6">
-          <h4>Current Salary</h4>
-          <!-- <div class="row">
+          <!-- <h4>Current Salary</h4> -->
+          <div class="row">
             <div class="col-sm-10"><h4>Current Salary</h4></div>
             <div class="col-sm-2">
               <div class="form-group">
@@ -214,7 +325,7 @@
                 />
               </div>
             </div>
-          </div> -->
+          </div>
 
           <hr />
           <!-- s:summary -->
@@ -285,23 +396,47 @@
             />
           </div>
 
+          <div class="row">
+            <div class="col-sm-7 form-group">
+              <label for="stocksYearly">Stocks per year</label>
+              <input
+                type="number"
+                class="form-control"
+                id="stocksYearly"
+                value="0"
+                onchange="myFunction()"
+              />
+            </div>
+
+            <div class="col-sm-5 form-group">
+              <label for="stocksYears">Stocks for years</label>
+              <input
+                type="number"
+                class="form-control"
+                id="stocksYears"
+                value="0"
+                onchange="myFunction()"
+              />
+            </div>
+          </div>
+
           <div class="form-group">
-            <label for="stocksYearly">Stocks per year</label>
+            <label for="othersFixed">Others fixed</label>
             <input
               type="number"
               class="form-control"
-              id="stocksYearly"
+              id="othersFixed"
               value="0"
               onchange="myFunction()"
             />
           </div>
 
           <div class="form-group">
-            <label for="stocksYears">Stocks for years</label>
+            <label for="othersVariable">Others variable</label>
             <input
               type="number"
               class="form-control"
-              id="stocksYears"
+              id="othersVariable"
               value="0"
               onchange="myFunction()"
             />
@@ -310,23 +445,24 @@
         <!-- end:current salary -->
         <!-- start:Expected salary -->
         <div class="col-sm-6">
-          <h4>Expected Salary</h4>
-          <!-- <div class="row">
-            <div class="col-sm-8"><h4>Expected Salary</h4></div>
-            <div class="col-sm-2" style="padding-top: 1%; visibility: hidden">
-              Overall %
+          <!-- <h4>New Salary</h4> -->
+          <div class="row">
+            <div class="col-sm-5"><h4>New Salary</h4></div>
+            <div class="col-sm-5" style="padding-top: 1%">
+              Expected Hike % (CTC 1st year)
             </div>
-            <div class="col-sm-2" style="visibility: hidden">
+            <div class="col-sm-2">
               <div class="form-group">
                 <input
                   class="form-control"
-                  type="text"
+                  type="number"
                   id="ctc_e_spl"
                   value="0"
+                  onchange="myFunction2()"
                 />
               </div>
             </div>
-          </div> -->
+          </div>
 
           <hr />
           <!-- s:summary -->
@@ -441,12 +577,22 @@
           </div>
 
           <div class="row">
-            <div class="col-sm-10 form-group">
+            <div class="col-sm-6 form-group">
               <label for="stocksYearly_e">Stocks per year</label>
               <input
                 type="number"
                 class="form-control"
                 id="stocksYearly_e"
+                value="0"
+                onchange="myFunction()"
+              />
+            </div>
+            <div class="col-sm-4 form-group">
+              <label for="stocksYears_e">Stocks for years</label>
+              <input
+                type="number"
+                class="form-control"
+                id="stocksYears_e"
                 value="0"
                 onchange="myFunction()"
               />
@@ -466,29 +612,53 @@
 
           <div class="row">
             <div class="col-sm-10 form-group">
-              <label for="stocksYears_e">Stocks for years</label>
+              <label for="othersFixed_e">Others fixed</label>
               <input
                 type="number"
                 class="form-control"
-                id="stocksYears_e"
+                id="othersFixed_e"
                 value="0"
                 onchange="myFunction()"
               />
             </div>
             <div class="col-sm-2 form-group">
-              <label for="stocksYears_e_hike">% Hike</label>
+              <label for="othersFixed_e_hike">% Hike</label>
               <input
                 type="number"
                 class="form-control"
-                id="stocksYears_e_hike"
+                id="othersFixed_e_hike"
                 value="0"
                 onchange="myFunction()"
                 readonly
               />
             </div>
           </div>
-          <!-- end:Expected salary -->
+
+          <div class="row">
+            <div class="col-sm-10 form-group">
+              <label for="othersVariable_e">Others variable</label>
+              <input
+                type="number"
+                class="form-control"
+                id="othersVariable_e"
+                value="0"
+                onchange="myFunction()"
+              />
+            </div>
+            <div class="col-sm-2 form-group">
+              <label for="othersVariable_e_hike">% Hike</label>
+              <input
+                type="number"
+                class="form-control"
+                id="othersVariable_e_hike"
+                value="0"
+                onchange="myFunction()"
+                readonly
+              />
+            </div>
+          </div>
         </div>
+        <!-- end:New salary -->
       </div>
     </form>
 
