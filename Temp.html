@@ -1,77 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      /* styles.css */
-      #content-to-hide {
-        display: none;
+  <head></head>
+  <body>
+    <iframe
+      id="existing-iframe-example"
+      width="1120"
+      height="630"
+      src="https://www.youtube.com/embed/OaEdJJhti4Q?enablejsapi=1"
+      frameborder="0"
+    ></iframe>
+
+    <script type="text/javascript">
+      var tag = document.createElement("script");
+      tag.id = "iframe-demo";
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("existing-iframe-example", {
+          events: {
+            onReady: onPlayerReady,
+            // onStateChange: onPlayerStateChange,
+          },
+        });
       }
-
-      button {
-        padding: 0.5rem;
-      }
-
-      /* Add styling to your other content as needed */
-    </style>
-    <script>
-      const hiddenContent = document.querySelector("#content-to-hide"); // get the div element containing the paragraphs to be revealed
-      const paragraphs = hiddenContent.querySelectorAll("p"); // get all the paragraph elements inside the div
-      const revealedContent = document.querySelector("#content-to-reveal"); // get the div element that will show the typing effect
-      const startButton = document.querySelector("#start-the-effect"); // get the button element to start the effect
-
-      let i = 0; // initialize a counter variable
-      let speed = 50; // set the typing speed
-
-      function type() {
-        if (i < paragraphs.length) {
-          const paragraph = document.createElement("p"); // create a new paragraph element
-          revealedContent.appendChild(paragraph); // add the new paragraph to the revealed content div
-
-          const text = paragraphs[i].innerText; // get the text content of the current paragraph
-          const letters = text.split(""); // split the text into an array of individual letters
-
-          let j = 0; // initialize another counter variable
-
-          const intervalId = setInterval(() => {
-            if (j < letters.length) {
-              paragraph.innerHTML += letters[j]; // add the next letter to the paragraph
-              j++; // increment the counter variable
-            } else {
-              clearInterval(intervalId); // stop the interval once all the letters have been added
-              i++; // increment the outer counter variable to move on to the next paragraph
-              type(); // call the type function recursively to start typing the next paragraph immediately
-            }
-          }, speed);
-        }
-      }
-      if (window.addEventListener) {
-        window.addEventListener("load", startClock, false); //W3C
-      } else {
-        window.attachEvent("onload", startClock); //IE
-      }
-      function startClock() {
-        //do onload work
-
-        hiddenContent.style.display = "none"; // hide the original content
-        revealedContent.style.display = "block"; // show the revealed content
-        type(); // start the typing effect
+      function onPlayerReady(event) {
+        player.setPlaybackRate(0.8);
+        event.target.playVideo();
       }
     </script>
-  </head>
-  <body>
-    <p>
-      This is an attempt to create a text reveal effect, kind of like simulating
-      ChatGPT reponses.
-    </p>
-
-    <div id="content-to-hide">
-      <p>Here's the first paragraph of text.</p>
-      <p>Second paragraph of text is now showing.</p>
-      <p>Third paragraph is revealed last. It works, lovely stuff!</p>
-    </div>
-
-    <button id="start-the-effect">Start The Effectss</button>
-
-    <div id="content-to-reveal"></div>
   </body>
 </html>
