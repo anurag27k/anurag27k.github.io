@@ -11,7 +11,7 @@ body {
 
   color: white;
   font-family: "Inter", sans-serif;
-  cursor: url("./files/cursor1.png"), url(foo.cur), auto;
+  /* cursor: url("./files/cursor1.png"), url(foo.cur), auto; */
 
   animation: fadeInAnimation ease 0.5s;
   animation-iteration-count: 1;
@@ -99,7 +99,7 @@ p {
 a,
 a:hover {
   text-decoration: none;
-  cursor: url("./files/cursor2.png"), url(foo.cur), auto;
+  /* cursor: url("./files/cursor2.png"), url(foo.cur), auto; */
 }
 
 a:hover {
@@ -160,7 +160,7 @@ a:hover {
   box-shadow: 0px 0px 50px lightgrey;
   opacity: 1;
   transform: scale(1.03);
-  cursor: url("./files/cursor2.png"), url(foo.cur), auto;
+  /* cursor: url("./files/cursor2.png"), url(foo.cur), auto; */
 }
 .hoverfnNoZoom {
   opacity: 0.5;
@@ -171,13 +171,13 @@ a:hover {
   transition: 0.5s;
   box-shadow: 0px 0px 50px lightgrey;
   opacity: 1;
-  cursor: url("./files/cursor2.png"), url(foo.cur), auto;
+  /* cursor: url("./files/cursor2.png"), url(foo.cur), auto; */
 }
 .pointerFix {
-  cursor: url("./files/cursor2.png"), url(foo.cur), auto;
+  /* cursor: url("./files/cursor2.png"), url(foo.cur), auto; */
 }
 .pointerFix:hover {
-  cursor: url("./files/cursor2.png"), url(foo.cur), auto;
+  /* cursor: url("./files/cursor2.png"), url(foo.cur), auto; */
 }
 .badger {
   background-color: black;
