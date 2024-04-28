@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Anurag Kumar - UX Designer</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="./img/logoblue.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        /* background-image: url(./img/gif2.gif); */
+        /* background-image: url('https://media.giphy.com/media/TxVVB6PfWMjE4/giphy.gif'); */
+        /* background-image: url("https://i.gifer.com/HLPS.gif"); */
+        /* background-image: url('https://i.gifer.com/Ebwn.gif'); */
+        /* background-image: url('https://i.gifer.com/7l68.gif'); */
+        /* background-image: url('https://i.gifer.com/3aNP.gif'); */
+        /* background-image: url('https://i.gifer.com/P9q.gif'); */
+        /* background-image: url('https://i.gifer.com/Layx.gif'); */
+        /* background-image: url('./img/bggif.gif'); */
+        background-size: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div>
+      <nav
+        class="navbar navbar-expand-md navbar-dark"
+        style="width: 100%; position: fixed; z-index: 10000"
+      >
+        <div class="container">
+          <!--  Remove justify-content-end class to allign on left -->
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="collapsibleNavbar"
+          >
+            <ul
+              class="navbar-nav"
+              style="padding-left: 10px; padding-top: 20px"
+            >
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html" style="color: #3a3f51"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../index.html#discover"
+                  style="color: #3a3f51"
+                  >Discover</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../index.html#download"
+                  style="color: #3a3f51"
+                  >Download</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- Header End -->
+
+    <!-- Video code start -->
+    <div class="video-background">
+      <video autoplay loop muted>
+        <source src="./files/vecteezy.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <!-- Your content goes here -->
+    </div>
+    <!-- video code end -->
+
+    <script>
+      //for fade in loading
+      $(document).on("scroll", function () {
+        var pageTop = $(document).scrollTop();
+        var pageBottom = pageTop + $(window).height();
+        var tags = $(".tag");
+
+        for (var i = 0; i < tags.length; i++) {
+          var tag = tags[i];
+
+          if ($(tag).position().top < pageBottom) {
+            $(tag).addClass("visible");
+          } else {
+            $(tag).removeClass("visible");
+          }
+        }
+      });
+    </script>
+
+    <div class="container-fluid" style="background-color: white">
+      <div class="container padding100">
+        <!-- start of content  -->
+        <div class="">
+          <img src="./img/self/new/1.png" style="width: 100%" />
+        </div>
+        <div class="">
+          <img src="./img/self/new/2.png" style="width: 100%" />
+        </div>
+        <div class="tag">
+          <img src="./img/self/new/3.png" style="width: 100%" />
+        </div>
+        <div class="tag">
+          <img src="./img/self/new/4.png" style="width: 100%" />
+        </div>
+
+        <!-- end of content  -->
+      </div>
+    </div>
+
+    <!-- download -->
+    <div id="download" class="container padding100 pb-5">
+      <div style="background-color: black; padding: 5%; border-radius: 20px">
+        <img class="rotate" src="./files/star1.png" width="5%;" /><br /><br />
+        <h1 style="font-size: 50px; color: white; opacity: 1">Know more</h1>
+        <br />
+        <!-- <p class="text-muted" style="line-height:2;"> -->
+        <p style="opacity: 0.3; font-size: 1.5rem; line-height: 1.5">
+          <img src="./files/rightarrow.gif" width="3%;" />
+          &nbsp;
+
+          <a href="./files/anuragResume.pdf" class="text-light" target="_blank"
+            >Download Resume</a
+          >
+          <br />
+          <img src="./files/rightarrow.gif" width="3%;" />
+          &nbsp;
+          <a
+            href="https://www.linkedin.com/in/anurag27k/"
+            class="text-light"
+            target="_blank"
+            >Find me on LinkedIn</a
+          >
+
+          <br />
+          <img src="./files/rightarrow.gif" width="3%;" />
+          &nbsp;
+          <a
+            href="mailto:anurag27k@gmail.com?Subject=Reaching%20out"
+            class="text-light"
+            >Email at anurag27k@gmail.com</a
+          >
+
+          <!--
+          <a href="./self.html" class="text-light" style="font-weight: 500"
+            >Know more about me
+          </a> -->
+        </p>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-sm-6">
+          <h5 class="text-light">ALL RIGHTS RESERVED &copy; 2024</h5>
+        </div>
+        <div class="col-sm-6">
+          <h5 class="text-light" style="text-align: right">
+            DESIGNED AND DEVELOPED BY ANURAG
+          </h5>
+        </div>
+      </div>
+    </div>
+    <!-- download end -->
+  </body>
+</html>
