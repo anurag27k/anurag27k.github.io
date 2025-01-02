@@ -151,7 +151,7 @@ a:hover {
   border-radius: 10px;
 }
 .hoverfn {
-  opacity: 0.5;
+  opacity: 0.7;
   transition: 0.5s;
   transition-timing-function: ease-in-out;
 }
