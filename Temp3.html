@@ -1,35 +1,85 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
-  <body>
-    <iframe
-      id="existing-iframe-example"
-      width="1120"
-      height="630"
-      src="https://www.youtube.com/embed/OaEdJJhti4Q?enablejsapi=1"
-      frameborder="0"
-    ></iframe>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial;}
 
-    <script type="text/javascript">
-      var tag = document.createElement("script");
-      tag.id = "iframe-demo";
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName("script")[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+/* Style the tabz */
+.tabz {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
 
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player("existing-iframe-example", {
-          events: {
-            onReady: onPlayerReady,
-            // onStateChange: onPlayerStateChange,
-          },
-        });
-      }
-      function onPlayerReady(event) {
-        player.setPlaybackRate(0.8);
-        event.target.playVideo();
-      }
-    </script>
-  </body>
-</html>
+/* Style the buttons inside the tabz */
+.tabz button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tabz button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tabzlink class */
+.tabz button.active {
+  background-color: #ccc;
+}
+
+/* Style the tabz content */
+.tabzcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+</head>
+<body>
+
+<h2>tabzs</h2>
+<p>Click on the buttons inside the tabzbed menu:</p>
+
+<div class="tabz">
+  <button class="tabzlinks" onclick="openCity(event, 'Digital')">Digital</button>
+  <button class="tabzlinks" onclick="openCity(event, 'Physical')">Physical</button>
+</div>
+
+<div id="Digital" class="tabzcontent">
+  <h3>Digital</h3>
+  <p>Digital is the capital city of England.</p>
+</div>
+
+<div id="Physical" class="tabzcontent">
+  <h3>Physical</h3>
+  <p>Physical is the capital of France.</p> 
+</div>
+
+<!-- Start: script for tabs digital and physical  -->
+<script>
+function openCity(evt, cityName) {
+  var i, tabzcontent, tabzlinks;
+  tabzcontent = document.getElementsByClassName("tabzcontent");
+  for (i = 0; i < tabzcontent.length; i++) {
+    tabzcontent[i].style.display = "none";
+  }
+  tabzlinks = document.getElementsByClassName("tabzlinks");
+  for (i = 0; i < tabzlinks.length; i++) {
+    tabzlinks[i].className = tabzlinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+<!-- End: script for tabs digital and physical  -->
+
+</body>
+</html> 

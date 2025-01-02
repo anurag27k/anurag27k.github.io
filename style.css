@@ -506,3 +506,38 @@ span {
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
 }
+/* Style the tabz */
+.tabz {
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  display: inline-block;
+}
+
+/* Style the buttons inside the tabz */
+.tabz button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px 0px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tabz button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tabzlink class */
+.tabz button.active {
+  background-color: #ccc;
+}
+
+/* Style the tabz content */
+.tabzcontent {
+  display: none;
+  border-top: none;
+}
