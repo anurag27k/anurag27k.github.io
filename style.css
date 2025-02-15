@@ -53,6 +53,11 @@ body {
   src: url("./fonts/NeueMontreal/PPNeueMontreal-Book.otf");
 }
 
+@font-face {
+  font-family: "Kalam";
+  src: url("./fonts/Kalam/Kalam-Light.ttf");
+}
+
 h6 {
   font-family: "Barlow", sans-serif;
   letter-spacing: 0.02em;
@@ -200,6 +205,14 @@ a:hover {
   font-size: inherit;
   font-weight: 600;
 }
+
+.card-subtext-reco {
+  padding: 5px;
+  font-size: inherit;
+  font-family: "Kalam", serif;
+  font-weight: 600;
+}
+
 .card-maintext {
   font-family: "NeueMontreal", serif;
   font-size: 1.75rem;
@@ -540,4 +553,23 @@ span {
 .tabzcontent {
   display: none;
   border-top: none;
+}
+
+/* For running strip */
+.running-strip {
+  width: 100%; 
+  height: 50px;
+  overflow: hidden;
+  background-color: #eee;
+  position: relative;
+}
+
+.strip-content {
+  display: flex;
+  animation: scroller 30s linear infinite;
+}
+
+@keyframes scroller {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
 }
