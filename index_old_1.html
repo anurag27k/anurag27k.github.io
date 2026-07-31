@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Anurag Kumar - UX Designer</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="./img/logoblue.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        /* background-image: url(./img/gif2.gif); */
+        /* background-image: url('https://media.giphy.com/media/TxVVB6PfWMjE4/giphy.gif'); */
+        /* background-image: url("https://i.gifer.com/HLPS.gif"); */
+        /* background-image: url('https://i.gifer.com/Ebwn.gif'); */
+        /* background-image: url('https://i.gifer.com/7l68.gif'); */
+        /* background-image: url('https://i.gifer.com/3aNP.gif'); */
+        /* background-image: url('https://i.gifer.com/P9q.gif'); */
+        /* background-image: url('https://i.gifer.com/Layx.gif'); */
+        /* background-image: url('./img/bggif.gif'); */
+        background-size: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+
+  
+    <script>
+      //for fade in loading
+      $(document).on("scroll", function () {
+        var pageTop = $(document).scrollTop();
+        var pageBottom = pageTop + $(window).height();
+        var tags = $(".tag");
+
+        for (var i = 0; i < tags.length; i++) {
+          var tag = tags[i];
+
+          if ($(tag).position().top < pageBottom) {
+            $(tag).addClass("visible");
+          } else {
+            $(tag).removeClass("visible");
+          }
+        }
+      });
+      //end
+    </script>
+
+    <!-- Header -->
+    <div>
+      <nav
+        class="navbar navbar-expand-md navbar-dark"
+        style="width: 100%; position: fixed; z-index: 10000"
+      >
+        <div class="container">
+          <!--  Remove justify-content-end class to allign on left -->
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="collapsibleNavbar"
+          >
+            <ul
+              class="navbar-nav"
+              style="padding-left: 10px; padding-top: 20px"
+            >
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#discover">Discover</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#download">Download</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- Header End -->
+
+    <!-- Video code start -->
+    <div class="video-background">
+      <video autoplay loop muted>
+        <source src="./files/vecteezy.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <!-- Your content goes here -->
+    </div>
+    <!-- video code end -->
+
+    <!-- intro -->
+    <div class="container fill" style="display: flex; align-items: center">
+      <div>
+        <div
+          class="row"
+          style="background-color: black; padding: 3%; border-radius: 20px"
+        >
+          <div class="col-sm-7">
+            <img
+              class="rotate"
+              src="./files/star1.png"
+              width="10%;"
+            /><br /><br />
+            <h1 style="font-size: 50px; color: white">
+              Hello,
+              <br />
+              Anurag here!
+            </h1>
+            <br />
+            <p class="card-description" style="opacity: 0.3; line-height: 1.5">
+              Anurag is a <i>Senior Product Designer</i> &nbsp;from IDC School of Design, IIT
+              Bombay, India with experience across diverse domains, namely
+              Taxation, Healthcare, ERP, SME and Govt. sector tools. Currently he
+              is designing experiences at
+            </p>
+            <!-- <p class="intro-text text-muted" id="abcd" style="font-weight: 600;"></p> -->
+            <br />
+            <!-- <img class="rotate" src="./files/star2.png" width="5%;" />&nbsp; -->
+            <img src="./img/intuit/Intuit_logo3.png" width="60%;border-radius:0;" />
+            <!-- <img src="./img/intuit/Intuit_logo.png" width="20%;border-radius:0" /> -->
+            <!-- <img class="rotate" src="./files/star2.png" width="5%;" /> -->
+            <br /><br />
+          </div>
+          <div class="col-sm-5">
+            <div class="d-none d-lg-block">
+              <br /><br />
+              <img src="./files/profilegif.gif" style="width: 80%" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Companies logos-->
+        <div
+          style="
+            background-color: rgb(255 255 255 / 50%);
+            backdrop-filter: blur(10px);
+            padding: 10px;
+            border-radius: 0 0 20px 20px;
+            margin: 0 20px 0 20px;
+            text-align: center;
+          "
+        >
+          <img
+            src="./img/all logos/oracle.png"
+            style="width: 15%; padding-right: 20px"
+          />
+          <img
+            src="./img/all logos/deshaw.png"
+            style="width: 15%; padding-right: 20px"
+          />
+          <img
+            src="./img/all logos/philips.png"
+            style="width: 15%; padding-right: 20px"
+          />
+
+          <img
+            src="./img/all logos/idc.png"
+            style="width: 15%; padding-right: 20px"
+          />
+          <img
+            src="./img/all logos/iit.png"
+            style="width: 15%; padding-right: 20px"
+          />
+          <img
+            src="./img/all logos/nit.png"
+            style="width: 15%; padding-right: 20px"
+          />
+        </div>
+        <!-- Companies logos-->
+
+        <br /><br />
+        <!-- Down arrow animation -->
+        <div style="text-align: center">
+          <img
+            src="./files/rightarrow.gif"
+            width="3%;"
+            style="transform: rotate(90deg)"
+          />
+          <!-- <h5 style="text-align: center;color:rgb(100, 100, 100);">SCROLL DOWN</h5> -->
+        </div>
+        <!-- Down arrow animation -->
+      </div>
+    </div>
+
+    <div
+      class="container-fluid"
+      id="discover"
+      style="background-image: url('./files/stone-texture.jpg')"
+    >
+      <div class="container padding100">
+        <div class="row">
+          <div class="col-sm-9">
+        <h1 style="color: grey">Projects in Focus</h1>
+      </div>
+      <div class="col-sm-3" style="text-align: right;">
+        <!-- start: tab code  -->
+        <script>   
+          function openCity(evt, cityName) {
+            var i, tabzcontent, tabzlinks;
+            tabzcontent = document.getElementsByClassName("tabzcontent");
+            for (i = 0; i < tabzcontent.length; i++) {
+              tabzcontent[i].style.display = "none";
+            }
+            tabzlinks = document.getElementsByClassName("tabzlinks");
+            for (i = 0; i < tabzlinks.length; i++) {
+              tabzlinks[i].className = tabzlinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+          }
+          window.onload = function() {
+          document.getElementById("defaultOpen").click();
+          }
+          </script>
+        
+        <div class="tabz">
+          <button class="tabzlinks" onclick="openCity(event, 'Digital')" id="defaultOpen"> <p class="card-description">Digital</p></button>
+          <button class="tabzlinks" onclick="openCity(event, 'Physical')"><p class="card-description">Physical</p></button>
+        </div>
+
+      </div>
+      <!-- end of row  -->
+      </div>
+        <!-- End: tab code  -->
+         <br>
+        
+        <div id="Digital" class="tabzcontent">
+        <!-- Project 1 -->
+        <div class="tag">
+          <div
+            class="card-div hoverfn"
+            style="
+              background: linear-gradient(
+                to top left,
+                #d7d7d7 0%,
+                #373737 100%
+              );
+            "
+          >
+            <div
+              class="row"
+              onclick="location.href='https://drive.google.com/file/d/19O9jZ3prQ4kZKeUxMOLgTg000FMzpxst/view?usp=sharing';"
+              style="cursor: pointer; padding: 0 0 0 20px"
+            > 
+             <!--  <div
+              class="row"
+              onclick="location.href='https://anurag27k.github.io/locked';"
+              style="cursor: pointer; padding: 0 0 0 20px"
+            > -->
+              <div class="pointerFix col-sm-6">
+                <br />
+                <div class="badger">
+                  <h6 class="card-subtext">&nbsp; WORK PROJECT &nbsp;</h6>
+                </div>
+
+                <p class="card-maintext">Building a ramp planning system</p>
+
+                <p class="card-description">
+                  In this platform team we created a product for forecasting demand and procuring supply by eliminating tribal knowledge
+                  . 
+                </p>
+                <br /><br /><br />
+                <img
+                  src="./img/Logos/IntuitLogo.png"
+                  alt="Card image"
+                  style="width: 60%"
+                />
+                <br /><br />
+              </div>
+              <div class="pointerFix col-sm-6">
+                <img
+                  src="./img/intuit/IntuitCover.png"
+                  alt="Card image"
+                  width="100%"
+                  style="border-radius: 0 10px 10px 0"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end of p1-->
+        <br />
+        <!-- Project 1 -->
+        <div class="tag">
+          <div
+            class="card-div hoverfn"
+            style="
+              background: linear-gradient(
+                to top left,
+                #d7d7d7 0%,
+                #373737 100%
+              );
+            "
+          >
+            <div
+              class="row"
+              onclick="location.href='./subpages/depositaccount.html';"
+              style="cursor: pointer; padding: 0 0 0 20px"
+            > 
+            <!-- <div
+              class="row"
+              onclick="location.href='https://anurag27k.github.io/locked';"
+              style="cursor: pointer; padding: 0 0 0 20px"
+            >-->
+              <div class="pointerFix col-sm-6">
+                <br />
+                <div class="badger">
+                  <h6 class="card-subtext">&nbsp; WORK PROJECT &nbsp;</h6>
+                </div>
+
+                <p class="card-maintext">Redwood Migration Methodology</p>
+
+                <p class="card-description">
+                  In this project we discuss the methodology generation for
+                  Redwood migration where we will deep dive into one of the
+                  sub-applications.
+                </p>
+                <br /><br /><br />
+                <img
+                  src="./img/Logos/OracleLogo.png"
+                  alt="Card image"
+                  style="width: 60%"
+                />
+                <br /><br />
+              </div>
+              <div class="pointerFix col-sm-6">
+                <img
+                  src="./img/Oracle/DepositCover.png"
+                  alt="Card image"
+                  width="100%"
+                  style="border-radius: 0 10px 10px 0"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end of p1-->
+        <br />
+        <!-- Project 1 -->
+        <div class="tag">
+          <div
+            class="card-div hoverfn"
+            style="
+              background: linear-gradient(
+                to top left,
+                #d7d7d7 0%,
+                #373737 100%
+              );
+            "
+          >
+            <div
+              class="row"
+              onclick="location.href='./subpages/DEShaw.html';"
+              style="cursor: pointer; padding: 0 0 0 20px"
+            >
+              <div class="pointerFix col-sm-6">
+                <br />
+                <div class="badger">
+                  <h6 class="card-subtext">&nbsp; WORK PROJECT &nbsp;</h6>
+                </div>
+
+                <p class="card-maintext">Roadmap Planning Application</p>
+
+                <p class="card-description">
+                  Web application for managers to perform yearly planning and
+                  employee management
+                </p>
+                <br /><br /><br />
+                <img
+                  src="./img/Logos/DeshawLogo.png"
+                  alt="Card image"
+                  style="width: 60%"
+                />
+                <br /><br />
+              </div>
+              <div class="pointerFix col-sm-6">
+                <img
+                  src="./img/DEShaw/deshawbanner.png"
+                  alt="Card image"
+                  width="100%"
+                  style="border-radius: 0 10px 10px 0"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        
+        
+        <div id="Physical" class="tabzcontent">
+        <!-- Project-->
+        <div class="tag">
+          <div
+            class="card-div hoverfn"
+            style="
+              background: linear-gradient(
+                to top left,
+                #d7d7d7 0%,
+                #373737 100%
+              );
+            "
+          >
+            <div
+              class="row"
+              onclick="location.href='./subpages/armarker.html';"
+              style="cursor: pointer; padding: 0 0 0 20px"
+            >
+              <div class="pointerFix col-sm-6">
+                <br />
+                <div class="badger">
+                  <h6 class="card-subtext">&nbsp; COLLEGE PROJECT &nbsp;</h6>
+                </div>
+
+                <p class="card-maintext">Lattice contruction in AR</p>
+                <p class="card-description">
+                  Construction of atomic lattices using marker based AR while
+                  exploring concepts of modularity and inter marker interaction.
+                </p>
+                <br /><br /><br />
+                <img
+                  src="./img/Logos/IDCLogo.png"
+                  alt="Card image"
+                  style="width: 60%"
+                />
+                <br /><br />
+              </div>
+              <div class="pointerFix col-sm-6">
+                <img
+                  src="./img/p3/lattice.png"
+                  alt="Card image"
+                  width="100%"
+                  style="border-radius: 0 10px 10px 0"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end of project-->
+        <br />
+        <!-- Project-->
+        <div class="tag">
+          <div
+            class="card-div hoverfn"
+            style="
+              background: linear-gradient(
+                to top left,
+                #d7d7d7 0%,
+                #373737 100%
+              );
+            "
+          >
+            <div
+              class="row"
+              onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';"
+              style="cursor: pointer; padding: 0 0 0 20px"
+            >
+              <div class="pointerFix col-sm-6">
+                <br />
+                <div class="badger">
+                  <h6 class="card-subtext">&nbsp; COLLEGE PROJECT &nbsp;</h6>
+                </div>
+
+                <p class="card-maintext">Grapho: Line chart accessibility</p>
+                <p class="card-description">
+                  A Tangible solution which allows the visually impaired to feel
+                  as well create their own line charts
+                </p>
+                <br /><br /><br />
+                <img
+                  src="./img/Logos/IDCLogo.png"
+                  alt="Card image"
+                  style="width: 60%"
+                />
+                <br /><br />
+              </div>
+              <div class="pointerFix col-sm-6">
+                <img
+                  src="./img/p2/cover.png"
+                  alt="Card image"
+                  width="100%"
+                  style="border-radius: 0 10px 10px 0"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end of project-->
+        <br />
+        <!-- Project-->
+        <div class="tag">
+          <div
+            class="card-div hoverfn"
+            style="
+              background: linear-gradient(
+                to top left,
+                #d7d7d7 0%,
+                #373737 100%
+              );
+            "
+          >
+            <div
+              class="row"
+              onclick="location.href='./subpages/gappekadabba.html';"
+              style="cursor: pointer; padding: 0 0 0 20px"
+            >
+              <div class="pointerFix col-sm-6">
+                <br />
+                <div class="badger">
+                  <h6 class="card-subtext">&nbsp; COLLEGE PROJECT &nbsp;</h6>
+                </div>
+
+                <p class="card-maintext">Gappe ka Dabba</p>
+                <p class="card-description">
+                  A tangible interative device which treats sound as an object that can be 'sensed' which follows laws of gravity.
+                </p>
+                <br /><br /><br />
+                <img
+                  src="./img/Logos/IDCLogo.png"
+                  alt="Card image"
+                  style="width: 60%"
+                />
+                <br /><br />
+              </div>
+              <div class="pointerFix col-sm-6">
+                <img
+                  src="./img/Gappe/gappekadabbacover.png"
+                  alt="Card image"
+                  width="100%"
+                  style="border-radius: 0 10px 10px 0"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end of project-->
+        </div>
+        <br /><br /><br /><br /><br />
+        <h1 style="color: grey">Research Publications</h1>
+        <br />
+        <!-- start: papers -->
+            <!-- Paper -->
+            <div class="tag">
+              <div
+                class="card-div hoverfn"
+                style="
+                  background: linear-gradient(
+                    to top left,
+                    #999999 0%,
+                    #cccccc 100%
+                  );
+                  /* background-image: url('./img/papers/bgForpapers.png'); */
+                "
+              >
+                <div
+                  class="row"
+                  onclick="location.href='https://dl.acm.org/doi/10.1145/3562939.3565642';"
+                  style="cursor: pointer; padding: 0 0 0 20px"
+                >
+                  <div class="pointerFix col-sm-1">
+                    <img class="rotate" src="./files/Star3_black.png" width="100%;" style="margin-top: 120%;"/>
+                  </div>
+                  <div class="pointerFix col-sm-11">
+                    <br />
+                    <div class="badger-gray">
+                      <h6 class="card-subtext">
+                        &nbsp; PRESENTED AT VRST'22, TSUKUBA, JAPAN &nbsp;
+                      </h6>
+                    </div>
+
+                    <p class="card-maintext black-text">
+                      Exploration of inter-marker interactions in Tangible AR
+                    </p>
+
+                    <p class="card-description black-text">
+                      Presented by Anurag Kumar Singh and Jayesh Pillai <br />
+                      https://doi.org/10.1145/3562939.3565642
+                    </p>
+                    <br />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end of paper-->
+            <br />
+          <!-- end of column -->
+            <!-- Paper -->
+            <div class="tag">
+              <div
+                class="card-div hoverfn"
+                style="
+                  background: linear-gradient(
+                    to top left,
+                    #999999 0%,
+                    #cccccc 100%
+                  );
+                  /* background-image: url('./img/papers/bgForpapers.png'); */
+                "
+              >
+                <div
+                  class="row"
+                  onclick="location.href='https://dl.acm.org/doi/10.1145/3570211.3570213';"
+                  style="cursor: pointer; padding: 0 0 0 20px"
+                >
+                  <div class="pointerFix col-sm-1">
+                    <img class="rotate" src="./files/Star3_black.png" width="100%;" style="margin-top: 120%;"/>
+                  </div>
+                  <div class="pointerFix col-sm-11">
+                    <br />
+                    <div class="badger-gray">
+                      <h6 class="card-subtext">
+                        &nbsp; PRESENTED AT INDIA HCI 2020, BITS PILANI &nbsp;
+                      </h6>
+                    </div>
+
+                    <p class="card-maintext black-text">
+                      Grapho: Line chart accessibility to the visually impaired
+                    </p>
+
+                    <p class="card-description black-text">
+                      Presented by Anurag Kumar Singh and Anirudha Joshi <br />
+                      https://doi.org/10.1145/3570211.3570213
+                    </p>
+                    <br />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end of paper-->    
+          <!-- end of column -->
+          <br />
+          <!-- end of column -->
+            <!-- Paper -->
+            <div class="tag">
+              <div
+                class="card-div hoverfn"
+                style="
+                  background: linear-gradient(
+                    to top left,
+                    #999999 0%,
+                    #cccccc 100%
+                  );
+                  /* background-image: url('./img/papers/bgForpapers.png'); */
+                "
+              >
+                <div
+                  class="row"
+                  onclick="location.href='https://doi.org/10.1007/978-3-031-80829-6_6';"
+                  style="cursor: pointer; padding: 0 0 0 20px"
+                >
+                  <div class="pointerFix col-sm-1">
+                    <img class="rotate" src="./files/Star3_black.png" width="100%;" style="margin-top: 120%;"/>
+                  </div>
+                  <div class="pointerFix col-sm-11">
+                    <br />
+                    <div class="badger-gray">
+                      <h6 class="card-subtext">
+                        &nbsp; PRESENTED AT INDIA HCI 2024, IIT BOMBAY &nbsp;
+                      </h6>
+                    </div>
+
+                    <p class="card-maintext black-text">
+                      Comparative Evaluation of Speech Interfaces in Hindi
+                    </p>
+
+                    <p class="card-description black-text">
+                      Presented by Anurag Kumar Singh, Shivangi and Anirudha Joshi <br />
+                      https://doi.org/10.1145/3570211.3570213
+                    </p>
+                    <br />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end of paper-->    
+          <!-- end of column -->
+
+
+
+    <!-- Recommendations Start -->
+
+    <br /><br /><br /><br /><br />
+    <h1 style="color: grey">Top Recommendations</h1>
+    <br />
+    <!-- start: strip content -->
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <!-- style="
+      -webkit-mask-image: -webkit-gradient(linear, right top, left bottom, 
+      from(rgba(0,0,0,1)), to(rgba(255, 255, 255, 0)));
+      
+      " -->
+      <div class="carousel-inner" >
+        <div class="carousel-item  active" data-interval="1" style="transition: transform 16s linear;">
+
+          <div class="row" style="margin-right: 20px;">
+            <!-- start: reco-->
+            <div class="col-sm-4 tag">
+                <div class="card-div hoverfn" style="background: linear-gradient(
+                  to top left,
+                  #000000 0%,
+                  #8b8b8b 100%
+                );">
+                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
+                        <br />
+        
+                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
+                            " ... ability to collaborate with cross-functional teams and swiftly adapt to evolving requirements ... "
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <img src="./files/people/deb.png" alt="Card image" width="120%" style="border-radius: 50%;" />
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
+                                    Debajyoti Mitra<br />
+                                    ORACLE
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end: reco-->
+            <!-- start: reco-->
+            <div class="col-sm-4 tag">
+                <div class="card-div hoverfn" style="background: linear-gradient(
+                  to top left,
+                  #000000 0%,
+                  #8b8b8b 100%
+                );">
+                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
+                        <br />
+        
+                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
+                            " ... consistently went above and beyond to support his peers, demonstrating empathy ... "
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <img src="./files/people/shivangi.png" alt="Card image" width="120%" style="border-radius: 50%;" />
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
+                                    Shivangi<br />
+                                    MICROSOFT
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end: reco-->
+            <!-- start: reco-->
+            <div class="col-sm-4 tag">
+                <div class="card-div hoverfn" style="background: linear-gradient(
+                  to top left,
+                  #000000 0%,
+                  #8b8b8b 100%
+                );">
+                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
+                        <br />
+        
+                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
+                            " ... excellent design leader, who is passionate about his craft and dedicated to bringing new ideas ... "
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <img src="./files/people/nayanika.png" alt="Card image" width="120%" style="border-radius: 50%;" />
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
+                                    Nayanika Dey<br />
+                                    ADOBE
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end: reco-->
+            
+        </div>
+        
+        </div>
+        <div class="carousel-item " data-interval="1" style="transition: transform 16s linear;">
+
+          <div class="row" style="margin-right: 20px;">
+            <!-- start: reco-->
+            <div class="col-sm-4 tag">
+                <div class="card-div hoverfn" style="background: linear-gradient(
+                  to top left,
+                  #000000 0%,
+                  #8b8b8b 100%
+                );">
+                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
+                        <br />
+        
+                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
+                            " ... strategic mindset, allows him to envision and execute long-term strategies that drive ... "
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <img src="./files/people/shobhit.png" alt="Card image" width="120%" style="border-radius: 50%;" />
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
+                                    Shobhit Kenath<br />
+                                    JP MORGAN
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end: reco-->
+            <!-- start: reco-->
+            <div class="col-sm-4 tag" >
+                <div class="card-div hoverfn" style="background: linear-gradient(
+                  to top left,
+                  #000000 0%,
+                  #8b8b8b 100%
+                );">
+                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
+                        <br />
+        
+                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
+                            " ...he is not just a talented designer but also a great team player and a true tech enthusiast ..."
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <img src="./files/people/krishna.png" alt="Card image" width="120%" style="border-radius: 50%;" />
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
+                                    Krishna Malji<br />
+                                    DREAM11
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end: reco-->
+            <!-- start: reco-->
+            <div class="col-sm-4 tag">
+                <div class="card-div hoverfn" style="background: linear-gradient(
+                  to top left,
+                  #000000 0%,
+                  #8b8b8b 100%
+                );">
+                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
+                        <br />
+                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
+                            " ... knowledge in Interaction design and his innovative problem-solving skills make him an ... "
+                        </p>
+        
+                        <div class="row" >
+                            <div class="col-sm-3">
+                                <img src="./files/people/lokesh.png" alt="Card image" width="120%" style="border-radius: 50%;" />
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
+                                    Lokesh Kumar <br />
+                                    INFURNIA
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end: reco-->
+        </div>
+        
+        </div>
+
+        <div class="carousel-item "  data-interval="1" style=" transition: transform 16s linear;">
+
+          <div class="row" style="margin-right: 20px;">
+            <!-- start: reco-->
+            <div class="col-sm-4 tag">
+                <div class="card-div hoverfn" style="background: linear-gradient(
+                  to top left,
+                  #000000 0%,
+                  #8b8b8b 100%
+                );">
+                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
+                        <br />
+        
+                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
+                            " ... thrives in dynamic environments and is always willing to share his knowledge and expertis ... "
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <img src="./files/people/aritra.png" alt="Card image" width="120%" style="border-radius: 50%;" />
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
+                                    Aritra Mukherjee <br />
+                                    RIVER
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end: reco-->
+            <!-- start: reco-->
+            <div class="col-sm-4 tag" >
+                <div class="card-div hoverfn" style="background: linear-gradient(
+                  to top left,
+                  #000000 0%,
+                  #8b8b8b 100%
+                );">
+                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
+                        <br />
+        
+                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
+                            " ... what truly sets Anurag apart is his wisdom, inquisitive nature and out-of-box mindset ... "
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <img src="./files/people/neha.png" alt="Card image" width="120%" style="border-radius: 50%;" />
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
+                                    Neha Bala<br />
+                                    INTERVIEW KIC...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end: reco-->
+            <!-- start: reco-->
+            <div class="col-sm-4 tag">
+                <div class="card-div hoverfn" style="background: linear-gradient(
+                  to top left,
+                  #000000 0%,
+                  #8b8b8b 100%
+                );">
+                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
+                        <br />
+        
+                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
+                            " ... ability to collaborate with cross-functional teams and swiftly adapt to evolving requirements ... "
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <img src="./files/people/deb.png" alt="Card image" width="120%" style="border-radius: 50%;" />
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
+                                    Debajyoti Mitra<br />
+                                    ORACLE
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end: reco-->
+        </div>
+        
+        </div>
+       
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <!-- end:strip content -->
+    <!-- Recommendations End -->
+
+    <br /><br /><br /><br /><br />
+        <h1 style="color: grey">Mentorship</h1>
+        <br />
+        <!-- mentorshipo -->
+        <div class="tag">
+          <div
+            class="card-div hoverfn"
+            style="
+              background: linear-gradient(
+                to top left,
+                #000000 0%,
+
+                #8b8b8b 100%
+              );
+              
+            "
+          >
+            <div
+              class="row"
+              onclick="location.href='https://topmate.io/anurag27k';"
+              style="cursor: pointer; padding: 0 0 0 20px"
+            >
+              <div class="pointerFix col-sm-2">
+                <img
+                  src="./img/all logos/topmate.png"
+                  alt="Card image"
+                  width="100%"
+                  style="
+                    border-radius: 10px;
+                    margin: 25px 0 25px 0;
+                    border: 3px solid #97483f;
+                  "
+                />
+              </div>
+              <div class="pointerFix col-sm-10">
+                <br />
+                <p class="card-maintext">
+                  Book a session on <b>Topmate</b> today!
+                </p>
+                <div>
+                  <span class="badger" style="padding: 5px">
+                    &nbsp; Breaking into Design &nbsp;
+                  </span>
+                  <span class="badger" style="padding: 5px">
+                    &nbsp; Career transition/guidance India and Abroad &nbsp;
+                  </span>
+                  <span class="badger" style="padding: 5px">
+                    &nbsp; Quick call (few queries only) &nbsp;
+                  </span>
+                  <span class="badger" style="padding: 5px">
+                    &nbsp; Mock interview &nbsp;
+                  </span>
+                  <span class="badger" style="padding: 5px">
+                    &nbsp; Resume review &nbsp;
+                  </span>
+                  <span class="badger" style="padding: 5px">
+                    &nbsp; 1:1 Mentorship &nbsp;
+                  </span>
+                  <span class="badger" style="padding: 5px">
+                    &nbsp; Interview prep & tips &nbsp;
+                  </span>
+                </div>
+                <br />
+                <br />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end of mentorship-->
+
+        <br />
+      </div>
+    </div>
+
+    <!-- download -->
+    <div id="download" class="container padding100 pb-5">
+      <div style="background-color: black; padding: 5%; border-radius: 20px">
+        <img class="rotate" src="./files/star1.png" width="5%;" /><br /><br />
+        <h1 style="font-size: 50px; color: white; opacity: 1">Know more</h1>
+        <br />
+        <!-- <p class="text-muted" style="line-height:2;"> -->
+        <p style="opacity: 0.3; font-size: 1.5rem; line-height: 1.5">
+          <!-- <img src="./files/rightarrow.gif" width="3%;" /> -->
+          &nbsp;
+
+          <a
+            href="./files/AnuragKumarSinghResume.pdf"
+            class="text-light"
+            target="_blank"
+            >Download Resume</a
+          >
+          <br />
+          <!-- <img src="./files/rightarrow.gif" width="3%;" /> -->
+          &nbsp;
+          <a
+            href="https://www.linkedin.com/in/anurag27k/"
+            class="text-light"
+            target="_blank"
+            >Find me on LinkedIn</a
+          >
+
+          <br />
+          <!-- <img src="./files/rightarrow.gif" width="3%;" /> -->
+          &nbsp;
+          <a
+            href="mailto:anurag27k@gmail.com?Subject=Reaching%20out"
+            class="text-light"
+            >Email at anurag27k@gmail.com</a
+          >
+
+          <!--
+          <a href="./self.html" class="text-light" style="font-weight: 500"
+            >Know more about me
+          </a> -->
+        </p>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-sm-6">
+          <h5 class="text-light">ALL RIGHTS RESERVED &copy; 2025</h5>
+        </div>
+        <div class="col-sm-6">
+          <h5 class="text-light" style="text-align: right">
+            DESIGNED AND DEVELOPED BY ANURAG
+          </h5>
+        </div>
+      </div>
+    </div>
+    <!-- download end -->
+  </body>
+</html>

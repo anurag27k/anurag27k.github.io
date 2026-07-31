@@ -1,1122 +1,1593 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Anurag Kumar - UX Designer</title>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anurag KS — Index 2026</title>
+<meta name="description" content="Designs for the agentic age. Staff/Senior Product Designer at ServiceNow." />
+<link rel="shortcut icon" href="https://anurag27k.github.io/img/logoblue.png" />
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="shortcut icon" href="./img/logoblue.png" />
-    <link rel="stylesheet" href="./style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
-      rel="stylesheet"
-    />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-    <style>
-      body {
-        /* background-image: url(./img/gif2.gif); */
-        /* background-image: url('https://media.giphy.com/media/TxVVB6PfWMjE4/giphy.gif'); */
-        /* background-image: url("https://i.gifer.com/HLPS.gif"); */
-        /* background-image: url('https://i.gifer.com/Ebwn.gif'); */
-        /* background-image: url('https://i.gifer.com/7l68.gif'); */
-        /* background-image: url('https://i.gifer.com/3aNP.gif'); */
-        /* background-image: url('https://i.gifer.com/P9q.gif'); */
-        /* background-image: url('https://i.gifer.com/Layx.gif'); */
-        /* background-image: url('./img/bggif.gif'); */
-        background-size: auto;
+<!-- Apply stored theme before first paint to avoid a flash -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('ak-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) { /* storage unavailable — stay on light */ }
+  })();
+</script>
+
+<style>
+  /* ======== TOKENS ======== */
+  :root {
+    --display: 'Instrument Serif', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    --container: 1480px;
+    --gutter: clamp(1.25rem, 4vw, 3.5rem);
+
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-soft: cubic-bezier(0.65, 0, 0.35, 1);
+
+    /* shared across themes */
+    --accent-block: #D2F541;   /* acid lime fill */
+    --on-accent: #0A0A0A;      /* text sitting on the lime fill */
+  }
+
+  /* ---- LIGHT (default) ---- */
+  html[data-theme="light"] {
+    --bg: #F5F3EE;
+    --surface: #EDEAE3;
+    --surface-2: #E4E0D6;
+    --ink: #16150F;
+    --ink-soft: rgba(22, 21, 15, 0.64);
+    --ink-faint: rgba(22, 21, 15, 0.40);
+    --hairline: rgba(22, 21, 15, 0.14);
+    --hairline-strong: rgba(22, 21, 15, 0.30);
+
+    --accent: #4E6B00;                       /* readable lime for text/rules */
+    --accent-wash: rgba(78, 107, 0, 0.06);
+    --accent-glow: rgba(78, 107, 0, 0.35);
+    --nav-bg: rgba(245, 243, 238, 0.72);
+    --grain-opacity: 0.035;
+    --grain-blend: multiply;
+    --shadow-preview: 0 30px 80px -22px rgba(20, 19, 12, 0.35);
+    --chip-bg: rgba(10, 10, 10, 0.055);
+  }
+
+  /* ---- DARK ---- */
+  html[data-theme="dark"] {
+    --bg: #0A0A0A;
+    --surface: #141414;
+    --surface-2: #1C1C1C;
+    --ink: #EDE6D9;
+    --ink-soft: rgba(237, 230, 217, 0.62);
+    --ink-faint: rgba(237, 230, 217, 0.38);
+    --hairline: rgba(237, 230, 217, 0.12);
+    --hairline-strong: rgba(237, 230, 217, 0.28);
+
+    --accent: #D2F541;
+    --accent-wash: rgba(210, 245, 65, 0.05);
+    --accent-glow: rgba(210, 245, 65, 0.6);
+    --nav-bg: rgba(10, 10, 10, 0.7);
+    --grain-opacity: 0.06;
+    --grain-blend: overlay;
+    --shadow-preview: 0 30px 80px -20px rgba(0, 0, 0, 0.8);
+    --chip-bg: rgba(237, 230, 217, 0.06);
+  }
+
+  /* ======== RESET ======== */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    cursor: none;
+    transition: background 500ms var(--ease), color 500ms var(--ease);
+  }
+  @media (max-width: 900px) { body { cursor: auto; } }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; cursor: none; background: none; border: none; }
+  @media (max-width: 900px) { button { cursor: pointer; } }
+  ::selection { background: var(--accent-block); color: var(--on-accent); }
+
+  /* ======== ATMOSPHERE: GRAIN ======== */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: var(--grain-opacity);
+    mix-blend-mode: var(--grain-blend);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  /* ======== LOADER ======== */
+  .loader {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: var(--bg);
+    display: flex;
+    align-items: flex-end;
+    padding: var(--gutter);
+    transition: transform 1100ms var(--ease) 200ms;
+  }
+  .loader.gone { transform: translateY(-101%); }
+  .loader-inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+  }
+  .loader-name {
+    font-family: var(--display);
+    font-size: clamp(2rem, 6vw, 4.4rem);
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .loader-name em { font-style: italic; color: var(--accent); }
+  .loader-num { font-variant-numeric: tabular-nums; font-size: 16px; color: var(--ink); }
+
+  /* ======== SCROLL PROGRESS ======== */
+  .progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--accent);
+    z-index: 200;
+    width: 0;
+    transition: width 80ms linear;
+  }
+
+  /* ======== CUSTOM CURSOR ======== */
+  .cur-dot, .cur-ring {
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9000;
+    transform: translate3d(-50%, -50%, 0);
+    will-change: transform;
+  }
+  .cur-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    transition: width 250ms var(--ease), height 250ms var(--ease), background 250ms;
+  }
+  .cur-ring {
+    width: 36px; height: 36px;
+    border: 1px solid var(--ink-soft);
+    border-radius: 50%;
+    transition: width 350ms var(--ease), height 350ms var(--ease), border-color 250ms, transform 80ms linear;
+  }
+  body.cur-link .cur-ring { width: 64px; height: 64px; border-color: var(--accent); }
+  body.cur-link .cur-dot { width: 4px; height: 4px; }
+  body.cur-view .cur-ring, body.cur-view .cur-dot { display: none; }
+  @media (max-width: 900px) { .cur-dot, .cur-ring { display: none; } }
+
+  /* ======== CONTAINER ======== */
+  .wrap {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  /* ======== NAV ======== */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 22px 0;
+    transition: background 400ms var(--ease), backdrop-filter 400ms;
+  }
+  .nav.scrolled {
+    background: var(--nav-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-logo .mark {
+    width: 26px; height: 26px;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--accent);
+  }
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .nav-link {
+    position: relative;
+    padding: 4px 2px;
+    color: var(--ink-soft);
+    transition: color 300ms;
+  }
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    inset: auto 0 -4px 0;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 450ms var(--ease);
+  }
+  .nav-link:hover { color: var(--ink); }
+  .nav-link:hover::before { transform: scaleX(1); }
+  .nav-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink-soft);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .nav-status .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent-glow);
+    animation: pulse 2s ease-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.6; }
+  }
+
+  /* ======== THEME TOGGLE ======== */
+  .theme-toggle {
+    width: 34px; height: 34px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    transition: border-color 300ms, background 300ms, transform 400ms var(--ease);
+    flex-shrink: 0;
+  }
+  .theme-toggle:hover { border-color: var(--accent); background: var(--accent-wash); transform: rotate(18deg); }
+  .theme-toggle svg { width: 16px; height: 16px; display: block; }
+  .theme-toggle .icon-moon { display: none; }
+  html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+  html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+
+  @media (max-width: 780px) {
+    .nav-links a.nav-link, .nav-status { display: none; }
+  }
+
+  /* ======== HERO ======== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 120px;
+    padding-bottom: 48px;
+    position: relative;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 18px;
+  }
+  .hero-meta-right { display: flex; gap: 30px; }
+  @media (max-width: 720px) { .hero-meta-right span:nth-child(2) { display: none; } .hero-meta-right { gap: 14px; } }
+
+  .hero-headline {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(4rem, 16vw, 17rem);
+    line-height: 0.86;
+    letter-spacing: -0.04em;
+    margin: 60px 0 0;
+    text-transform: lowercase;
+  }
+  .hero-headline .em { font-style: italic; color: var(--accent); }
+  .hero-line { display: block; overflow: hidden; margin-bottom: -0.04em; }
+  .hero-line > span { display: inline-block; transform: translateY(110%); will-change: transform; }
+  body.loaded .hero-line > span { animation: rise 1200ms var(--ease) forwards; }
+  body.loaded .hero-line:nth-child(1) > span { animation-delay: 100ms; }
+  body.loaded .hero-line:nth-child(2) > span { animation-delay: 220ms; }
+  body.loaded .hero-line:nth-child(3) > span { animation-delay: 340ms; }
+  @keyframes rise { to { transform: translateY(0); } }
+
+  .hero-foot {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 0.7fr;
+    gap: 60px;
+    align-items: end;
+    margin-top: 60px;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  body.loaded .hero-foot { animation: fadeUp 900ms var(--ease) 700ms forwards; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 900px) { .hero-foot { grid-template-columns: 1fr; gap: 30px; } }
+
+  .hero-intro { font-size: 18px; line-height: 1.45; max-width: 50ch; }
+  .hero-intro strong { font-weight: 600; color: var(--ink); }
+  .hero-intro .quiet { color: var(--ink-soft); display: block; margin-top: 10px; font-size: 14.5px; }
+
+  .hero-side {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+  }
+  .hero-side strong { display: block; color: var(--ink); font-weight: 500; margin-top: 3px; }
+
+  .hero-cta {
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+  }
+  .hero-cta-arrow {
+    display: inline-block;
+    margin-top: 12px;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 32px;
+    color: var(--accent);
+    transition: transform 400ms var(--ease);
+  }
+  .hero-cta:hover .hero-cta-arrow { transform: translateY(6px); }
+
+  /* ======== MARQUEE ======== */
+  .marquee {
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    padding: 36px 0;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 60px;
+    white-space: nowrap;
+    animation: scroll 42s linear infinite;
+    width: max-content;
+  }
+  .marquee-item {
+    font-family: var(--display);
+    font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 60px;
+    color: var(--ink);
+  }
+  .marquee-item.italic { font-style: italic; color: var(--accent); }
+  .marquee-item::after {
+    content: '';
+    width: 14px; height: 14px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ======== SECTION ======== */
+  .section { padding: 140px 0; position: relative; }
+  @media (max-width: 720px) { .section { padding: 80px 0; } }
+
+  .label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    margin-bottom: 36px;
+  }
+  .label::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+  .label .num { color: var(--accent); font-weight: 500; }
+
+  .h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 6.4vw, 5.4rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin: 0 0 48px;
+    max-width: 16ch;
+  }
+  .h2 .em { font-style: italic; color: var(--accent); }
+
+  /* ======== WORK / SHOWCASE ======== */
+  .work {
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    background: var(--bg);
+    position: relative;
+  }
+
+  /* Digital / Physical switch */
+  .work-tabs {
+    display: inline-flex;
+    gap: 6px;
+    padding: 5px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 999px;
+    margin-bottom: 40px;
+  }
+  .work-tab {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 10px 22px;
+    border-radius: 999px;
+    color: var(--ink-soft);
+    transition: background 350ms var(--ease), color 350ms var(--ease);
+  }
+  .work-tab[aria-selected="true"] { background: var(--accent-block); color: var(--on-accent); font-weight: 500; }
+  .work-tab:hover { color: var(--ink); }
+  .work-tab[aria-selected="true"]:hover { color: var(--on-accent); }
+
+  .work-panel { display: none; }
+  .work-panel.active { display: block; animation: panelIn 600ms var(--ease); }
+  @keyframes panelIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+  .work-item {
+    display: grid;
+    grid-template-columns: 70px 1fr 1.1fr 110px;
+    gap: 30px;
+    padding: 36px 0;
+    border-top: 1px solid var(--hairline);
+    align-items: center;
+    position: relative;
+    transition: padding 600ms var(--ease);
+  }
+  .work-item:last-child { border-bottom: 1px solid var(--hairline); }
+  .work-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, var(--accent-wash), transparent);
+    opacity: 0;
+    transition: opacity 500ms var(--ease);
+    pointer-events: none;
+  }
+  .work-item:hover::after { opacity: 1; }
+  a.work-item:hover { padding-left: 18px; }
+  a.work-item:hover .work-title { color: var(--accent); }
+  a.work-item:hover .work-num { color: var(--accent); }
+  .work-item.is-soon { opacity: 0.62; cursor: default; }
+
+  @media (max-width: 900px) {
+    .work-item { grid-template-columns: 50px 1fr; padding: 26px 0; }
+    .work-meta-right, .work-desc { display: none; }
+  }
+
+  .work-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+    align-self: start;
+    padding-top: 8px;
+    transition: color 400ms;
+  }
+  .work-title {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(1.6rem, 3.2vw, 2.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.022em;
+    margin: 0 0 8px;
+    transition: color 400ms;
+  }
+  .work-title .em { font-style: italic; }
+  .work-meta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+  }
+  .work-meta .sep { color: var(--accent); }
+  .work-desc { font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); max-width: 48ch; }
+  .work-meta-right {
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .work-meta-right .yr { color: var(--ink); font-weight: 500; }
+
+  /* Image follow on hover */
+  .work-preview {
+    position: fixed;
+    pointer-events: none;
+    width: 360px;
+    height: 240px;
+    transform: translate3d(-50%, -50%, 0) scale(0.92);
+    z-index: 50;
+    opacity: 0;
+    transition: opacity 350ms var(--ease), transform 600ms var(--ease);
+    will-change: transform;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--surface-2);
+    border-radius: 6px;
+    box-shadow: var(--shadow-preview);
+    overflow: hidden;
+  }
+  .work-preview.show { opacity: 1; }
+  .work-preview::after {
+    content: 'VIEW →';
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--on-accent);
+    background: var(--accent-block);
+    padding: 6px 10px;
+    border-radius: 999px;
+  }
+  @media (max-width: 1024px) { .work-preview { display: none; } }
+
+  /* ======== CURRENTLY ======== */
+  .currently { padding: 140px 0; }
+  .currently-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+  @media (max-width: 900px) { .currently-grid { grid-template-columns: 1fr; gap: 36px; } }
+  .currently-lead {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    line-height: 1.18;
+    letter-spacing: -0.018em;
+  }
+  .currently-lead .em { font-style: italic; color: var(--accent); }
+  .currently-detail { font-size: 17px; line-height: 1.6; color: var(--ink); }
+  .currently-detail p + p { margin-top: 18px; }
+  .currently-detail .quiet { color: var(--ink-soft); }
+  .currently-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 7px 14px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 999px;
+    color: var(--ink);
+    transition: background 300ms, color 300ms, border-color 300ms;
+  }
+  .tag:hover { background: var(--accent-block); color: var(--on-accent); border-color: var(--accent-block); }
+
+  /* ======== CAPABILITIES ======== */
+  .caps {
+    background: var(--surface);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    padding: 140px 0;
+  }
+  .caps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--hairline); }
+  @media (max-width: 900px) { .caps-grid { grid-template-columns: 1fr; } }
+  .cap {
+    padding: 38px 28px 38px 0;
+    border-bottom: 1px solid var(--hairline);
+    border-right: 1px solid var(--hairline);
+    position: relative;
+    transition: background 400ms;
+  }
+  .cap:nth-child(3n) { border-right: none; }
+  @media (max-width: 900px) { .cap { border-right: none; padding-right: 0; } }
+  .cap:hover { background: var(--accent-wash); }
+  .cap-num { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 14px; }
+  .cap-title {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 28px;
+    letter-spacing: -0.018em;
+    margin: 0 0 12px;
+    line-height: 1.1;
+  }
+  .cap-title .em { font-style: italic; color: var(--accent); }
+  .cap-text { font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); }
+
+  /* ======== EXPERIENCE ======== */
+  .exp-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 100px; }
+  @media (max-width: 900px) { .exp-grid { grid-template-columns: 1fr; gap: 60px; } }
+  .exp-row {
+    display: grid;
+    grid-template-columns: 96px 1fr auto;
+    gap: 30px;
+    padding: 22px 0;
+    border-top: 1px solid var(--hairline);
+    align-items: baseline;
+    transition: padding-left 400ms var(--ease);
+  }
+  .exp-row:last-child { border-bottom: 1px solid var(--hairline); }
+  .exp-row:hover { padding-left: 14px; }
+  .exp-row:hover .exp-co { color: var(--accent); }
+  @media (max-width: 620px) { .exp-row { grid-template-columns: 1fr; gap: 6px; } }
+  .exp-yr { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.05em; }
+  .exp-co {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+    letter-spacing: -0.012em;
+    transition: color 350ms;
+  }
+  .exp-co .em { font-style: italic; color: var(--accent); }
+  .exp-role { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); }
+
+  .edu { border: 1px solid var(--hairline-strong); padding: 36px; border-radius: 6px; background: var(--surface); }
+  .edu-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .edu-label::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+  .edu-deg { font-family: var(--display); font-weight: 400; font-size: 26px; line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 10px; }
+  .edu-deg .em { font-style: italic; color: var(--accent); }
+  .edu-school { font-size: 14.5px; color: var(--ink-soft); line-height: 1.5; }
+  .edu-school + .edu-deg { margin-top: 28px; }
+  .edu-stats {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--hairline);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .edu-stat { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
+  .edu-stat strong {
+    display: block;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 38px;
+    color: var(--accent);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  /* ======== PUBLICATIONS ======== */
+  .pubs { background: var(--surface); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .pub {
+    display: grid;
+    grid-template-columns: 80px 1fr 220px;
+    gap: 36px;
+    padding: 32px 0;
+    border-top: 1px solid var(--hairline);
+    align-items: baseline;
+    transition: padding-left 400ms var(--ease), background 400ms;
+  }
+  .pub:last-child { border-bottom: 1px solid var(--hairline); }
+  .pub:hover { padding-left: 14px; }
+  .pub:hover .pub-title { color: var(--accent); }
+  @media (max-width: 720px) { .pub { grid-template-columns: 60px 1fr; gap: 14px; } .pub-venue { display: none; } }
+  .pub-num { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.06em; }
+  .pub-title {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(1.3rem, 2.4vw, 2rem);
+    letter-spacing: -0.018em;
+    line-height: 1.2;
+    margin: 0 0 8px;
+    transition: color 350ms;
+  }
+  .pub-title .em { font-style: italic; }
+  .pub-authors { font-size: 13px; color: var(--ink-soft); font-family: var(--mono); letter-spacing: 0.04em; }
+  .pub-venue {
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .pub-venue strong { display: block; color: var(--accent); font-weight: 500; }
+
+  /* ======== TESTIMONIALS ======== */
+  .quotes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 80px; }
+  @media (max-width: 900px) { .quotes-grid { grid-template-columns: 1fr; } }
+  .quote { padding: 36px 0; border-top: 1px solid var(--hairline); }
+  .quote-mark { font-family: var(--display); font-style: italic; font-size: 70px; line-height: 0.4; color: var(--accent); margin-bottom: 8px; }
+  .quote-body {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    line-height: 1.4;
+    letter-spacing: -0.012em;
+    margin: 0 0 24px;
+  }
+  .quote-body em { font-style: italic; color: var(--accent); }
+  .quote-attr { display: flex; align-items: center; gap: 14px; }
+  .quote-photo {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background-color: var(--surface-2);
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    border: 1px solid var(--hairline);
+  }
+  .quote-name { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .quote-name strong { color: var(--ink); font-weight: 500; }
+  .quote-name span { color: var(--ink-soft); display: block; margin-top: 2px; }
+
+  /* ======== MENTORSHIP ======== */
+  .mentor { background: var(--accent-block); color: var(--on-accent); padding: 100px 0; overflow: hidden; position: relative; }
+  .mentor::before {
+    content: 'MENTORSHIP MENTORSHIP MENTORSHIP MENTORSHIP MENTORSHIP MENTORSHIP MENTORSHIP MENTORSHIP';
+    position: absolute;
+    bottom: -16px;
+    left: 0; right: 0;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: clamp(6rem, 14vw, 14rem);
+    line-height: 1;
+    color: rgba(10, 10, 10, 0.08);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .mentor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; }
+  @media (max-width: 900px) { .mentor-grid { grid-template-columns: 1fr; } }
+  .mentor .label { color: rgba(10, 10, 10, 0.7); }
+  .mentor .label::before { background: var(--on-accent); }
+  .mentor .label .num { color: var(--on-accent); }
+  .mentor-title {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+    color: var(--on-accent);
+  }
+  .mentor-title em { font-style: italic; }
+  .mentor-body { font-size: 16px; line-height: 1.55; color: rgba(10, 10, 10, 0.78); max-width: 44ch; }
+  .mentor-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 24px;
+    list-style: none;
+    padding: 0; margin: 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .mentor-list li {
+    padding: 14px 0;
+    border-top: 1px solid rgba(10, 10, 10, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--on-accent);
+  }
+  .mentor-list li::before { content: '→'; font-family: var(--sans); }
+  .mentor-cta {
+    margin-top: 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 28px;
+    background: #0A0A0A;
+    color: #EDE6D9;
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    transition: transform 350ms var(--ease);
+  }
+  .mentor-cta:hover { transform: translate(-2px, -3px); }
+  .mentor-cta .arrow { transition: transform 350ms var(--ease); }
+  .mentor-cta:hover .arrow { transform: translateX(6px); }
+
+  /* ======== CONTACT ======== */
+  .contact { padding: 180px 0 120px; position: relative; overflow: hidden; }
+  .contact-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .contact-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+  .contact-headline {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(2.6rem, 9vw, 9.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    margin: 0 0 80px;
+    max-width: 12ch;
+    text-transform: lowercase;
+  }
+  .contact-headline em { font-style: italic; color: var(--accent); }
+  .contact-email-wrap { display: inline-block; position: relative; }
+  .contact-email {
+    display: inline-block;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(1.6rem, 4.8vw, 4.4rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    border-bottom: 2px solid var(--hairline-strong);
+    padding-bottom: 16px;
+    transition: border-color 300ms, color 300ms, transform 600ms var(--ease);
+    word-break: break-all;
+  }
+  .contact-email:hover { border-bottom-color: var(--accent); color: var(--accent); }
+  .contact-email em { font-style: italic; color: var(--accent); }
+
+  .contact-grid {
+    margin-top: 110px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    border-top: 1px solid var(--hairline);
+    padding-top: 40px;
+  }
+  @media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+  .contact-col { display: flex; flex-direction: column; gap: 8px; }
+  .contact-col-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-soft); }
+  .contact-col-value {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: -0.012em;
+    color: var(--ink);
+    transition: color 300ms;
+  }
+  .contact-col-value:hover { color: var(--accent); }
+
+  /* ======== FOOTER ======== */
+  .footer { background: var(--bg); color: var(--ink-soft); padding: 32px 0; border-top: 1px solid var(--hairline); }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+  .footer-time { font-variant-numeric: tabular-nums; }
+  @media (max-width: 600px) { .footer-inner { flex-direction: column; gap: 14px; text-align: center; } }
+
+  /* ======== REVEAL ======== */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1000ms var(--ease), transform 1000ms var(--ease); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal[data-d="1"] { transition-delay: 100ms; }
+  .reveal[data-d="2"] { transition-delay: 200ms; }
+  .reveal[data-d="3"] { transition-delay: 300ms; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ======== LOADER ======== -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-name">A. <em>KS.</em></div>
+    <div class="loader-num"><span id="loaderNum">000</span> / 100</div>
+  </div>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="cur-ring" id="curRing"></div>
+<div class="cur-dot" id="curDot"></div>
+<div class="work-preview" id="workPreview"></div>
+
+<!-- ======== NAV ======== -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-logo interactive">
+      <span class="mark">a</span>
+      <span>Anurag KS</span>
+    </a>
+    <div class="nav-links">
+      <a href="#work" class="nav-link interactive">Index</a>
+      <a href="#about" class="nav-link interactive">About</a>
+      <a href="#publications" class="nav-link interactive">Publications</a>
+      <a href="#contact" class="nav-link interactive">Contact</a>
+      <span class="nav-status"><span class="dot"></span>Open '26</span>
+      <button class="theme-toggle interactive" id="themeToggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.4v2.2M12 19.4v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.4 12h2.2M19.4 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.5 14.6A8.6 8.6 0 1 1 9.4 3.5a6.9 6.9 0 0 0 11.1 11.1z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ======== HERO ======== -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-meta">
+      <span>Index 2026 / Staff · Senior Product Designer</span>
+      <div class="hero-meta-right">
+        <span>Bengaluru ⇄ Worldwide</span>
+        <span>v.08</span>
+      </div>
+    </div>
+
+    <h1 class="hero-headline">
+      <span class="hero-line"><span>designs for</span></span>
+      <span class="hero-line"><span>the <span class="em">agentic</span></span></span>
+      <span class="hero-line"><span>age.</span></span>
+    </h1>
+
+    <div class="hero-foot">
+      <div class="hero-intro">
+        <strong>Anurag KS</strong> — a staff/senior product designer at <strong>ServiceNow</strong>, working on the Now Assist Skill Kit team. Ground truth, agentic evaluation, and the interfaces behind production AI.
+        <span class="quiet">Previously Intuit, Oracle, D. E. Shaw, Cerner, Philips. Master's from IDC, IIT Bombay. Three published papers. 8+ years across enterprise AI, SaaS, healthcare, ERP and government platforms.</span>
+      </div>
+      <div class="hero-side">
+        <div>Now<strong>Staff/Sr. Product Designer @ ServiceNow</strong></div>
+        <div>Focus<strong>Ground truth · Agentic eval · AI-native UX</strong></div>
+        <div>Status<strong>Open to senior &amp; staff roles</strong></div>
+      </div>
+      <a href="#work" class="hero-cta interactive">
+        Selected work<br/>
+        <span class="hero-cta-arrow">↓</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== MARQUEE ======== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Available 2026</span>
+    <span class="marquee-item italic">Ground truth tooling</span>
+    <span class="marquee-item">Agentic trajectories</span>
+    <span class="marquee-item italic">LLM-as-Judge</span>
+    <span class="marquee-item">Now Assist Skill Kit</span>
+    <span class="marquee-item italic">AI-native UX</span>
+    <span class="marquee-item">Available 2026</span>
+    <span class="marquee-item italic">Ground truth tooling</span>
+    <span class="marquee-item">Agentic trajectories</span>
+    <span class="marquee-item italic">LLM-as-Judge</span>
+    <span class="marquee-item">Now Assist Skill Kit</span>
+    <span class="marquee-item italic">AI-native UX</span>
+  </div>
+</div>
+
+<!-- ======== CURRENTLY ======== -->
+<section class="currently" id="about">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">01</span> Currently</div>
+    <div class="currently-grid">
+      <div class="currently-lead reveal">
+        Designing the <span class="em">substrate</span> beneath enterprise AI — the ground truth, the evaluation, the trust.
+      </div>
+      <div class="currently-detail reveal" data-d="1">
+        <p>At ServiceNow's Now Assist Skill Kit team I work alongside PMs, ML engineers and applied research to design how humans curate, evaluate and trust agentic AI. Ground-truth anatomy, trajectory comparison, custom LLM metrics, LLM-as-Judge — the systems that decide what production AI is allowed to do.</p>
+        <p class="quiet">Across eight years I've moved between government platforms, tax and healthcare, ERP and design systems — and the constant has been the same: heavy data, real constraints, and users who cannot afford a pretty guess.</p>
+        <div class="currently-tags">
+          <span class="tag interactive">Ground Truth</span>
+          <span class="tag interactive">Agentic Eval</span>
+          <span class="tag interactive">LLM-as-Judge</span>
+          <span class="tag interactive">Trajectory Analysis</span>
+          <span class="tag interactive">Design Systems</span>
+          <span class="tag interactive">Enterprise SaaS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== WORK ======== -->
+<section class="work section" id="work">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">02</span> Index of Work</div>
+    <h2 class="h2 reveal">Six projects across <span class="em">enterprise</span>, <span class="em">academia</span>, and the edge of <span class="em">AI.</span></h2>
+
+    <div class="work-tabs reveal" role="tablist" aria-label="Project category">
+      <button class="work-tab interactive" role="tab" id="tab-digital" aria-controls="panel-digital" aria-selected="true" type="button">Digital</button>
+      <button class="work-tab interactive" role="tab" id="tab-physical" aria-controls="panel-physical" aria-selected="false" type="button">Physical</button>
+    </div>
+
+    <!-- DIGITAL -->
+    <div class="work-panel active" id="panel-digital" role="tabpanel" aria-labelledby="tab-digital">
+
+      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/custom_llm_metrics.html" data-img="./Customcover.png">
+        <div class="work-num">→ 01</div>
+        <div>
+          <h3 class="work-title">Custom <span class="em">LLM-based</span> metrics</h3>
+          <div class="work-meta"><span>ServiceNow</span><span class="sep">/</span><span>Now Assist Skill Kit</span></div>
+        </div>
+        <p class="work-desc">Letting teams author their own LLM-judged metrics — defining criteria, scoring scales and rationale — so evaluation reflects the business, not just the benchmark.</p>
+        <div class="work-meta-right"><span class="yr">2025–26</span><br/>Work</div>
+      </a>
+
+      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/ground_truth.html" data-img="./GTCover.png">
+        <div class="work-num">→ 02</div>
+        <div>
+          <h3 class="work-title">Ground truth based <span class="em">agentic evaluation</span></h3>
+          <div class="work-meta"><span>ServiceNow</span><span class="sep">/</span><span>Now Assist Skill Kit</span></div>
+        </div>
+        <p class="work-desc">Designing how teams author ground truth, compare agent trajectories against it, and read the result well enough to ship — or block — an AI agent.</p>
+        <div class="work-meta-right"><span class="yr">2025–26</span><br/>Work</div>
+      </a>
+
+      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/depositaccount.html" data-img="https://anurag27k.github.io/img/Oracle/DepositCover.png">
+        <div class="work-num">→ 03</div>
+        <div>
+          <h3 class="work-title">Redwood <span class="em">migration</span> methodology</h3>
+          <div class="work-meta"><span>Oracle</span><span class="sep">/</span><span>UX Designer</span></div>
+        </div>
+        <p class="work-desc">A repeatable methodology for migrating sub-applications onto the Redwood design system — audit, IA, component mapping and rollout, deep-dived on one sub-application.</p>
+        <div class="work-meta-right"><span class="yr">2022–24</span><br/>Work</div>
+      </a>
+
+    </div>
+
+    <!-- PHYSICAL -->
+    <div class="work-panel" id="panel-physical" role="tabpanel" aria-labelledby="tab-physical" hidden>
+
+      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/armarker.html" data-img="https://anurag27k.github.io/img/p3/lattice.png">
+        <div class="work-num">→ 01</div>
+        <div>
+          <h3 class="work-title">Lattice construction <span class="em">in AR</span></h3>
+          <div class="work-meta"><span>IDC, IIT Bombay</span><span class="sep">/</span><span>Research</span></div>
+        </div>
+        <p class="work-desc">Construction of atomic lattices using marker-based AR, exploring modularity and inter-marker interaction. Presented at VRST '22, Tsukuba.</p>
+        <div class="work-meta-right"><span class="yr">2022</span><br/>Published</div>
+      </a>
+
+      <div class="work-item is-soon">
+        <div class="work-num">→ 02</div>
+        <div>
+          <h3 class="work-title">Grapho — <span class="em">line chart</span> accessibility</h3>
+          <div class="work-meta"><span>IDC, IIT Bombay</span><span class="sep">/</span><span>Tangible UX</span></div>
+        </div>
+        <p class="work-desc">A tangible system that lets visually-impaired users perceive, create and modify line charts. India HCI 2020.</p>
+        <div class="work-meta-right"><span class="yr">2020</span><br/>Page soon</div>
+      </div>
+
+      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/gappekadabba.html" data-img="https://anurag27k.github.io/img/Gappe/gappekadabbacover.png">
+        <div class="work-num">→ 03</div>
+        <div>
+          <h3 class="work-title">Gappe ka <span class="em">dabba</span></h3>
+          <div class="work-meta"><span>IDC, IIT Bombay</span><span class="sep">/</span><span>Tangible Interaction</span></div>
+        </div>
+        <p class="work-desc">A tangible device that treats sound as an object you can sense — bound by physics, gravity and gesture. A study in playful, embodied UX.</p>
+        <div class="work-meta-right"><span class="yr">2021</span><br/>Studio</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======== CAPABILITIES ======== -->
+<section class="caps">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">03</span> Capabilities</div>
+    <h2 class="h2 reveal">Where I <span class="em">operate</span> — and where I'm <span class="em">sharpest.</span></h2>
+
+    <div class="caps-grid">
+      <div class="cap reveal">
+        <div class="cap-num">— 01</div>
+        <h3 class="cap-title">AI <span class="em">evaluation UX</span></h3>
+        <p class="cap-text">Ground truth design, agentic trajectory comparison, LLM-as-Judge interfaces, evaluator workflows that production AI depends on.</p>
+      </div>
+      <div class="cap reveal" data-d="1">
+        <div class="cap-num">— 02</div>
+        <h3 class="cap-title">Enterprise <span class="em">SaaS</span></h3>
+        <p class="cap-text">Long-horizon thinking on permissions, data complexity, internationalization, and the workflows that run businesses — not just decorate them.</p>
+      </div>
+      <div class="cap reveal" data-d="2">
+        <div class="cap-num">— 03</div>
+        <h3 class="cap-title">Design <span class="em">systems</span></h3>
+        <p class="cap-text">Building, governing and migrating component libraries — Oracle Redwood, and most recently the ServiceNow Horizon 2.0 system. Tokens, primitives, patterns.</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cap-num">— 04</div>
+        <h3 class="cap-title">Tangible &amp; <span class="em">accessible</span></h3>
+        <p class="cap-text">Hardware-aware interaction design, AR/VR, and accessibility-first methods. The kind of craft that academic peer-review tends to reward.</p>
+      </div>
+      <div class="cap reveal" data-d="1">
+        <div class="cap-num">— 05</div>
+        <h3 class="cap-title">Strategy &amp; <span class="em">leadership</span></h3>
+        <p class="cap-text">Defining product vision with cross-functional leadership, leading 0→1 initiatives, and mentoring designers into stronger decision-makers.</p>
+      </div>
+      <div class="cap reveal" data-d="2">
+        <div class="cap-num">— 06</div>
+        <h3 class="cap-title">Research &amp; <span class="em">writing</span></h3>
+        <p class="cap-text">Three published papers across VRST and India HCI. Comfortable in literature, lab studies, qualitative methods, and shipping the findings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== EXPERIENCE ======== -->
+<section class="section">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">04</span> Lineage</div>
+    <h2 class="h2 reveal">A path through <span class="em">teams</span> that take design <span class="em">seriously.</span></h2>
+
+    <div class="exp-grid">
+      <div class="reveal">
+        <div class="exp-row interactive">
+          <div class="exp-yr">2025—NOW</div>
+          <div class="exp-co">Service<span class="em">Now</span></div>
+          <div class="exp-role">Sr. Product Designer · Now Assist Skill Kit</div>
+        </div>
+        <div class="exp-row interactive">
+          <div class="exp-yr">2024—2025</div>
+          <div class="exp-co">Intu<span class="em">it</span></div>
+          <div class="exp-role">Sr. Product Designer · Virtual Expert Platform</div>
+        </div>
+        <div class="exp-row interactive">
+          <div class="exp-yr">2022—2024</div>
+          <div class="exp-co">Orac<span class="em">le</span></div>
+          <div class="exp-role">UX Designer · Gov &amp; Citizen Platforms</div>
+        </div>
+        <div class="exp-row interactive">
+          <div class="exp-yr">2021</div>
+          <div class="exp-co">D. E. <span class="em">Shaw</span></div>
+          <div class="exp-role">Interaction Designer</div>
+        </div>
+        <div class="exp-row interactive">
+          <div class="exp-yr">2020</div>
+          <div class="exp-co">Cer<span class="em">ner</span></div>
+          <div class="exp-role">UX Designer · Clinical NLP</div>
+        </div>
+        <div class="exp-row interactive">
+          <div class="exp-yr">2018—2019</div>
+          <div class="exp-co">People<span class="em">10</span></div>
+          <div class="exp-role">UI/UX Designer</div>
+        </div>
+        <div class="exp-row interactive">
+          <div class="exp-yr">2016—2018</div>
+          <div class="exp-co">Phil<span class="em">ips</span></div>
+          <div class="exp-role">UX Designer &amp; Engineer · Healthcare</div>
+        </div>
+      </div>
+
+      <aside class="edu reveal" data-d="1">
+        <div class="edu-label">Education</div>
+        <h3 class="edu-deg">M.Des. in <span class="em">Interaction Design</span></h3>
+        <div class="edu-school">IDC School of Design,<br/>Indian Institute of Technology Bombay</div>
+        <h3 class="edu-deg">B.Tech. in <span class="em">Computer Science</span></h3>
+        <div class="edu-school">National Institute of Technology,<br/>Tiruchirappalli</div>
+        <div class="edu-stats">
+          <div class="edu-stat"><strong>03</strong>Published papers</div>
+          <div class="edu-stat"><strong>8+</strong>Years experience</div>
+          <div class="edu-stat"><strong>02</strong>Intl. venues</div>
+          <div class="edu-stat"><strong>09</strong>Recommendations</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PUBLICATIONS ======== -->
+<section class="pubs section" id="publications">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">05</span> Publications</div>
+    <h2 class="h2 reveal">Published papers across <span class="em">three</span> conferences.</h2>
+
+    <div>
+      <a class="pub interactive reveal" href="https://doi.org/10.1145/3562939.3565642" target="_blank" rel="noopener">
+        <div class="pub-num">001</div>
+        <div>
+          <h3 class="pub-title">Exploration of inter-marker interactions in <span class="em">Tangible AR</span></h3>
+          <div class="pub-authors">Anurag Kumar Singh · Jayesh Pillai</div>
+        </div>
+        <div class="pub-venue"><strong>VRST '22</strong>Tsukuba, Japan<br/>10.1145/3562939.3565642</div>
+      </a>
+
+      <a class="pub interactive reveal" href="https://doi.org/10.1145/3570211.3570213" target="_blank" rel="noopener">
+        <div class="pub-num">002</div>
+        <div>
+          <h3 class="pub-title">Grapho: bringing line chart <span class="em">accessibility</span> to the visually impaired</h3>
+          <div class="pub-authors">Anurag Kumar Singh · Anirudha Joshi</div>
+        </div>
+        <div class="pub-venue"><strong>India HCI</strong>BITS Pilani<br/>10.1145/3570211.3570213</div>
+      </a>
+
+      <a class="pub interactive reveal" href="https://doi.org/10.1007/978-3-031-80829-6_6" target="_blank" rel="noopener">
+        <div class="pub-num">003</div>
+        <div>
+          <h3 class="pub-title">Comparative evaluation of <span class="em">speech interfaces</span> in Hindi</h3>
+          <div class="pub-authors">Anurag Kumar Singh · Shivangi · Anirudha Joshi</div>
+        </div>
+        <div class="pub-venue"><strong>India HCI '24</strong>IIT Bombay<br/>10.1007/978-3-031-80829-6_6</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== TESTIMONIALS ======== -->
+<section class="section">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">06</span> Witness</div>
+    <h2 class="h2 reveal">Words from the people I've <span class="em">worked beside.</span></h2>
+
+    <div class="quotes-grid">
+      <div class="quote reveal">
+        <div class="quote-mark">"</div>
+        <blockquote class="quote-body">What truly sets Anurag apart is his <em>wisdom</em>, his inquisitive nature, and his out-of-box mindset.</blockquote>
+        <div class="quote-attr">
+          <div class="quote-photo" style="background-image:url('https://anurag27k.github.io/files/people/neha.png');"></div>
+          <div class="quote-name"><strong>Neha Bala</strong><span>Interview Kickstart</span></div>
+        </div>
+      </div>
+
+      <div class="quote reveal" data-d="1">
+        <div class="quote-mark">"</div>
+        <blockquote class="quote-body">An excellent design leader, <em>passionate</em> about his craft and dedicated to bringing new ideas to the team.</blockquote>
+        <div class="quote-attr">
+          <div class="quote-photo" style="background-image:url('https://anurag27k.github.io/files/people/nayanika.png');"></div>
+          <div class="quote-name"><strong>Nayanika Dey</strong><span>Adobe</span></div>
+        </div>
+      </div>
+
+      <div class="quote reveal">
+        <div class="quote-mark">"</div>
+        <blockquote class="quote-body">A <em>strategic mindset</em> that lets him envision and execute long-term strategies that drive real outcomes.</blockquote>
+        <div class="quote-attr">
+          <div class="quote-photo" style="background-image:url('https://anurag27k.github.io/files/people/shobhit.png');"></div>
+          <div class="quote-name"><strong>Shobhit Kenath</strong><span>JP Morgan</span></div>
+        </div>
+      </div>
+
+      <div class="quote reveal" data-d="1">
+        <div class="quote-mark">"</div>
+        <blockquote class="quote-body">He collaborates across cross-functional teams and adapts <em>swiftly</em> to evolving requirements.</blockquote>
+        <div class="quote-attr">
+          <div class="quote-photo" style="background-image:url('https://anurag27k.github.io/files/people/deb.png');"></div>
+          <div class="quote-name"><strong>Debajyoti Mitra</strong><span>Oracle</span></div>
+        </div>
+      </div>
+
+      <div class="quote reveal">
+        <div class="quote-mark">"</div>
+        <blockquote class="quote-body">Not just a talented designer — a <em>great team player</em> and a true tech enthusiast.</blockquote>
+        <div class="quote-attr">
+          <div class="quote-photo" style="background-image:url('https://anurag27k.github.io/files/people/krishna.png');"></div>
+          <div class="quote-name"><strong>Krishna Malji</strong><span>Dream11</span></div>
+        </div>
+      </div>
+
+      <div class="quote reveal" data-d="1">
+        <div class="quote-mark">"</div>
+        <blockquote class="quote-body">Consistently goes <em>above and beyond</em> to support his peers, demonstrating real empathy.</blockquote>
+        <div class="quote-attr">
+          <div class="quote-photo" style="background-image:url('https://anurag27k.github.io/files/people/shivangi.png');"></div>
+          <div class="quote-name"><strong>Shivangi</strong><span>Microsoft</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== MENTORSHIP ======== -->
+<section class="mentor">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">07</span> Mentorship</div>
+    <div class="mentor-grid">
+      <div class="reveal">
+        <h2 class="mentor-title">If you're <em>breaking in</em> — or breaking <em>through</em> — I can help.</h2>
+        <p class="mentor-body">Career transitions across India and abroad. Mock interviews. Resume reviews. Long-term 1:1 mentorship. The conversations I wish I'd had at the start.</p>
+        <a href="https://topmate.io/anurag27k" target="_blank" rel="noopener" class="mentor-cta interactive">
+          Book on Topmate <span class="arrow">→</span>
+        </a>
+      </div>
+      <ul class="mentor-list reveal" data-d="1">
+        <li>Breaking into design</li>
+        <li>India ⇄ abroad</li>
+        <li>1:1 mentorship</li>
+        <li>Mock interviews</li>
+        <li>Resume review</li>
+        <li>Portfolio review</li>
+        <li>Quick-call clarity</li>
+        <li>Interview prep</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CONTACT ======== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-eyebrow reveal">Contact / Open for senior &amp; staff design roles · 2026</div>
+    <h2 class="contact-headline reveal">let's build something <em>that matters.</em></h2>
+
+    <div class="contact-email-wrap">
+      <a class="contact-email interactive" id="magnet" href="mailto:anurag27k@gmail.com?Subject=Reaching%20out">
+        anurag27k<em>@</em>gmail.com →
+      </a>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-col reveal">
+        <span class="contact-col-label">Email</span>
+        <a class="contact-col-value interactive" href="mailto:anurag27k@gmail.com?Subject=Reaching%20out">anurag27k@gmail.com</a>
+      </div>
+      <div class="contact-col reveal" data-d="1">
+        <span class="contact-col-label">LinkedIn</span>
+        <a class="contact-col-value interactive" href="https://www.linkedin.com/in/anurag27k/" target="_blank" rel="noopener">/in/anurag27k</a>
+      </div>
+      <div class="contact-col reveal" data-d="2">
+        <span class="contact-col-label">Resume</span>
+        <a class="contact-col-value interactive" href="https://anurag27k.github.io/files/AnuragKumarSinghResume.pdf" target="_blank" rel="noopener">Download PDF</a>
+      </div>
+      <div class="contact-col reveal" data-d="3">
+        <span class="contact-col-label">Mentorship</span>
+        <a class="contact-col-value interactive" href="https://topmate.io/anurag27k" target="_blank" rel="noopener">Topmate</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>© 2026 Anurag KS — All rights reserved</span>
+    <span>Designed &amp; built by Anurag — Bengaluru, IN</span>
+    <span class="footer-time" id="time">--:--:-- IST</span>
+  </div>
+</footer>
+
+<script>
+  // ======== THEME TOGGLE ========
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('themeToggle');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('ak-theme', next); } catch (e) {}
+    });
+  })();
+
+  // ======== LOADER ========
+  (function () {
+    var loader = document.getElementById('loader');
+    var num = document.getElementById('loaderNum');
+    var i = 0;
+    var timer = setInterval(function () {
+      i += Math.random() * 9 + 5;
+      if (i >= 100) {
+        i = 100;
+        clearInterval(timer);
+        num.textContent = '100';
+        setTimeout(function () {
+          loader.classList.add('gone');
+          document.body.classList.add('loaded');
+        }, 320);
+      } else {
+        num.textContent = String(Math.floor(i)).padStart(3, '0');
       }
-    </style>
-  </head>
+    }, 90);
+  })();
 
-  <body>
+  // ======== WORK TABS ========
+  (function () {
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.work-tab'));
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (t) {
+          var panel = document.getElementById(t.getAttribute('aria-controls'));
+          var on = t === tab;
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          panel.classList.toggle('active', on);
+          if (on) { panel.removeAttribute('hidden'); } else { panel.setAttribute('hidden', ''); }
+        });
+      });
+    });
+  })();
 
-  
-    <script>
-      //for fade in loading
-      $(document).on("scroll", function () {
-        var pageTop = $(document).scrollTop();
-        var pageBottom = pageTop + $(window).height();
-        var tags = $(".tag");
+  // ======== CUSTOM CURSOR ========
+  (function () {
+    if (window.matchMedia('(max-width: 900px)').matches) return;
+    var dot = document.getElementById('curDot');
+    var ring = document.getElementById('curRing');
+    var mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    var rx = mx, ry = my;
 
-        for (var i = 0; i < tags.length; i++) {
-          var tag = tags[i];
+    window.addEventListener('mousemove', function (e) {
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = 'translate3d(' + mx + 'px,' + my + 'px,0) translate(-50%, -50%)';
+    });
 
-          if ($(tag).position().top < pageBottom) {
-            $(tag).addClass("visible");
-          } else {
-            $(tag).removeClass("visible");
-          }
+    (function tick() {
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0) translate(-50%, -50%)';
+      requestAnimationFrame(tick);
+    })();
+
+    document.querySelectorAll('.interactive, a, button').forEach(function (el) {
+      el.addEventListener('mouseenter', function () { document.body.classList.add('cur-link'); });
+      el.addEventListener('mouseleave', function () { document.body.classList.remove('cur-link'); });
+    });
+  })();
+
+  // ======== WORK PREVIEW (image follow) ========
+  (function () {
+    if (window.matchMedia('(max-width: 1024px)').matches) return;
+    var preview = document.getElementById('workPreview');
+    var active = false;
+    var px = 0, py = 0, tx = 0, ty = 0;
+
+    document.querySelectorAll('.work-item').forEach(function (item) {
+      var img = item.getAttribute('data-img');
+      if (!img) return;
+      item.addEventListener('mouseenter', function () {
+        preview.style.backgroundImage = 'url("' + img + '")';
+        preview.classList.add('show');
+        document.body.classList.add('cur-view');
+        active = true;
+      });
+      item.addEventListener('mouseleave', function () {
+        preview.classList.remove('show');
+        document.body.classList.remove('cur-view');
+        active = false;
+      });
+    });
+
+    document.addEventListener('mousemove', function (e) { tx = e.clientX; ty = e.clientY; });
+
+    (function loop() {
+      px += (tx - px) * 0.14;
+      py += (ty - py) * 0.14;
+      if (active) {
+        preview.style.transform = 'translate3d(' + px + 'px,' + py + 'px,0) translate(-50%, -50%) scale(1)';
+      }
+      requestAnimationFrame(loop);
+    })();
+  })();
+
+  // ======== NAV SCROLL STATE ========
+  (function () {
+    var nav = document.getElementById('nav');
+    var progress = document.getElementById('progress');
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 30);
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (docHeight > 0 ? (y / docHeight) * 100 : 0) + '%';
+    }, { passive: true });
+  })();
+
+  // ======== REVEAL ========
+  (function () {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
         }
       });
-      //end
-    </script>
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  })();
 
-    <!-- Header -->
-    <div>
-      <nav
-        class="navbar navbar-expand-md navbar-dark"
-        style="width: 100%; position: fixed; z-index: 10000"
-      >
-        <div class="container">
-          <!--  Remove justify-content-end class to allign on left -->
-          <div
-            class="collapse navbar-collapse justify-content-end"
-            id="collapsibleNavbar"
-          >
-            <ul
-              class="navbar-nav"
-              style="padding-left: 10px; padding-top: 20px"
-            >
-              <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#discover">Discover</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#download">Download</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-    <!-- Header End -->
+  // ======== MAGNETIC EMAIL ========
+  (function () {
+    if (window.matchMedia('(max-width: 900px)').matches) return;
+    var m = document.getElementById('magnet');
+    if (!m) return;
+    var strength = 0.25;
+    m.addEventListener('mousemove', function (e) {
+      var r = m.getBoundingClientRect();
+      var x = e.clientX - r.left - r.width / 2;
+      var y = e.clientY - r.top - r.height / 2;
+      m.style.transform = 'translate(' + (x * strength) + 'px,' + (y * strength) + 'px)';
+    });
+    m.addEventListener('mouseleave', function () { m.style.transform = ''; });
+  })();
 
-    <!-- Video code start -->
-    <div class="video-background">
-      <video autoplay loop muted>
-        <source src="./files/vecteezy.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <!-- Your content goes here -->
-    </div>
-    <!-- video code end -->
+  // ======== CLOCK ========
+  (function () {
+    var t = document.getElementById('time');
+    if (!t) return;
+    function tick() {
+      var ist = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+      var hh = String(ist.getHours()).padStart(2, '0');
+      var mm = String(ist.getMinutes()).padStart(2, '0');
+      var ss = String(ist.getSeconds()).padStart(2, '0');
+      t.textContent = hh + ':' + mm + ':' + ss + ' IST';
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
 
-    <!-- intro -->
-    <div class="container fill" style="display: flex; align-items: center">
-      <div>
-        <div
-          class="row"
-          style="background-color: black; padding: 3%; border-radius: 20px"
-        >
-          <div class="col-sm-7">
-            <img
-              class="rotate"
-              src="./files/star1.png"
-              width="10%;"
-            /><br /><br />
-            <h1 style="font-size: 50px; color: white">
-              Hello,
-              <br />
-              Anurag here!
-            </h1>
-            <br />
-            <p class="card-description" style="opacity: 0.3; line-height: 1.5">
-              Anurag is a <i>Senior Product Designer</i> &nbsp;from IDC School of Design, IIT
-              Bombay, India with experience across diverse domains, namely
-              Taxation, Healthcare, ERP, SME and Govt. sector tools. Currently he
-              is designing experiences at
-            </p>
-            <!-- <p class="intro-text text-muted" id="abcd" style="font-weight: 600;"></p> -->
-            <br />
-            <!-- <img class="rotate" src="./files/star2.png" width="5%;" />&nbsp; -->
-            <img src="./img/intuit/Intuit_logo3.png" width="60%;border-radius:0;" />
-            <!-- <img src="./img/intuit/Intuit_logo.png" width="20%;border-radius:0" /> -->
-            <!-- <img class="rotate" src="./files/star2.png" width="5%;" /> -->
-            <br /><br />
-          </div>
-          <div class="col-sm-5">
-            <div class="d-none d-lg-block">
-              <br /><br />
-              <img src="./files/profilegif.gif" style="width: 80%" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Companies logos-->
-        <div
-          style="
-            background-color: rgb(255 255 255 / 50%);
-            backdrop-filter: blur(10px);
-            padding: 10px;
-            border-radius: 0 0 20px 20px;
-            margin: 0 20px 0 20px;
-            text-align: center;
-          "
-        >
-          <img
-            src="./img/all logos/oracle.png"
-            style="width: 15%; padding-right: 20px"
-          />
-          <img
-            src="./img/all logos/deshaw.png"
-            style="width: 15%; padding-right: 20px"
-          />
-          <img
-            src="./img/all logos/philips.png"
-            style="width: 15%; padding-right: 20px"
-          />
-
-          <img
-            src="./img/all logos/idc.png"
-            style="width: 15%; padding-right: 20px"
-          />
-          <img
-            src="./img/all logos/iit.png"
-            style="width: 15%; padding-right: 20px"
-          />
-          <img
-            src="./img/all logos/nit.png"
-            style="width: 15%; padding-right: 20px"
-          />
-        </div>
-        <!-- Companies logos-->
-
-        <br /><br />
-        <!-- Down arrow animation -->
-        <div style="text-align: center">
-          <img
-            src="./files/rightarrow.gif"
-            width="3%;"
-            style="transform: rotate(90deg)"
-          />
-          <!-- <h5 style="text-align: center;color:rgb(100, 100, 100);">SCROLL DOWN</h5> -->
-        </div>
-        <!-- Down arrow animation -->
-      </div>
-    </div>
-
-    <div
-      class="container-fluid"
-      id="discover"
-      style="background-image: url('./files/stone-texture.jpg')"
-    >
-      <div class="container padding100">
-        <div class="row">
-          <div class="col-sm-9">
-        <h1 style="color: grey">Projects in Focus</h1>
-      </div>
-      <div class="col-sm-3" style="text-align: right;">
-        <!-- start: tab code  -->
-        <script>   
-          function openCity(evt, cityName) {
-            var i, tabzcontent, tabzlinks;
-            tabzcontent = document.getElementsByClassName("tabzcontent");
-            for (i = 0; i < tabzcontent.length; i++) {
-              tabzcontent[i].style.display = "none";
-            }
-            tabzlinks = document.getElementsByClassName("tabzlinks");
-            for (i = 0; i < tabzlinks.length; i++) {
-              tabzlinks[i].className = tabzlinks[i].className.replace(" active", "");
-            }
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
-          }
-          window.onload = function() {
-          document.getElementById("defaultOpen").click();
-          }
-          </script>
-        
-        <div class="tabz">
-          <button class="tabzlinks" onclick="openCity(event, 'Digital')" id="defaultOpen"> <p class="card-description">Digital</p></button>
-          <button class="tabzlinks" onclick="openCity(event, 'Physical')"><p class="card-description">Physical</p></button>
-        </div>
-
-      </div>
-      <!-- end of row  -->
-      </div>
-        <!-- End: tab code  -->
-         <br>
-        
-        <div id="Digital" class="tabzcontent">
-        <!-- Project 1 -->
-        <div class="tag">
-          <div
-            class="card-div hoverfn"
-            style="
-              background: linear-gradient(
-                to top left,
-                #d7d7d7 0%,
-                #373737 100%
-              );
-            "
-          >
-            <div
-              class="row"
-              onclick="location.href='https://drive.google.com/file/d/19O9jZ3prQ4kZKeUxMOLgTg000FMzpxst/view?usp=sharing';"
-              style="cursor: pointer; padding: 0 0 0 20px"
-            > 
-             <!--  <div
-              class="row"
-              onclick="location.href='https://anurag27k.github.io/locked';"
-              style="cursor: pointer; padding: 0 0 0 20px"
-            > -->
-              <div class="pointerFix col-sm-6">
-                <br />
-                <div class="badger">
-                  <h6 class="card-subtext">&nbsp; WORK PROJECT &nbsp;</h6>
-                </div>
-
-                <p class="card-maintext">Building a ramp planning system</p>
-
-                <p class="card-description">
-                  In this platform team we created a product for forecasting demand and procuring supply by eliminating tribal knowledge
-                  . 
-                </p>
-                <br /><br /><br />
-                <img
-                  src="./img/Logos/IntuitLogo.png"
-                  alt="Card image"
-                  style="width: 60%"
-                />
-                <br /><br />
-              </div>
-              <div class="pointerFix col-sm-6">
-                <img
-                  src="./img/intuit/IntuitCover.png"
-                  alt="Card image"
-                  width="100%"
-                  style="border-radius: 0 10px 10px 0"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--end of p1-->
-        <br />
-        <!-- Project 1 -->
-        <div class="tag">
-          <div
-            class="card-div hoverfn"
-            style="
-              background: linear-gradient(
-                to top left,
-                #d7d7d7 0%,
-                #373737 100%
-              );
-            "
-          >
-            <div
-              class="row"
-              onclick="location.href='./subpages/depositaccount.html';"
-              style="cursor: pointer; padding: 0 0 0 20px"
-            > 
-            <!-- <div
-              class="row"
-              onclick="location.href='https://anurag27k.github.io/locked';"
-              style="cursor: pointer; padding: 0 0 0 20px"
-            >-->
-              <div class="pointerFix col-sm-6">
-                <br />
-                <div class="badger">
-                  <h6 class="card-subtext">&nbsp; WORK PROJECT &nbsp;</h6>
-                </div>
-
-                <p class="card-maintext">Redwood Migration Methodology</p>
-
-                <p class="card-description">
-                  In this project we discuss the methodology generation for
-                  Redwood migration where we will deep dive into one of the
-                  sub-applications.
-                </p>
-                <br /><br /><br />
-                <img
-                  src="./img/Logos/OracleLogo.png"
-                  alt="Card image"
-                  style="width: 60%"
-                />
-                <br /><br />
-              </div>
-              <div class="pointerFix col-sm-6">
-                <img
-                  src="./img/Oracle/DepositCover.png"
-                  alt="Card image"
-                  width="100%"
-                  style="border-radius: 0 10px 10px 0"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--end of p1-->
-        <br />
-        <!-- Project 1 -->
-        <div class="tag">
-          <div
-            class="card-div hoverfn"
-            style="
-              background: linear-gradient(
-                to top left,
-                #d7d7d7 0%,
-                #373737 100%
-              );
-            "
-          >
-            <div
-              class="row"
-              onclick="location.href='./subpages/DEShaw.html';"
-              style="cursor: pointer; padding: 0 0 0 20px"
-            >
-              <div class="pointerFix col-sm-6">
-                <br />
-                <div class="badger">
-                  <h6 class="card-subtext">&nbsp; WORK PROJECT &nbsp;</h6>
-                </div>
-
-                <p class="card-maintext">Roadmap Planning Application</p>
-
-                <p class="card-description">
-                  Web application for managers to perform yearly planning and
-                  employee management
-                </p>
-                <br /><br /><br />
-                <img
-                  src="./img/Logos/DeshawLogo.png"
-                  alt="Card image"
-                  style="width: 60%"
-                />
-                <br /><br />
-              </div>
-              <div class="pointerFix col-sm-6">
-                <img
-                  src="./img/DEShaw/deshawbanner.png"
-                  alt="Card image"
-                  width="100%"
-                  style="border-radius: 0 10px 10px 0"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-        
-        
-        <div id="Physical" class="tabzcontent">
-        <!-- Project-->
-        <div class="tag">
-          <div
-            class="card-div hoverfn"
-            style="
-              background: linear-gradient(
-                to top left,
-                #d7d7d7 0%,
-                #373737 100%
-              );
-            "
-          >
-            <div
-              class="row"
-              onclick="location.href='./subpages/armarker.html';"
-              style="cursor: pointer; padding: 0 0 0 20px"
-            >
-              <div class="pointerFix col-sm-6">
-                <br />
-                <div class="badger">
-                  <h6 class="card-subtext">&nbsp; COLLEGE PROJECT &nbsp;</h6>
-                </div>
-
-                <p class="card-maintext">Lattice contruction in AR</p>
-                <p class="card-description">
-                  Construction of atomic lattices using marker based AR while
-                  exploring concepts of modularity and inter marker interaction.
-                </p>
-                <br /><br /><br />
-                <img
-                  src="./img/Logos/IDCLogo.png"
-                  alt="Card image"
-                  style="width: 60%"
-                />
-                <br /><br />
-              </div>
-              <div class="pointerFix col-sm-6">
-                <img
-                  src="./img/p3/lattice.png"
-                  alt="Card image"
-                  width="100%"
-                  style="border-radius: 0 10px 10px 0"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--end of project-->
-        <br />
-        <!-- Project-->
-        <div class="tag">
-          <div
-            class="card-div hoverfn"
-            style="
-              background: linear-gradient(
-                to top left,
-                #d7d7d7 0%,
-                #373737 100%
-              );
-            "
-          >
-            <div
-              class="row"
-              onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';"
-              style="cursor: pointer; padding: 0 0 0 20px"
-            >
-              <div class="pointerFix col-sm-6">
-                <br />
-                <div class="badger">
-                  <h6 class="card-subtext">&nbsp; COLLEGE PROJECT &nbsp;</h6>
-                </div>
-
-                <p class="card-maintext">Grapho: Line chart accessibility</p>
-                <p class="card-description">
-                  A Tangible solution which allows the visually impaired to feel
-                  as well create their own line charts
-                </p>
-                <br /><br /><br />
-                <img
-                  src="./img/Logos/IDCLogo.png"
-                  alt="Card image"
-                  style="width: 60%"
-                />
-                <br /><br />
-              </div>
-              <div class="pointerFix col-sm-6">
-                <img
-                  src="./img/p2/cover.png"
-                  alt="Card image"
-                  width="100%"
-                  style="border-radius: 0 10px 10px 0"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--end of project-->
-        <br />
-        <!-- Project-->
-        <div class="tag">
-          <div
-            class="card-div hoverfn"
-            style="
-              background: linear-gradient(
-                to top left,
-                #d7d7d7 0%,
-                #373737 100%
-              );
-            "
-          >
-            <div
-              class="row"
-              onclick="location.href='./subpages/gappekadabba.html';"
-              style="cursor: pointer; padding: 0 0 0 20px"
-            >
-              <div class="pointerFix col-sm-6">
-                <br />
-                <div class="badger">
-                  <h6 class="card-subtext">&nbsp; COLLEGE PROJECT &nbsp;</h6>
-                </div>
-
-                <p class="card-maintext">Gappe ka Dabba</p>
-                <p class="card-description">
-                  A tangible interative device which treats sound as an object that can be 'sensed' which follows laws of gravity.
-                </p>
-                <br /><br /><br />
-                <img
-                  src="./img/Logos/IDCLogo.png"
-                  alt="Card image"
-                  style="width: 60%"
-                />
-                <br /><br />
-              </div>
-              <div class="pointerFix col-sm-6">
-                <img
-                  src="./img/Gappe/gappekadabbacover.png"
-                  alt="Card image"
-                  width="100%"
-                  style="border-radius: 0 10px 10px 0"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--end of project-->
-        </div>
-        <br /><br /><br /><br /><br />
-        <h1 style="color: grey">Research Publications</h1>
-        <br />
-        <!-- start: papers -->
-            <!-- Paper -->
-            <div class="tag">
-              <div
-                class="card-div hoverfn"
-                style="
-                  background: linear-gradient(
-                    to top left,
-                    #999999 0%,
-                    #cccccc 100%
-                  );
-                  /* background-image: url('./img/papers/bgForpapers.png'); */
-                "
-              >
-                <div
-                  class="row"
-                  onclick="location.href='https://dl.acm.org/doi/10.1145/3562939.3565642';"
-                  style="cursor: pointer; padding: 0 0 0 20px"
-                >
-                  <div class="pointerFix col-sm-1">
-                    <img class="rotate" src="./files/Star3_black.png" width="100%;" style="margin-top: 120%;"/>
-                  </div>
-                  <div class="pointerFix col-sm-11">
-                    <br />
-                    <div class="badger-gray">
-                      <h6 class="card-subtext">
-                        &nbsp; PRESENTED AT VRST'22, TSUKUBA, JAPAN &nbsp;
-                      </h6>
-                    </div>
-
-                    <p class="card-maintext black-text">
-                      Exploration of inter-marker interactions in Tangible AR
-                    </p>
-
-                    <p class="card-description black-text">
-                      Presented by Anurag Kumar Singh and Jayesh Pillai <br />
-                      https://doi.org/10.1145/3562939.3565642
-                    </p>
-                    <br />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--end of paper-->
-            <br />
-          <!-- end of column -->
-            <!-- Paper -->
-            <div class="tag">
-              <div
-                class="card-div hoverfn"
-                style="
-                  background: linear-gradient(
-                    to top left,
-                    #999999 0%,
-                    #cccccc 100%
-                  );
-                  /* background-image: url('./img/papers/bgForpapers.png'); */
-                "
-              >
-                <div
-                  class="row"
-                  onclick="location.href='https://dl.acm.org/doi/10.1145/3570211.3570213';"
-                  style="cursor: pointer; padding: 0 0 0 20px"
-                >
-                  <div class="pointerFix col-sm-1">
-                    <img class="rotate" src="./files/Star3_black.png" width="100%;" style="margin-top: 120%;"/>
-                  </div>
-                  <div class="pointerFix col-sm-11">
-                    <br />
-                    <div class="badger-gray">
-                      <h6 class="card-subtext">
-                        &nbsp; PRESENTED AT INDIA HCI 2020, BITS PILANI &nbsp;
-                      </h6>
-                    </div>
-
-                    <p class="card-maintext black-text">
-                      Grapho: Line chart accessibility to the visually impaired
-                    </p>
-
-                    <p class="card-description black-text">
-                      Presented by Anurag Kumar Singh and Anirudha Joshi <br />
-                      https://doi.org/10.1145/3570211.3570213
-                    </p>
-                    <br />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--end of paper-->    
-          <!-- end of column -->
-          <br />
-          <!-- end of column -->
-            <!-- Paper -->
-            <div class="tag">
-              <div
-                class="card-div hoverfn"
-                style="
-                  background: linear-gradient(
-                    to top left,
-                    #999999 0%,
-                    #cccccc 100%
-                  );
-                  /* background-image: url('./img/papers/bgForpapers.png'); */
-                "
-              >
-                <div
-                  class="row"
-                  onclick="location.href='https://doi.org/10.1007/978-3-031-80829-6_6';"
-                  style="cursor: pointer; padding: 0 0 0 20px"
-                >
-                  <div class="pointerFix col-sm-1">
-                    <img class="rotate" src="./files/Star3_black.png" width="100%;" style="margin-top: 120%;"/>
-                  </div>
-                  <div class="pointerFix col-sm-11">
-                    <br />
-                    <div class="badger-gray">
-                      <h6 class="card-subtext">
-                        &nbsp; PRESENTED AT INDIA HCI 2024, IIT BOMBAY &nbsp;
-                      </h6>
-                    </div>
-
-                    <p class="card-maintext black-text">
-                      Comparative Evaluation of Speech Interfaces in Hindi
-                    </p>
-
-                    <p class="card-description black-text">
-                      Presented by Anurag Kumar Singh, Shivangi and Anirudha Joshi <br />
-                      https://doi.org/10.1145/3570211.3570213
-                    </p>
-                    <br />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--end of paper-->    
-          <!-- end of column -->
-
-
-
-    <!-- Recommendations Start -->
-
-    <br /><br /><br /><br /><br />
-    <h1 style="color: grey">Top Recommendations</h1>
-    <br />
-    <!-- start: strip content -->
-
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <!-- style="
-      -webkit-mask-image: -webkit-gradient(linear, right top, left bottom, 
-      from(rgba(0,0,0,1)), to(rgba(255, 255, 255, 0)));
-      
-      " -->
-      <div class="carousel-inner" >
-        <div class="carousel-item  active" data-interval="1" style="transition: transform 16s linear;">
-
-          <div class="row" style="margin-right: 20px;">
-            <!-- start: reco-->
-            <div class="col-sm-4 tag">
-                <div class="card-div hoverfn" style="background: linear-gradient(
-                  to top left,
-                  #000000 0%,
-                  #8b8b8b 100%
-                );">
-                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
-                        <br />
-        
-                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
-                            " ... ability to collaborate with cross-functional teams and swiftly adapt to evolving requirements ... "
-                        </p>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <img src="./files/people/deb.png" alt="Card image" width="120%" style="border-radius: 50%;" />
-                            </div>
-                            <div class="col-sm-7">
-                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
-                                    Debajyoti Mitra<br />
-                                    ORACLE
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: reco-->
-            <!-- start: reco-->
-            <div class="col-sm-4 tag">
-                <div class="card-div hoverfn" style="background: linear-gradient(
-                  to top left,
-                  #000000 0%,
-                  #8b8b8b 100%
-                );">
-                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
-                        <br />
-        
-                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
-                            " ... consistently went above and beyond to support his peers, demonstrating empathy ... "
-                        </p>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <img src="./files/people/shivangi.png" alt="Card image" width="120%" style="border-radius: 50%;" />
-                            </div>
-                            <div class="col-sm-7">
-                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
-                                    Shivangi<br />
-                                    MICROSOFT
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: reco-->
-            <!-- start: reco-->
-            <div class="col-sm-4 tag">
-                <div class="card-div hoverfn" style="background: linear-gradient(
-                  to top left,
-                  #000000 0%,
-                  #8b8b8b 100%
-                );">
-                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
-                        <br />
-        
-                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
-                            " ... excellent design leader, who is passionate about his craft and dedicated to bringing new ideas ... "
-                        </p>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <img src="./files/people/nayanika.png" alt="Card image" width="120%" style="border-radius: 50%;" />
-                            </div>
-                            <div class="col-sm-7">
-                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
-                                    Nayanika Dey<br />
-                                    ADOBE
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: reco-->
-            
-        </div>
-        
-        </div>
-        <div class="carousel-item " data-interval="1" style="transition: transform 16s linear;">
-
-          <div class="row" style="margin-right: 20px;">
-            <!-- start: reco-->
-            <div class="col-sm-4 tag">
-                <div class="card-div hoverfn" style="background: linear-gradient(
-                  to top left,
-                  #000000 0%,
-                  #8b8b8b 100%
-                );">
-                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
-                        <br />
-        
-                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
-                            " ... strategic mindset, allows him to envision and execute long-term strategies that drive ... "
-                        </p>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <img src="./files/people/shobhit.png" alt="Card image" width="120%" style="border-radius: 50%;" />
-                            </div>
-                            <div class="col-sm-7">
-                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
-                                    Shobhit Kenath<br />
-                                    JP MORGAN
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: reco-->
-            <!-- start: reco-->
-            <div class="col-sm-4 tag" >
-                <div class="card-div hoverfn" style="background: linear-gradient(
-                  to top left,
-                  #000000 0%,
-                  #8b8b8b 100%
-                );">
-                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
-                        <br />
-        
-                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
-                            " ...he is not just a talented designer but also a great team player and a true tech enthusiast ..."
-                        </p>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <img src="./files/people/krishna.png" alt="Card image" width="120%" style="border-radius: 50%;" />
-                            </div>
-                            <div class="col-sm-7">
-                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
-                                    Krishna Malji<br />
-                                    DREAM11
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: reco-->
-            <!-- start: reco-->
-            <div class="col-sm-4 tag">
-                <div class="card-div hoverfn" style="background: linear-gradient(
-                  to top left,
-                  #000000 0%,
-                  #8b8b8b 100%
-                );">
-                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
-                        <br />
-                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
-                            " ... knowledge in Interaction design and his innovative problem-solving skills make him an ... "
-                        </p>
-        
-                        <div class="row" >
-                            <div class="col-sm-3">
-                                <img src="./files/people/lokesh.png" alt="Card image" width="120%" style="border-radius: 50%;" />
-                            </div>
-                            <div class="col-sm-7">
-                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
-                                    Lokesh Kumar <br />
-                                    INFURNIA
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: reco-->
-        </div>
-        
-        </div>
-
-        <div class="carousel-item "  data-interval="1" style=" transition: transform 16s linear;">
-
-          <div class="row" style="margin-right: 20px;">
-            <!-- start: reco-->
-            <div class="col-sm-4 tag">
-                <div class="card-div hoverfn" style="background: linear-gradient(
-                  to top left,
-                  #000000 0%,
-                  #8b8b8b 100%
-                );">
-                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
-                        <br />
-        
-                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
-                            " ... thrives in dynamic environments and is always willing to share his knowledge and expertis ... "
-                        </p>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <img src="./files/people/aritra.png" alt="Card image" width="120%" style="border-radius: 50%;" />
-                            </div>
-                            <div class="col-sm-7">
-                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
-                                    Aritra Mukherjee <br />
-                                    RIVER
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: reco-->
-            <!-- start: reco-->
-            <div class="col-sm-4 tag" >
-                <div class="card-div hoverfn" style="background: linear-gradient(
-                  to top left,
-                  #000000 0%,
-                  #8b8b8b 100%
-                );">
-                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
-                        <br />
-        
-                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
-                            " ... what truly sets Anurag apart is his wisdom, inquisitive nature and out-of-box mindset ... "
-                        </p>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <img src="./files/people/neha.png" alt="Card image" width="120%" style="border-radius: 50%;" />
-                            </div>
-                            <div class="col-sm-7">
-                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
-                                    Neha Bala<br />
-                                    INTERVIEW KIC...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: reco-->
-            <!-- start: reco-->
-            <div class="col-sm-4 tag">
-                <div class="card-div hoverfn" style="background: linear-gradient(
-                  to top left,
-                  #000000 0%,
-                  #8b8b8b 100%
-                );">
-                    <div onclick="location.href='https://www.linkedin.com/in/anurag27k/details/recommendations/?detailScreenTabIndex=0';" style="cursor: pointer; padding: 0 20px 20px 20px;">
-                        <br />
-        
-                        <p class="card-subtext" style=" background-color: #1d1d1d; padding: 5%; border-radius: 10px;color: rgb(150, 150, 150);">
-                            " ... ability to collaborate with cross-functional teams and swiftly adapt to evolving requirements ... "
-                        </p>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <img src="./files/people/deb.png" alt="Card image" width="120%" style="border-radius: 50%;" />
-                            </div>
-                            <div class="col-sm-7">
-                                <p class="card-description" style="margin-bottom: 0%; opacity: 0.8;">
-                                    Debajyoti Mitra<br />
-                                    ORACLE
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: reco-->
-        </div>
-        
-        </div>
-       
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-
-    <!-- end:strip content -->
-    <!-- Recommendations End -->
-
-    <br /><br /><br /><br /><br />
-        <h1 style="color: grey">Mentorship</h1>
-        <br />
-        <!-- mentorshipo -->
-        <div class="tag">
-          <div
-            class="card-div hoverfn"
-            style="
-              background: linear-gradient(
-                to top left,
-                #000000 0%,
-
-                #8b8b8b 100%
-              );
-              
-            "
-          >
-            <div
-              class="row"
-              onclick="location.href='https://topmate.io/anurag27k';"
-              style="cursor: pointer; padding: 0 0 0 20px"
-            >
-              <div class="pointerFix col-sm-2">
-                <img
-                  src="./img/all logos/topmate.png"
-                  alt="Card image"
-                  width="100%"
-                  style="
-                    border-radius: 10px;
-                    margin: 25px 0 25px 0;
-                    border: 3px solid #97483f;
-                  "
-                />
-              </div>
-              <div class="pointerFix col-sm-10">
-                <br />
-                <p class="card-maintext">
-                  Book a session on <b>Topmate</b> today!
-                </p>
-                <div>
-                  <span class="badger" style="padding: 5px">
-                    &nbsp; Breaking into Design &nbsp;
-                  </span>
-                  <span class="badger" style="padding: 5px">
-                    &nbsp; Career transition/guidance India and Abroad &nbsp;
-                  </span>
-                  <span class="badger" style="padding: 5px">
-                    &nbsp; Quick call (few queries only) &nbsp;
-                  </span>
-                  <span class="badger" style="padding: 5px">
-                    &nbsp; Mock interview &nbsp;
-                  </span>
-                  <span class="badger" style="padding: 5px">
-                    &nbsp; Resume review &nbsp;
-                  </span>
-                  <span class="badger" style="padding: 5px">
-                    &nbsp; 1:1 Mentorship &nbsp;
-                  </span>
-                  <span class="badger" style="padding: 5px">
-                    &nbsp; Interview prep & tips &nbsp;
-                  </span>
-                </div>
-                <br />
-                <br />
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--end of mentorship-->
-
-        <br />
-      </div>
-    </div>
-
-    <!-- download -->
-    <div id="download" class="container padding100 pb-5">
-      <div style="background-color: black; padding: 5%; border-radius: 20px">
-        <img class="rotate" src="./files/star1.png" width="5%;" /><br /><br />
-        <h1 style="font-size: 50px; color: white; opacity: 1">Know more</h1>
-        <br />
-        <!-- <p class="text-muted" style="line-height:2;"> -->
-        <p style="opacity: 0.3; font-size: 1.5rem; line-height: 1.5">
-          <!-- <img src="./files/rightarrow.gif" width="3%;" /> -->
-          &nbsp;
-
-          <a
-            href="./files/AnuragKumarSinghResume.pdf"
-            class="text-light"
-            target="_blank"
-            >Download Resume</a
-          >
-          <br />
-          <!-- <img src="./files/rightarrow.gif" width="3%;" /> -->
-          &nbsp;
-          <a
-            href="https://www.linkedin.com/in/anurag27k/"
-            class="text-light"
-            target="_blank"
-            >Find me on LinkedIn</a
-          >
-
-          <br />
-          <!-- <img src="./files/rightarrow.gif" width="3%;" /> -->
-          &nbsp;
-          <a
-            href="mailto:anurag27k@gmail.com?Subject=Reaching%20out"
-            class="text-light"
-            >Email at anurag27k@gmail.com</a
-          >
-
-          <!--
-          <a href="./self.html" class="text-light" style="font-weight: 500"
-            >Know more about me
-          </a> -->
-        </p>
-      </div>
-      <br />
-      <div class="row">
-        <div class="col-sm-6">
-          <h5 class="text-light">ALL RIGHTS RESERVED &copy; 2025</h5>
-        </div>
-        <div class="col-sm-6">
-          <h5 class="text-light" style="text-align: right">
-            DESIGNED AND DEVELOPED BY ANURAG
-          </h5>
-        </div>
-      </div>
-    </div>
-    <!-- download end -->
-  </body>
+</body>
 </html>
