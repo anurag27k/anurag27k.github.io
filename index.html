@@ -330,8 +330,8 @@
   .hero-headline {
     font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(4rem, 16vw, 17rem);
-    line-height: 0.86;
+    font-size: clamp(3rem, 11.5vw, 12rem);
+    line-height: 0.88;
     letter-spacing: -0.04em;
     margin: 60px 0 0;
     text-transform: lowercase;
@@ -427,6 +427,74 @@
     flex-shrink: 0;
   }
   @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ======== FIELD SAMPLES (title strips + hero plate) ======== */
+  canvas.tf { display: block; }
+
+  /* the hero's own formation lives in the main field — this element only measures it */
+  .hero-headline { position: relative; }
+  .hero-motif {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 12%;
+    bottom: 12%;
+    width: min(34%, 460px);
+    pointer-events: none;
+  }
+  @media (max-width: 1080px) { .hero-motif { display: none; } }
+
+  /* a formation beside each section headline */
+  .head-row {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 4vw, 64px);
+    margin: 0 0 48px;
+  }
+  .head-row .h2, .head-row .contact-headline { margin-bottom: 0; flex: 0 1 auto; }
+  .head-row.contact-row { margin-bottom: 80px; }
+  .head-field {
+    flex: 1 1 auto;
+    align-self: stretch;
+    min-width: 200px;
+    min-height: 200px;
+    position: relative;
+  }
+  .stack-field { position: relative; height: 180px; margin-top: 44px; }
+  .head-field canvas.tf, .stack-field canvas.tf {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+  }
+  @media (max-width: 980px) {
+    .head-row { display: block; }
+    .head-row .h2 { margin-bottom: 48px; }
+    .head-row.contact-row .contact-headline { margin-bottom: 80px; }
+    .head-field, .stack-field { display: none; }
+  }
+
+  /* ======== THE FIELD (particle substrate) ======== */
+  .field-wrap {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1600ms var(--ease) 400ms;
+  }
+  body.loaded .field-wrap { opacity: 1; }
+  #fieldCanvas { display: block; width: 100%; height: 100%; }
+  /* keep every text surface above the field */
+  .hero .wrap, .currently .wrap { position: relative; z-index: 1; }
+
+  .field-read strong { font-variant-numeric: tabular-nums; }
+  .hero-hint {
+    color: var(--ink-faint);
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-size: 11px;
+    line-height: 1.65;
+    max-width: 30ch;
+  }
+  @media (max-width: 900px) { .hero-hint { display: none; } }
 
   /* ======== SECTION ======== */
   .section { padding: 140px 0; position: relative; }
@@ -603,6 +671,12 @@
   /* ======== CURRENTLY ======== */
   .currently { padding: 140px 0; }
   .currently-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+  .currently-rail {
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 1px solid var(--hairline);
+  }
+  @media (max-width: 900px) { .currently-rail { margin-top: 34px; padding-top: 24px; } }
   @media (max-width: 900px) { .currently-grid { grid-template-columns: 1fr; gap: 36px; } }
   .currently-lead {
     font-family: var(--display);
@@ -723,6 +797,50 @@
     letter-spacing: -0.02em;
     margin-bottom: 4px;
   }
+
+  /* ======== AI EXPERIMENTS (04) ======== */
+  /* no background here on purpose — the field shows through the open right half */
+  .lab-copy { max-width: 46ch; }
+  .lab-h2 { margin-bottom: 28px; }
+  .lab-note { font-size: 17px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .lab-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 22px;
+    margin-top: 36px;
+    padding-top: 22px;
+    border-top: 1px solid var(--hairline);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+  }
+  .lab-status { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); }
+  .lab-status .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent-glow);
+    animation: pulse 2s ease-out infinite;
+  }
+  .lab-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-top: 30px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    border-bottom: 1px solid var(--hairline-strong);
+    padding-bottom: 6px;
+  }
+  .lab-link:hover { color: var(--accent); border-color: var(--accent); }
+  .lab-arrow { display: inline-block; transition: transform 400ms var(--ease); }
+  .lab-link:hover .lab-arrow { transform: translateX(6px); }
 
   /* ======== PUBLICATIONS ======== */
   .pubs { background: var(--surface); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
@@ -959,6 +1077,8 @@
   </div>
 </div>
 
+<div class="field-wrap" id="fieldWrap" aria-hidden="true"><canvas id="fieldCanvas"></canvas></div>
+
 <div class="progress" id="progress"></div>
 <div class="cur-ring" id="curRing"></div>
 <div class="cur-dot" id="curDot"></div>
@@ -1005,17 +1125,16 @@
       <span class="hero-line"><span>designs for</span></span>
       <span class="hero-line"><span>the <span class="em">agentic</span></span></span>
       <span class="hero-line"><span>age.</span></span>
+      <span class="hero-motif" aria-hidden="true"></span>
     </h1>
 
     <div class="hero-foot">
       <div class="hero-intro">
         <strong>Anurag KS</strong> — a staff/senior product designer at <strong>ServiceNow</strong>, working on the Now Assist Skill Kit team. Ground truth, agentic evaluation, and the interfaces behind production AI.
-        <span class="quiet">Previously Intuit, Oracle, D. E. Shaw, Cerner, Philips. Master's from IDC, IIT Bombay. Three published papers. 8+ years across enterprise AI, SaaS, healthcare, ERP and government platforms.</span>
       </div>
       <div class="hero-side">
-        <div>Now<strong>Staff/Sr. Product Designer @ ServiceNow</strong></div>
-        <div>Focus<strong>Ground truth · Agentic eval · AI-native UX</strong></div>
-        <div>Status<strong>Open to senior &amp; staff roles</strong></div>
+        <div class="field-read">The field<strong><span id="fieldCount">—</span> points · <span id="fieldState">substrate</span></strong></div>
+        <div class="hero-hint">Move the cursor to disturb it, click to scatter it. It reassembles into a network as you scroll.</div>
       </div>
       <a href="#work" class="hero-cta interactive">
         Selected work<br/>
@@ -1048,12 +1167,21 @@
   <div class="wrap">
     <div class="label reveal"><span class="num">01</span> Currently</div>
     <div class="currently-grid">
-      <div class="currently-lead reveal">
-        Designing the <span class="em">substrate</span> beneath enterprise AI — the ground truth, the evaluation, the trust.
+      <div class="reveal">
+        <div class="currently-lead">
+          Designing the <span class="em">substrate</span> beneath enterprise AI — the ground truth, the evaluation, the trust.
+        </div>
+        <div class="hero-side currently-rail">
+          <div>Now<strong>Staff/Sr. Product Designer @ ServiceNow</strong></div>
+          <div>Focus<strong>Ground truth · Agentic eval · AI-native UX</strong></div>
+          <div>Status<strong>Open to senior &amp; staff roles</strong></div>
+        </div>
+        <div class="stack-field reveal" data-d="2"><canvas class="tf" data-form="lattice" aria-hidden="true"></canvas></div>
       </div>
       <div class="currently-detail reveal" data-d="1">
         <p>At ServiceNow's Now Assist Skill Kit team I work alongside PMs, ML engineers and applied research to design how humans curate, evaluate and trust agentic AI. Ground-truth anatomy, trajectory comparison, custom LLM metrics, LLM-as-Judge — the systems that decide what production AI is allowed to do.</p>
         <p class="quiet">Across eight years I've moved between government platforms, tax and healthcare, ERP and design systems — and the constant has been the same: heavy data, real constraints, and users who cannot afford a pretty guess.</p>
+        <p class="quiet">Previously Intuit, Oracle, D. E. Shaw, Cerner and Philips. Master's from IDC, IIT Bombay, three published papers, and 8+ years across enterprise AI, SaaS, healthcare, ERP and government platforms.</p>
         <div class="currently-tags">
           <span class="tag interactive">Ground Truth</span>
           <span class="tag interactive">Agentic Eval</span>
@@ -1071,7 +1199,10 @@
 <section class="work section" id="work">
   <div class="wrap">
     <div class="label reveal"><span class="num">02</span> Selected Work</div>
-    <h2 class="h2 reveal">Six projects across <span class="em">enterprise</span>, <span class="em">academia</span>, and the edge of <span class="em">AI.</span></h2>
+    <div class="head-row">
+      <h2 class="h2 reveal">Six projects across <span class="em">enterprise</span>, <span class="em">academia</span>, and the edge of <span class="em">AI.</span></h2>
+      <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="constellation" aria-hidden="true"></canvas></div>
+    </div>
 
     <div class="work-tabs reveal" role="tablist" aria-label="Project category">
       <button class="work-tab interactive" role="tab" id="tab-digital" aria-controls="panel-digital" aria-selected="true" type="button">Digital</button>
@@ -1154,7 +1285,10 @@
 <section class="caps">
   <div class="wrap">
     <div class="label reveal"><span class="num">03</span> Capabilities</div>
-    <h2 class="h2 reveal">Where I <span class="em">operate</span> — and where I'm <span class="em">sharpest.</span></h2>
+    <div class="head-row">
+      <h2 class="h2 reveal">Where I <span class="em">operate</span> — and where I'm <span class="em">sharpest.</span></h2>
+      <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="radar" aria-hidden="true"></canvas></div>
+    </div>
 
     <div class="caps-grid">
       <div class="cap reveal">
@@ -1192,63 +1326,19 @@
 </section>
 
 <!-- ======== EXPERIENCE ======== -->
-<section class="section">
+<section class="section lab" id="experiments">
   <div class="wrap">
-    <div class="label reveal"><span class="num">04</span> Lineage</div>
-    <h2 class="h2 reveal">A path through <span class="em">teams</span> that take design <span class="em">seriously.</span></h2>
-
-    <div class="exp-grid">
-      <div class="reveal">
-        <div class="exp-row interactive">
-          <div class="exp-yr">2025—NOW</div>
-          <div class="exp-co">Service<span class="em">Now</span></div>
-          <div class="exp-role">Sr. Product Designer · Now Assist Skill Kit</div>
-        </div>
-        <div class="exp-row interactive">
-          <div class="exp-yr">2024—2025</div>
-          <div class="exp-co">Intu<span class="em">it</span></div>
-          <div class="exp-role">Sr. Product Designer · Virtual Expert Platform</div>
-        </div>
-        <div class="exp-row interactive">
-          <div class="exp-yr">2022—2024</div>
-          <div class="exp-co">Orac<span class="em">le</span></div>
-          <div class="exp-role">UX Designer · Gov &amp; Citizen Platforms</div>
-        </div>
-        <div class="exp-row interactive">
-          <div class="exp-yr">2021</div>
-          <div class="exp-co">D. E. <span class="em">Shaw</span></div>
-          <div class="exp-role">Interaction Designer</div>
-        </div>
-        <div class="exp-row interactive">
-          <div class="exp-yr">2020</div>
-          <div class="exp-co">Cer<span class="em">ner</span></div>
-          <div class="exp-role">UX Designer · Clinical NLP</div>
-        </div>
-        <div class="exp-row interactive">
-          <div class="exp-yr">2018—2019</div>
-          <div class="exp-co">People<span class="em">10</span></div>
-          <div class="exp-role">UI/UX Designer</div>
-        </div>
-        <div class="exp-row interactive">
-          <div class="exp-yr">2016—2018</div>
-          <div class="exp-co">Phil<span class="em">ips</span></div>
-          <div class="exp-role">UX Designer &amp; Engineer · Healthcare</div>
-        </div>
+    <div class="label reveal"><span class="num">04</span> AI Experiments</div>
+    <div class="lab-copy reveal">
+      <h2 class="h2 lab-h2">Small tools I'm building to <span class="em">think with.</span></h2>
+      <p class="lab-note">Evaluation harnesses, LLM-as-Judge prototypes and interface sketches for AI that has to be trusted — built outside the day job, where being wrong is cheap and fast.</p>
+      <div class="lab-meta">
+        <span class="lab-status"><span class="dot"></span>Coming soon</span>
+        <span>First pieces land through 2026</span>
       </div>
-
-      <aside class="edu reveal" data-d="1">
-        <div class="edu-label">Education</div>
-        <h3 class="edu-deg">M.Des. in <span class="em">Interaction Design</span></h3>
-        <div class="edu-school">IDC School of Design,<br/>Indian Institute of Technology Bombay</div>
-        <h3 class="edu-deg">B.Tech. in <span class="em">Computer Science</span></h3>
-        <div class="edu-school">National Institute of Technology,<br/>Tiruchirappalli</div>
-        <div class="edu-stats">
-          <div class="edu-stat"><strong>03</strong>Published papers</div>
-          <div class="edu-stat"><strong>8+</strong>Years experience</div>
-          <div class="edu-stat"><strong>02</strong>Intl. venues</div>
-          <div class="edu-stat"><strong>09</strong>Recommendations</div>
-        </div>
-      </aside>
+      <a class="lab-link interactive" href="mailto:anurag27k@gmail.com?Subject=What%20are%20you%20building%3F">
+        Ask what's on the bench<span class="lab-arrow">&rarr;</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1257,7 +1347,10 @@
 <section class="pubs section" id="publications">
   <div class="wrap">
     <div class="label reveal"><span class="num">05</span> Publications</div>
-    <h2 class="h2 reveal">Published papers across <span class="em">three</span> conferences.</h2>
+    <div class="head-row">
+      <h2 class="h2 reveal">Published papers across <span class="em">three</span> conferences.</h2>
+      <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="pages" aria-hidden="true"></canvas></div>
+    </div>
 
     <div>
       <a class="pub interactive reveal" href="https://doi.org/10.1145/3562939.3565642" target="_blank" rel="noopener">
@@ -1294,7 +1387,10 @@
 <section class="section">
   <div class="wrap">
     <div class="label reveal"><span class="num">06</span> Witness</div>
-    <h2 class="h2 reveal">Words from the people I've <span class="em">worked beside.</span></h2>
+    <div class="head-row">
+      <h2 class="h2 reveal">Words from the people I've <span class="em">worked beside.</span></h2>
+      <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="signal" aria-hidden="true"></canvas></div>
+    </div>
 
     <div class="quotes-grid">
       <div class="quote reveal">
@@ -1365,6 +1461,7 @@
         <a href="https://topmate.io/anurag27k" target="_blank" rel="noopener" class="mentor-cta interactive">
           Book on Topmate <span class="arrow">→</span>
         </a>
+        <div class="stack-field reveal" data-d="2"><canvas class="tf" data-form="branch" data-tone="invert" aria-hidden="true"></canvas></div>
       </div>
       <ul class="mentor-list reveal" data-d="1">
         <li>Breaking into design</li>
@@ -1384,7 +1481,10 @@
 <section class="contact" id="contact">
   <div class="wrap">
     <div class="contact-eyebrow reveal">Contact / Open for senior &amp; staff design roles · 2026</div>
-    <h2 class="contact-headline reveal">let's build something <em>that matters.</em></h2>
+    <div class="head-row contact-row">
+      <h2 class="contact-headline reveal">let's build something <em>that matters.</em></h2>
+      <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="converge" aria-hidden="true"></canvas></div>
+    </div>
 
     <div class="contact-email-wrap">
       <a class="contact-email interactive" id="magnet" href="mailto:anurag27k@gmail.com?Subject=Reaching%20out">
@@ -1587,6 +1687,751 @@
     tick();
     setInterval(tick, 1000);
   })();
+
+  // ======== THE FIELD (particle substrate behind the hero + currently) ========
+  (function () {
+    var cv = document.getElementById('fieldCanvas');
+    if (!cv || !cv.getContext) return;
+    var ctx = cv.getContext('2d');
+    var hero = document.getElementById('top');
+    var about = document.getElementById('about');
+    var lab = document.getElementById('experiments');
+    var motifEl = document.querySelector('.hero-motif');
+    var motif = null;
+    if (!hero || !about) return;
+
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var TAU = Math.PI * 2;
+
+    var W = 1, H = 1, DPR = 1, CX = 0, CY = 0, LX = 0, LY = 0, MIN = 1;
+    var N = 0, CAP = 0, wantN = 0;
+    var px, py, vx, vy, ra, rb, rc;
+
+    /* colour is temperature: resting ink -> accent as a point picks up speed.
+       Both endpoints come from the theme tokens, so dark mode inverts for free. */
+    var L = 7, F = 6;                    /* heat levels x readability-fade steps */
+    var SIZE = [1.25, 1.3, 1.4, 1.5, 1.65, 1.85, 2.1];
+    var FADE = [1, 0.72, 0.5, 0.32, 0.18, 0.08];
+    var RAMP = [];
+    var bucket = [], bcount = new Int32Array(L * F);
+
+    var HUBS = 12, hub = new Float32Array(HUBS * 2);
+    var ptr = { x: -9999, y: -9999, tx: -9999, ty: -9999, on: false, spin: 0 };
+    var waves = [];
+    var t = 0, last = 0, fIdx = 0, netW = 0, vis = 0, visShown = -1;
+
+    var elCount = document.getElementById('fieldCount');
+    var elState = document.getElementById('fieldState');
+    var stateName = '';
+
+    /* text blocks the field must not sit on top of */
+    var zoneEls = [];
+    var ZM = 44;                         /* default soft margin around a block */
+    function addZones(sel, depth, margin) {
+      var list = document.querySelectorAll(sel);
+      for (var i = 0; i < list.length; i++) {
+        zoneEls.push({ el: list[i], d: depth, m: margin || ZM });
+      }
+    }
+    /* measure the inline text runs, not their full-width parents, so the field
+       keeps the ragged negative space beside the headline */
+    addZones('.hero-line > span', F - 1);   /* display type clears the field outright */
+    addZones('.currently-lead', F - 1);
+    addZones('.currently-detail', F - 1);
+    addZones('.nav-logo, .nav-links', 3);   /* small mono text only wants it quieter */
+    addZones('.hero-meta > span, .hero-meta-right', 3);
+    addZones('.hero-intro, .hero-side, .hero-cta', 3);
+    addZones('.currently .label, .currently-rail', 3);
+    addZones('.lab-h2, .lab-note', F - 1);
+    addZones('.lab .label, .lab-meta, .lab-link', 3);
+
+    var zones = [];
+
+    /* ---------------- theme ---------------- */
+    function hex(v) {
+      v = (v || '').trim();
+      if (v.charAt(0) !== '#') return [0, 0, 0];
+      if (v.length === 4) v = '#' + v[1] + v[1] + v[2] + v[2] + v[3] + v[3];
+      return [parseInt(v.substr(1, 2), 16), parseInt(v.substr(3, 2), 16), parseInt(v.substr(5, 2), 16)];
+    }
+    function buildRamp() {
+      var cs = getComputedStyle(document.documentElement);
+      var a = hex(cs.getPropertyValue('--ink'));
+      var b = hex(cs.getPropertyValue('--accent'));
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      RAMP = [];
+      for (var i = 0; i < L; i++) {
+        var u = i / (L - 1);
+        var c = u * u;                                   /* hold the ink, warm late */
+        var r = Math.round(a[0] + (b[0] - a[0]) * c);
+        var g = Math.round(a[1] + (b[1] - a[1]) * c);
+        var bl = Math.round(a[2] + (b[2] - a[2]) * c);
+        var base = (dark ? 0.17 : 0.22) + (dark ? 0.66 : 0.70) * u;
+        for (var f = 0; f < F; f++) {
+          RAMP.push('rgba(' + r + ',' + g + ',' + bl + ',' + (base * FADE[f]).toFixed(3) + ')');
+        }
+      }
+    }
+    buildRamp();
+    new MutationObserver(buildRamp).observe(document.documentElement, {
+      attributes: true, attributeFilter: ['data-theme']
+    });
+
+    /* ---------------- sizing ---------------- */
+    function targetCount() {
+      var n = Math.floor(W * H / (W < 760 ? 620 : 300));
+      var cores = navigator.hardwareConcurrency || 4;
+      var cap = cores <= 4 ? 4200 : 8000;
+      if (reduced) cap = Math.min(cap, 2400);
+      return Math.max(900, Math.min(cap, n));
+    }
+
+    function alloc(n) {
+      var old = CAP; CAP = n;
+      var _px = new Float32Array(n), _py = new Float32Array(n);
+      var _vx = new Float32Array(n), _vy = new Float32Array(n);
+      var _ra = new Float32Array(n), _rb = new Float32Array(n), _rc = new Float32Array(n);
+      for (var i = 0; i < n; i++) {
+        if (i < old) {
+          _px[i] = px[i]; _py[i] = py[i]; _vx[i] = vx[i]; _vy[i] = vy[i];
+          _ra[i] = ra[i]; _rb[i] = rb[i]; _rc[i] = rc[i];
+        } else {
+          _px[i] = Math.random() * W; _py[i] = Math.random() * H;
+          _ra[i] = Math.random(); _rb[i] = Math.random(); _rc[i] = Math.random();
+        }
+      }
+      px = _px; py = _py; vx = _vx; vy = _vy; ra = _ra; rb = _rb; rc = _rc;
+      bucket = [];
+      for (var k = 0; k < L * F; k++) bucket.push(new Int32Array(n));
+    }
+
+    function resize() {
+      DPR = Math.min(2, window.devicePixelRatio || 1);
+      W = window.innerWidth; H = window.innerHeight;
+      CX = W / 2; CY = H / 2; MIN = Math.min(W, H);
+      LX = W > 920 ? W * 0.66 : CX;   /* the forming state sits in the open right half */
+      LY = W > 920 ? H * 0.5 : H * 0.58;
+      cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      wantN = targetCount();
+      if (wantN > CAP) alloc(wantN);
+      N = Math.min(wantN, CAP);
+      P.cols = Math.max(2, Math.round(Math.sqrt(N * (W / H))));
+      P.rows = Math.max(2, Math.ceil(N / P.cols));
+      P.gx = W / P.cols; P.gy = H / P.rows;
+      /* concentric arcs spaced like the rest of the page rather than drawn solid */
+      P.ar0 = MIN * 0.09;
+      P.adr = 11;
+      P.anr = Math.max(6, Math.floor((MIN * 0.45 - P.ar0) / P.adr));
+      P.asum = P.anr * P.ar0 + P.adr * P.anr * (P.anr - 1) / 2;
+      if (elCount) elCount.textContent = N.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    /* ---------------- formations ---------------- */
+    var P = { cols: 1, rows: 1, gx: 1, gy: 1, ar0: 1, adr: 11, anr: 8, asum: 1 };
+    var _x = 0, _y = 0;
+
+    function hubs() {
+      for (var j = 0; j < HUBS; j++) {
+        var a = j * 2.3999632 + t * 0.05;
+        var rr = (0.2 + ((j * 5) % 4) * 0.085) * MIN;
+        hub[j * 2] = CX + Math.cos(a) * rr * 1.95;
+        hub[j * 2 + 1] = CY + Math.sin(a) * rr;
+      }
+    }
+
+    /* 0 — SUBSTRATE: an even grid, breathing. Where the hero motif sits, the same
+       points lift out of the lattice and take up an orbit instead. */
+    function fSubstrate(i) {
+      var col = i % P.cols, row = (i / P.cols) | 0;
+      var gx = (col + 0.5) * P.gx, gy = (row + 0.5) * P.gy;
+      if (motif) {
+        var ux = (gx - motif.cx) / motif.rx, uy = (gy - motif.cy) / motif.ry;
+        if (ux * ux + uy * uy < 1.3) {
+          var ph = (t * 0.12 + rb[i]) % 1;
+          var a = ra[i] * TAU + t * 0.26;
+          var rr;
+          if (i % 5 === 0) { rr = 1 - ph * 0.88; a += ph * 3.1; }   /* falling inward */
+          else { rr = 0.9 + rb[i] * 0.17 + Math.sin(a * 5 + t) * 0.03; }
+          _x = motif.cx + Math.cos(a) * rr * motif.rx;
+          _y = motif.cy + Math.sin(a) * rr * motif.ry;
+          return;
+        }
+      }
+      _x = gx + Math.sin(t * 0.5 + row * 0.3) * 4.5;
+      _y = gy + Math.cos(t * 0.44 + col * 0.24) * 4.5;
+    }
+
+    /* 1 — NETWORK: points bind to hubs, one in seven rides the edge between two */
+    function fNetwork(i) {
+      var h = i % HUBS, a, r, u;
+      if (i % 7 === 0) {
+        var h2 = (h + 1 + (((i / 7) | 0) % (HUBS - 1))) % HUBS;
+        u = ra[i];
+        _x = hub[h * 2] + (hub[h2 * 2] - hub[h * 2]) * u;
+        _y = hub[h * 2 + 1] + (hub[h2 * 2 + 1] - hub[h * 2 + 1]) * u + Math.sin(u * Math.PI) * 9 * (rb[i] - 0.5);
+      } else {
+        a = ra[i] * TAU + t * 0.2 * (h % 2 ? 1 : -1);
+        r = 8 + rb[i] * rb[i] * MIN * 0.12;
+        _x = hub[h * 2] + Math.cos(a) * r * 1.3;
+        _y = hub[h * 2 + 1] + Math.sin(a) * r;
+      }
+    }
+
+    /* 2 — FORMING: a shell that keeps deforming; nothing here has settled yet */
+    function fForming(i) {
+      /* share the points out by arc length so every ring holds the same spacing */
+      var c = P.ar0 - P.adr / 2;
+      var k = (-c + Math.sqrt(c * c + 2 * P.adr * (i / N) * P.asum)) / P.adr;
+      var ring = k | 0;
+      if (ring >= P.anr) ring = P.anr - 1;
+      var u = k - ring;
+      var sweep = 0.55 + ((ring * 7) % 4) * 0.07;   /* each ring left unfinished */
+      var dir = ring % 2 ? -1 : 1;
+      var a = u * sweep * TAU + ring * 1.1 + t * (0.04 + (ring % 3) * 0.012) * dir;
+      var r = P.ar0 + ring * P.adr + Math.sin(t * 0.4 + rc[i] * TAU) * 2;
+      _x = LX + Math.cos(a) * r * 1.16;
+      _y = LY + Math.sin(a) * r;
+    }
+
+    function formAt(k, i) {
+      if (k <= 0) fSubstrate(i);
+      else if (k === 1) fNetwork(i);
+      else fForming(i);
+    }
+
+    /* ---------------- scroll ---------------- */
+    function scrollState() {
+      var y = window.scrollY + H / 2;
+      var c0 = hero.offsetTop + hero.offsetHeight / 2;
+      var c1 = about.offsetTop + about.offsetHeight / 2;
+      var m = c1 > c0 ? (y - c0) / (c1 - c0) : 0;
+      m = m < 0 ? 0 : m > 1 ? 1 : m;
+      m = m * m * (3 - 2 * m);
+
+      /* window A — full strength over the hero, eased back while the prose is
+         being read, gone by the time the work section arrives */
+      var end = about.offsetTop + about.offsetHeight;
+      var out = (window.scrollY + H - end) / (H * 0.5);
+      out = out < 0 ? 0 : out > 1 ? 1 : out;
+      var visA = (1 - 0.3 * m) * (1 - out);
+
+      /* window B — the experiments section, which is deliberately half empty */
+      var visB = 0;
+      if (lab) {
+        var lc = lab.offsetTop + lab.offsetHeight / 2;
+        var span = lab.offsetHeight / 2 + H * 0.35;
+        var v = 1 - Math.abs(y - lc) / span;
+        v = v < 0 ? 0 : v > 1 ? 1 : v;
+        visB = v * v * (3 - 2 * v) * 0.9;
+      }
+
+      if (visB > visA) { fIdx = 2; vis = visB; } else { fIdx = m; vis = visA; }
+      netW = 1 - Math.abs(fIdx - 1);
+      if (netW < 0) netW = 0;
+
+      var name = fIdx > 1.5 ? 'forming' : fIdx < 0.5 ? 'substrate' : 'network';
+      if (elState && name !== stateName) { stateName = name; elState.textContent = name; }
+    }
+
+    function measureMotif() {
+      motif = null;
+      if (!motifEl) return;
+      var r = motifEl.getBoundingClientRect();
+      if (r.width < 80 || r.bottom < 0 || r.top > H) return;
+      motif = {
+        cx: (r.left + r.right) / 2, cy: (r.top + r.bottom) / 2,
+        rx: r.width * 0.46, ry: r.height * 0.44
+      };
+    }
+
+    function measureZones() {
+      zones.length = 0;
+      for (var i = 0; i < zoneEls.length; i++) {
+        var z = zoneEls[i], r = z.el.getBoundingClientRect();
+        if (r.bottom > -z.m && r.top < H + z.m && r.width) {
+          zones.push({ l: r.left, r: r.right, t: r.top, b: r.bottom, d: z.d, m: z.m });
+        }
+      }
+    }
+
+    /* ---------------- pointer ---------------- */
+    function move(x, y) {
+      ptr.spin = Math.max(-1, Math.min(1, (x - ptr.tx) * 0.05));
+      ptr.tx = x; ptr.ty = y; ptr.on = true;
+    }
+    window.addEventListener('mousemove', function (e) { move(e.clientX, e.clientY); }, { passive: true });
+    window.addEventListener('mouseleave', function () { ptr.on = false; }, { passive: true });
+    window.addEventListener('mousedown', function (e) {
+      if (vis < 0.15) return;
+      if (e.target.closest && e.target.closest('a, button, input, textarea, .interactive')) return;
+      move(e.clientX, e.clientY);
+      if (waves.length > 2) waves.shift();
+      waves.push({ x: e.clientX, y: e.clientY, r: 6, p: 1 });
+    }, { passive: true });
+
+    /* ---------------- loop ---------------- */
+    function frame(now) {
+      var dt = last ? Math.min(52, now - last) : 16.7;
+      last = now;
+      requestAnimationFrame(frame);
+      if (document.hidden) return;
+
+      scrollState();
+      if (vis <= 0.01) {
+        if (visShown !== 0) { ctx.clearRect(0, 0, W, H); cv.style.opacity = '0'; visShown = 0; }
+        return;
+      }
+      if (Math.abs(vis - visShown) > 0.004) { cv.style.opacity = vis.toFixed(3); visShown = vis; }
+
+      var st = dt / 16.7;
+      t += dt * 0.001 * (reduced ? 0.3 : 1);
+
+      measureZones();
+      measureMotif();
+      hubs();
+
+      if (ptr.on) {
+        if (ptr.x < -1000) { ptr.x = ptr.tx; ptr.y = ptr.ty; }
+        ptr.x += (ptr.tx - ptr.x) * Math.min(1, 0.22 * st);
+        ptr.y += (ptr.ty - ptr.y) * Math.min(1, 0.22 * st);
+      }
+      ptr.spin *= 0.94;
+
+      for (var wi = waves.length - 1; wi >= 0; wi--) {
+        var wv = waves[wi];
+        wv.r += 10 * st; wv.p *= Math.pow(0.975, st);
+        if (wv.p < 0.05 || wv.r > MIN * 1.5) waves.splice(wi, 1);
+      }
+
+      var R = MIN * 0.19, R2 = R * R;
+      var lo = fIdx | 0, hi = lo + 1 > 2 ? 2 : lo + 1, blend = fIdx - lo;
+      var stiff = 0.03, damp = Math.pow(0.9, st);
+      var i, j, dx, dy, d2, d, f, ax, ay, tx, ty, sp, heat, lvl, fade, z;
+      var swirl = ptr.spin, nz = zones.length;
+
+      for (i = 0; i < L * F; i++) bcount[i] = 0;
+
+      for (i = 0; i < N; i++) {
+        if (blend < 0.999) { formAt(lo, i); tx = _x; ty = _y; } else { tx = 0; ty = 0; }
+        if (blend > 0.001) {
+          formAt(hi, i);
+          if (blend < 0.999) { tx += (_x - tx) * blend; ty += (_y - ty) * blend; }
+          else { tx = _x; ty = _y; }
+        }
+
+        ax = (tx - px[i]) * stiff;
+        ay = (ty - py[i]) * stiff;
+        heat = 0;
+
+        if (ptr.on && !reduced) {
+          dx = px[i] - ptr.x; dy = py[i] - ptr.y;
+          d2 = dx * dx + dy * dy;
+          if (d2 < R2) {
+            d = Math.sqrt(d2) + 0.0001;
+            f = 1 - d / R; f *= f;
+            sp = f * 1.7;
+            ax += (dx / d) * sp - (dy / d) * sp * swirl * 1.5;
+            ay += (dy / d) * sp + (dx / d) * sp * swirl * 1.5;
+            heat = f * 0.85;
+          }
+        }
+
+        for (j = 0; j < waves.length; j++) {
+          z = waves[j];
+          dx = px[i] - z.x; dy = py[i] - z.y;
+          d = Math.sqrt(dx * dx + dy * dy) + 0.0001;
+          f = Math.abs(d - z.r);
+          if (f < 38) {
+            sp = (1 - f / 38) * z.p * 1.7;
+            ax += (dx / d) * sp; ay += (dy / d) * sp;
+            if (sp > heat) heat = Math.min(1, sp * 0.6);
+          }
+        }
+
+        vx[i] = (vx[i] + ax * st) * damp;
+        vy[i] = (vy[i] + ay * st) * damp;
+        px[i] += vx[i] * st;
+        py[i] += vy[i] * st;
+
+        heat += 0.04 + rc[i] * 0.09 + (Math.abs(vx[i]) + Math.abs(vy[i])) * 0.11;
+        if (heat > 1) heat = 1;
+        lvl = (heat * (L - 1)) | 0;
+
+        /* dim inside any text block so type always wins */
+        fade = 0;
+        for (j = 0; j < nz; j++) {
+          z = zones[j];
+          dx = z.l - px[i]; if (px[i] > z.r) dx = px[i] - z.r; else if (dx < 0) dx = 0;
+          dy = z.t - py[i]; if (py[i] > z.b) dy = py[i] - z.b; else if (dy < 0) dy = 0;
+          d = dx > dy ? dx : dy;
+          if (d < z.m) {
+            sp = Math.round(z.d * (1 - d / z.m));
+            if (sp > fade) fade = sp;
+          }
+        }
+        j = lvl * F + fade;
+        bucket[j][bcount[j]++] = i;
+      }
+
+      ctx.clearRect(0, 0, W, H);
+
+      for (i = 0; i < L * F; i++) {
+        var c = bcount[i];
+        if (!c) continue;
+        ctx.fillStyle = RAMP[i];
+        var s = SIZE[(i / F) | 0], h = s * 0.5, arr = bucket[i];
+        for (j = 0; j < c; j++) {
+          var k = arr[j];
+          ctx.fillRect(px[k] - h, py[k] - h, s, s);
+        }
+      }
+    }
+
+    /* ---------------- boot ---------------- */
+    alloc(1200);
+    resize();
+    scrollState();
+    var rt;
+    window.addEventListener('resize', function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () { resize(); scrollState(); }, 180);
+    });
+    requestAnimationFrame(frame);
+  })();
+
+
+  // ======== SECTION FORMATIONS (one per headline, each shaped like its section) ========
+  (function () {
+    var nodes = [].slice.call(document.querySelectorAll('canvas.tf'));
+    if (!nodes.length || !nodes[0].getContext) return;
+
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var DPR = Math.min(2, window.devicePixelRatio || 1);
+    var TAU = Math.PI * 2;
+    var L = 7;
+    var SIZE = [1.3, 1.35, 1.45, 1.55, 1.7, 1.9, 2.1];
+    var RAMP = { normal: [], invert: [] };
+
+    function hex(v) {
+      v = (v || '').trim();
+      if (v.charAt(0) !== '#') return [0, 0, 0];
+      if (v.length === 4) v = '#' + v[1] + v[1] + v[2] + v[2] + v[3] + v[3];
+      return [parseInt(v.substr(1, 2), 16), parseInt(v.substr(3, 2), 16), parseInt(v.substr(5, 2), 16)];
+    }
+    function ramp() {
+      var cs = getComputedStyle(document.documentElement);
+      var ink = hex(cs.getPropertyValue('--ink'));
+      var acc = hex(cs.getPropertyValue('--accent'));
+      var on = hex(cs.getPropertyValue('--on-accent'));
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      RAMP.normal = []; RAMP.invert = [];
+      for (var i = 0; i < L; i++) {
+        var u = i / (L - 1), c = u * u;
+        var r = Math.round(ink[0] + (acc[0] - ink[0]) * c);
+        var g = Math.round(ink[1] + (acc[1] - ink[1]) * c);
+        var b = Math.round(ink[2] + (acc[2] - ink[2]) * c);
+        var a = (dark ? 0.3 : 0.34) + (dark ? 0.6 : 0.64) * u;
+        RAMP.normal.push('rgba(' + r + ',' + g + ',' + b + ',' + a.toFixed(3) + ')');
+        /* on the lime block the same idea runs in ink only */
+        RAMP.invert.push('rgba(' + on[0] + ',' + on[1] + ',' + on[2] + ',' + (0.3 + 0.65 * u).toFixed(3) + ')');
+      }
+    }
+    ramp();
+    new MutationObserver(ramp).observe(document.documentElement, {
+      attributes: true, attributeFilter: ['data-theme']
+    });
+
+    var mx = -9999, my = -9999, on = false;
+    window.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; on = true; }, { passive: true });
+    window.addEventListener('mouseleave', function () { on = false; }, { passive: true });
+
+    var items = nodes.map(function (cv, k) {
+      return {
+        cv: cv, ctx: cv.getContext('2d'), seed: k * 1.7,
+        form: cv.getAttribute('data-form') || 'lattice',
+        tone: cv.getAttribute('data-tone') === 'invert' ? 'invert' : 'normal',
+        w: 0, h: 0, n: 0, cols: 2, rows: 2,
+        px: null, py: null, vx: null, vy: null, ra: null, rb: null, rc: null,
+        bucket: [], bc: new Int32Array(L)
+      };
+    });
+
+    function layout(it, r) {
+      var w = Math.round(r.width), h = Math.round(r.height);
+      if (w < 40 || h < 40) return false;
+      if (w === it.w && h === it.h) return true;
+      it.w = w; it.h = h;
+      it.cv.width = Math.round(w * DPR);
+      it.cv.height = Math.round(h * DPR);
+      it.ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+      var n = plan(it);
+      it.n = n;
+      it.px = new Float32Array(n); it.py = new Float32Array(n);
+      it.vx = new Float32Array(n); it.vy = new Float32Array(n);
+      it.ra = new Float32Array(n); it.rb = new Float32Array(n); it.rc = new Float32Array(n);
+      it.bucket = [];
+      for (var q = 0; q < L; q++) it.bucket.push(new Int32Array(n));
+      for (var i = 0; i < n; i++) {
+        it.ra[i] = Math.random(); it.rb[i] = Math.random(); it.rc[i] = Math.random();
+        it.px[i] = Math.random() * w; it.py[i] = Math.random() * h;
+      }
+      return true;
+    }
+
+    /* ---------------- formations: each says something about its section ----------------
+       Every shape gets as many points as it needs to hold the same GAP between
+       neighbours, so a waveform reads at the same density as a lattice. */
+    var GAP = 8;
+    var _x = 0, _y = 0, _hot = 0, t = 0;
+    var RING_RR = [0.28, 0.52, 0.76, 1.0];
+    var RING_CUT = [0, 0.1094, 0.3125, 0.6094, 1];
+
+    function plan(it) {
+      var w = it.w, h = it.h, n, g;
+      it.cols = Math.max(3, Math.round(w / GAP));
+      it.rows = Math.max(3, Math.round(h / GAP));
+      switch (it.form) {
+        case 'constellation':
+          g = Math.min(w, h) * 0.19;
+          n = Math.round(6 * Math.PI * g * g * 1.15 / (GAP * GAP));
+          break;
+        case 'radar':
+          var R = Math.min(h * 0.46, w * 0.3), sum = 0;
+          for (var q = 0; q < 4; q++) {
+            var a1 = R * 1.3 * RING_RR[q], b1 = R * RING_RR[q];
+            sum += Math.PI * 2 * Math.sqrt((a1 * a1 + b1 * b1) / 2);
+          }
+          it.k1 = Math.max(16, Math.round(sum / GAP));
+          it.k2 = Math.max(16, Math.round(8 * R * 0.84 / GAP));
+          n = it.k1 + it.k2;
+          break;
+        case 'pages':
+          n = Math.round(18 * (w * 0.28) * 0.79 / GAP);
+          break;
+        case 'signal':
+          n = Math.round(3 * w * 1.22 / GAP);
+          break;
+        case 'branch':
+          it.l1 = Math.sqrt(Math.pow(w * 0.38, 2) + Math.pow(h * 0.28, 2));
+          it.l2 = Math.sqrt(Math.pow(w * 0.46, 2) + Math.pow(h * 0.3, 2));
+          n = Math.round(9 * (it.l1 + it.l2) / GAP);
+          break;
+        case 'converge':
+          g = Math.sqrt((w * 0.46) * (h * 0.46));
+          n = Math.round(5 * g * 2.5 / GAP);
+          break;
+        default:
+          n = it.cols * it.rows;
+      }
+      return Math.max(120, Math.min(2600, n));
+    }
+
+    function hash(a, b) { return (Math.sin(a * 127.1 + b * 311.7) * 43758.5453) % 1; }
+
+    /* 01 Currently — ground truth: an even lattice with a few curated points */
+    function fLattice(it, i) {
+      var c = i % it.cols, r = (i / it.cols) | 0;
+      var x = (c + 0.5) * (it.w / it.cols);
+      var y = (r + 0.5) * (it.h / it.rows);
+      var sx = it.w * (0.5 + 0.34 * Math.sin(t * 0.19));
+      var sy = it.h * (0.5 + 0.3 * Math.cos(t * 0.15));
+      var dx = (x - sx) / (it.w * 0.17), dy = (y - sy) / (it.h * 0.34);
+      if (dx * dx + dy * dy < 1) _hot = 0.62;          /* this batch is labelled */
+      _x = x + Math.sin(t * 0.5 + r * 0.4 + it.seed) * 2;
+      _y = y + Math.cos(t * 0.44 + c * 0.3 + it.seed) * 2;
+    }
+
+    /* 02 Selected Work — six projects, six clusters */
+    function fConstellation(it, i) {
+      var k = i % 6;
+      var cx = (0.16 + (k % 3) * 0.34) * it.w;
+      var cy = (0.28 + ((k / 3) | 0) * 0.44) * it.h;
+      var a = it.ra[i] * TAU + t * 0.06 * (k % 2 ? 1 : -1);
+      var rad = Math.pow(it.rb[i], 0.55) * Math.min(it.w, it.h) * 0.19;
+      _x = cx + Math.cos(a) * rad * 1.15 + Math.sin(t * 0.3 + k) * 3;
+      _y = cy + Math.sin(a) * rad + Math.cos(t * 0.26 + k) * 3;
+    }
+
+    /* 03 Capabilities — a radar: rings for range, spokes for depth */
+    function fRadar(it, i) {
+      var R = Math.min(it.h * 0.46, it.w * 0.3);
+      var cx = it.w * 0.5, cy = it.h * 0.5;
+      var rx = R * 1.3, ry = R;
+      var a, rr;
+      if (i < it.k2) {                                     /* spokes */
+        var per = it.k2 / 8;
+        a = (i % 8) / 8 * TAU + t * 0.05;
+        rr = 0.16 + ((((i / 8) | 0) % per) / per) * 0.86;
+      } else {                                             /* rings */
+        var f = (i - it.k2) / it.k1, ring = 3;
+        if (f < RING_CUT[1]) ring = 0;
+        else if (f < RING_CUT[2]) ring = 1;
+        else if (f < RING_CUT[3]) ring = 2;
+        var u = (f - RING_CUT[ring]) / (RING_CUT[ring + 1] - RING_CUT[ring]);
+        rr = RING_RR[ring];
+        a = u * TAU + t * (0.06 + ring * 0.02) * (ring % 2 ? -1 : 1);
+      }
+      _x = cx + Math.cos(a) * rr * rx;
+      _y = cy + Math.sin(a) * rr * ry;
+    }
+
+    /* 05 Publications — three papers, stacked, ragged right */
+    function fPages(it, i) {
+      var BL = 3, LN = 6;
+      var b = i % BL;
+      var per = it.n / BL;
+      var u = (((i / BL) | 0) % per) / per;
+      var line = Math.min(LN - 1, Math.floor(u * LN));
+      var fu = u * LN - line;
+      var len = 0.6 + 0.38 * Math.abs(hash(b + 1, line + 1));
+      var bw = it.w * 0.28, bh = it.h * 0.6;
+      var ox = it.w * (0.03 + b * 0.335) + Math.sin(t * 0.3 + b) * 2;
+      var oy = it.h * (0.13 + b * 0.07);
+      _x = ox + fu * len * bw;
+      _y = oy + (line + 0.5) * (bh / LN);
+    }
+
+    /* 06 Witness — voices: three bands, permanently out of phase */
+    function fSignal(it, i) {
+      var band = i % 3;
+      var per = it.n / 3;
+      var u = (((i / 3) | 0) % per) / per;
+      var env = Math.sin(u * Math.PI);
+      var amp = it.h * (0.1 + band * 0.045) * env;
+      _x = u * it.w;
+      _y = it.h * 0.5 + (band - 1) * it.h * 0.17
+           + Math.sin(u * (4.5 + band * 2.5) * TAU - t * (0.7 + band * 0.25)) * amp;
+    }
+
+    /* 07 Mentorship — one root, branching out */
+    function fBranch(it, i) {
+      var limb = i % 9;
+      var mid = (limb / 3) | 0;
+      var per = it.n / 9;
+      var s = ((((i / 9) | 0) % per) / per);
+      var cut = it.l1 / (it.l1 + it.l2);
+      var rx = it.w * 0.06, ry = it.h * 0.5;
+      var m2x = it.w * 0.44, m2y = it.h * (0.22 + mid * 0.28);
+      var tipx = it.w * 0.9, tipy = it.h * (0.1 + limb * 0.1);
+      var x, y;
+      if (s < cut) { var q = s / cut; x = rx + (m2x - rx) * q; y = ry + (m2y - ry) * q; }
+      else { var q2 = (s - cut) / (1 - cut); x = m2x + (tipx - m2x) * q2; y = m2y + (tipy - m2y) * q2; }
+      _x = x + Math.sin(t * 0.5 + it.rb[i] * TAU) * 2.2;
+      _y = y + Math.cos(t * 0.45 + it.rb[i] * TAU) * 2.2;
+    }
+
+    /* Contact — everything spiralling in to one point */
+    function fConverge(it, i) {
+      var ARMS = 5;
+      var k = i % ARMS;
+      var per = it.n / ARMS;
+      var ph = (t * 0.1 + (((i / ARMS) | 0) % per) / per) % 1;
+      var a = (k / ARMS) * TAU + ph * 4.4 + t * 0.12;
+      var rr = (1 - ph) * (0.96 + it.rb[i] * 0.07);
+      if (rr < 0.2) _hot = 0.45;                       /* warms as it arrives */
+      _x = it.w * 0.5 + Math.cos(a) * rr * it.w * 0.46;
+      _y = it.h * 0.5 + Math.sin(a) * rr * it.h * 0.46;
+    }
+
+    var FORMS = {
+      lattice: fLattice, constellation: fConstellation, radar: fRadar,
+      pages: fPages, signal: fSignal, branch: fBranch, converge: fConverge
+    };
+
+    /* ---------------- physics ---------------- */
+    function step(it, r, st) {
+      var f = FORMS[it.form] || fLattice;
+      var R = 96, R2 = R * R;
+      var damp = Math.pow(0.88, st), stiff = 0.045;
+      var lx = mx - r.left, ly = my - r.top;
+      var live = on && !reduced && lx > -R && lx < it.w + R && ly > -R && ly < it.h + R;
+      var i, dx, dy, d2, d, ff, ax, ay, sp, heat, lvl;
+
+      for (i = 0; i < L; i++) it.bc[i] = 0;
+
+      for (i = 0; i < it.n; i++) {
+        _hot = 0;
+        f(it, i);
+        ax = (_x - it.px[i]) * stiff;
+        ay = (_y - it.py[i]) * stiff;
+        heat = 0;
+
+        if (live) {
+          dx = it.px[i] - lx; dy = it.py[i] - ly;
+          d2 = dx * dx + dy * dy;
+          if (d2 < R2) {
+            d = Math.sqrt(d2) + 0.0001;
+            ff = 1 - d / R; ff *= ff;
+            sp = ff * 2.4;
+            ax += (dx / d) * sp;
+            ay += (dy / d) * sp;
+            heat = ff * 0.9;
+          }
+        }
+
+        it.vx[i] = (it.vx[i] + ax * st) * damp;
+        it.vy[i] = (it.vy[i] + ay * st) * damp;
+        it.px[i] += it.vx[i] * st;
+        it.py[i] += it.vy[i] * st;
+
+        heat += _hot + 0.05 + it.rc[i] * 0.08 + (Math.abs(it.vx[i]) + Math.abs(it.vy[i])) * 0.12;
+        if (it.rc[i] > 0.965) heat += 0.3;
+        if (heat > 1) heat = 1;
+        lvl = (heat * (L - 1)) | 0;
+        it.bucket[lvl][it.bc[lvl]++] = i;
+      }
+    }
+
+    function draw(it) {
+      var pal = RAMP[it.tone];
+      it.ctx.clearRect(0, 0, it.w, it.h);
+      for (var l = 0; l < L; l++) {
+        var c = it.bc[l];
+        if (!c) continue;
+        it.ctx.fillStyle = pal[l];
+        var sz = SIZE[l], hf = sz * 0.5, arr = it.bucket[l];
+        for (var k = 0; k < c; k++) {
+          var i = arr[k];
+          it.ctx.fillRect(it.px[i] - hf, it.py[i] - hf, sz, sz);
+        }
+      }
+    }
+
+    var last = 0;
+    function frame(now) {
+      var dt = last ? Math.min(52, now - last) : 16.7;
+      last = now;
+      requestAnimationFrame(frame);
+      if (document.hidden) return;
+
+      var st = dt / 16.7;
+      t += dt * 0.001 * (reduced ? 0.3 : 1);
+      var vh = window.innerHeight;
+
+      for (var a = 0; a < items.length; a++) {
+        var it = items[a];
+        var r = it.cv.getBoundingClientRect();
+        if (r.width < 40 || r.bottom < -80 || r.top > vh + 80) continue;
+        if (!layout(it, r)) continue;
+        step(it, r, st);
+        draw(it);
+      }
+    }
+
+    var rt;
+    window.addEventListener('resize', function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () {
+        DPR = Math.min(2, window.devicePixelRatio || 1);
+        for (var a = 0; a < items.length; a++) { items[a].w = 0; items[a].h = 0; }
+      }, 180);
+    });
+
+    requestAnimationFrame(frame);
+  })();
+
 </script>
 
 </body>
