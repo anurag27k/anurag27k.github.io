@@ -188,7 +188,6 @@
   }
   body.cur-link .cur-ring { width: 64px; height: 64px; border-color: var(--accent); }
   body.cur-link .cur-dot { width: 4px; height: 4px; }
-  body.cur-view .cur-ring, body.cur-view .cur-dot { display: none; }
   @media (max-width: 900px) { .cur-dot, .cur-ring { display: none; } }
 
   /* ======== CONTAINER ======== */
@@ -236,7 +235,7 @@
   }
   .nav-links {
     display: flex;
-    gap: 30px;
+    gap: clamp(17px, 2.3vw, 30px);
     align-items: center;
     font-family: var(--mono);
     font-size: 12px;
@@ -564,9 +563,10 @@
 
   .work-item {
     display: grid;
-    grid-template-columns: 70px 1fr 1.1fr 110px;
-    gap: 30px;
-    padding: 36px 0;
+    grid-template-columns: 54px 148px minmax(0, 1fr) minmax(0, 1fr) 104px;
+    grid-template-areas: "num thumb head desc meta";
+    gap: 26px;
+    padding: 32px 0;
     border-top: 1px solid var(--hairline);
     align-items: center;
     position: relative;
@@ -588,12 +588,33 @@
   a.work-item:hover .work-num { color: var(--accent); }
   .work-item.is-soon { opacity: 0.62; cursor: default; }
 
+  @media (max-width: 1080px) {
+    .work-item {
+      grid-template-columns: 48px 126px minmax(0, 1fr) 96px;
+      grid-template-areas: "num thumb head meta";
+      gap: 22px;
+    }
+    .work-desc { display: none; }
+  }
   @media (max-width: 900px) {
-    .work-item { grid-template-columns: 50px 1fr; padding: 26px 0; }
-    .work-meta-right, .work-desc { display: none; }
+    .work-item {
+      grid-template-columns: 104px minmax(0, 1fr);
+      grid-template-areas:
+        "num   num"
+        "thumb head";
+      gap: 6px 18px;
+      padding: 24px 0;
+    }
+    .work-meta-right { display: none; }
+    a.work-item:hover { padding-left: 0; }
+  }
+  @media (max-width: 480px) {
+    .work-item { grid-template-columns: 92px minmax(0, 1fr); gap: 4px 14px; }
+    .work-meta { font-size: 10px; gap: 9px; }
   }
 
   .work-num {
+    grid-area: num;
     font-family: var(--mono);
     font-size: 12px;
     color: var(--ink-soft);
@@ -602,10 +623,11 @@
     padding-top: 8px;
     transition: color 400ms;
   }
+  .work-head { grid-area: head; min-width: 0; }
   .work-title {
     font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(1.6rem, 3.2vw, 2.8rem);
+    font-size: clamp(1.4rem, 2.6vw, 2.3rem);
     line-height: 1.05;
     letter-spacing: -0.022em;
     margin: 0 0 8px;
@@ -623,8 +645,9 @@
     color: var(--ink-soft);
   }
   .work-meta .sep { color: var(--accent); }
-  .work-desc { font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); max-width: 48ch; }
+  .work-desc { grid-area: desc; font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); max-width: 48ch; }
   .work-meta-right {
+    grid-area: meta;
     text-align: right;
     font-family: var(--mono);
     font-size: 11px;
@@ -635,40 +658,40 @@
   }
   .work-meta-right .yr { color: var(--ink); font-weight: 500; }
 
-  /* Image follow on hover */
-  .work-preview {
-    position: fixed;
-    pointer-events: none;
-    width: 360px;
-    height: 240px;
-    transform: translate3d(-50%, -50%, 0) scale(0.92);
-    z-index: 50;
-    opacity: 0;
-    transition: opacity 350ms var(--ease), transform 600ms var(--ease);
-    will-change: transform;
-    background-size: cover;
-    background-position: center;
-    background-color: var(--surface-2);
-    border-radius: 6px;
-    box-shadow: var(--shadow-preview);
+  /* Cover art, shown upfront - hover deepens it rather than revealing it */
+  .work-thumb {
+    grid-area: thumb;
+    position: relative;
+    aspect-ratio: 3 / 2;
+    border-radius: 4px;
     overflow: hidden;
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    transition: border-color 450ms var(--ease);
   }
-  .work-preview.show { opacity: 1; }
-  .work-preview::after {
-    content: 'VIEW →';
+  .work-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.78;
+    filter: saturate(0.45) contrast(1.02);
+    transform: scale(1.01);
+    transition: opacity 600ms var(--ease), filter 600ms var(--ease), transform 900ms var(--ease);
+  }
+  a.work-item:hover .work-thumb { border-color: var(--accent); }
+  a.work-item:hover .work-thumb img { opacity: 1; filter: none; transform: scale(1.07); }
+  .work-thumb-soon {
     position: absolute;
-    bottom: 14px;
-    left: 14px;
+    inset: 0;
+    display: grid;
+    place-items: center;
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 9px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--on-accent);
-    background: var(--accent-block);
-    padding: 6px 10px;
-    border-radius: 999px;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+    background: repeating-linear-gradient(-45deg, transparent 0 9px, var(--hairline) 9px 10px);
   }
-  @media (max-width: 1024px) { .work-preview { display: none; } }
 
   /* ======== CURRENTLY ======== */
   .currently { padding: 140px 0; }
@@ -843,6 +866,113 @@
   .lab-link:hover { color: var(--accent); border-color: var(--accent); }
   .lab-arrow { display: inline-block; transition: transform 400ms var(--ease); }
   .lab-link:hover .lab-arrow { transform: translateX(6px); }
+
+  /* --- the bench itself --- */
+  .lab-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 90px;
+  }
+  @media (max-width: 1080px) { .lab-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 700px)  { .lab-grid { grid-template-columns: 1fr; margin-top: 56px; } }
+
+  .lab-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 450ms var(--ease), transform 650ms var(--ease), background 450ms var(--ease);
+  }
+  .lab-grid .lab-card:hover {
+    border-color: var(--accent);
+    background: var(--surface-2);
+    transform: translateY(-5px);
+  }
+
+  .lab-cover {
+    aspect-ratio: 300 / 168;
+    border-bottom: 1px solid var(--hairline);
+    overflow: hidden;
+  }
+  .lab-cover svg { display: block; width: 100%; height: 100%; }
+
+  /* cover art speaks in theme tokens, so dark mode inverts for free */
+  .lab-cover .ln      { fill: none; stroke: var(--ink); stroke-opacity: 0.30; stroke-width: 1; }
+  .lab-cover .ln-soft { fill: none; stroke: var(--ink); stroke-opacity: 0.15; stroke-width: 1; }
+  .lab-cover .acc     { fill: none; stroke: var(--accent); stroke-width: 1.7; }
+  .lab-cover .acc-f   { fill: var(--accent); }
+  .lab-cover .dot     { fill: var(--surface); stroke: var(--ink); stroke-opacity: 0.38; stroke-width: 1.3; }
+  .lab-cover .band    { fill: var(--ink); fill-opacity: 0.11; }
+  .lab-cover .band-acc{ fill: var(--accent); fill-opacity: 0.5; }
+  .lab-cover .trunk   { fill: var(--ink); fill-opacity: 0.26; }
+  .lab-grid .lab-card:hover .dot { fill: var(--surface-2); }
+
+  /* one motion per card, each saying what the thing does */
+  .lab-cover .ping { transform-box: fill-box; transform-origin: center; opacity: 0; }
+  .lab-card:hover .ping { animation: ping 1900ms var(--ease) infinite; }
+  @keyframes ping {
+    0%   { transform: scale(0.35); opacity: 0.85; }
+    100% { transform: scale(2.7);  opacity: 0; }
+  }
+
+  .lab-cover .route { stroke-dasharray: 100; stroke-dashoffset: 0; }
+  .lab-card:hover .route { animation: ink 1800ms var(--ease); }
+  @keyframes ink { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+
+  .lab-card:hover .flow-g > path { animation: flow 2600ms var(--ease-soft) infinite; }
+  .lab-card:hover .flow-g > path:nth-child(2) { animation-delay: 200ms; }
+  .lab-card:hover .flow-g > path:nth-child(3) { animation-delay: 400ms; }
+  .lab-card:hover .flow-g > path:nth-child(4) { animation-delay: 600ms; }
+  @keyframes flow { 0%, 100% { opacity: 1; } 50% { opacity: 0.42; } }
+
+  .lab-body { display: flex; flex-direction: column; flex: 1 1 auto; padding: 26px 24px 24px; }
+  .lab-card-title {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.55rem;
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 10px;
+    transition: color 400ms;
+  }
+  .lab-card-title .em { font-style: italic; }
+  .lab-grid .lab-card:hover .lab-card-title { color: var(--accent); }
+  .lab-card-desc { margin: 0 0 24px; font-size: 14px; line-height: 1.6; color: var(--ink-soft); }
+
+  .lab-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid var(--hairline);
+  }
+  .lab-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .lab-chip {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--ink-soft);
+    background: var(--chip-bg);
+    padding: 5px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .lab-go {
+    flex: 0 0 auto;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    transition: color 400ms, transform 500ms var(--ease);
+  }
+  .lab-grid .lab-card:hover .lab-go { color: var(--accent); transform: translateX(4px); }
 
   /* ======== PUBLICATIONS ======== */
   .pubs { background: var(--surface); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
@@ -1084,7 +1214,6 @@
 <div class="progress" id="progress"></div>
 <div class="cur-ring" id="curRing"></div>
 <div class="cur-dot" id="curDot"></div>
-<div class="work-preview" id="workPreview"></div>
 
 <!-- ======== NAV ======== -->
 <nav class="nav" id="nav">
@@ -1096,6 +1225,7 @@
     <div class="nav-links">
       <a href="#top" class="nav-link interactive">Home</a>
       <a href="#about" class="nav-link interactive">About</a>
+      <a href="#experiments" class="nav-link interactive">Experiments</a>
       <a href="#publications" class="nav-link interactive">Publications</a>
       <a href="#contact" class="nav-link interactive">Contact</a>
       <span class="nav-status"><span class="dot"></span>Open '26</span>
@@ -1214,9 +1344,12 @@
     <!-- DIGITAL -->
     <div class="work-panel active" id="panel-digital" role="tabpanel" aria-labelledby="tab-digital">
 
-      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/custom_llm_metrics.html" data-img="https://anurag27k.github.io/img/snbanner1.png">
+      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/custom_llm_metrics.html">
         <div class="work-num">→ 01</div>
-        <div>
+        <div class="work-thumb">
+          <img src="https://anurag27k.github.io/img/snbanner1.png" alt="Custom LLM-based metrics, ServiceNow" loading="lazy" decoding="async"/>
+        </div>
+        <div class="work-head">
           <h3 class="work-title">Custom <span class="em">LLM-based</span> metrics</h3>
           <div class="work-meta"><span>ServiceNow</span><span class="sep">/</span><span>Now Assist Skill Kit</span></div>
         </div>
@@ -1224,9 +1357,12 @@
         <div class="work-meta-right"><span class="yr">2025–26</span><br/>Work</div>
       </a>
 
-      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/ground_truth.html" data-img="https://anurag27k.github.io/img/snbanner2.png">
+      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/ground_truth.html">
         <div class="work-num">→ 02</div>
-        <div>
+        <div class="work-thumb">
+          <img src="https://anurag27k.github.io/img/snbanner2.png" alt="Ground truth based agentic evaluation, ServiceNow" loading="lazy" decoding="async"/>
+        </div>
+        <div class="work-head">
           <h3 class="work-title">Ground truth based <span class="em">agentic evaluation</span></h3>
           <div class="work-meta"><span>ServiceNow</span><span class="sep">/</span><span>Now Assist Skill Kit</span></div>
         </div>
@@ -1234,9 +1370,12 @@
         <div class="work-meta-right"><span class="yr">2025–26</span><br/>Work</div>
       </a>
 
-      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/depositaccount.html" data-img="https://anurag27k.github.io/img/Oracle/DepositCover.png">
+      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/depositaccount.html">
         <div class="work-num">→ 03</div>
-        <div>
+        <div class="work-thumb">
+          <img src="https://anurag27k.github.io/img/Oracle/DepositCover.png" alt="Redwood migration methodology, Oracle" loading="lazy" decoding="async"/>
+        </div>
+        <div class="work-head">
           <h3 class="work-title">Redwood <span class="em">migration</span> methodology</h3>
           <div class="work-meta"><span>Oracle</span><span class="sep">/</span><span>UX Designer</span></div>
         </div>
@@ -1249,9 +1388,12 @@
     <!-- PHYSICAL -->
     <div class="work-panel" id="panel-physical" role="tabpanel" aria-labelledby="tab-physical" hidden>
 
-      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/armarker.html" data-img="https://anurag27k.github.io/img/p3/lattice.png">
+      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/armarker.html">
         <div class="work-num">→ 01</div>
-        <div>
+        <div class="work-thumb">
+          <img src="https://anurag27k.github.io/img/p3/lattice.png" alt="Lattice construction in AR, IDC IIT Bombay" loading="lazy" decoding="async"/>
+        </div>
+        <div class="work-head">
           <h3 class="work-title">Lattice construction <span class="em">in AR</span></h3>
           <div class="work-meta"><span>IDC, IIT Bombay</span><span class="sep">/</span><span>Research</span></div>
         </div>
@@ -1261,7 +1403,10 @@
 
       <div class="work-item is-soon">
         <div class="work-num">→ 02</div>
-        <div>
+        <div class="work-thumb">
+          <span class="work-thumb-soon">Soon</span>
+        </div>
+        <div class="work-head">
           <h3 class="work-title">Grapho — <span class="em">line chart</span> accessibility</h3>
           <div class="work-meta"><span>IDC, IIT Bombay</span><span class="sep">/</span><span>Tangible UX</span></div>
         </div>
@@ -1269,9 +1414,12 @@
         <div class="work-meta-right"><span class="yr">2020</span><br/>Page soon</div>
       </div>
 
-      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/gappekadabba.html" data-img="https://anurag27k.github.io/img/Gappe/gappekadabbacover.png">
+      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/gappekadabba.html">
         <div class="work-num">→ 03</div>
-        <div>
+        <div class="work-thumb">
+          <img src="https://anurag27k.github.io/img/Gappe/gappekadabbacover.png" alt="Gappe ka dabba, IDC IIT Bombay" loading="lazy" decoding="async"/>
+        </div>
+        <div class="work-head">
           <h3 class="work-title">Gappe ka <span class="em">dabba</span></h3>
           <div class="work-meta"><span>IDC, IIT Bombay</span><span class="sep">/</span><span>Tangible Interaction</span></div>
         </div>
@@ -1332,14 +1480,102 @@
   <div class="wrap">
     <div class="label reveal"><span class="num">04</span> AI Experiments</div>
     <div class="lab-copy reveal">
-      <h2 class="h2 lab-h2">Small tools I'm building to <span class="em">think with.</span></h2>
-      <p class="lab-note">Evaluation harnesses, LLM-as-Judge prototypes and interface sketches for AI that has to be trusted — built outside the day job, where being wrong is cheap and fast.</p>
+      <h2 class="h2 lab-h2">AI tools I'm building to <span class="em">think with.</span></h2>
+      <p class="lab-note">Experiments that take one idea all the way through — the model, the interface, and every awkward bit in between. Built outside the day job, where being wrong is cheap and fast.</p>
       <div class="lab-meta">
-        <span class="lab-status"><span class="dot"></span>Coming soon</span>
-        <span>First pieces land through 2026</span>
+        <span class="lab-status"><span class="dot"></span>Three live</span>
+        <span>More landing through 2026</span>
       </div>
       <a class="lab-link interactive" href="mailto:anurag27k@gmail.com?Subject=What%20are%20you%20building%3F">
         Ask what's on the bench<span class="lab-arrow">&rarr;</span>
+      </a>
+    </div>
+
+
+    <div class="lab-grid reveal">
+      <a class="lab-card interactive" href="https://anurag27k.github.io/subpages/elsewhere.html">
+        <div class="lab-cover">
+            <svg viewBox="0 0 300 168" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path class="ln-soft" d="M16 84h32M252 84h32"/>
+              <circle class="ln" cx="150" cy="84" r="52"/>
+              <ellipse class="ln-soft" cx="150" cy="84" rx="17" ry="52"/>
+              <ellipse class="ln-soft" cx="150" cy="84" rx="35" ry="52"/>
+              <path class="ln-soft" d="M150 32v104M110.7 50h78.6M100.9 67h98.2M98 84h104M100.9 101h98.2M110.7 118h78.6"/>
+              <circle class="ping acc" cx="176" cy="59" r="7"/>
+              <circle class="acc-f" cx="176" cy="59" r="3.6"/>
+            </svg>
+        </div>
+        <div class="lab-body">
+          <h3 class="lab-card-title"><span class="em">Elsewhere</span></h3>
+          <p class="lab-card-desc">One button drops you somewhere real on Earth in Street View. Look around, copy the coordinates, go again.</p>
+          <div class="lab-card-foot">
+            <div class="lab-chips">
+              <span class="lab-chip">Street View</span>
+              <span class="lab-chip">Ambient audio</span>
+            </div>
+            <span class="lab-go">Open →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="lab-card interactive" href="https://anurag27k.github.io/subpages/tellmewhere.html">
+        <div class="lab-cover">
+            <svg viewBox="0 0 300 168" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g class="ln-soft" stroke-width="2.4" stroke-linecap="round">
+                <path d="M26 28h28"/><path d="M62 28h44"/><path d="M26 40h16"/><path d="M50 40h32"/>
+              </g>
+              <path class="route acc" pathLength="100" stroke-linecap="round" stroke-linejoin="round"
+                    d="M36 140C58 134 62 118 84 114 106 110 116 118 122 98 128 78 150 80 168 76 186 72 200 66 206 52 212 38 230 38 246 36"/>
+              <g class="dot">
+                <circle cx="36" cy="140" r="5"/><circle cx="84" cy="114" r="4"/>
+                <circle cx="122" cy="98" r="4"/><circle cx="168" cy="76" r="4"/>
+                <circle cx="206" cy="52" r="4"/>
+              </g>
+              <circle class="acc-f" cx="246" cy="36" r="5.5"/>
+            </svg>
+        </div>
+        <div class="lab-body">
+          <h3 class="lab-card-title">Tell me <span class="em">where</span></h3>
+          <p class="lab-card-desc">Describe the way there like a friend would — past the temple, left at the bakery — and it inks the landmarks into a map.</p>
+          <div class="lab-card-foot">
+            <div class="lab-chips">
+              <span class="lab-chip">Speech or text</span>
+              <span class="lab-chip">Drawn map</span>
+            </div>
+            <span class="lab-go">Open →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="lab-card interactive" href="https://anurag27k.github.io/subpages/indiabudget.html">
+        <div class="lab-cover">
+            <svg viewBox="0 0 300 168" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g class="flow-g">
+                <path class="band" d="M30 42C146 42 146 24 262 24L262 52C146 52 146 70 30 70Z"/>
+                <path class="band" d="M30 70C146 70 146 62 262 62L262 86C146 86 146 94 30 94Z"/>
+                <path class="band-acc" d="M30 94C146 94 146 96 262 96L262 114C146 114 146 112 30 112Z"/>
+                <path class="band" d="M30 112C146 112 146 124 262 124L262 142C146 142 146 130 30 130Z"/>
+              </g>
+              <rect class="trunk" x="21" y="42" width="5" height="88" rx="2.5"/>
+              <g class="trunk">
+                <rect x="266" y="24" width="5" height="28" rx="2.5"/>
+                <rect x="266" y="62" width="5" height="24" rx="2.5"/>
+                <rect x="266" y="124" width="5" height="18" rx="2.5"/>
+              </g>
+              <rect class="acc-f" x="266" y="96" width="5" height="18" rx="2.5"/>
+            </svg>
+        </div>
+        <div class="lab-body">
+          <h3 class="lab-card-title">Union Budget, <span class="em">down to me</span></h3>
+          <p class="lab-card-desc">The whole budget as one flow, then narrowed to the schemes and rights that actually reach you. Nothing leaves the browser.</p>
+          <div class="lab-card-foot">
+            <div class="lab-chips">
+              <span class="lab-chip">Sankey flow</span>
+              <span class="lab-chip">Public data</span>
+            </div>
+            <span class="lab-go">Open →</span>
+          </div>
+        </div>
       </a>
     </div>
   </div>
@@ -1600,39 +1836,16 @@
     });
   })();
 
-  // ======== WORK PREVIEW (image follow) ========
+  // ======== WORK THUMBS ========
+  /* covers are shown upfront now; if one 404s, fall back to the empty tile
+     rather than leaving a broken-image glyph in the row */
   (function () {
-    if (window.matchMedia('(max-width: 1024px)').matches) return;
-    var preview = document.getElementById('workPreview');
-    var active = false;
-    var px = 0, py = 0, tx = 0, ty = 0;
-
-    document.querySelectorAll('.work-item').forEach(function (item) {
-      var img = item.getAttribute('data-img');
-      if (!img) return;
-      item.addEventListener('mouseenter', function () {
-        preview.style.backgroundImage = 'url("' + img + '")';
-        preview.classList.add('show');
-        document.body.classList.add('cur-view');
-        active = true;
+    var imgs = document.querySelectorAll('.work-thumb img');
+    for (var i = 0; i < imgs.length; i++) {
+      imgs[i].addEventListener('error', function () {
+        if (this.parentNode) this.parentNode.removeChild(this);
       });
-      item.addEventListener('mouseleave', function () {
-        preview.classList.remove('show');
-        document.body.classList.remove('cur-view');
-        active = false;
-      });
-    });
-
-    document.addEventListener('mousemove', function (e) { tx = e.clientX; ty = e.clientY; });
-
-    (function loop() {
-      px += (tx - px) * 0.14;
-      py += (ty - py) * 0.14;
-      if (active) {
-        preview.style.transform = 'translate3d(' + px + 'px,' + py + 'px,0) translate(-50%, -50%) scale(1)';
-      }
-      requestAnimationFrame(loop);
-    })();
+    }
   })();
 
   // ======== NAV SCROLL STATE ========
@@ -1746,6 +1959,7 @@
     addZones('.currently .label, .currently-rail', 3);
     addZones('.lab-h2, .lab-note', F - 1);
     addZones('.lab .label, .lab-meta, .lab-link', 3);
+    addZones('.lab-card', F - 1);           /* solid surfaces push the field out */
 
     var zones = [];
 
