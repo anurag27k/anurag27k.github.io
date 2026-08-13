@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Union Budget 2026&ndash;27 &mdash; where it goes, and what reaches you</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@100,300..800&family=Anek+Devanagari:wdth,wght@100,400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16192B;--ink-2:#39404F;--paper:#E9ECE2;--paper-2:#F4F6EF;--paper-3:#DEE2D5;
+  --rule:#C4CBB8;--rule-2:#AEB79E;--muted:#666F76;
+  --lac:#A32E2A;--indigo:#2E4A7D;--turmeric:#B8791A;--bottle:#1E6A54;--olive:#8A9A6B;
+  --aubergine:#6A3D63;--slate:#6E7787;--ochre:#907423;--stone:#87837A;--gold:#F2C879;--rust:#C0562E;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --sans:"Anek Latin","Segoe UI",system-ui,sans-serif;
+  --deva:"Anek Devanagari","Nirmala UI",serif;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;overflow:hidden}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.eyebrow{font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+
+.app{height:100vh;height:100dvh;display:grid;
+  grid-template-columns:282px minmax(0,1fr) 366px;
+  grid-template-rows:auto minmax(0,1fr) auto;
+  grid-template-areas:"hd hd hd" "lf cv rt" "ft ft ft";}
+.hd{grid-area:hd}.lf{grid-area:lf}.cv{grid-area:cv}.rt{grid-area:rt}.ft{grid-area:ft}
+
+.hd{background:var(--ink);color:var(--paper-2);display:flex;align-items:center;gap:16px;padding:0 14px;height:58px}
+.brand{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.brand i{color:var(--gold);font-style:normal}
+.modeswitch{display:flex;border:1px solid #454C63;flex:none}
+.modeswitch button{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+  background:transparent;border:none;color:#AEB6C4;padding:7px 13px;cursor:pointer}
+.modeswitch button[aria-pressed="true"]{background:var(--gold);color:var(--ink);font-weight:600}
+.guidebtn{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--gold);color:var(--gold);padding:7px 12px;cursor:pointer;flex:none}
+.guidebtn:hover{background:var(--gold);color:var(--ink)}
+.hstats{display:flex;margin-left:auto;overflow:hidden}
+.hstat{padding:0 14px;border-left:1px solid #3A4054;white-space:nowrap}
+.hstat b{display:block;font-family:var(--mono);font-size:16px;font-weight:600;letter-spacing:-.03em;line-height:1.25}
+.hstat span{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:#8E97A8}
+.hstat.a b{color:var(--gold)}.hstat.b b{color:#7FC4A8}.hstat.c b{color:#9FB6DE}.hstat.d b{color:#C3CAD6}
+
+.lf,.rt{background:var(--paper-2);display:flex;flex-direction:column;min-height:0}
+.lf{border-right:1.5px solid var(--ink)}.rt{border-left:1.5px solid var(--ink)}
+.railhd{padding:7px 14px;border-bottom:1px solid var(--rule);background:var(--paper-3);flex:none;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.railbody{overflow-y:auto;overscroll-behavior:contain;padding:11px 14px 18px;flex:1;min-height:0}
+.railbody::-webkit-scrollbar{width:8px}
+.railbody::-webkit-scrollbar-thumb{background:var(--rule-2)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:8px 9px}
+.fld{min-width:0}.fld.wide{grid-column:1/-1}
+.fld label{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+select,input[type=number]{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--paper);
+  border:1px solid var(--rule-2);border-radius:0;padding:5px 6px;width:100%}
+select:focus-visible,input:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--lac);outline-offset:1px}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;
+  border:1px solid var(--rule-2);background:transparent;color:var(--ink-2);padding:3px 7px;cursor:pointer}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper-2);border-color:var(--ink)}
+.preset{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:11px}
+.preset button{font-family:var(--mono);font-size:9px;letter-spacing:.05em;text-transform:uppercase;
+  border:1px dashed var(--rule-2);background:transparent;color:var(--muted);padding:3px 7px;cursor:pointer}
+.preset button:hover{border-style:solid;border-color:var(--lac);color:var(--lac)}
+
+.cv{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--paper)}
+.filterbar{display:flex;align-items:center;gap:13px;padding:6px 13px;height:38px;flex:none;
+  border-bottom:1px solid var(--rule);background:var(--paper-3);overflow-x:auto;white-space:nowrap}
+.filterbar .grp{display:flex;align-items:center;gap:6px;flex:none}
+input[type=range]{width:88px;accent-color:var(--lac);vertical-align:middle}
+.crumb{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--lac);border:1px solid var(--lac);
+  padding:3px 8px;background:transparent;cursor:pointer;display:none}
+.crumb.on{display:inline-block}
+.canvas{flex:1;min-height:0;position:relative;overflow:hidden}
+.canvas svg{display:block;width:100%;height:100%}
+.collab{display:flex;flex:none;border-bottom:1px solid var(--rule);background:var(--paper-2)}
+.collab div{flex:1;padding:5px 8px;font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);border-right:1px solid var(--rule);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.collab div:last-child{border-right:none}
+.collab div.act{background:var(--gold);color:var(--ink);font-weight:600}
+.nd rect{stroke:var(--ink);stroke-width:.7;cursor:pointer}
+.nd text{font-family:var(--sans);font-size:11px;fill:var(--ink);pointer-events:none}
+.nd text.v{font-family:var(--mono);font-size:9px;fill:var(--muted)}
+.lk{fill-opacity:.30;cursor:pointer;transition:fill-opacity .15s}
+.lk:hover{fill-opacity:.62}
+.faded{fill-opacity:.05}.lit{fill-opacity:.74}
+.nd.dim rect,.nd.dim text{opacity:.14}
+.nd.hot rect{stroke-width:2}.nd.hot text{font-weight:600}
+
+.ft{height:86px;background:var(--ink);color:var(--paper-2);display:flex;align-items:center;gap:20px;padding:0 16px;overflow:hidden}
+.ft .rt1{font-size:16px;font-weight:600;letter-spacing:-.01em;white-space:nowrap;max-width:26ch;overflow:hidden;text-overflow:ellipsis}
+.ft .rv{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--gold);white-space:nowrap}
+.ft .rd{font-size:13px;color:#AEB6C4;flex:1;min-width:0;line-height:1.36;max-height:60px;overflow:hidden}
+.ft .rd b{color:var(--paper-2)}
+.ft .rp{font-family:var(--mono);font-size:11px;color:#7FC4A8;white-space:nowrap;text-align:right;line-height:1.5}
+.gstep{display:flex;align-items:center;gap:18px;width:100%}
+.gstep .gn{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--gold);white-space:nowrap}
+.gstep .gt{font-size:16px;font-weight:600;white-space:nowrap;max-width:28ch;overflow:hidden;text-overflow:ellipsis}
+.gstep .gd{font-size:13px;color:#AEB6C4;flex:1;min-width:0;line-height:1.36;max-height:60px;overflow:hidden}
+.gstep .gd b{color:var(--gold)}
+.gnav{display:flex;gap:6px;flex:none}
+.gnav button{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;border:1px solid #454C63;color:#C3CAD6;padding:6px 11px;cursor:pointer}
+.gnav button:hover{border-color:var(--gold);color:var(--gold)}
+.gnav button.pri{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:600}
+
+.tabs{display:flex;flex:none;border-bottom:1px solid var(--rule)}
+.tabs button{flex:1;font-family:var(--mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;
+  background:var(--paper-3);border:none;border-right:1px solid var(--rule);color:var(--muted);padding:9px 2px;cursor:pointer}
+.tabs button:last-child{border-right:none}
+.tabs button[aria-selected="true"]{background:var(--paper-2);color:var(--lac);font-weight:600;box-shadow:inset 0 -2px 0 var(--lac)}
+.pane{display:none}.pane.on{display:block}
+.intro{font-size:12.5px;color:var(--ink-2);background:var(--paper-3);border-left:3px solid var(--lac);padding:8px 10px;margin:0 0 13px;line-height:1.4}
+.list{list-style:none;margin:0;padding:0}
+.list li{padding:9px 0;border-bottom:1px solid var(--rule)}
+.list li:last-child{border-bottom:none}
+.list b{display:block;font-size:13.5px;font-weight:600;line-height:1.3}
+.list .amt{font-family:var(--mono);font-size:11.5px;color:var(--lac);font-weight:500;display:block;margin-top:2px}
+.list p{margin:4px 0 0;font-size:12.5px;color:var(--ink-2);line-height:1.4}
+.list .how{margin-top:4px;font-size:12px;color:var(--muted)}
+.tag{display:inline-block;font-family:var(--mono);font-size:8.5px;letter-spacing:.07em;text-transform:uppercase;
+  border:1px solid var(--rule-2);padding:1px 5px;color:var(--muted);margin:5px 4px 0 0}
+.tag.hit{border-color:var(--bottle);color:var(--bottle)}
+.tag.warn{border-color:var(--rust);color:var(--rust)}
+.tag.pub{border-color:var(--indigo);color:var(--indigo)}
+.mini{width:100%;border-collapse:collapse;font-size:12.5px}
+.mini td{padding:5px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.mini td.n{font-family:var(--mono);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mini tr.tot td{font-weight:600;border-top:1.5px solid var(--ink);border-bottom:none}
+.mini .sm{display:block;font-size:11px;color:var(--muted);line-height:1.3}
+.note{font-size:12.5px;color:var(--ink-2);margin:12px 0 0;padding-top:11px;border-top:1px solid var(--rule)}
+h4.ph{margin:16px 0 7px;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+h4.ph:first-child{margin-top:0}
+.gap{margin:0 0 9px}
+.gap .gl{display:flex;justify-content:space-between;font-size:12.5px;gap:8px;margin-bottom:3px}
+.gap .gl b{font-weight:600}
+.gap .gl s{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.gbar{height:11px;background:var(--paper-3);border:1px solid var(--rule);position:relative}
+.gbar i{display:block;height:100%;background:var(--bottle)}
+.gbar i.lo{background:var(--rust)}
+.gbar i.mid{background:var(--turmeric)}
+.gbar em{position:absolute;right:3px;top:-1px;font-family:var(--mono);font-size:8.5px;font-style:normal;color:var(--ink-2)}
+.ratio{display:flex;align-items:baseline;gap:7px;margin-top:3px}
+.ratio i{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--bottle);font-style:normal}
+.ratio s{font-family:var(--mono);font-size:11px;color:var(--muted);text-decoration:none}
+.empty{font-size:12.5px;color:var(--muted);font-style:italic;padding:14px 0}
+
+.mobtabs{display:none}
+@media (max-width:1400px) and (min-width:1021px){
+  .app{grid-template-columns:244px minmax(0,1fr) 320px}
+  .hstat{padding:0 10px}.hstat b{font-size:14px}
+}
+@media (max-width:1020px){
+  .app{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr) auto auto;
+       grid-template-areas:"hd" "cv" "ft" "mb"}
+  .lf,.rt{position:fixed;inset:58px 0 138px;z-index:40;display:none;border:none;border-top:1.5px solid var(--ink)}
+  .lf.show,.rt.show{display:flex}
+  .cv.hide{visibility:hidden}
+  .hstats,.brand{display:none}
+  .ft{height:78px;gap:12px}
+  .ft .rt1{font-size:14px;max-width:16ch}.ft .rv{font-size:16px}.ft .rd,.ft .rp{display:none}
+  .gstep .gd{display:none}.gstep .gt{max-width:18ch;font-size:14px}
+  .mobtabs{grid-area:mb;display:flex;background:var(--ink);border-top:1px solid #3A4054;height:52px;padding-bottom:env(safe-area-inset-bottom)}
+  .mobtabs button{flex:1;background:transparent;border:none;color:#8E97A8;cursor:pointer;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase}
+  .mobtabs button[aria-pressed="true"]{color:var(--gold);box-shadow:inset 0 2px 0 var(--gold)}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="hd">
+    <div class="brand">Union Budget <i>2026&ndash;27</i></div>
+    <div class="modeswitch" role="group" aria-label="View mode">
+      <button id="mNat" aria-pressed="false">All of India</button>
+      <button id="mMe" aria-pressed="true">Down to me</button>
+    </div>
+    <button class="guidebtn" id="guideBtn">Walk me through it</button>
+    <div class="hstats" id="hstats"></div>
+  </header>
+
+  <aside class="lf" id="railL">
+    <div class="railhd"><span class="eyebrow">Who you are</span><span class="eyebrow" id="matchCount"></span></div>
+    <div class="railbody">
+      <div class="preset" id="presets"></div>
+      <div class="form" id="profileForm">
+        <div class="fld wide"><label for="pState">State</label><select id="pState"></select></div>
+        <div class="fld"><label for="pArea">You live in</label><select id="pArea"><option value="rural">Village</option><option value="urban" selected>Town or city</option></select></div>
+        <div class="fld"><label for="pAge">Age</label><input type="number" id="pAge" value="32" min="0" max="110"></div>
+        <div class="fld"><label for="pGender">Gender</label><select id="pGender"><option value="f">Female</option><option value="m" selected>Male</option><option value="o">Other</option></select></div>
+        <div class="fld"><label for="pHouse">In household</label><input type="number" id="pHouse" value="4" min="1" max="20"></div>
+        <div class="fld wide"><label for="pIncome">Household income a year</label><select id="pIncome">
+          <option value="1">Under &#8377;1 lakh</option><option value="2">&#8377;1&ndash;3 lakh</option>
+          <option value="3" selected>&#8377;3&ndash;8 lakh</option><option value="4">&#8377;8&ndash;12 lakh</option>
+          <option value="5">&#8377;12&ndash;25 lakh</option><option value="6">Over &#8377;25 lakh</option></select></div>
+        <div class="fld wide"><label for="pWork">Main occupation</label><select id="pWork">
+          <option value="salaried" selected>Salaried job</option><option value="farmer">Farming</option>
+          <option value="daily">Daily wage or informal work</option><option value="business">Own business</option>
+          <option value="artisan">Craft or artisan work</option><option value="vendor">Street vending</option>
+          <option value="student">Studying</option><option value="home">Running the household</option>
+          <option value="retired">Retired</option><option value="none">Looking for work</option></select></div>
+        <div class="fld"><label for="pCat">Category</label><select id="pCat"><option value="gen" selected>General</option><option value="obc">OBC</option><option value="sc">SC</option><option value="st">ST</option></select></div>
+        <div class="fld"><label for="pRation">Ration card</label><select id="pRation">
+          <option value="none" selected>None</option><option value="phh">Priority</option>
+          <option value="aay">Antyodaya</option><option value="apl">Above poverty line</option></select></div>
+        <div class="fld"><label for="pOwn">Own a house</label><select id="pOwn"><option value="y" selected>Yes</option><option value="n">No</option></select></div>
+        <div class="fld"><label for="pLand">Own farmland</label><select id="pLand"><option value="n" selected>No</option><option value="y">Yes</option></select></div>
+        <div class="fld wide"><label>Also in the household</label>
+          <div class="chips">
+            <button class="chip" id="hasChild" aria-pressed="false">Child under 14</button>
+            <button class="chip" id="hasDis" aria-pressed="false">A disability</button>
+          </div></div>
+      </div>
+      <p class="note">Nothing leaves your browser. Rules run here against published criteria &mdash; a reading, not a ruling.</p>
+    </div>
+  </aside>
+
+  <main class="cv" id="canvasWrap">
+    <div class="filterbar">
+      <div class="grp"><span class="eyebrow">Depth</span><div class="chips" id="depthChips"></div></div>
+      <div class="grp"><span class="eyebrow">Purpose</span><div class="chips" id="famChips"></div></div>
+      <div class="grp"><span class="eyebrow">Hide under</span><input type="range" id="minRange" min="0" max="120000" step="5000" value="0"><span class="eyebrow num" id="minOut" style="color:var(--lac)">&#8377;0</span></div>
+      <button class="crumb" id="crumb">&#8592; Back to everything</button>
+    </div>
+    <div class="collab" id="collab"></div>
+    <div class="canvas" id="canvas">
+      <svg id="sankey" role="img" aria-label="Sankey diagram tracing the Union Budget from tax receipts down to an individual"></svg>
+    </div>
+  </main>
+
+  <aside class="rt" id="railR">
+    <div class="tabs" role="tablist">
+      <button role="tab" data-p="Schemes" aria-selected="true">Schemes</button>
+      <button role="tab" data-p="Rights" aria-selected="false">Rights</button>
+      <button role="tab" data-p="Delivery" aria-selected="false">Delivery</button>
+      <button role="tab" data-p="Check" aria-selected="false">In &amp; out</button>
+    </div>
+    <div class="railbody">
+      <div class="pane on" id="pSchemes"></div>
+      <div class="pane" id="pRights"></div>
+      <div class="pane" id="pDelivery"></div>
+      <div class="pane" id="pCheck"></div>
+    </div>
+  </aside>
+
+  <footer class="ft" id="readout"></footer>
+
+  <nav class="mobtabs" id="mobtabs">
+    <button data-t="flow" aria-pressed="true">The flow</button>
+    <button data-t="you" aria-pressed="false">Who you are</button>
+    <button data-t="res" aria-pressed="false">What you get</button>
+  </nav>
+</div>
+
+<script>
+"use strict";
+/* ══ 1. BUDGET DATA — Union Budget 2026-27 budget estimates, Rs crore ══ */
+const POP=146,TOTAL_EXP=5347315,POOL=6884479,DEVOLUTION=1526255,COLLECT=10909;
+const C={slate:"#6E7787",aubergine:"#6A3D63",indigo:"#2E4A7D",bottle:"#1E6A54",
+  turmeric:"#B8791A",ochre:"#907423",lac:"#A32E2A",stone:"#87837A",olive:"#8A9A6B"};
+const FAMS=[{id:"debt",label:"Debt",color:C.slate},{id:"secure",label:"Defence",color:C.aubergine},
+  {id:"infra",label:"Infra",color:C.indigo},{id:"people",label:"People",color:C.bottle},
+  {id:"staff",label:"Pay",color:C.ochre},{id:"states",label:"States",color:C.lac},
+  {id:"other",label:"Other",color:C.stone}];
+const famColor=f=>(FAMS.find(x=>x.id===f)||{}).color||C.stone;
+
+const RECEIPTS=[["r_it","Income tax",1466000,"other"],["r_bor","Borrowing",1695768,"debt"],
+ ["r_ct","Corporation tax",1231000,"other"],["r_gst","GST, Centre's share",1019020,"other"],
+ ["r_ntr","Dividends, spectrum & fees",666228,"other"],["r_exc","Union excise, mostly fuel",388910,"other"],
+ ["r_cus","Customs duty",271200,"other"],["r_cap","Disinvestment & loans back",118397,"other"],
+ ["r_oth","Other and UT taxes",27956,"other"]];
+
+const SECTORS=[
+ {id:"s_int",name:"Interest on past borrowing",v:1403972,fam:"debt",to:"g_lend",kids:[]},
+ {id:"s_def",name:"Defence",v:784678,fam:"secure",kids:[
+   ["k_defcap","Capital outlay: aircraft, ships, weapons",231010,"g_infra"],
+   ["k_defpen","Defence pensions",171338,"g_staff"],["k_defsal","Armed forces salaries",171044,"g_staff"],
+   ["k_defoth","Spectrum dues, Agnipath, border roads",118416,"g_force"],
+   ["k_defmnt","Maintenance, stores and repairs",92870,"g_force"]]},
+ {id:"s_road",name:"Roads & highways",v:309875,fam:"infra",kids:[
+   ["k_nhai","National Highways Authority",187293,"g_infra"],["k_rdbr","Roads and bridges",121999,"g_infra"],
+   ["k_rdsf","Road transport and safety",583,"g_infra"]]},
+ {id:"s_rail",name:"Railways",v:281377,fam:"infra",to:"g_infra",kids:[]},
+ {id:"s_home",name:"Home affairs & police",v:255234,fam:"secure",kids:[
+   ["k_capf","Central armed police forces",116285,"g_force"],
+   ["k_ut","Union Territories, census, disaster",81675,"g_force"],
+   ["k_pol","Intelligence and other police",57274,"g_force"]]},
+ {id:"s_food",name:"Food & public distribution",v:239521,fam:"people",kids:[
+   ["k_food","Free foodgrain under NFSA",227629,"g_house"],["k_buff","Buffer stock and other",11892,"g_corp"]]},
+ {id:"s_rural",name:"Rural development",v:197023,fam:"people",kids:[
+   ["k_gramg","VB-G RAM G job guarantee",95692,"g_house"],["k_pmayg","PM Awas Yojana \u2014 Gramin",54917,"g_house"],
+   ["k_mgnr","MGNREGS legacy liabilities",30000,"g_house"],["k_rural","Other rural programmes",16414,"g_corp"]]},
+ {id:"s_capex",name:"Capex loans to states",v:185000,fam:"states",to:"g_infra",kids:[]},
+ {id:"s_fert",name:"Fertiliser & chemicals",v:177061,fam:"people",kids:[
+   ["k_fert","Fertiliser subsidy",170799,"g_farm"],["k_pharm","Pharmaceuticals and chemicals",6262,"g_corp"]]},
+ {id:"s_agri",name:"Agriculture",v:140529,fam:"people",kids:[
+   ["k_kisan","PM-KISAN income support",63500,"g_farm"],["k_agoth","Crop insurance, KCC and other",54429,"g_farm"],
+   ["k_isub","Crop loan interest subvention",22600,"g_farm"]]},
+ {id:"s_edu",name:"Education",v:139289,fam:"people",kids:[
+   ["k_higher","Higher education, IITs, UGC",76939,"g_inst"],["k_ss","Samagra Shiksha, schools",42100,"g_inst"],
+   ["k_poshan","PM POSHAN mid-day meals",12750,"g_house"],["k_shri","PM SHRI model schools",7500,"g_inst"]]},
+ {id:"s_fc",name:"Finance Commission grants",v:129397,fam:"states",kids:[
+   ["k_rlb","Panchayats and rural local bodies",55909,"g_local"],["k_ulb","Municipalities",45272,"g_local"],
+   ["k_dis","Disaster response funds",28216,"g_local"]]},
+ {id:"s_pen",name:"Civil pensions",v:124876,fam:"staff",to:"g_staff",kids:[]},
+ {id:"s_hlth",name:"Health",v:106530,fam:"people",kids:[
+   ["k_nhm","National Health Mission",39390,"g_inst"],["k_other_h","AIIMS, research and other",41563,"g_inst"],
+   ["k_pmssy","New AIIMS and medical colleges",11307,"g_inst"],["k_pmjay","Ayushman Bharat PM-JAY",9500,"g_house"],
+   ["k_abhim","PM-ABHIM health infrastructure",4770,"g_inst"]]},
+ {id:"s_com",name:"Communications",v:102267,fam:"infra",kids:[
+   ["k_post","Post offices and telecom",51931,"g_corp"],["k_bsnl","BSNL and MTNL revival",30336,"g_corp"],
+   ["k_bnet","BharatNet village broadband",20000,"g_infra"]]},
+ {id:"s_jal",name:"Water & sanitation",v:94808,fam:"people",kids:[
+   ["k_jjm","Jal Jeevan Mission tap water",67670,"g_infra"],
+   ["k_swch","Swachh Bharat, Namami Gange, irrigation",27138,"g_infra"]]},
+ {id:"s_urb",name:"Housing & urban affairs",v:85522,fam:"infra",kids:[
+   ["k_urboth","AMRUT, Smart Cities and other",34997,"g_corp"],["k_metro","Metro and mass rapid transit",28500,"g_infra"],
+   ["k_pmayu","PM Awas Yojana \u2014 Urban",22025,"g_house"]]},
+ {id:"s_rest",name:"All other ministries",v:590356,fam:"other",to:"g_corp",kids:[]}];
+
+const RECIPIENTS=[["g_infra","Public infrastructure & assets",C.indigo],["g_house","Households, direct benefit",C.bottle],
+ ["g_farm","Farmers",C.bottle],["g_inst","Schools, hospitals, universities",C.bottle],
+ ["g_local","Panchayats & municipalities",C.lac],["g_state","State services & their users",C.lac],
+ ["g_staff","Government staff & pensioners",C.ochre],["g_force","Security forces & operations",C.aubergine],
+ ["g_lend","Lenders & bondholders",C.slate],["g_corp","Companies, PSUs & running costs",C.stone]];
+
+const STATES=[["Uttar Pradesh",17.62,25.20],["Bihar",9.95,13.40],["Madhya Pradesh",7.35,9.20],
+ ["West Bengal",7.22,10.20],["Maharashtra",6.44,13.00],["Rajasthan",5.93,8.50],["Odisha",4.42,4.60],
+ ["Andhra Pradesh",4.22,5.40],["Karnataka",4.13,7.10],["Tamil Nadu",4.10,7.90],["Gujarat",3.76,7.40],
+ ["Jharkhand",3.36,4.10],["Chhattisgarh",3.30,3.15],["Assam",3.26,3.70],["Kerala",2.38,3.65],
+ ["Telangana",2.17,3.95],["Punjab",2.00,3.20],["Haryana",1.36,3.15],["Arunachal Pradesh",1.35,0.17],
+ ["Uttarakhand",1.14,1.24],["Himachal Pradesh",0.91,0.76],["Tripura",0.64,0.43],["Manipur",0.63,0.33],
+ ["Meghalaya",0.63,0.36],["Mizoram",0.56,0.14],["Nagaland",0.48,0.23],["Goa",0.37,0.17],["Sikkim",0.34,0.075]];
+
+/* ══ 2. WHO ACTUALLY RECEIVES IT — published beneficiary counts ══ */
+/* count is in crore. src: P = published figure, D = derived by division */
+const BEN={
+ t_food:{n:81.35,u:"crore people",lbl:"5 kg of free grain a month, through 5.44 lakh ration shops",src:"P"},
+ t_fert:{n:11.00,u:"crore farm households",lbl:"paid to the factory, so it reaches you as a price you never see",src:"D"},
+ t_jobg:{n:6.00,u:"crore households that worked",lbl:"125 days guaranteed; 43 days was the 2025-26 average",src:"D"},
+ t_awas:{n:0.85,u:"crore houses a year",lbl:"2.99 crore rural houses finished so far against a 4.95 crore target",src:"D"},
+ t_kisan:{n:9.44,u:"crore farmers",lbl:"\u20B96,000 a year in three instalments, straight to the bank account",src:"P"},
+ t_farmc:{n:7.50,u:"crore Kisan Credit Cards",lbl:"crop loans to \u20B93 lakh at an effective 4%",src:"D"},
+ t_posh:{n:11.00,u:"crore children",lbl:"one hot cooked meal every school day, classes 1 to 8",src:"P"},
+ t_jay:{n:12.37,u:"crore families",lbl:"\u20B95 lakh of cover each \u2014 but cover is not cash, and most families never claim",src:"P"}};
+
+/* ══ 3. PROMISED vs DELIVERED — 2025-26 budget vs revised estimate ══ */
+const GAPS=[
+ ["Research & Innovation Scheme",20000,3000,"Announced with fanfare; 15% of the money moved."],
+ ["BharatNet village broadband",22000,5500,"Underspent every year since 2022-23."],
+ ["Jal Jeevan Mission",67000,17000,"\u20B950,000 crore unspent. No funds released to states until February 2026."],
+ ["PM Awas Yojana \u2014 Urban",25794,7900,"An average 34% underspend since 2017-18."],
+ ["PM Awas Yojana \u2014 Gramin",54832,32500,"Roughly half the allocation was actually used."],
+ ["PM Surya Ghar rooftop solar",20000,17000,"Broadly on track."],
+ ["Samagra Shiksha",41250,38000,"Broadly on track."],
+ ["National Health Mission",37227,37100,"Spent almost exactly as budgeted."],
+ ["PM-KISAN",63500,63500,"Direct transfer, so the money moves as planned."],
+ ["MGNREGS",86000,88000,"Overspent \u2014 demand for work exceeded the budget."]];
+
+/* ══ 4. ELIGIBILITY — one source of truth for chart and lists ══ */
+const ELIG={
+ nfsa:p=>p.poor||p.ration==="phh"||p.ration==="aay",
+ fert:p=>p.work==="farmer"&&p.land,
+ jobg:p=>p.area==="rural"&&p.age>=18&&(p.poor||p.work==="daily"||p.work==="none"||p.work==="farmer"),
+ awas:p=>!p.own&&p.inc<=3,
+ kisan:p=>p.work==="farmer"&&p.land&&p.inc<=4,
+ farmc:p=>p.work==="farmer",
+ poshan:p=>p.child,
+ pmjay:p=>p.age>=70||p.poor};
+
+const TARGETED=[["t_food","Free foodgrain under NFSA",227629,"nfsa"],["t_fert","Fertiliser subsidy",170799,"fert"],
+ ["t_jobg","Rural job guarantee",125692,"jobg"],["t_awas","PM Awas Yojana",76942,"awas"],
+ ["t_farmc","Farm credit & insurance",77029,"farmc"],["t_kisan","PM-KISAN",63500,"kisan"],
+ ["t_posh","PM POSHAN school meals",12750,"poshan"],["t_jay","Ayushman Bharat PM-JAY",9500,"pmjay"]];
+const SHARED=[["h_def","Defence & armed forces",613340,"1.4 crore serving personnel, equipment and operations"],
+ ["h_pol","Police & internal security",255234,"central armed forces, intelligence, disaster response"],
+ ["h_road","Roads & highways",309875,"about 1.46 lakh km of national highway"],
+ ["h_rail","Railways",281377,"2.3 crore passengers a day"],
+ ["h_capex","Capex loans to states",185000,"interest-free 50-year loans for state capital projects"],
+ ["h_local","Panchayats & municipalities",129397,"half untied, half tied to water and sanitation"],
+ ["h_edu","Schools & universities",126539,"about 15 lakh schools and 1,200 universities"],
+ ["h_hosp","Hospitals & health missions",97030,"1.86 lakh Ayushman Arogya Mandirs and the district hospital chain"],
+ ["h_water","Tap water & sanitation",94808,"a working household tap in every rural home"],
+ ["h_metro","Metro & broadband",48500,"metro rail in 25 cities, fibre to every village"]];
+const DEBTP=[["d_int","Interest on old borrowing",1403972,"paid to banks, insurers, provident funds and bondholders"],
+ ["d_pen","Pensions of retired staff",296214,"33 lakh defence pensioners and the civil pension roll"]];
+const ADMINP=[["a_min","All other ministries",590356,"external affairs, science, space, courts, Parliament, subsidies elsewhere"],
+ ["a_psu","Telecom, post & PSUs",82267,"41% of the telecom budget is the BSNL and MTNL revival package"],
+ ["a_oth","Other programmes",69565,"buffer stock, pharma, urban missions and residual schemes"]];
+
+/* ══ 5. FORMAT ══ */
+const inr=n=>new Intl.NumberFormat("en-IN",{maximumFractionDigits:0}).format(Math.round(n));
+const inr2=n=>new Intl.NumberFormat("en-IN",{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+const cr=n=>"\u20B9"+inr(n)+" cr";
+const rs=n=>"\u20B9"+inr(n);
+const h=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const perCap=v=>v/POP;
+
+let S={mode:"me",depth:4,fams:new Set(FAMS.map(f=>f.id)),min:0,pinned:null,focus:null,guide:-1};
+const toggles={hasChild:false,hasDis:false};
+
+const PRESETS=[
+ ["Landless labourer",{pState:"Bihar",pArea:"rural",pAge:"38",pGender:"m",pIncome:"1",pWork:"daily",pCat:"sc",pRation:"aay",pOwn:"n",pLand:"n",pHouse:"5"},{hasChild:true}],
+ ["Small farmer",{pState:"Uttar Pradesh",pArea:"rural",pAge:"45",pGender:"m",pIncome:"2",pWork:"farmer",pCat:"obc",pRation:"phh",pOwn:"n",pLand:"y",pHouse:"6"},{hasChild:true}],
+ ["Salaried, city",{pState:"Karnataka",pArea:"urban",pAge:"32",pGender:"m",pIncome:"3",pWork:"salaried",pCat:"gen",pRation:"none",pOwn:"y",pLand:"n",pHouse:"4"},{}],
+ ["High earner",{pState:"Maharashtra",pArea:"urban",pAge:"44",pGender:"m",pIncome:"6",pWork:"business",pCat:"gen",pRation:"none",pOwn:"y",pLand:"n",pHouse:"4"},{}],
+ ["Widow, 72",{pState:"Odisha",pArea:"rural",pAge:"72",pGender:"f",pIncome:"1",pWork:"none",pCat:"gen",pRation:"aay",pOwn:"n",pLand:"n",pHouse:"2"},{}],
+ ["Street vendor",{pState:"Tamil Nadu",pArea:"urban",pAge:"29",pGender:"f",pIncome:"2",pWork:"vendor",pCat:"obc",pRation:"phh",pOwn:"n",pLand:"n",pHouse:"4"},{}]];
+
+function profile(){
+  const inc=+document.getElementById("pIncome").value;
+  const mid={1:60000,2:200000,3:550000,4:1000000,5:1800000,6:3500000}[inc];
+  return {st:document.getElementById("pState").value,area:document.getElementById("pArea").value,
+    age:+document.getElementById("pAge").value||0,g:document.getElementById("pGender").value,
+    inc,incMid:mid,work:document.getElementById("pWork").value,cat:document.getElementById("pCat").value,
+    hh:Math.max(1,+document.getElementById("pHouse").value||1),ration:document.getElementById("pRation").value,
+    own:document.getElementById("pOwn").value==="y",land:document.getElementById("pLand").value==="y",
+    child:toggles.hasChild,dis:toggles.hasDis,poor:inc<=2};
+}
+const stateRow=n=>STATES.find(s=>s[0]===n)||STATES[8];
+function incomeTax(gross,sal){
+  const tx=Math.max(0,gross-(sal?75000:0));
+  const sl=[[400000,0],[800000,.05],[1200000,.10],[1600000,.15],[2000000,.20],[2400000,.25],[Infinity,.30]];
+  let t=0,prev=0;
+  for(const [cap,r] of sl){ if(tx>prev) t+=(Math.min(tx,cap)-prev)*r; prev=cap; if(tx<=cap) break; }
+  if(tx<=1200000) t=0;
+  return Math.round(t*1.04);
+}
+const gstPaid=p=>Math.round(p.incMid*(p.inc<=2?.95:p.inc<=3?.80:p.inc<=4?.70:.60)*(p.inc<=2?.055:p.inc<=3?.075:p.inc<=4?.090:.105)/p.hh);
+const fuelCess=p=>p.inc<=2?900:p.inc<=3?2600:p.inc<=4?4200:7000;
+const paidIn=p=>incomeTax(p.incMid,p.work==="salaried")+gstPaid(p)+fuelCess(p);
+
+/* ══ 6. GRAPHS ══ */
+function buildNational(){
+  const N=new Map(),L=[];
+  const add=(id,col,name,val,color,fam,meta)=>N.set(id,{id,col,name,val,color,fam,meta});
+  const lk=(s,t,v,color,fam)=>{if(v>0)L.push({s,t,v,color,fam});};
+  add("pool",1,"Union pool",POOL,C.turmeric,"other","Everything the Union handles this year: taxes, dividends, asset sales and borrowing.");
+  RECEIPTS.forEach(([id,n,v,f])=>{add(id,0,n,v,famColor(f),f);lk(id,"pool",v,famColor(f),f);});
+  add("c_dev",2,"States' own share of taxes",DEVOLUTION,C.lac,"states","41% of the divisible pool, untied. States decide how to spend it.");
+  add("c_uni",2,"Spent by the Centre",TOTAL_EXP,C.turmeric,"other","The \u20B953.47 lakh crore headline figure.");
+  add("c_cost",2,"Collection cost & cess funds",COLLECT,C.stone,"other");
+  lk("pool","c_dev",DEVOLUTION,C.lac,"states");lk("pool","c_uni",TOTAL_EXP,C.turmeric,"other");
+  lk("pool","c_cost",COLLECT,C.stone,"other");lk("c_cost","g_corp",COLLECT,C.stone,"other");
+  const sel=profile().st,rows=STATES.map(([n,sh,pop])=>({n,sh,pop,v:DEVOLUTION*sh/100}));
+  let shown=rows.slice(0,10);
+  if(sel&&!shown.some(r=>r.n===sel)){const r=rows.find(x=>x.n===sel);if(r)shown=shown.slice(0,9).concat([r]);}
+  add("st_pool",4,"Spent under state budgets",DEVOLUTION,C.lac,"states");
+  let ss=0;
+  shown.forEach(r=>{const id="st_"+r.n.replace(/\s+/g,"_"),hot=sel===r.n,col=hot?"#D24B3F":C.lac;
+    add(id,3,r.n,r.v,col,"states",`${r.sh}% of the pool, across ${r.pop} crore people \u2014 ${rs(Math.round(r.v/r.pop))} a head.`);
+    lk("c_dev",id,r.v,col,"states");lk(id,"st_pool",r.v,col,"states");ss+=r.v;});
+  if(DEVOLUTION-ss>0){add("st_rest",3,(28-shown.length)+" other states",DEVOLUTION-ss,C.lac,"states");
+    lk("c_dev","st_rest",DEVOLUTION-ss,C.lac,"states");lk("st_rest","st_pool",DEVOLUTION-ss,C.lac,"states");}
+  lk("st_pool","g_state",DEVOLUTION,C.lac,"states");
+  RECIPIENTS.forEach(([id,n,c])=>add(id,5,n,0,c,"other"));
+  SECTORS.forEach(s=>{const col=famColor(s.fam);
+    add(s.id,3,s.name,s.v,col,s.fam);lk("c_uni",s.id,s.v,col,s.fam);
+    if(!s.kids.length)lk(s.id,s.to,s.v,col,s.fam);
+    else s.kids.forEach(([k,kn,kv,kt])=>{add(k,4,kn,kv,col,s.fam);lk(s.id,k,kv,col,s.fam);lk(k,kt,kv,col,s.fam);});});
+  return {N,L,nCols:6,labels:["Where it comes from","The pool","Who controls it","Sector","Scheme or head","Who finally gets it"]};
+}
+
+function buildPersonal(){
+  const p=profile(),row=stateRow(p.st);
+  const stPC=(DEVOLUTION*row[1]/100)/row[2],uniPC=perCap(TOTAL_EXP),costPC=perCap(COLLECT);
+  const myPool=uniPC+stPC+costPC,paid=Math.min(paidIn(p),myPool*0.98);
+  const N=new Map(),L=[];
+  const add=(id,col,name,val,color,fam,meta)=>N.set(id,{id,col,name,val,color,fam,meta});
+  const lk=(s,t,v,color,fam)=>{if(v>0)L.push({s,t,v,color,fam});};
+  add("me_paid",0,"You paid in",paid,C.lac,"other",
+    `Income tax ${rs(incomeTax(p.incMid,p.work==="salaried"))}, GST ${rs(gstPaid(p))}, fuel cess ${rs(fuelCess(p))}. For most people the indirect taxes are the bigger half \u2014 paid without ever filing anything.`);
+  add("me_rest",0,"Everyone else, and borrowing",myPool-paid,C.slate,"debt",
+    "Corporation tax, higher earners, dividends \u2014 and the third of the budget borrowed against your future.");
+  add("me_pool",1,"Your share of the pool",myPool,C.turmeric,"other",
+    "The whole Union pool divided by 146 crore people, plus what your state receives per head.");
+  lk("me_paid","me_pool",paid,C.lac,"other");lk("me_rest","me_pool",myPool-paid,C.slate,"debt");
+  add("me_uni",2,"Spent by the Centre",uniPC,C.turmeric,"other","Delhi decides this part.");
+  add("me_st",2,"Sent to "+p.st,stPC,C.lac,"states",
+    `${p.st} receives ${row[1]}% of the divisible pool. Across ${row[2]} crore people that is ${rs(Math.round(stPC))} each. Untied \u2014 the state decides.`);
+  add("me_cost",2,"Cost of collecting it",costPC,C.stone,"other");
+  lk("me_pool","me_uni",uniPC,C.turmeric,"other");lk("me_pool","me_st",stPC,C.lac,"states");
+  lk("me_pool","me_cost",costPC,C.stone,"other");
+  add("T_hand",4,"Lands in your hand",0,C.bottle,"people","Targeted transfers whose published criteria you appear to meet.");
+  add("T_use",4,"Shared services you can use",0,C.indigo,"infra","Non-excludable. Yours whether or not you ever claim anything.");
+  add("T_others",4,"Targeted at other people",0,C.olive,"people","Real transfers, addressed to circumstances that differ from yours.");
+  add("T_gone",4,"Debt, pensions & overheads",0,C.slate,"debt","Interest on borrowing already spent, pensions of the retired, and running government.");
+  TARGETED.forEach(([id,name,v,key])=>{
+    const ok=ELIG[key](p),val=perCap(v),b=BEN[id];
+    const perBen=b?v/b.n:null;
+    add(id,3,name,val,ok?C.bottle:C.olive,"people",
+      (ok?"You appear to meet the criteria. ":"Addressed to a different profile. ")+
+      (b?`It reaches ${b.n} ${b.u} \u2014 ${rs(Math.round(perBen))} each, against a ${rs(Math.round(val))} share per citizen. ${b.lbl}.`:""));
+    lk("me_uni",id,val,ok?C.bottle:C.olive,"people");
+    lk(id,ok?"T_hand":"T_others",val,ok?C.bottle:C.olive,"people");});
+  SHARED.forEach(([id,name,v,note])=>{const val=perCap(v);
+    add(id,3,name,val,C.indigo,"infra",note);lk("me_uni",id,val,C.indigo,"infra");lk(id,"T_use",val,C.indigo,"infra");});
+  DEBTP.forEach(([id,name,v,note])=>{const val=perCap(v);
+    add(id,3,name,val,C.slate,"debt",note);lk("me_uni",id,val,C.slate,"debt");lk(id,"T_gone",val,C.slate,"debt");});
+  ADMINP.forEach(([id,name,v,note])=>{const val=perCap(v);
+    add(id,3,name,val,C.stone,"other",note);lk("me_uni",id,val,C.stone,"other");lk(id,"T_gone",val,C.stone,"other");});
+  add("st_own",3,p.st+"'s own budget",stPC,C.lac,"states",
+    "Untied money. Your state decides: its police, its schools, its hospitals, its roads, its welfare top-ups.");
+  lk("me_st","st_own",stPC,C.lac,"states");lk("st_own","T_use",stPC,C.lac,"states");
+  lk("me_cost","T_gone",costPC,C.stone,"other");
+  ["T_hand","T_use","T_others","T_gone"].forEach(id=>{N.get(id).val=L.filter(l=>l.t===id).reduce((a,b)=>a+b.v,0);});
+  return {N,L,nCols:5,labels:["Who paid","Your share","Centre or state","Where it is spent","Does it reach you?"]};
+}
+
+/* ══ 7. LAYOUT + RENDER ══ */
+const svg=document.getElementById("sankey"),canvas=document.getElementById("canvas");
+let LAST={};
+function render(){
+  const G=S.mode==="me"?buildPersonal():buildNational();
+  const isMe=S.mode==="me",unit=v=>isMe?rs(Math.round(v)):cr(v);
+  const nC=G.nCols,maxCol=isMe?nC-1:Math.min(S.depth-1,nC-1);
+  const gs=S.guide>=0?GUIDE[S.guide]:null;
+  document.getElementById("collab").innerHTML=G.labels.slice(0,maxCol+1)
+    .map((l,i)=>`<div class="${gs&&gs.col===i?"act":""}">${i+1} \u00B7 ${h(l)}</div>`).join("");
+  const keep=new Set();
+  G.N.forEach(n=>{if(n.col<=maxCol&&(n.col<3||n.col===nC-1||S.fams.has(n.fam)))keep.add(n.id);});
+  let links=G.L.filter(l=>keep.has(l.s)&&G.N.get(l.t).col<=maxCol&&keep.has(l.t))
+                .filter(l=>isMe?true:l.v>=S.min);
+  if(S.focus){const nb=reach(S.focus,links),set=new Set([...nb.ln].map(i=>links[i]));links=links.filter(l=>set.has(l));}
+  const used=new Set();links.forEach(l=>{used.add(l.s);used.add(l.t);});
+  const nodes=[...G.N.values()].filter(n=>used.has(n.id));
+  for(let c=maxCol-1;c>=0;c--)nodes.filter(n=>n.col===c).forEach(n=>{
+    const o=links.filter(l=>l.s===n.id),i=links.filter(l=>l.t===n.id);
+    if(!o.length||!i.length)return;
+    const so=o.reduce((a,b)=>a+b.v,0),si=i.reduce((a,b)=>a+b.v,0);
+    if(si>so&&si>0){const k=so/si;i.forEach(l=>l.v*=k);}});
+  nodes.forEach(n=>{const i=links.filter(l=>l.t===n.id).reduce((a,b)=>a+b.v,0);
+    const o=links.filter(l=>l.s===n.id).reduce((a,b)=>a+b.v,0);n.v=Math.max(i,o);});
+  const cols=[];for(let i=0;i<=maxCol;i++)cols.push(nodes.filter(n=>n.col===i));
+  if(cols[maxCol])cols[maxCol].sort((a,b)=>b.v-a.v);
+  const W=Math.max(560,canvas.clientWidth),H=Math.max(300,canvas.clientHeight);
+  const busiest=Math.max(...cols.map(c=>c.length),1);
+  const GAP=busiest>26?3.5:busiest>18?5:7,MINH=busiest>26?2:5;
+  const NW=Math.max(8,Math.min(13,W/110)),ML=Math.min(150,W*0.14),MR=Math.min(178,W*0.17);
+  const inner=W-ML-MR-NW,step=maxCol>0?inner/maxCol:0,colX=i=>ML+i*step;
+  let lo=0,hi=H/10,sc=0;
+  for(let it=0;it<50;it++){const m=(lo+hi)/2;
+    const ok=cols.every(c=>!c.length||c.reduce((a,n)=>a+Math.max(m*n.v,MINH),0)+(c.length-1)*GAP<=H-10);
+    if(ok){sc=m;lo=m;}else hi=m;}
+  cols.forEach((c,ci)=>{if(!c.length)return;
+    const tot=c.reduce((a,n)=>a+Math.max(sc*n.v,MINH),0)+(c.length-1)*GAP;
+    let y=(H-tot)/2+5;
+    c.forEach(n=>{n.h=Math.max(sc*n.v,MINH);n.y=y;n.x=colX(ci);y+=n.h+GAP;});});
+  const ord=new Map(nodes.map(n=>[n.id,n.y]));
+  nodes.forEach(n=>{
+    const o=links.filter(l=>l.s===n.id).sort((a,b)=>(ord.get(a.t)??0)-(ord.get(b.t)??0));
+    const i=links.filter(l=>l.t===n.id).sort((a,b)=>(ord.get(a.s)??0)-(ord.get(b.s)??0));
+    let yo=n.y+(n.h-o.reduce((a,l)=>a+Math.max(sc*l.v,.8),0))/2;
+    let yi=n.y+(n.h-i.reduce((a,l)=>a+Math.max(sc*l.v,.8),0))/2;
+    o.forEach(l=>{l.sy=yo;l.sh=Math.max(sc*l.v,.8);yo+=l.sh;});
+    i.forEach(l=>{l.ty=yi;l.th=Math.max(sc*l.v,.8);yi+=l.th;});});
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  const showVals=busiest<=20,fs=busiest>26?9:busiest>20?10:11;
+  let out="";
+  links.forEach((l,i)=>{const a=G.N.get(l.s),b=G.N.get(l.t),x0=a.x+NW,x1=b.x,xm=(x0+x1)/2;
+    out+=`<path class="lk" data-i="${i}" d="M${x0},${l.sy} C${xm},${l.sy} ${xm},${l.ty} ${x1},${l.ty} `
+       +`L${x1},${l.ty+l.th} C${xm},${l.ty+l.th} ${xm},${l.sy+l.sh} ${x0},${l.sy+l.sh} Z" fill="${l.color}"></path>`;});
+  nodes.forEach(n=>{
+    const right=n.col<maxCol,tx=right?n.x+NW+6:n.x-6,anc=right?"start":"end";
+    const room=right?(step-NW-12):(ML-12),cap=Math.max(9,Math.floor(room/(fs*0.52)));
+    const nm=n.name.length>cap?n.name.slice(0,cap-1)+"\u2026":n.name,two=n.h>=16&&showVals;
+    out+=`<g class="nd" data-id="${n.id}" tabindex="0" role="button" aria-label="${h(n.name)}, ${unit(n.v)}">`
+      +`<rect x="${n.x}" y="${n.y}" width="${NW}" height="${n.h}" fill="${n.color}"></rect>`
+      +(n.h>=5?`<text x="${tx}" y="${n.y+(two?n.h/2-1:n.h/2+fs*0.35)}" text-anchor="${anc}" style="font-size:${fs}px">${h(nm)}</text>`:"")
+      +(two?`<text class="v" x="${tx}" y="${n.y+n.h/2+10}" text-anchor="${anc}">${unit(n.v)}</text>`:"")
+      +`</g>`;});
+  svg.innerHTML=out;
+  LAST={links,N:G.N,unit,isMe,pool:isMe?G.N.get("me_pool").val:POOL};
+  wire(G.N,links);
+  if(S.pinned&&nodes.some(n=>n.id===S.pinned))light(S.pinned,links);else if(!S.pinned)unlight();
+  document.getElementById("crumb").classList.toggle("on",!!S.focus);
+}
+function reach(id,links){
+  const up=new Set([id]),dn=new Set([id]),ln=new Set();
+  let go=true;while(go){go=false;links.forEach(l=>{if(dn.has(l.s)&&!dn.has(l.t)){dn.add(l.t);go=true;}});}
+  go=true;while(go){go=false;links.forEach(l=>{if(up.has(l.t)&&!up.has(l.s)){up.add(l.s);go=true;}});}
+  links.forEach((l,i)=>{if((dn.has(l.s)&&dn.has(l.t))||(up.has(l.s)&&up.has(l.t)))ln.add(i);});
+  return {all:new Set([...up,...dn]),ln};
+}
+function light(id,links){
+  const {all,ln}=reach(id,links);
+  svg.querySelectorAll(".lk").forEach(p=>{const i=+p.dataset.i;
+    p.classList.toggle("faded",!ln.has(i));p.classList.toggle("lit",ln.has(i));});
+  svg.querySelectorAll(".nd").forEach(g=>{
+    g.classList.toggle("dim",!all.has(g.dataset.id));g.classList.toggle("hot",g.dataset.id===id);});
+}
+function unlight(){
+  svg.querySelectorAll(".lk").forEach(p=>p.classList.remove("faded","lit"));
+  svg.querySelectorAll(".nd").forEach(g=>g.classList.remove("dim","hot"));
+}
+function say(t,v,d,p){
+  if(S.guide>=0)return;
+  document.getElementById("readout").innerHTML=
+    `<div class="rt1">${h(t)}</div><div class="rv">${v}</div><div class="rd">${d}</div>`+(p?`<div class="rp">${p}</div>`:"");
+}
+function idle(){
+  if(S.guide>=0){drawGuide();return;}
+  const p=profile();
+  say(S.mode==="me"?"Your chain":"The national chain","",
+    S.mode==="me"
+      ? `Every figure is rupees per person per year. Follow a band left to right: who paid, your slice of the pool, whether Delhi or <b>${h(p.st)}</b> spends it, what it buys, and whether it can reach you at all. Hover any band; click to isolate it; double-click to zoom in. New here? Press <b>Walk me through it</b>.`
+      : "Click any band to isolate its chain. Double-click to zoom into one branch. Switch to <b>Down to me</b> to see the same money as rupees per person.","");
+}
+function wire(N,links){
+  svg.querySelectorAll(".nd").forEach(g=>{
+    const n=N.get(g.dataset.id);let clk;
+    const tap=()=>{if(S.pinned===n.id){S.pinned=null;unlight();idle();}else{S.pinned=n.id;light(n.id,links);describe(n);}};
+    g.addEventListener("click",()=>{clearTimeout(clk);clk=setTimeout(tap,190);});
+    g.addEventListener("dblclick",e=>{e.preventDefault();clearTimeout(clk);
+      S.focus=S.focus===n.id?null:n.id;S.pinned=null;render();describe(n);});
+    g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();tap();}});
+    g.addEventListener("mouseenter",()=>{if(!S.pinned)describe(n);});});
+  svg.querySelectorAll(".lk").forEach(el=>el.addEventListener("mouseenter",()=>{
+    if(S.pinned)return;const l=links[+el.dataset.i];
+    say(`${N.get(l.s).name} \u2192 ${N.get(l.t).name}`,LAST.unit(l.v),
+      LAST.isMe?"Rupees per person per year.":`${(l.v/POOL*100).toFixed(2)}% of everything the Union handles.`,
+      LAST.isMe?`\u20B9${inr2(l.v/365)} a day`:`${rs(Math.round(perCap(l.v)))} per person`);}));
+}
+function describe(n){
+  if(LAST.isMe){
+    const day=n.v/365;
+    say(n.name,rs(Math.round(n.v)),
+      (n.meta?h(n.meta)+" ":"")+`<b>${(n.v/LAST.pool*100).toFixed(1)}%</b> of your ${rs(Math.round(LAST.pool))} share.`,
+      day>=1?`\u20B9${inr2(day)} a day`:`${rs(Math.round(n.v/12))} a month`);
+  }else{
+    const share=n.col<=2?n.v/POOL*100:n.v/TOTAL_EXP*100;
+    say(n.name,cr(n.v),(n.meta?h(n.meta)+" ":"")+
+      `<b>${share.toFixed(2)}%</b> ${n.col<=2?"of the whole pool":"of Union expenditure"} \u2014 ${(n.v/100000).toFixed(2)} lakh crore rupees.`,
+      `${rs(Math.round(perCap(n.v)))} per person`);
+  }
+}
+
+/* ══ 8. GUIDED WALKTHROUGH ══ */
+const GUIDE=[
+ {col:0,pin:"me_paid",t:"Start with what you actually pay",
+  d:g=>`Income tax is the part you notice. But GST on everything you buy and excise buried in every litre of fuel are paid without filing anything. Together, about <b>${rs(g.paid)}</b> a year.`},
+ {col:1,pin:"me_pool",t:"It joins a pool far bigger than your share",
+  d:g=>`Your slice of everything the Union handles is <b>${rs(g.pool)}</b> a year \u2014 about <b>\u20B9${inr2(g.pool/365)} a day</b>. You paid in ${rs(g.paid)}; the rest comes from companies, higher earners, and borrowing.`},
+ {col:2,pin:"me_st",t:"Delhi keeps most of it; your state gets a share",
+  d:g=>`${g.st} receives ${g.share}% of the divisible pool \u2014 <b>${rs(g.stPC)}</b> per person, untied. Small and forested states get far more per head: Sikkim about \u20B974,000, Maharashtra about \u20B97,700.`},
+ {col:3,pin:"d_int",t:"A quarter is spoken for before anyone decides anything",
+  d:g=>`Interest on money already borrowed and spent takes <b>${rs(g.interest)}</b> of your share \u2014 26% of all Union spending, 40% of revenue receipts. Add pensions and salaries and about 65% is committed in advance.`},
+ {col:3,pin:"h_road",t:"Most of the rest becomes things, not payments",
+  d:g=>`Roads, railways, defence, schools, hospitals, water, your local body: <b>${rs(g.use)}</b>. You use these without ever claiming anything \u2014 no form, no eligibility test.`},
+ {col:4,pin:"T_hand",t:"Only a small part can be addressed to a named person",
+  d:g=>`Targeted transfers are \u20B97.64 lakh crore \u2014 <b>14% of all spending</b>. Of that, <b>${rs(g.hand)}</b> matches your circumstances and <b>${rs(g.others)}</b> is addressed to someone else.`},
+ {col:4,pin:"T_hand",t:"But your share badly understates what you'd receive",
+  d:g=>g.conc?`Targeting concentrates money. Your per-citizen share of ${g.conc.n} is ${rs(g.conc.head)} \u2014 an actual recipient gets about <b>${rs(g.conc.ben)}</b>, roughly <b>${g.conc.x}\u00D7</b> more. Open the <b>In &amp; out</b> tab for the full comparison.`
+    :`You match no targeted transfer right now, so nothing concentrates in your favour. Try a preset on the left \u2014 <b>Small farmer</b> or <b>Landless labourer</b> \u2014 and watch the green band appear.`},
+ {col:4,pin:null,t:"And a budget line is only an intention",
+  d:g=>`Jal Jeevan Mission was given \u20B967,000 crore last year and spent \u20B917,000 crore. The job guarantee promises 125 days; the 2025-26 average was <b>43</b>. Open the <b>Delivery</b> tab to see which promises actually moved.`}];
+function guideCtx(){
+  const p=profile(),row=stateRow(p.st),G=buildPersonal(),g=id=>G.N.get(id).val;
+  let conc=null,best=0;
+  TARGETED.forEach(([id,n,v,k])=>{if(!ELIG[k](p)||!BEN[id])return;
+    const head=perCap(v),ben=v/BEN[id].n;if(ben/head>best){best=ben/head;
+      conc={n,head:Math.round(head),ben:Math.round(ben),x:(ben/head).toFixed(0)};}});
+  return {paid:Math.round(paidIn(p)),pool:Math.round(g("me_pool")),st:p.st,share:row[1],
+    stPC:Math.round((DEVOLUTION*row[1]/100)/row[2]),interest:Math.round(perCap(1403972)),
+    use:Math.round(g("T_use")),hand:Math.round(g("T_hand")),others:Math.round(g("T_others")),conc};
+}
+function drawGuide(){
+  const st=GUIDE[S.guide],ctx=guideCtx();
+  document.getElementById("readout").innerHTML=
+    `<div class="gstep"><div class="gn">STEP ${S.guide+1}/${GUIDE.length}</div>`+
+    `<div class="gt">${h(st.t)}</div><div class="gd">${st.d(ctx)}</div>`+
+    `<div class="gnav">`+
+    (S.guide>0?`<button id="gPrev">Back</button>`:"")+
+    `<button id="gSkip">Close</button>`+
+    `<button class="pri" id="gNext">${S.guide===GUIDE.length-1?"Done":"Next"}</button></div></div>`;
+  document.getElementById("gNext").onclick=()=>{S.guide<GUIDE.length-1?goGuide(S.guide+1):endGuide();};
+  document.getElementById("gSkip").onclick=endGuide;
+  const pv=document.getElementById("gPrev");if(pv)pv.onclick=()=>goGuide(S.guide-1);
+}
+function goGuide(i){
+  S.guide=i;const st=GUIDE[i];
+  if(S.mode!=="me"){S.mode="me";syncMode();}
+  S.focus=null;S.pinned=st.pin;render();drawGuide();
+}
+function endGuide(){S.guide=-1;S.pinned=null;render();idle();}
+document.getElementById("guideBtn").onclick=()=>{S.guide>=0?endGuide():goGuide(0);};
+
+/* ══ 9. HEADER ══ */
+function headStats(){
+  const el=document.getElementById("hstats");
+  if(S.mode==="me"){
+    const G=buildPersonal(),g=id=>G.N.get(id).val;
+    el.innerHTML=
+      `<div class="hstat b"><b>${rs(Math.round(g("T_hand")))}</b><span>In your hand</span></div>`+
+      `<div class="hstat c"><b>${rs(Math.round(g("T_use")))}</b><span>Shared services</span></div>`+
+      `<div class="hstat d"><b>${rs(Math.round(g("T_others")))}</b><span>To other people</span></div>`+
+      `<div class="hstat a"><b>${rs(Math.round(g("T_gone")))}</b><span>Debt & overheads</span></div>`;
+  }else{
+    el.innerHTML=`<div class="hstat a"><b>\u20B953.47L cr</b><span>Union spending</span></div>`+
+      `<div class="hstat c"><b>\u20B915.26L cr</b><span>To states</span></div>`+
+      `<div class="hstat d"><b>\u20B9100.34</b><span>Per person per day</span></div>`;
+  }
+}
+
+/* ══ 10. RIGHT RAIL ══ */
+function schemeRules(p){
+  return [
+   [ELIG.nfsa(p),"Free foodgrain under NFSA",p.ration==="aay"?"35 kg a month for the household":`5 kg each a month \u2014 ${5*p.hh} kg for ${p.hh} people`,
+    "Free until December 2028, through 5.44 lakh ration shops. A statutory entitlement: if the shop cannot supply, you are owed a cash allowance instead.","t_food"],
+   [ELIG.kisan(p),"PM-KISAN","\u20B96,000 a year in three instalments",
+    "Reaches 9.44 crore farmers. Income-tax payers and pensioners above \u20B910,000 a month are excluded.","t_kisan"],
+   [ELIG.pmjay(p),"Ayushman Bharat PM-JAY","\u20B95 lakh a year of hospital cover for the family",
+    p.age>=70?"Everyone 70 and over is covered regardless of income, through the Vay Vandana card.":"Covers 12.37 crore families. Cashless at any empanelled hospital, no premium, no co-payment.","t_jay"],
+   [ELIG.jobg(p),"VB-G RAM G job guarantee","125 days of paid work a year per household",
+    "Replaced MGNREGA on 1 July 2026 and raised the guarantee from 100 days. Notified wage now averages \u20B9327 a day. Note the gap: the 2025-26 average was 43 days at \u20B9271 actually paid.","t_jobg"],
+   [ELIG.awas(p),p.area==="rural"?"PM Awas Yojana \u2014 Gramin":"PM Awas Yojana \u2014 Urban",
+    p.area==="rural"?"\u20B91.20 lakh, or \u20B91.30 lakh in hill areas":"Up to \u20B92.50 lakh of assistance",
+    "The woman of the household must be owner or co-owner. 2.99 crore rural houses finished so far against a 4.95 crore target for 2029.","t_awas"],
+   [ELIG.fert(p),"Fertiliser subsidy","About \u20B92,000 a bag off the true cost of urea",
+    "Paid to the manufacturer, so it reaches you as a price you never see. The largest untargeted transfer in the budget at \u20B91.71 lakh crore.","t_fert"],
+   [ELIG.farmc(p),"Crop credit, insurance and KCC","Up to \u20B93 lakh at an effective 4%",
+    "Kisan Credit Card short-term loans, subsidised if you repay on time, plus premium support under crop insurance.","t_farmc"],
+   [ELIG.poshan(p),"PM POSHAN","A hot cooked meal every school day",
+    "Classes 1 to 8 in any government or aided school \u2014 about 11 crore children.","t_posh"],
+   [p.g==="f"&&p.poor,"PM Ujjwala Yojana","\u20B9300 off each cylinder, up to 12 a year","A free LPG connection plus a standing refill subsidy.",null],
+   [p.g==="f"&&p.age>=19&&p.age<=45,"PM Matru Vandana Yojana","\u20B95,000 for the first child; \u20B96,000 more if the second is a girl","Paid in instalments against antenatal check-ups, to offset lost wages.",null],
+   [p.age>=60&&p.poor,"National old age pension",p.age>=80?"\u20B9500 a month from the Centre":"\u20B9200 a month from the Centre","The central share only. Most states top this up to between \u20B91,000 and \u20B93,000.",null],
+   [p.dis,"Disability pension and RPwD entitlements","\u20B9300 a month, plus 4% reservation in government jobs","Twenty-one recognised disabilities, 5% of higher education seats, reasonable accommodation.",null],
+   [p.age>=18&&p.age<=40&&p.inc<=4,"Atal Pension Yojana","\u20B91,000 to \u20B95,000 a month from 60","A guaranteed pension for people outside the organised sector.",null],
+   [p.age>=18&&p.age<=50,"PM Jeevan Jyoti Bima","\u20B92 lakh life cover for \u20B9436 a year","Renewed annually through your bank account, no medical test.",null],
+   [p.age>=18&&p.age<=70,"PM Suraksha Bima","\u20B92 lakh accident cover for \u20B920 a year","Auto-debited from your bank account.",null],
+   [p.work==="vendor","PM SVANidhi","\u20B910,000, then \u20B920,000, then \u20B950,000","A working-capital ladder for street vendors, with interest subsidy and cashback on digital payments.",null],
+   [["business","vendor","artisan"].includes(p.work),"PM MUDRA","Up to \u20B920 lakh without collateral","Shishu to \u20B950,000, Kishore to \u20B95 lakh, Tarun to \u20B910 lakh, Tarun Plus to \u20B920 lakh.",null],
+   [p.work==="artisan","PM Vishwakarma","\u20B915,000 toolkit grant and \u20B93 lakh at 5%","Eighteen traditional trades, with skill training and a stipend during it.",null],
+   [(p.cat!=="gen"||p.g==="f")&&["business","none"].includes(p.work),"Stand-Up India","\u20B910 lakh to \u20B91 crore for a new enterprise","Every bank branch must lend to at least one SC or ST borrower and one woman borrower.",null],
+   [p.work==="student"&&p.cat!=="gen"&&p.inc<=3,"Post-matric scholarship","Fees, maintenance allowance and a book grant","For SC, ST and OBC students after class 10, subject to a parental income ceiling.",null],
+   [p.own,"PM Surya Ghar Muft Bijli","Up to \u20B978,000 subsidy and up to 300 free units a month","\u20B930,000 per kW for the first two kW, \u20B918,000 for the third. Surplus goes back to the grid.",null],
+   [p.area==="rural","Jal Jeevan Mission","A working tap connection at home","Budgeted at \u20B967,670 crore this year \u2014 against \u20B917,000 crore actually spent last year.",null],
+   [p.age>=18&&p.age<=35&&["none","salaried","student"].includes(p.work),"PM Viksit Bharat Rozgar Yojana","Incentive to first-time employees and the firms that hire them","New this year at \u20B920,083 crore, aimed at formal EPFO-registered jobs.",null],
+   [["daily","vendor","artisan"].includes(p.work),"e-Shram","\u20B92 lakh accident cover and a portable worker ID","The national register of unorganised workers. Free, and increasingly the gate to state benefits.",null],
+   [p.incMid<=1275000&&p.work==="salaried","Zero income tax up to \u20B912.75 lakh","The whole slab liability is rebated","Section 87A takes tax to nil up to \u20B912 lakh taxable \u2014 \u20B912.75 lakh salaried, after the \u20B975,000 standard deduction.",null]];
+}
+function drawSchemes(){
+  const p=profile(),R=schemeRules(p),yes=R.filter(r=>r[0]),no=R.filter(r=>!r[0]);
+  document.getElementById("matchCount").textContent=yes.length+" matches";
+  document.getElementById("pSchemes").innerHTML=
+    `<p class="intro">Read against published criteria. Where a scheme appears in the chart, clicking it here jumps to that band.</p>`+
+    `<h4 class="ph">${yes.length} appear to be addressed to you</h4>`+
+    (yes.length?`<ul class="list">`+yes.map(([,n,w,d,id])=>{
+      const b=id&&BEN[id],alloc=id&&(TARGETED.find(t=>t[0]===id)||[])[2];
+      return `<li${id?` data-node="${id}" style="cursor:pointer"`:""}><b>${h(n)}</b><span class="amt">${w}</span><p>${d}</p>`+
+        (b?`<span class="tag pub">${b.n} ${b.u}</span><span class="tag">${rs(Math.round(alloc/b.n))} each</span>`:"")+
+        (id?`<span class="tag hit">In the chart</span>`:"")+`</li>`;}).join("")+`</ul>`
+     :`<div class="empty">Nothing matched. Most universal entitlements begin at lower incomes or after 60. Try a preset on the left.</div>`)+
+    `<h4 class="ph">${no.length} you do not currently match</h4><ul class="list">`+
+    no.map(([,n])=>`<li><b style="font-weight:400;color:var(--muted)">${h(n)}</b></li>`).join("")+`</ul>`;
+  document.querySelectorAll("#pSchemes li[data-node]").forEach(li=>li.addEventListener("click",()=>{
+    if(S.mode!=="me"){S.mode="me";syncMode();}
+    S.guide=-1;S.pinned=li.dataset.node;render();
+    const n=LAST.N.get(li.dataset.node);if(n)describe(n);}));
+}
+function drawRights(){
+  const p=profile(),R=[];
+  const a=(ok,n,d,how)=>{if(ok)R.push([n,d,how]);};
+  a(true,"Article 21 \u2014 life and personal liberty","Read to include livelihood, shelter, clean water, health, privacy and a speedy trial.","High Court under Article 226, or the Supreme Court under Article 32.");
+  a(true,"Right to Information Act, 2005","Any record, file noting or reason behind a decision. \u20B910 fee, 30-day deadline, free if you are below the poverty line.","The Public Information Officer of the department; appeal to the Information Commission.");
+  a(true,"National Food Security Act, 2013","An entitlement, not a favour. If the shop cannot supply, a cash allowance falls due.","District Grievance Redressal Officer, then the State Food Commission.");
+  a(true,"Consumer Protection Act, 2019","Covers e-commerce, misleading advertising and unfair contracts. Up to \u20B950 lakh at the district commission.","File on the e-Daakhil portal. No lawyer needed.");
+  a(true,"Legal Services Authorities Act, 1987","Free legal aid and representation \u2014 automatic for SC and ST persons, women, children and industrial workmen.","The District Legal Services Authority in your court complex.");
+  a(true,"Digital Personal Data Protection Act, 2023","Know what data is held on you, correct it, and have it erased once its purpose is over.","The entity's Data Protection Officer, then the Data Protection Board.");
+  a(p.child,"Article 21A and the RTE Act, 2009","Free schooling from 6 to 14, no capitation fee, no screening, and 25% of private school seats for weaker sections.","Block Education Officer, then the State Commission for Protection of Child Rights.");
+  a(p.area==="rural","Right to work \u2014 VB-G RAM G Act, 2025","Work within 15 days and 5 km, or an unemployment allowance. Late wages accrue compensation per day. In 2025-26 nearly 1 crore people who demanded work did not get it.","Written application to the Gram Panchayat \u2014 insist on a dated receipt.");
+  a(p.g==="f","Sexual Harassment at Workplace Act, 2013","Every workplace with 10 or more people must have an Internal Committee; below that, the District Officer's Local Committee.","Complaint within three months; inquiry must finish in 90 days.");
+  a(p.g==="f"&&p.work==="salaried","Maternity Benefit Act, 1961","26 weeks paid leave for the first two children, a creche where 50 or more work, and two nursing breaks a day.","Claim from the employer; escalate to the Labour Inspector.");
+  a(["salaried","daily"].includes(p.work),"Code on Wages, 2019","A floor wage no employer may go below, equal pay regardless of gender, and wages by the 7th.","Inspector-cum-Facilitator. Claims can reach back three years.");
+  a(p.age>=60,"Senior Citizens Act, 2007","Children and heirs can be ordered to pay maintenance. A property transfer made on a promise of care can be voided if the care stops.","Maintenance Tribunal at the Sub-Divisional office. 90 days, no lawyer.");
+  a(p.cat==="sc"||p.cat==="st","SC/ST (Prevention of Atrocities) Act, 1989","Named offences, a special court, time-bound investigation and staged compensation.","FIR at any police station \u2014 refusing to register one is itself an offence.");
+  a(p.cat==="st","Forest Rights Act, 2006","Title to forest land you cultivate, and community rights over produce, grazing and water. No eviction until claims are settled.","The Gram Sabha's Forest Rights Committee.");
+  a(p.dis,"Rights of Persons with Disabilities Act, 2016","4% reservation in government jobs, 5% in higher education, accessible buildings and transport.","State Commissioner for Persons with Disabilities.");
+  a(p.land,"Land Acquisition Act, 2013","Up to four times market value in rural areas, a social impact assessment, consent thresholds and resettlement first.","Objections to the Collector during the assessment period.");
+  a(true,"Motor Vehicles Act \u2014 the golden hour","Cashless treatment for road accident victims in the first hour, and protection for anyone who stops to help.","Any hospital must admit and stabilise, public or private.");
+  document.getElementById("pRights").innerHTML=
+    `<p class="intro">A scheme can be cut. A right has to be repealed. These are the ones that attach to your circumstances, with the officer or tribunal that hears the complaint.</p>`+
+    `<h4 class="ph">${R.length} that apply to you</h4><ul class="list">`+
+    R.map(([n,d,how])=>`<li><b>${h(n)}</b><p>${d}</p><p class="how"><span class="tag">Claim it at</span>${h(how)}</p></li>`).join("")+`</ul>`;
+}
+function drawDelivery(){
+  const rows=[...GAPS].sort((a,b)=>(a[2]/a[1])-(b[2]/b[1]));
+  document.getElementById("pDelivery").innerHTML=
+    `<p class="intro">A budget line is an intention. This is what happened to last year's promises &mdash; 2025&ndash;26 budget estimate against the revised estimate, which is what was actually spent.</p>`+
+    `<h4 class="ph">Money budgeted vs money spent, 2025&ndash;26</h4>`+
+    rows.map(([n,be,re,note])=>{
+      const pct=re/be*100,cls=pct<60?"lo":pct<90?"mid":"";
+      return `<div class="gap"><div class="gl"><b>${h(n)}</b><s>${cr(re)} of ${cr(be)}</s></div>`+
+        `<div class="gbar"><i class="${cls}" style="width:${Math.min(100,pct)}%"></i><em>${pct.toFixed(0)}%</em></div>`+
+        `<p style="margin:3px 0 0;font-size:11.5px;color:var(--muted)">${h(note)}</p></div>`;}).join("")+
+    `<h4 class="ph">Promise vs delivery: the job guarantee</h4>`+
+    `<table class="mini"><tbody>`+
+    [["Days guaranteed by law","125","the VB-G RAM G Act raised it from 100"],
+     ["Days actually provided","43","2025-26 average per household, the lowest in a decade"],
+     ["Wage notified","\u20B9327/day","national average from 1 July 2026, up from \u20B9299"],
+     ["Wage actually paid","\u20B9271/day","2025-26 average, below the notified rate in almost every state"],
+     ["Best case a year","\u20B940,925","125 days at the notified wage"],
+     ["Actual average","\u20B911,653","43 days at the wage really paid"]]
+     .map(([n,v,s])=>`<tr><td>${n}<span class="sm">${s}</span></td><td class="n">${v}</td></tr>`).join("")+
+    `</tbody></table>`+
+    `<p class="note">In 2025&ndash;26 nearly one crore people who demanded work under the scheme did not receive it. Centrally sponsored schemes as a whole were underspent by \u20B92.04 lakh crore against budget.</p>`;
+}
+function drawCheck(){
+  const p=profile(),row=stateRow(p.st);
+  const stPC=(DEVOLUTION*row[1]/100)/row[2];
+  const tax=incomeTax(p.incMid,p.work==="salaried"),gst=gstPaid(p),fuel=fuelCess(p),paid=tax+gst+fuel;
+  const back=perCap(TOTAL_EXP)+stPC,diff=back-paid;
+  const G=buildPersonal(),hand=G.N.get("T_hand").val;
+  const conc=TARGETED.filter(([id,n,v,k])=>ELIG[k](p)&&BEN[id])
+    .map(([id,n,v])=>({n,head:perCap(v),ben:v/BEN[id].n,b:BEN[id]}))
+    .sort((a,b)=>(b.ben/b.head)-(a.ben/a.head));
+  document.getElementById("pCheck").innerHTML=
+    `<p class="intro">Two questions. What do you put in against what comes back &mdash; and why the chart's per-person figures understate what a recipient actually gets.</p>`+
+    `<h4 class="ph">In and out, per person a year</h4><table class="mini"><tbody>`+
+    [["Income tax",tax,tax===0?"The rebate wipes it out":"New regime, middle of your band"],
+     ["GST on what you buy",gst,"Your share of household spending"],
+     ["Fuel excise and cesses",fuel,"Petrol, diesel, road cess"]]
+     .map(([n,v,s])=>`<tr><td>${n}<span class="sm">${s}</span></td><td class="n">${rs(v)}</td></tr>`).join("")+
+    `<tr class="tot"><td>You put in</td><td class="n">${rs(paid)}</td></tr>`+
+    `<tr><td>Union budget share<span class="sm">Per person</span></td><td class="n">${rs(Math.round(perCap(TOTAL_EXP)))}</td></tr>`+
+    `<tr><td>${h(p.st)}'s untied transfer<span class="sm">${row[1]}% of the pool, over ${row[2]} crore people</span></td><td class="n">${rs(Math.round(stPC))}</td></tr>`+
+    `<tr class="tot"><td>Comes back</td><td class="n">${rs(Math.round(back))}</td></tr></tbody></table>`+
+    `<p class="note">${diff>0
+      ? `You receive about <b>${rs(Math.round(diff))}</b> more than you contribute. The gap is closed by corporation tax, by higher earners, and by the ${rs(Math.round(perCap(1695768)))} a head the government borrows.`
+      : `You contribute about <b>${rs(Math.round(-diff))}</b> more than comes back to you directly. Most of it funds things you use without a bill \u2014 highways, courts, defence \u2014 and transfers to people earning less.`}</p>`+
+    `<h4 class="ph">Why the chart understates your case</h4>`+
+    (conc.length?`<p style="font-size:12.5px;color:var(--ink-2);margin:0 0 9px">The chart divides each scheme across all 146 crore Indians. Targeting concentrates it. Dividing instead by the published number of recipients:</p><ul class="list">`+
+      conc.map(c=>`<li><b>${h(c.n)}</b><div class="ratio"><i>${(c.ben/c.head).toFixed(0)}\u00D7</i>`+
+        `<s>${rs(Math.round(c.head))} share \u2192 ${rs(Math.round(c.ben))} per recipient</s></div>`+
+        `<p>${h(c.b.lbl)}.</p><span class="tag pub">${c.b.n} ${c.b.u}</span></li>`).join("")+`</ul>`
+      :`<p style="font-size:12.5px;color:var(--muted);margin:0">You match no targeted transfer, so nothing concentrates in your favour \u2014 which is what the ${rs(Math.round(hand))} in-hand figure reflects. Try a preset on the left to see the contrast.</p>`)+
+    `<h4 class="ph">Six rules that decide how much reaches you</h4><ul class="list">`+
+    [["Only 14% of spending can reach a named person","Targeted transfers are \u20B97.64 lakh crore of \u20B953.47 lakh crore. The rest is debt, defence, infrastructure and overheads \u2014 real, but not addressable to you."],
+     ["Cesses and surcharges are not shared","The divisible pool excludes them, so the headline 41% overstates what actually reaches states."],
+     ["Small states get far more per head",`Area and forest carry 20% of the weight between them. Sikkim receives about \u20B974,000 a person, Maharashtra about \u20B97,700. ${h(p.st)} gets ${rs(Math.round(stPC))}.`],
+     ["Twenty-six paise is already spoken for","Interest takes \u20B914.04 lakh crore \u2014 40% of revenue receipts. With salaries and pensions, about 65% is committed before any new decision."],
+     ["Cover is not cash","PM-JAY offers \u20B95 lakh of cover per family, but the budget provides \u20B99,500 crore across 12.37 crore families \u2014 about \u20B9768 each. The cover only becomes money if you are hospitalised."],
+     ["Your state must find its part","Most schemes run 60:40 with states, 90:10 for Himalayan and north-eastern ones. If the state share stalls, the central share often does too."]
+    ].map(([n,d])=>`<li><b>${h(n)}</b><p>${d}</p></li>`).join("")+`</ul>`+
+    `<p class="note" style="font-size:11.5px;color:var(--muted)">Sources: Union Budget 2026&ndash;27 documents; PRS Legislative Research analysis of expenditure; Report of the 16th Finance Commission; PIB and ministry releases for beneficiary counts. Population figures are Census 2011 projections. Tax figures are indicative.</p>`;
+}
+
+/* ══ 11. WIRING ══ */
+const pState=document.getElementById("pState");
+STATES.forEach(([n])=>{const o=document.createElement("option");o.value=n;o.textContent=n;pState.appendChild(o);});
+pState.value="Karnataka";
+const presetBox=document.getElementById("presets");
+PRESETS.forEach(([label,vals,tg])=>{
+  const b=document.createElement("button");b.textContent=label;
+  b.onclick=()=>{Object.entries(vals).forEach(([k,v])=>{const el=document.getElementById(k);if(el)el.value=v;});
+    toggles.hasChild=!!tg.hasChild;toggles.hasDis=!!tg.hasDis;
+    document.getElementById("hasChild").setAttribute("aria-pressed",String(toggles.hasChild));
+    document.getElementById("hasDis").setAttribute("aria-pressed",String(toggles.hasDis));
+    refresh();};
+  presetBox.appendChild(b);});
+[[2,"Source"],[3,"Control"],[4,"Sector"],[5,"Scheme"],[6,"Full"]].forEach(([d,l])=>{
+  const b=document.createElement("button");b.className="chip";b.textContent=l;
+  b.setAttribute("aria-pressed",String(d===4));b.dataset.depth=d;
+  b.onclick=()=>{document.querySelectorAll("#depthChips .chip").forEach(x=>x.setAttribute("aria-pressed","false"));
+    b.setAttribute("aria-pressed","true");S.depth=d;S.pinned=null;S.focus=null;render();idle();};
+  document.getElementById("depthChips").appendChild(b);});
+FAMS.forEach(f=>{
+  const b=document.createElement("button");b.className="chip";b.textContent=f.label;
+  b.setAttribute("aria-pressed","true");b.style.borderLeft="3px solid "+f.color;
+  b.onclick=()=>{const on=b.getAttribute("aria-pressed")==="true";b.setAttribute("aria-pressed",String(!on));
+    on?S.fams.delete(f.id):S.fams.add(f.id);
+    if(!S.fams.size){S.fams=new Set(FAMS.map(x=>x.id));
+      document.querySelectorAll("#famChips .chip").forEach(x=>x.setAttribute("aria-pressed","true"));}
+    S.pinned=null;S.focus=null;render();idle();};
+  document.getElementById("famChips").appendChild(b);});
+const mr=document.getElementById("minRange");
+mr.oninput=()=>{S.min=+mr.value;document.getElementById("minOut").textContent=S.min?"\u20B9"+inr(S.min)+"cr":"\u20B90";
+  S.pinned=null;S.focus=null;render();idle();};
+document.getElementById("crumb").onclick=()=>{S.focus=null;S.pinned=null;render();idle();};
+function syncMode(){
+  document.getElementById("mNat").setAttribute("aria-pressed",String(S.mode==="nat"));
+  document.getElementById("mMe").setAttribute("aria-pressed",String(S.mode==="me"));
+  const off=S.mode==="me";
+  [document.getElementById("depthChips").parentElement,mr.parentElement].forEach(el=>{
+    el.style.opacity=off?".35":"1";el.style.pointerEvents=off?"none":"auto";});
+}
+document.getElementById("mNat").onclick=()=>{S.mode="nat";S.pinned=null;S.focus=null;S.guide=-1;syncMode();refresh();};
+document.getElementById("mMe").onclick=()=>{S.mode="me";S.pinned=null;S.focus=null;syncMode();refresh();};
+document.querySelectorAll('.tabs [role=tab]').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tabs [role=tab]').forEach(x=>x.setAttribute("aria-selected","false"));
+  b.setAttribute("aria-selected","true");
+  document.querySelectorAll(".pane").forEach(p=>p.classList.remove("on"));
+  document.getElementById("p"+b.dataset.p).classList.add("on");});
+["hasChild","hasDis"].forEach(id=>document.getElementById(id).onclick=function(){
+  toggles[id]=!toggles[id];this.setAttribute("aria-pressed",String(toggles[id]));refresh();});
+document.querySelectorAll("#profileForm select,#profileForm input").forEach(el=>{
+  el.addEventListener("change",refresh);el.addEventListener("input",refresh);});
+document.querySelectorAll("#mobtabs button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("#mobtabs button").forEach(x=>x.setAttribute("aria-pressed","false"));
+  b.setAttribute("aria-pressed","true");const t=b.dataset.t;
+  document.getElementById("railL").classList.toggle("show",t==="you");
+  document.getElementById("railR").classList.toggle("show",t==="res");
+  document.getElementById("canvasWrap").classList.toggle("hide",t!=="flow");
+  if(t==="flow")requestAnimationFrame(render);});
+document.addEventListener("keydown",e=>{
+  if(S.guide<0)return;
+  if(e.key==="ArrowRight"){e.preventDefault();S.guide<GUIDE.length-1?goGuide(S.guide+1):endGuide();}
+  if(e.key==="ArrowLeft"&&S.guide>0){e.preventDefault();goGuide(S.guide-1);}
+  if(e.key==="Escape")endGuide();});
+
+function refresh(){headStats();render();drawSchemes();drawRights();drawDelivery();drawCheck();idle();}
+let rt;new ResizeObserver(()=>{clearTimeout(rt);rt=setTimeout(render,90);}).observe(canvas);
+syncMode();refresh();
+</script>
+</body>
+</html>
