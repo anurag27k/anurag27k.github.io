@@ -1333,7 +1333,7 @@
     <div class="label reveal"><span class="num">02</span> Selected Work</div>
     <div class="head-row">
       <h2 class="h2 reveal">Six projects across <span class="em">enterprise</span>, <span class="em">academia</span>, and the edge of <span class="em">AI.</span></h2>
-      <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="constellation" aria-hidden="true"></canvas></div>
+      <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="tiles" aria-hidden="true"></canvas></div>
     </div>
 
     <div class="work-tabs reveal" role="tablist" aria-label="Project category">
@@ -1925,15 +1925,15 @@
     /* colour is temperature: resting ink -> accent as a point picks up speed.
        Both endpoints come from the theme tokens, so dark mode inverts for free. */
     var L = 7, F = 6;                    /* heat levels x readability-fade steps */
-    var SIZE = [1.25, 1.3, 1.4, 1.5, 1.65, 1.85, 2.1];
-    var FADE = [1, 0.72, 0.5, 0.32, 0.18, 0.08];
+    var SIZE = [1.4, 1.45, 1.55, 1.65, 1.8, 2.0, 2.25];
+    var FADE = [1, 0.74, 0.54, 0.36, 0.2, 0.08];
     var RAMP = [];
     var bucket = [], bcount = new Int32Array(L * F);
 
     var HUBS = 12, hub = new Float32Array(HUBS * 2);
     var ptr = { x: -9999, y: -9999, tx: -9999, ty: -9999, on: false, spin: 0 };
     var waves = [];
-    var t = 0, last = 0, fIdx = 0, netW = 0, vis = 0, visShown = -1;
+    var t = 0, last = 0, fIdx = 0, netW = 0, vis = 0, visShown = -1, resnap = false;
 
     var elCount = document.getElementById('fieldCount');
     var elState = document.getElementById('fieldState');
@@ -1982,7 +1982,7 @@
         var r = Math.round(a[0] + (b[0] - a[0]) * c);
         var g = Math.round(a[1] + (b[1] - a[1]) * c);
         var bl = Math.round(a[2] + (b[2] - a[2]) * c);
-        var base = (dark ? 0.17 : 0.22) + (dark ? 0.66 : 0.70) * u;
+        var base = (dark ? 0.30 : 0.34) + (dark ? 0.58 : 0.60) * u;
         for (var f = 0; f < F; f++) {
           RAMP.push('rgba(' + r + ',' + g + ',' + bl + ',' + (base * FADE[f]).toFixed(3) + ')');
         }
@@ -2045,7 +2045,7 @@
 
     /* ---------------- formations ---------------- */
     var P = { cols: 1, rows: 1, gx: 1, gy: 1, ar0: 1, adr: 11, anr: 8, asum: 1 };
-    var _x = 0, _y = 0;
+    var _x = 0, _y = 0, _hot = 0;
 
     function hubs() {
       for (var j = 0; j < HUBS; j++) {
@@ -2064,11 +2064,14 @@
       if (motif) {
         var ux = (gx - motif.cx) / motif.rx, uy = (gy - motif.cy) / motif.ry;
         if (ux * ux + uy * uy < 1.3) {
-          var ph = (t * 0.12 + rb[i]) % 1;
-          var a = ra[i] * TAU + t * 0.26;
-          var rr;
-          if (i % 5 === 0) { rr = 1 - ph * 0.88; a += ph * 3.1; }   /* falling inward */
-          else { rr = 0.9 + rb[i] * 0.17 + Math.sin(a * 5 + t) * 0.03; }
+          /* the same convergence that closes the page: five arms spiralling to one
+             point, warming as they arrive */
+          var ARMS = 5;
+          var k = i % ARMS;
+          var ph = (t * 0.1 + (i * 0.6180339887498949) % 1) % 1;
+          var a = (k / ARMS) * TAU + ph * 4.4 + t * 0.12;
+          var rr = (1 - ph) * (0.96 + rc[i] * 0.07);
+          if (rr < 0.2) _hot = 0.45;
           _x = motif.cx + Math.cos(a) * rr * motif.rx;
           _y = motif.cy + Math.sin(a) * rr * motif.ry;
           return;
@@ -2195,7 +2198,7 @@
 
       scrollState();
       if (vis <= 0.01) {
-        if (visShown !== 0) { ctx.clearRect(0, 0, W, H); cv.style.opacity = '0'; visShown = 0; }
+        if (visShown !== 0) { ctx.clearRect(0, 0, W, H); cv.style.opacity = '0'; visShown = 0; resnap = true; }
         return;
       }
       if (Math.abs(vis - visShown) > 0.004) { cv.style.opacity = vis.toFixed(3); visShown = vis; }
@@ -2206,6 +2209,19 @@
       measureZones();
       measureMotif();
       hubs();
+
+      /* the field is hidden between sections — when it returns, put every point
+         straight into the new formation instead of letting it spring across */
+      if (resnap) {
+        resnap = false;
+        var rlo = fIdx | 0, rhi = rlo + 1 > 2 ? 2 : rlo + 1, rbl = fIdx - rlo, rx0, ry0, s0;
+        for (s0 = 0; s0 < N; s0++) {
+          _hot = 0;
+          formAt(rlo, s0); rx0 = _x; ry0 = _y;
+          if (rbl > 0.001) { formAt(rhi, s0); rx0 += (_x - rx0) * rbl; ry0 += (_y - ry0) * rbl; }
+          px[s0] = rx0; py[s0] = ry0; vx[s0] = 0; vy[s0] = 0;
+        }
+      }
 
       if (ptr.on) {
         if (ptr.x < -1000) { ptr.x = ptr.tx; ptr.y = ptr.ty; }
@@ -2222,13 +2238,14 @@
 
       var R = MIN * 0.19, R2 = R * R;
       var lo = fIdx | 0, hi = lo + 1 > 2 ? 2 : lo + 1, blend = fIdx - lo;
-      var stiff = 0.03, damp = Math.pow(0.9, st);
+      var stiff = 0.03, damp = Math.pow(0.88, st);
       var i, j, dx, dy, d2, d, f, ax, ay, tx, ty, sp, heat, lvl, fade, z;
       var swirl = ptr.spin, nz = zones.length;
 
       for (i = 0; i < L * F; i++) bcount[i] = 0;
 
       for (i = 0; i < N; i++) {
+        _hot = 0;
         if (blend < 0.999) { formAt(lo, i); tx = _x; ty = _y; } else { tx = 0; ty = 0; }
         if (blend > 0.001) {
           formAt(hi, i);
@@ -2270,7 +2287,7 @@
         px[i] += vx[i] * st;
         py[i] += vy[i] * st;
 
-        heat += 0.04 + rc[i] * 0.09 + (Math.abs(vx[i]) + Math.abs(vy[i])) * 0.11;
+        heat += _hot + 0.09 + rc[i] * 0.11 + (Math.abs(vx[i]) + Math.abs(vy[i])) * 0.12;
         if (heat > 1) heat = 1;
         lvl = (heat * (L - 1)) | 0;
 
@@ -2326,7 +2343,7 @@
     var DPR = Math.min(2, window.devicePixelRatio || 1);
     var TAU = Math.PI * 2;
     var L = 7;
-    var SIZE = [1.3, 1.35, 1.45, 1.55, 1.7, 1.9, 2.1];
+    var SIZE = [1.5, 1.55, 1.65, 1.75, 1.9, 2.1, 2.3];
     var RAMP = { normal: [], invert: [] };
 
     function hex(v) {
@@ -2347,10 +2364,10 @@
         var r = Math.round(ink[0] + (acc[0] - ink[0]) * c);
         var g = Math.round(ink[1] + (acc[1] - ink[1]) * c);
         var b = Math.round(ink[2] + (acc[2] - ink[2]) * c);
-        var a = (dark ? 0.3 : 0.34) + (dark ? 0.6 : 0.64) * u;
+        var a = (dark ? 0.46 : 0.50) + (dark ? 0.46 : 0.48) * u;
         RAMP.normal.push('rgba(' + r + ',' + g + ',' + b + ',' + a.toFixed(3) + ')');
         /* on the lime block the same idea runs in ink only */
-        RAMP.invert.push('rgba(' + on[0] + ',' + on[1] + ',' + on[2] + ',' + (0.3 + 0.65 * u).toFixed(3) + ')');
+        RAMP.invert.push('rgba(' + on[0] + ',' + on[1] + ',' + on[2] + ',' + (0.46 + 0.5 * u).toFixed(3) + ')');
       }
     }
     ramp();
@@ -2389,9 +2406,16 @@
       it.ra = new Float32Array(n); it.rb = new Float32Array(n); it.rc = new Float32Array(n);
       it.bucket = [];
       for (var q = 0; q < L; q++) it.bucket.push(new Int32Array(n));
-      for (var i = 0; i < n; i++) {
+      var i;
+      for (i = 0; i < n; i++) {
         it.ra[i] = Math.random(); it.rb[i] = Math.random(); it.rc[i] = Math.random();
-        it.px[i] = Math.random() * w; it.py[i] = Math.random() * h;
+      }
+      /* seed every point already standing in its formation — a section should
+         arrive composed rather than scatter in and bounce into place */
+      var f0 = FORMS[it.form] || fLattice;
+      for (i = 0; i < n; i++) {
+        _hot = 0; f0(it, i);
+        it.px[i] = _x; it.py[i] = _y;
       }
       return true;
     }
@@ -2409,9 +2433,8 @@
       it.cols = Math.max(3, Math.round(w / GAP));
       it.rows = Math.max(3, Math.round(h / GAP));
       switch (it.form) {
-        case 'constellation':
-          g = Math.min(w, h) * 0.19;
-          n = Math.round(6 * Math.PI * g * g * 1.15 / (GAP * GAP));
+        case 'tiles':
+          n = Math.round(12 * (w * 0.25 + h * 0.3) / (GAP * 0.5));
           break;
         case 'radar':
           var R = Math.min(h * 0.46, w * 0.3), sum = 0;
@@ -2424,7 +2447,7 @@
           n = it.k1 + it.k2;
           break;
         case 'pages':
-          n = Math.round(18 * (w * 0.28) * 0.79 / GAP);
+          n = Math.round(21 * (w * 0.28) * 0.82 / GAP);
           break;
         case 'signal':
           n = Math.round(3 * w * 1.22 / GAP);
@@ -2459,18 +2482,46 @@
       _y = y + Math.cos(t * 0.44 + c * 0.3 + it.seed) * 2;
     }
 
-    /* 02 Selected Work — six projects, six clusters */
-    function fConstellation(it, i) {
+    /* 02 Selected Work — six project frames. Each perimeter runs a marching
+       outline with a bright head, and one card steps forward at a time. */
+    function fTiles(it, i) {
       var k = i % 6;
-      var cx = (0.16 + (k % 3) * 0.34) * it.w;
-      var cy = (0.28 + ((k / 3) | 0) * 0.44) * it.h;
-      var a = it.ra[i] * TAU + t * 0.06 * (k % 2 ? 1 : -1);
-      var rad = Math.pow(it.rb[i], 0.55) * Math.min(it.w, it.h) * 0.19;
-      _x = cx + Math.cos(a) * rad * 1.15 + Math.sin(t * 0.3 + k) * 3;
-      _y = cy + Math.sin(a) * rad + Math.cos(t * 0.26 + k) * 3;
+      var per = it.n / 6;
+      var s = ((((i / 6) | 0) % per) / per);
+
+      var cx = it.w * (0.175 + (k % 3) * 0.325);
+      var cy = it.h * (0.28 + ((k / 3) | 0) * 0.44);
+      var tw = it.w * 0.25, th = it.h * 0.30;
+
+      /* the card currently forward */
+      var cyc = t * 0.42;
+      var flr = Math.floor(cyc);
+      var act = ((flr % 6) + 6) % 6;
+      var pop = k === act ? Math.sin(Math.min(1, (cyc - flr) * 1.7) * Math.PI) : 0;
+      tw *= 1 + pop * 0.17; th *= 1 + pop * 0.17;
+
+      /* march the point around the rectangle by arc length */
+      var dir = k % 2 ? 1 : -1;
+      var u = (s + t * 0.06 * dir + k * 0.13) % 1;
+      if (u < 0) u += 1;
+      var pw = (tw / (tw + th)) * 0.5, x, y;
+      if (u < pw)            { x = -tw / 2 + (u / pw) * tw;                y = -th / 2; }
+      else if (u < 0.5)      { x = tw / 2;  y = -th / 2 + ((u - pw) / (0.5 - pw)) * th; }
+      else if (u < 0.5 + pw) { x = tw / 2 - ((u - 0.5) / pw) * tw;         y = th / 2; }
+      else                   { x = -tw / 2; y = th / 2 - ((u - 0.5 - pw) / (0.5 - pw)) * th; }
+
+      /* a bright head running each loop */
+      var head = (t * 0.3 + k * 0.17) % 1;
+      var gap = Math.abs(u - head); if (gap > 0.5) gap = 1 - gap;
+      if (gap < 0.075) _hot = 0.6 * (1 - gap / 0.075);
+      if (pop > 0.02) { var ph = 0.22 + pop * 0.45; if (ph > _hot) _hot = ph; }
+
+      _x = cx + x + Math.sin(t * 0.6 + k + s * 6.3) * 1.7;
+      _y = cy + y + Math.cos(t * 0.52 + k * 1.3 + s * 6.3) * 1.7;
     }
 
-    /* 03 Capabilities — a radar: rings for range, spokes for depth */
+    /* 03 Capabilities — a radar: rings for range, spokes for depth, a beam
+       wiping the dial and a ping leaving the centre */
     function fRadar(it, i) {
       var R = Math.min(it.h * 0.46, it.w * 0.3);
       var cx = it.w * 0.5, cy = it.h * 0.5;
@@ -2478,7 +2529,7 @@
       var a, rr;
       if (i < it.k2) {                                     /* spokes */
         var per = it.k2 / 8;
-        a = (i % 8) / 8 * TAU + t * 0.05;
+        a = (i % 8) / 8 * TAU + t * 0.17;
         rr = 0.16 + ((((i / 8) | 0) % per) / per) * 0.86;
       } else {                                             /* rings */
         var f = (i - it.k2) / it.k1, ring = 3;
@@ -2486,27 +2537,66 @@
         else if (f < RING_CUT[2]) ring = 1;
         else if (f < RING_CUT[3]) ring = 2;
         var u = (f - RING_CUT[ring]) / (RING_CUT[ring + 1] - RING_CUT[ring]);
-        rr = RING_RR[ring];
-        a = u * TAU + t * (0.06 + ring * 0.02) * (ring % 2 ? -1 : 1);
+        rr = RING_RR[ring] + Math.sin(t * (0.7 + ring * 0.25) + u * TAU * 2) * 0.018;
+        a = u * TAU + t * (0.24 + ring * 0.11) * (ring % 2 ? -1 : 1);
       }
+
+      /* the sweep — everything just behind the beam is still lit and lags out */
+      var da = a - t * 0.8;
+      da = ((da % TAU) + TAU + Math.PI) % TAU - Math.PI;
+      var lag = 0;
+      if (da < 0 && da > -1.6) {
+        var q = 1 + da / 1.6; q *= q;
+        _hot = 0.9 * q;
+        lag = q * 0.11;
+      }
+
+      /* the ping — a shell of energy travelling outward */
+      var ping = (t * 0.34) % 1.35;
+      var dp = Math.abs(rr - ping);
+      if (dp < 0.11) {
+        var pq = (1 - dp / 0.11) * (ping < 1.05 ? 1 : (1.35 - ping) / 0.3);
+        if (pq * 0.7 > _hot) _hot = pq * 0.7;
+        lag += pq * 0.055;
+      }
+
+      rr += lag;
       _x = cx + Math.cos(a) * rr * rx;
       _y = cy + Math.sin(a) * rr * ry;
     }
 
-    /* 05 Publications — three papers, stacked, ragged right */
+    /* 05 Publications — three papers, each resetting itself: lines re-measure
+       as the column turns over, and a reading bar runs down the block */
     function fPages(it, i) {
-      var BL = 3, LN = 6;
+      var BL = 3, LN = 7;
       var b = i % BL;
       var per = it.n / BL;
       var u = (((i / BL) | 0) % per) / per;
       var line = Math.min(LN - 1, Math.floor(u * LN));
       var fu = u * LN - line;
-      var len = 0.6 + 0.38 * Math.abs(hash(b + 1, line + 1));
-      var bw = it.w * 0.28, bh = it.h * 0.6;
-      var ox = it.w * (0.03 + b * 0.335) + Math.sin(t * 0.3 + b) * 2;
-      var oy = it.h * (0.13 + b * 0.07);
-      _x = ox + fu * len * bw;
-      _y = oy + (line + 0.5) * (bh / LN);
+
+      /* the turn: line lengths ease from one setting to the next, so the column
+         re-flows rather than snapping */
+      var pg = t * 0.1 + b * 0.41;
+      var p0 = Math.floor(pg), pf = pg - p0;
+      var e = pf < 0.68 ? 0 : (pf - 0.68) / 0.32;
+      e = e * e * (3 - 2 * e);
+      var la = 0.36 + 0.6 * Math.abs(hash(b * 7 + p0 + 1, line + 1));
+      var lb = 0.36 + 0.6 * Math.abs(hash(b * 7 + p0 + 2, line + 1));
+      var len = la + (lb - la) * e;
+      var turn = Math.sin(e * Math.PI);
+      if (turn > 0.02) _hot = turn * 0.45;
+
+      /* the reading bar */
+      var rd = ((t * 0.33 + b * 0.5) % 1.25) * LN;
+      var dl = Math.abs(rd - (line + 0.5));
+      if (dl < 0.65) { var rq = 0.7 * (1 - dl / 0.65); if (rq > _hot) _hot = rq; }
+
+      var bw = it.w * 0.28, bh = it.h * 0.62;
+      var ox = it.w * (0.03 + b * 0.335) + Math.sin(t * 0.3 + b) * 2 + turn * it.w * 0.03;
+      var oy = it.h * 0.19;
+      _x = ox + fu * len * bw + Math.sin(t * 0.9 + line * 1.1 + b) * 1.4;
+      _y = oy + (line + 0.5) * (bh / LN) + Math.cos(t * 0.75 + line * 0.8 + b * 1.7) * 1.6;
     }
 
     /* 06 Witness — voices: three bands, permanently out of phase */
@@ -2552,7 +2642,7 @@
     }
 
     var FORMS = {
-      lattice: fLattice, constellation: fConstellation, radar: fRadar,
+      lattice: fLattice, tiles: fTiles, radar: fRadar,
       pages: fPages, signal: fSignal, branch: fBranch, converge: fConverge
     };
 
@@ -2560,7 +2650,7 @@
     function step(it, r, st) {
       var f = FORMS[it.form] || fLattice;
       var R = 96, R2 = R * R;
-      var damp = Math.pow(0.88, st), stiff = 0.045;
+      var damp = Math.pow(0.86, st), stiff = 0.045;
       var lx = mx - r.left, ly = my - r.top;
       var live = on && !reduced && lx > -R && lx < it.w + R && ly > -R && ly < it.h + R;
       var i, dx, dy, d2, d, ff, ax, ay, sp, heat, lvl;
@@ -2592,7 +2682,7 @@
         it.px[i] += it.vx[i] * st;
         it.py[i] += it.vy[i] * st;
 
-        heat += _hot + 0.05 + it.rc[i] * 0.08 + (Math.abs(it.vx[i]) + Math.abs(it.vy[i])) * 0.12;
+        heat += _hot + 0.1 + it.rc[i] * 0.12 + (Math.abs(it.vx[i]) + Math.abs(it.vy[i])) * 0.14;
         if (it.rc[i] > 0.965) heat += 0.3;
         if (heat > 1) heat = 1;
         lvl = (heat * (L - 1)) | 0;
