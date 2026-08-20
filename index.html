@@ -1224,7 +1224,7 @@
     </a>
     <div class="nav-links">
       <a href="#top" class="nav-link interactive">Home</a>
-      <a href="#about" class="nav-link interactive">About</a>
+      <a href="#work" class="nav-link interactive">Projects</a>
       <a href="#experiments" class="nav-link interactive">Experiments</a>
       <a href="#publications" class="nav-link interactive">Publications</a>
       <a href="#contact" class="nav-link interactive">Contact</a>
@@ -1333,7 +1333,7 @@
     <div class="label reveal"><span class="num">02</span> Selected Work</div>
     <div class="head-row">
       <h2 class="h2 reveal">Six projects across <span class="em">enterprise</span>, <span class="em">academia</span>, and the edge of <span class="em">AI.</span></h2>
-      <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="tiles" aria-hidden="true"></canvas></div>
+      <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="portal" aria-hidden="true"></canvas></div>
     </div>
 
     <div class="work-tabs reveal" role="tablist" aria-label="Project category">
@@ -1587,7 +1587,7 @@
     <div class="label reveal"><span class="num">05</span> Publications</div>
     <div class="head-row">
       <h2 class="h2 reveal">Published papers across <span class="em">three</span> conferences.</h2>
-      <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="pages" aria-hidden="true"></canvas></div>
+      <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="sheet" aria-hidden="true"></canvas></div>
     </div>
 
     <div>
@@ -1721,7 +1721,7 @@
     <div class="contact-eyebrow reveal">Contact / Open for senior &amp; staff design roles · 2026</div>
     <div class="head-row contact-row">
       <h2 class="contact-headline reveal">let's build something <em>that matters.</em></h2>
-      <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="converge" aria-hidden="true"></canvas></div>
+      <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="build" aria-hidden="true"></canvas></div>
     </div>
 
     <div class="contact-email-wrap">
@@ -1924,9 +1924,9 @@
 
     /* colour is temperature: resting ink -> accent as a point picks up speed.
        Both endpoints come from the theme tokens, so dark mode inverts for free. */
-    var L = 7, F = 6;                    /* heat levels x readability-fade steps */
+    var L = 7, F = 10;                   /* heat levels x readability-fade steps */
     var SIZE = [1.4, 1.45, 1.55, 1.65, 1.8, 2.0, 2.25];
-    var FADE = [1, 0.74, 0.54, 0.36, 0.2, 0.08];
+    var FADE = [1, 0.87, 0.74, 0.62, 0.5, 0.39, 0.29, 0.19, 0.11, 0.04];
     var RAMP = [];
     var bucket = [], bcount = new Int32Array(L * F);
 
@@ -1941,7 +1941,7 @@
 
     /* text blocks the field must not sit on top of */
     var zoneEls = [];
-    var ZM = 44;                         /* default soft margin around a block */
+    var ZM = 66;                         /* default soft margin around a block */
     function addZones(sel, depth, margin) {
       var list = document.querySelectorAll(sel);
       for (var i = 0; i < list.length; i++) {
@@ -1950,16 +1950,16 @@
     }
     /* measure the inline text runs, not their full-width parents, so the field
        keeps the ragged negative space beside the headline */
-    addZones('.hero-line > span', F - 1);   /* display type clears the field outright */
-    addZones('.currently-lead', F - 1);
-    addZones('.currently-detail', F - 1);
-    addZones('.nav-logo, .nav-links', 3);   /* small mono text only wants it quieter */
-    addZones('.hero-meta > span, .hero-meta-right', 3);
-    addZones('.hero-intro, .hero-side, .hero-cta', 3);
-    addZones('.currently .label, .currently-rail', 3);
-    addZones('.lab-h2, .lab-note', F - 1);
-    addZones('.lab .label, .lab-meta, .lab-link', 3);
-    addZones('.lab-card', F - 1);           /* solid surfaces push the field out */
+    addZones('.hero-line > span', F - 1, 108);  /* display type clears the field outright */
+    addZones('.currently-lead', F - 1, 96);
+    addZones('.currently-detail', F - 1, 84);
+    addZones('.nav-logo, .nav-links', 6);       /* small mono text only wants it quieter */
+    addZones('.hero-meta > span, .hero-meta-right', 6);
+    addZones('.hero-intro, .hero-side, .hero-cta', 6);
+    addZones('.currently .label, .currently-rail', 6);
+    addZones('.lab-h2, .lab-note', F - 1, 96);
+    addZones('.lab .label, .lab-meta, .lab-link', 6);
+    addZones('.lab-card', F - 1, 78);           /* solid surfaces push the field out */
 
     var zones = [];
 
@@ -2239,8 +2239,10 @@
       var R = MIN * 0.19, R2 = R * R;
       var lo = fIdx | 0, hi = lo + 1 > 2 ? 2 : lo + 1, blend = fIdx - lo;
       var stiff = 0.03, damp = Math.pow(0.88, st);
-      var i, j, dx, dy, d2, d, f, ax, ay, tx, ty, sp, heat, lvl, fade, z;
+      var i, j, dx, dy, d2, d, f, ax, ay, tx, ty, sp, heat, lvl, fade, z, ff;
+      var mgx, mgy, mu, mv, mr;
       var swirl = ptr.spin, nz = zones.length;
+      var hw = 1 - (fIdx < 0 ? 0 : fIdx > 1 ? 1 : fIdx);   /* motif only exists in substrate */
 
       for (i = 0; i < L * F; i++) bcount[i] = 0;
 
@@ -2291,16 +2293,38 @@
         if (heat > 1) heat = 1;
         lvl = (heat * (L - 1)) | 0;
 
-        /* dim inside any text block so type always wins */
+        /* fall away toward any text block, so type always wins — eased over a
+           real distance rather than stepped at the edge */
         fade = 0;
         for (j = 0; j < nz; j++) {
           z = zones[j];
           dx = z.l - px[i]; if (px[i] > z.r) dx = px[i] - z.r; else if (dx < 0) dx = 0;
           dy = z.t - py[i]; if (py[i] > z.b) dy = py[i] - z.b; else if (dy < 0) dy = 0;
-          d = dx > dy ? dx : dy;
+          if (dx >= z.m || dy >= z.m) continue;
+          d = Math.sqrt(dx * dx + dy * dy);
           if (d < z.m) {
-            sp = Math.round(z.d * (1 - d / z.m));
+            ff = 1 - d / z.m; ff = ff * ff * (3 - 2 * ff);
+            sp = Math.round(z.d * ff);
             if (sp > fade) fade = sp;
+          }
+        }
+
+        /* and the same courtesy around the formation itself, so the spiral is
+           read against clear ground rather than a busy lattice */
+        if (motif && hw > 0.01) {
+          mgx = ((i % P.cols) + 0.5) * P.gx;
+          mgy = (((i / P.cols) | 0) + 0.5) * P.gy;
+          mu = (mgx - motif.cx) / motif.rx; mv = (mgy - motif.cy) / motif.ry;
+          if (mu * mu + mv * mv >= 1.3) {                 /* skip the spiral's own points */
+            mu = (px[i] - motif.cx) / motif.rx; mv = (py[i] - motif.cy) / motif.ry;
+            mr = Math.sqrt(mu * mu + mv * mv);
+            if (mr < 2.05) {
+              ff = 1 - (mr - 1.14) / 0.91;
+              ff = ff > 1 ? 1 : ff < 0 ? 0 : ff;
+              ff = ff * ff * (3 - 2 * ff);
+              sp = Math.round((F - 1) * 0.94 * ff * hw);
+              if (sp > fade) fade = sp;
+            }
           }
         }
         j = lvl * F + fade;
@@ -2433,8 +2457,11 @@
       it.cols = Math.max(3, Math.round(w / GAP));
       it.rows = Math.max(3, Math.round(h / GAP));
       switch (it.form) {
-        case 'tiles':
-          n = Math.round(12 * (w * 0.25 + h * 0.3) / (GAP * 0.5));
+        case 'portal':
+          it.pR = Math.min(w * 0.25, h * 0.40);
+          it.pr = it.pR * 0.36;
+          it.wind = Math.max(18, Math.round(it.pR / 2.9));
+          n = Math.round(it.wind * TAU * it.pr / (GAP * 0.5));
           break;
         case 'radar':
           var R = Math.min(h * 0.46, w * 0.3), sum = 0;
@@ -2446,8 +2473,9 @@
           it.k2 = Math.max(16, Math.round(8 * R * 0.84 / GAP));
           n = it.k1 + it.k2;
           break;
-        case 'pages':
-          n = Math.round(21 * (w * 0.28) * 0.82 / GAP);
+        case 'sheet':
+          it.ln = Math.max(9, Math.min(18, Math.round(h / 18)));
+          n = Math.round(it.ln * (w * 0.78) / (GAP * 0.5));
           break;
         case 'signal':
           n = Math.round(3 * w * 1.22 / GAP);
@@ -2457,9 +2485,9 @@
           it.l2 = Math.sqrt(Math.pow(w * 0.46, 2) + Math.pow(h * 0.3, 2));
           n = Math.round(9 * (it.l1 + it.l2) / GAP);
           break;
-        case 'converge':
-          g = Math.sqrt((w * 0.46) * (h * 0.46));
-          n = Math.round(5 * g * 2.5 / GAP);
+        case 'build':
+          it.bS = Math.min(w * 0.20, h * 0.235);
+          n = Math.round(28 * it.bS / (GAP * 0.28));
           break;
         default:
           n = it.cols * it.rows;
@@ -2482,42 +2510,35 @@
       _y = y + Math.cos(t * 0.44 + c * 0.3 + it.seed) * 2;
     }
 
-    /* 02 Selected Work — six project frames. Each perimeter runs a marching
-       outline with a bright head, and one card steps forward at a time. */
-    function fTiles(it, i) {
-      var k = i % 6;
-      var per = it.n / 6;
-      var s = ((((i / 6) | 0) % per) / per);
+    /* 02 Selected Work — one object. A single continuous filament wound through
+       a portal, turning in space; depth alone decides what reads as near. */
+    function fPortal(it, i) {
+      var R = it.pR, r = it.pr;
+      var s = i / it.n;
+      var u = s * TAU;                                  /* once around the ring */
+      var v = s * TAU * it.wind + t * 0.42;             /* many times around the tube */
 
-      var cx = it.w * (0.175 + (k % 3) * 0.325);
-      var cy = it.h * (0.28 + ((k / 3) | 0) * 0.44);
-      var tw = it.w * 0.25, th = it.h * 0.30;
+      var cv = Math.cos(v);
+      var rr = R + r * cv;
+      var x = rr * Math.cos(u), y = r * Math.sin(v), z = rr * Math.sin(u);
 
-      /* the card currently forward */
-      var cyc = t * 0.42;
-      var flr = Math.floor(cyc);
-      var act = ((flr % 6) + 6) % 6;
-      var pop = k === act ? Math.sin(Math.min(1, (cyc - flr) * 1.7) * Math.PI) : 0;
-      tw *= 1 + pop * 0.17; th *= 1 + pop * 0.17;
+      var sp = t * 0.2, cs = Math.cos(sp), sn = Math.sin(sp);
+      var x1 = x * cs - z * sn, z1 = x * sn + z * cs;
 
-      /* march the point around the rectangle by arc length */
-      var dir = k % 2 ? 1 : -1;
-      var u = (s + t * 0.06 * dir + k * 0.13) % 1;
-      if (u < 0) u += 1;
-      var pw = (tw / (tw + th)) * 0.5, x, y;
-      if (u < pw)            { x = -tw / 2 + (u / pw) * tw;                y = -th / 2; }
-      else if (u < 0.5)      { x = tw / 2;  y = -th / 2 + ((u - pw) / (0.5 - pw)) * th; }
-      else if (u < 0.5 + pw) { x = tw / 2 - ((u - 0.5) / pw) * tw;         y = th / 2; }
-      else                   { x = -tw / 2; y = th / 2 - ((u - 0.5 - pw) / (0.5 - pw)) * th; }
+      var tl = -0.58 + Math.sin(t * 0.13) * 0.07;       /* the whole piece breathes */
+      var ct = Math.cos(tl), stl = Math.sin(tl);
+      var y2 = y * ct - z1 * stl, z2 = y * stl + z1 * ct;
 
-      /* a bright head running each loop */
-      var head = (t * 0.3 + k * 0.17) % 1;
-      var gap = Math.abs(u - head); if (gap > 0.5) gap = 1 - gap;
-      if (gap < 0.075) _hot = 0.6 * (1 - gap / 0.075);
-      if (pop > 0.02) { var ph = 0.22 + pop * 0.45; if (ph > _hot) _hot = ph; }
+      var d = 1 / (1 - z2 / (R * 3.4));
+      _x = it.w * 0.5 + x1 * d;
+      _y = it.h * 0.5 + y2 * d;
 
-      _x = cx + x + Math.sin(t * 0.6 + k + s * 6.3) * 1.7;
-      _y = cy + y + Math.cos(t * 0.52 + k * 1.3 + s * 6.3) * 1.7;
+      var near = (z2 / (R + r) + 1) * 0.5;              /* 0 far side .. 1 near side */
+      _hot = 0.02 + near * near * 0.62;
+
+      var head = (t * 0.12) % 1;                        /* a charge running the filament */
+      var g = Math.abs(s - head); if (g > 0.5) g = 1 - g;
+      if (g < 0.05) { var q = 0.9 * (1 - g / 0.05); if (q > _hot) _hot = q; }
     }
 
     /* 03 Capabilities — a radar: rings for range, spokes for depth, a beam
@@ -2565,38 +2586,53 @@
       _y = cy + Math.sin(a) * rr * ry;
     }
 
-    /* 05 Publications — three papers, each resetting itself: lines re-measure
-       as the column turns over, and a reading bar runs down the block */
-    function fPages(it, i) {
-      var BL = 3, LN = 7;
-      var b = i % BL;
-      var per = it.n / BL;
-      var u = (((i / BL) | 0) % per) / per;
-      var line = Math.min(LN - 1, Math.floor(u * LN));
-      var fu = u * LN - line;
+    /* 05 Publications — one object. A single sheet of set text held in the air,
+       rippling, re-setting its own measure as it goes. */
+    function fSheet(it, i) {
+      var LN = it.ln;
+      var ln = i % LN;
+      var per = it.n / LN;
+      var s = ((((i / LN) | 0) % per) / per);
 
-      /* the turn: line lengths ease from one setting to the next, so the column
-         re-flows rather than snapping */
-      var pg = t * 0.1 + b * 0.41;
+      var pw = it.w * 0.78, lh = it.h * 0.05;
+
+      /* the setting: every measure eases into the next, so the page re-flows
+         instead of snapping */
+      var pg = t * 0.085;
       var p0 = Math.floor(pg), pf = pg - p0;
-      var e = pf < 0.68 ? 0 : (pf - 0.68) / 0.32;
+      var e = pf < 0.7 ? 0 : (pf - 0.7) / 0.3;
       e = e * e * (3 - 2 * e);
-      var la = 0.36 + 0.6 * Math.abs(hash(b * 7 + p0 + 1, line + 1));
-      var lb = 0.36 + 0.6 * Math.abs(hash(b * 7 + p0 + 2, line + 1));
+      var la = 0.52 + 0.46 * Math.abs(hash(p0 * 13 + 1, ln + 1));
+      var lb = 0.52 + 0.46 * Math.abs(hash(p0 * 13 + 14, ln + 1));
       var len = la + (lb - la) * e;
-      var turn = Math.sin(e * Math.PI);
-      if (turn > 0.02) _hot = turn * 0.45;
+      var ind = (ln % 5 === 0) ? 0.055 : 0;             /* paragraph openings */
 
-      /* the reading bar */
-      var rd = ((t * 0.33 + b * 0.5) % 1.25) * LN;
-      var dl = Math.abs(rd - (line + 0.5));
-      if (dl < 0.65) { var rq = 0.7 * (1 - dl / 0.65); if (rq > _hot) _hot = rq; }
+      var x0 = (ind + s * (len - ind) - 0.44) * pw;
+      var y0 = (ln - (LN - 1) / 2) * lh;
 
-      var bw = it.w * 0.28, bh = it.h * 0.62;
-      var ox = it.w * (0.03 + b * 0.335) + Math.sin(t * 0.3 + b) * 2 + turn * it.w * 0.03;
-      var oy = it.h * 0.19;
-      _x = ox + fu * len * bw + Math.sin(t * 0.9 + line * 1.1 + b) * 1.4;
-      _y = oy + (line + 0.5) * (bh / LN) + Math.cos(t * 0.75 + line * 0.8 + b * 1.7) * 1.6;
+      /* the ripple travelling through the sheet */
+      var z0 = Math.sin(x0 * 0.011 + t * 1.0) * it.h * 0.16
+             + Math.sin(y0 * 0.02 - t * 0.72) * it.h * 0.05;
+
+      var yaw = -0.30 + Math.sin(t * 0.19) * 0.06;
+      var cyw = Math.cos(yaw), syw = Math.sin(yaw);
+      var x1 = x0 * cyw - z0 * syw, z1 = x0 * syw + z0 * cyw;
+
+      var pit = 0.34, cp = Math.cos(pit), sp = Math.sin(pit);
+      var y2 = y0 * cp - z1 * sp, z2 = y0 * sp + z1 * cp;
+
+      var d = 1 / (1 - z2 / (it.w * 1.8));
+      _x = it.w * 0.5 + x1 * d * 0.98;
+      _y = it.h * 0.5 + y2 * d * 0.88;
+
+      var near = z2 / (it.w * 0.22);
+      near = near < -1 ? -1 : near > 1 ? 1 : near;
+      _hot = 0.07 + (near + 1) * 0.21;
+
+      var rd = ((t * 0.3) % 1.28) * LN;                 /* a reader working down it */
+      var dl = Math.abs(rd - ln);
+      if (dl < 1.1) { var q = 0.72 * (1 - dl / 1.1); if (q > _hot) _hot = q; }
+      if (e > 0.02 && e < 0.98) { var q2 = 0.28 + Math.sin(e * Math.PI) * 0.34; if (q2 > _hot) _hot = q2; }
     }
 
     /* 06 Witness — voices: three bands, permanently out of phase */
@@ -2611,39 +2647,105 @@
            + Math.sin(u * (4.5 + band * 2.5) * TAU - t * (0.7 + band * 0.25)) * amp;
     }
 
-    /* 07 Mentorship — one root, branching out */
+    /* 07 Mentorship — one root, branching out. Signals keep leaving the root for
+       the tips, the limbs sway, and each tip flowers as its signal lands. */
     function fBranch(it, i) {
       var limb = i % 9;
       var mid = (limb / 3) | 0;
       var per = it.n / 9;
       var s = ((((i / 9) | 0) % per) / per);
       var cut = it.l1 / (it.l1 + it.l2);
+
+      var sway = Math.sin(t * 0.5 + mid * 1.25) * it.h * 0.03;
+      var reach = Math.sin(t * 0.72 + limb * 0.8) * it.h * 0.04;
+
       var rx = it.w * 0.06, ry = it.h * 0.5;
-      var m2x = it.w * 0.44, m2y = it.h * (0.22 + mid * 0.28);
-      var tipx = it.w * 0.9, tipy = it.h * (0.1 + limb * 0.1);
+      var m2x = it.w * 0.44, m2y = it.h * (0.27 + mid * 0.23) + sway;
+      var tipx = it.w * (0.88 + Math.sin(t * 0.4 + limb) * 0.03);
+      var tipy = it.h * (0.17 + limb * 0.083) + sway + reach;
       var x, y;
       if (s < cut) { var q = s / cut; x = rx + (m2x - rx) * q; y = ry + (m2y - ry) * q; }
       else { var q2 = (s - cut) / (1 - cut); x = m2x + (tipx - m2x) * q2; y = m2y + (tipy - m2y) * q2; }
+
+      /* the signal running out along this limb */
+      var pulse = (t * 0.42 + limb * 0.11) % 1.4;
+      var g = pulse - s;
+      if (g > 0 && g < 0.14) { var q3 = 1 - g / 0.14; _hot = q3 * q3 * 0.95; }
+
+      /* the tip flowers when it arrives */
+      if (s > 0.9) {
+        var bl = 1 - Math.abs(pulse - 1.02) * 3.4;
+        if (bl > 0) {
+          bl = Math.sin(bl * Math.PI * 0.5);
+          var ba = it.ra[i] * TAU + t * 0.7;
+          x += Math.cos(ba) * bl * it.h * 0.055;
+          y += Math.sin(ba) * bl * it.h * 0.055;
+          if (bl * 0.85 > _hot) _hot = bl * 0.85;
+        }
+      }
+
       _x = x + Math.sin(t * 0.5 + it.rb[i] * TAU) * 2.2;
       _y = y + Math.cos(t * 0.45 + it.rb[i] * TAU) * 2.2;
     }
 
-    /* Contact — everything spiralling in to one point */
-    function fConverge(it, i) {
-      var ARMS = 5;
-      var k = i % ARMS;
-      var per = it.n / ARMS;
-      var ph = (t * 0.1 + (((i / ARMS) | 0) % per) / per) % 1;
-      var a = (k / ARMS) * TAU + ph * 4.4 + t * 0.12;
-      var rr = (1 - ph) * (0.96 + it.rb[i] * 0.07);
-      if (rr < 0.2) _hot = 0.45;                       /* warms as it arrives */
-      _x = it.w * 0.5 + Math.cos(a) * rr * it.w * 0.46;
-      _y = it.h * 0.5 + Math.sin(a) * rr * it.h * 0.46;
+    /* Contact — one object. Matter waits in a loose shell, is drawn in and
+       assembled into a frame edge by edge, held while it turns, then let go. */
+    /* three floors and the columns between them, laid in the order you'd build it */
+    var BV = [], BE = [], _bl, _bc, BXZ = [[-1,-1],[1,-1],[1,1],[-1,1]];
+    for (_bl = 0; _bl < 3; _bl++) {
+      for (_bc = 0; _bc < 4; _bc++) BV.push([BXZ[_bc][0] * 0.78, (_bl - 1) * 1.15, BXZ[_bc][1] * 0.78]);
+    }
+    for (_bl = 0; _bl < 3; _bl++) {
+      var _o = _bl * 4;
+      for (_bc = 0; _bc < 4; _bc++) BE.push([_o + _bc, _o + (_bc + 1) % 4]);       /* floor */
+      if (_bl < 2) for (_bc = 0; _bc < 4; _bc++) BE.push([_o + _bc, _o + 4 + _bc]); /* columns */
+    }
+
+    function fBuild(it, i) {
+      var S = it.bS, E = BE.length;
+      var e = i % E;
+      var per = it.n / E;
+      var u = ((((i / E) | 0) % per) / per);
+
+      /* assemble, hold and turn, release */
+      var cyc = (t * 0.085) % 1;
+      var bp = cyc < 0.5 ? cyc / 0.5 : cyc < 0.82 ? 1 : 1 - (cyc - 0.82) / 0.18;
+      var b = bp * (E + 1) - e;
+      b = b < 0 ? 0 : b > 1 ? 1 : b;
+      var bs = b * b * (3 - 2 * b);
+
+      /* where the matter waits — an even shell, slowly turning */
+      var zz = 1 - 2 * ((i + 0.5) / it.n);
+      var sr = zz * zz > 1 ? 0 : Math.sqrt(1 - zz * zz);
+      var ph = i * 2.39996 + t * 0.32;
+      var ax = Math.cos(ph) * sr * 1.85, ay = zz * 1.85, az = Math.sin(ph) * sr * 1.85;
+
+      /* where it belongs */
+      var v0 = BV[BE[e][0]], v1 = BV[BE[e][1]];
+      var x = (ax + (v0[0] + (v1[0] - v0[0]) * u - ax) * bs) * S;
+      var y = (ay + (v0[1] + (v1[1] - v0[1]) * u - ay) * bs) * S;
+      var z = (az + (v0[2] + (v1[2] - v0[2]) * u - az) * bs) * S;
+
+      var sp = t * 0.26, cs = Math.cos(sp), sn = Math.sin(sp);
+      var x1 = x * cs - z * sn, z1 = x * sn + z * cs;
+      var tl = 0.42, ct = Math.cos(tl), stl = Math.sin(tl);
+      var y2 = y * ct - z1 * stl, z2 = y * stl + z1 * ct;
+
+      var d = 1 / (1 - z2 / (S * 8));
+      _x = it.w * 0.5 + x1 * d;
+      _y = it.h * 0.5 + y2 * d;
+
+      var near = (z2 / (S * 1.9) + 1) * 0.5;
+      _hot = 0.04 + (near < 0 ? 0 : near > 1 ? 1 : near) * 0.44;
+      if (bs > 0.02 && bs < 0.98) {                      /* the edge being laid */
+        var q = 0.5 + 0.45 * Math.sin(bs * Math.PI);
+        if (q > _hot) _hot = q;
+      }
     }
 
     var FORMS = {
-      lattice: fLattice, tiles: fTiles, radar: fRadar,
-      pages: fPages, signal: fSignal, branch: fBranch, converge: fConverge
+      lattice: fLattice, portal: fPortal, radar: fRadar,
+      sheet: fSheet, signal: fSignal, branch: fBranch, build: fBuild
     };
 
     /* ---------------- physics ---------------- */
