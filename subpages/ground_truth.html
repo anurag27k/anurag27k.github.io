@@ -366,7 +366,7 @@ Back
 <p class="lede">Ground truth is a trusted reference dataset of expected outcomes, used to check whether an AI agent produced the right result. It answers the single most requested thing enterprise customers asked for: did the agent solve the task correctly.</p>
 </div>
 <div class="grid g4">
-<div class="card"><div class="stat-label">Metrics live internally</div><div class="stat-val">3</div><div class="stat-sub">Tool choice accuracy, tool input correctness, output alignment</div></div>
+<div class="card"><div class="stat-label">Metrics live internally</div><div class="stat-val">3</div><div class="stat-sub">Overall outcome correctness, tool correctness, record field correctness</div></div>
 <div class="card"><div class="stat-label">Structural blockers to GA</div><div class="stat-val">3</div><div class="stat-sub">Authoring experience, data model coupling, curation method</div></div>
 <div class="card"><div class="stat-label">Tools in the journey</div><div class="stat-val">3</div><div class="stat-sub">AI Agent Studio, Skill Kit, Data Kit</div></div>
 <div class="card"><div class="stat-label">Steps in the curation flow</div><div class="stat-val">3</div><div class="stat-sub">Data selection, autogenerate, review</div></div>
@@ -412,8 +412,8 @@ Back
 <h3>How we knew it was real</h3>
 <ul class="clean">
 <li>Multiple business units were already comparing agent outputs to ground truth by hand for their top customers, specifically to validate outcome rather than execution path.</li>
-<li>Implementation teams had built one off ground truth generators and evaluators for individual customer use cases, including NVIDIA.</li>
-<li>Leadership review confirmed Lufthansa, WestJet and banking experiences as the customers who would use this first.</li>
+<li>Implementation teams had built one off ground truth generators and evaluators for individual enterprise customer use cases.</li>
+<li>Leadership review confirmed named aviation and banking accounts as the customers who would use this first.</li>
 </ul>
 <div class="callout callout-warning" style="margin-top:1.5rem">
 <p style="font-size:.9375rem">When three teams independently build the same missing capability, the gap is not a nice to have. It is a product.</p>
@@ -471,7 +471,6 @@ Back
 <li>The journey spans AI Agent Studio, Skill Kit and Data Kit, with a live handoff between the last two.</li>
 <li>It must work with both existing execution logs and AutoChat generated runs.</li>
 <li>It must be cold start safe, producing valid ground truth when no execution history exists.</li>
-<li>It must never encode failed or suboptimal runs as expected behaviour.</li>
 </ul>
 </div>
 </div>
@@ -571,7 +570,7 @@ Back
 </div>
 <div class="card">
 <div class="ihead"><div class="icon-box"><img src="data:image/svg+xml;base64,PHN2ZyBpZD0iSWNvbnMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMzIgMzIiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDpub25lO30uY2xzLTJ7ZmlsbDojNjJkODRlO30uY2xzLTN7ZmlsbDojZmZmO308L3N0eWxlPjwvZGVmcz48cmVjdCBjbGFzcz0iY2xzLTEiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI5LjcxLDkuMjlsLTgtOGExLDEsMCwwLDAtMS40MiwwbC04LDhhMSwxLDAsMCwwLS4yMSwxLjA5QTEsMSwwLDAsMCwxMywxMUgyOWExLDEsMCwwLDAsLjkyLS42MkExLDEsMCwwLDAsMjkuNzEsOS4yOVoiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0zMS43OCw5LjM3QTEsMSwwLDAsMCwzMSw5SDZhMSwxLDAsMCwwLTEsLjc3TDIsMjIuNjNWM0g4YTEsMSwwLDAsMSwuNy4zMkExLDEsMCwwLDEsOSw0VjVhMSwxLDAsMCwwLDEsMWgzYTEsMSwwLDAsMCwwLTJIMTFBMywzLDAsMCwwLDgsMUgxQTEsMSwwLDAsMCwwLDJWMjZhMywzLDAsMCwwLDMsM0gyNS40YTMsMywwLDAsMCwyLjkyLTIuMzVMMzIsMTAuMjJBMSwxLDAsMCwwLDMxLjc4LDkuMzdaTTI2LjM3LDI2LjIyYTEsMSwwLDAsMS0xLC43OEgzTDYuNzksMTFoMjNaIi8+PHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMTIuNiwyMGg3Ljc4YTEsMSwwLDAsMCwxLS43OGwuODktNGExLDEsMCwwLDAtMS0xLjIySDEzLjU0YTEsMSwwLDAsMC0xLC43N2wtLjk0LDRhMSwxLDAsMCwwLDEsMS4yM1ptMS43NC00SDIwbC0uNDUsMkgxMy44N1oiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMiIgY3g9IjI2IiBjeT0iMjYiIHI9IjYiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0yNS4yOSwyOC40NGEuNjcuNjcsMCwwLDEtLjQ3LS4xOUwyMywyNi4zOWEuNjguNjgsMCwwLDEsMC0uOTVoMGEuNjcuNjcsMCwwLDEsLjk0LDBoMGwxLjQsMS40LDMuMDgtMy4wOWEuNjYuNjYsMCwwLDEsLjk0LDBoMGEuNjguNjgsMCwwLDEsMCwuOTVoMGwtMy41NSwzLjU1QS43LjcsMCwwLDEsMjUuMjksMjguNDRaIi8+PC9zdmc+" alt="Audit"></div><span class="stat-label" style="margin:0">Principle 06</span></div>
-<h4>Make ground truth arguable</h4>
+<h4>Make ground truth traceable</h4>
 <p style="font-size:.9375rem;margin:0">Every record carries its provenance, so a surprising metric score can be traced back to how its reference was made.</p>
 </div>
 </div>
@@ -694,10 +693,10 @@ Back
 <p class="lede">Three metrics went live for internal use, with a fourth in development. The existing evaluation framework was already extensible enough to display their scores, so score visualisation needed no change.</p>
 </div>
 <div class="grid g4" style="margin-bottom:2rem">
-<div class="card"><div class="badge">Live</div><h4 style="margin-top:.85rem">Tool choice accuracy</h4><p style="font-size:.9375rem;margin:0" class="dim">Whether the agent selected the tools the ideal path calls for.</p></div>
-<div class="card"><div class="badge">Live</div><h4 style="margin-top:.85rem">Tool input correctness</h4><p style="font-size:.9375rem;margin:0" class="dim">Whether those tools were invoked with the right inputs.</p></div>
-<div class="card"><div class="badge">Live</div><h4 style="margin-top:.85rem">Output alignment</h4><p style="font-size:.9375rem;margin:0" class="dim">Whether the final output matches the expected outcome, semantically or exactly.</p></div>
-<div class="card"><div class="badge info">In development</div><h4 style="margin-top:.85rem">Goal attainment</h4><p style="font-size:.9375rem;margin:0" class="dim">Whether the agent achieved the outcome the use case was defined around.</p></div>
+<div class="card"><div class="badge">Live</div><h4 style="margin-top:.85rem">Overall outcome correctness</h4><p style="font-size:.9375rem;margin:0" class="dim">Whether the final outcome matches the expected outcome for that record.</p></div>
+<div class="card"><div class="badge">Live</div><h4 style="margin-top:.85rem">Tool correctness</h4><p style="font-size:.9375rem;margin:0" class="dim">Whether the agent called the tools the reference expects, with the right inputs.</p></div>
+<div class="card"><div class="badge">Live</div><h4 style="margin-top:.85rem">Record field correctness</h4><p style="font-size:.9375rem;margin:0" class="dim">Whether the values written back to the record match the expected values, field by field.</p></div>
+<div class="card"><div class="badge info">Future</div><h4 style="margin-top:.85rem">Tool sequence correctness</h4><p style="font-size:.9375rem;margin:0" class="dim">Whether those tools ran in the expected order, without redundant or missing steps.</p></div>
 </div>
 </section>
 
@@ -713,7 +712,7 @@ Back
 <p class="dim" style="font-size:.9375rem">Three ground truth metrics land for internal users. An automation script generates records by reviewing prior execution plans and emitting JSON. Editing happens through list and form views delivered as an update set.</p>
 </div>
 <div class="tl-item past">
-<div class="tl-when">Q4 2026 &middot; Scoping for GA</div>
+<div class="tl-when">Q2 2026 &middot; Scoping for GA</div>
 <h3>Gaps named, curation rethought</h3>
 <p class="dim" style="font-size:.9375rem">Three experience gaps documented: no way to select records for ground truth, no way to review what was generated, no way to edit and save changes. Engineering explores agents for curation. Support added for standalone agents and existing execution records.</p>
 </div>
@@ -733,8 +732,8 @@ Back
 <section id="open">
 <div class="sec-head">
 <p class="eyebrow">10 &middot; Still open</p>
-<h2>Questions I would not pretend are answered</h2>
-<p class="lede">A case study that ends in resolution is usually lying. These are live.</p>
+<h2>Questions yet to be answered</h2>
+<p class="lede">These shall be answered in the future.</p>
 </div>
 <div class="grid g2">
 <div class="card">
