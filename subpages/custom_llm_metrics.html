@@ -655,7 +655,8 @@ body.cursoron .shot-btn{cursor:none}
     <a class="dot-link" href="#screens"><i></i><b>08 Screens</b></a>
     <a class="dot-link" href="#scoring"><i></i><b>09 Scoring</b></a>
     <a class="dot-link" href="#roadmap"><i></i><b>10 Roadmap</b></a>
-    <a class="dot-link" href="#proof"><i></i><b>11 Proof</b></a>
+    <a class="dot-link" href="#baseline"><i></i><b>11 Baseline</b></a>
+    <a class="dot-link" href="#proof"><i></i><b>12 Proof</b></a>
   </div>
   <div class="rail-score">
     <span class="rail-num" id="railNum">0.00</span>
@@ -1233,11 +1234,60 @@ body.cursoron .shot-btn{cursor:none}
   </div>
 </section>
 
-<!-- ============ 11 PROOF ============ -->
-<section class="sec" id="proof">
+<!-- ============ 11 BASELINE ============ -->
+<section class="sec" id="baseline">
   <div class="wrap">
     <div class="head">
       <div class="head-n">Section<b>11</b></div>
+      <div>
+        <span class="eyebrow">The baseline</span>
+        <h2 class="d2 split" data-split>A version of this already shipped, and almost nobody uses it</h2>
+        <p class="body rv" style="max-width:70ch">Custom LLM metrics already exist inside the Skill Kit evaluation experience. Three months of browser telemetry &mdash; June to August 2026, across customer production and sub-production instances &mdash; is the number this work has to move. Almost all of the activity sits in sub-production, and almost none of it reaches a published metric.</p>
+      </div>
+    </div>
+
+    <span class="eyebrow rv" style="margin-bottom:18px">Evaluation pages &middot; custom LLM metrics</span>
+    <div class="ledger rv rv-d1" style="margin-top:16px"><div class="ledger-scroll"><table>
+      <thead><tr><th>Signal</th><th>Production</th><th>Sub-production</th></tr></thead>
+      <tbody>
+        <tr><td>Metric setup page</td><td>6 views, 3 users, 3 customers</td><td>297 views, 41 users, 34 customers</td></tr>
+        <tr><td>Metric playground page</td><td>None</td><td>659 views, 26 users, 23 customers</td></tr>
+        <tr><td>Custom metric creation started</td><td>None</td><td>7 times, 6 users, 6 customers</td></tr>
+        <tr><td>Metric published</td><td>None</td><td>29 times, 6 users, 6 customers</td></tr>
+      </tbody>
+    </table></div></div>
+
+    <span class="eyebrow rv" style="margin:clamp(26px,4vw,42px) 0 18px">Sub-production &middot; monthly trend</span>
+    <div class="ledger rv rv-d1" style="margin-top:16px"><div class="ledger-scroll"><table>
+      <thead><tr><th>Month</th><th>Metric setup views</th><th>Playground views</th><th>Creation started</th><th>Metric published</th></tr></thead>
+      <tbody>
+        <tr><td>Jun</td><td>85</td><td>82</td><td>0</td><td>0</td></tr>
+        <tr><td>Jul</td><td>103</td><td>237</td><td>2</td><td>11</td></tr>
+        <tr><td>Aug</td><td>109</td><td>340</td><td>5</td><td>18</td></tr>
+      </tbody>
+    </table></div></div>
+
+    <div class="rule"></div>
+
+    <div style="max-width:82ch">
+      <div>
+        <span class="eyebrow rv" style="color:var(--flag);margin-bottom:14px">What stands out</span>
+        <div class="rows rv rv-d1" style="margin-top:14px">
+          <div class="row"><span class="mk bad"></span><p><b>Production use is close to zero.</b> Three customers opened metric setup in production across the whole quarter, and not one of them started or published a custom metric there.</p></div>
+          <div class="row"><span class="mk warn"></span><p><b>The growth is a few heavy users, not adoption.</b> Playground views grew roughly fourfold, but the number of people behind them went from 7 to 13. A single customer drove about 60% of playground views and 22 of the 29 publishes.</p></div>
+          <div class="row" style="border-bottom:0"><span class="mk bad"></span><p><b>Almost nobody gets as far as metric setup.</b> 1,435 sub-production users opened the evaluations page in the same period, so under 3% of them reached the page where a metric is defined.</p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 12 PROOF ============ -->
+<section class="sec" id="proof">
+  <div class="wrap">
+    <div class="head">
+      <div class="head-n">Section<b>12</b></div>
       <div>
         <span class="eyebrow">How we will know</span>
         <h2 class="d2 split" data-split>Three proofs, and the honest state of the numbers</h2>

@@ -250,6 +250,7 @@ header.pinned{padding-top:.55rem;padding-bottom:.55rem}
 .tbl thead{display:none}
 .tbl tr{border-bottom:1px solid var(--line-mid);padding:.75rem 0}
 .tbl td{border:none;padding:.45rem 0}
+.tbl td[data-c]:before{content:attr(data-c);display:block;font-family:var(--font-mono);font-size:.625rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gray-400);margin-bottom:.2rem}
 #lb{padding:1.25rem 1.25rem 4.5rem}
 #lb .lb-stage{max-width:calc(100vw - 2.5rem);max-height:calc(100vh - 5.75rem)}
 #lb .lb-stage img{max-height:calc(100vh - 5.75rem)}
@@ -763,9 +764,36 @@ Back
 </div>
 </section>
 
+<section id="usage">
+<div class="sec-head">
+<p class="eyebrow">11 &middot; Adoption today</p>
+<h2>What the telemetry shows before GA</h2>
+<p class="lede">Ground truth is live for internal use only, so the honest baseline is small. Across the last three full months, production use is close to zero and sub-production is thin. This is the number the customer facing experience has to move.</p>
+</div>
+<table class="tbl">
+<thead><tr><th>Signal</th><th>Production</th><th>Sub-production</th></tr></thead>
+<tbody>
+<tr>
+<td>Ground truth review page</td>
+<td data-c="Production">2 views, 1 user, 1 customer</td>
+<td data-c="Sub-production">10 views, 2 users, 2 customers</td>
+</tr>
+<tr>
+<td>Dataset home page</td>
+<td data-c="Production">38 views, 12 users</td>
+<td data-c="Sub-production">263 views, 62 users</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-warning" style="margin-top:1.75rem">
+<div class="callout-label" style="color:var(--warn)">How to read this</div>
+<p>No ground truth actions are recorded anywhere: not creating, not uploading, not reviewing. The page view is the only signal available, so these numbers describe who arrived, not who authored anything. The one production user landed in August.</p>
+</div>
+</section>
+
 <section id="reflection">
 <div class="sec-head">
-<p class="eyebrow">11 &middot; Reflection</p>
+<p class="eyebrow">12 &middot; Reflection</p>
 <h2>What I would carry forward</h2>
 </div>
 <div class="grid g3">
