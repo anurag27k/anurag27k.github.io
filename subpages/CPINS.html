@@ -212,6 +212,7 @@ ol,ul{padding:0;list-style:none}
 .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 28px;border-top:1px solid var(--rule);padding-top:18px;max-width:760px}
 .facts dt{font-family:var(--f-display);font-stretch:86%;font-weight:600;font-size:13px;color:var(--fg-3);margin-bottom:4px}
 .facts dd{font-size:16px;line-height:1.38;color:var(--fg)}
+.facts .fx-wide{grid-column:span 2}
 .viewas{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .seg{position:relative;display:inline-flex;padding:4px;border-radius:999px;border:1px solid var(--rule);background:var(--raised)}
 .seg button{position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 16px;border-radius:999px;font-family:var(--f-display);font-stretch:92%;font-weight:600;font-size:14px;color:var(--fg-2);transition:color .25s}
@@ -571,7 +572,7 @@ ol,ul{padding:0;list-style:none}
 .hind{position:absolute;bottom:8px;left:145px;width:140px;height:5px;border-radius:3px;background:#000;z-index:55;pointer-events:none;transition:background .3s}
 .hind.light{background:#fff}
 
-/* ---------- the app (shipped 2018 design, re-moulded to 430 x 932) ---------- */
+/* ---------- the app (original design, re-moulded to 430 x 932) ---------- */
 .scr,.app,.appvars{
   --a-blue:#0207B8;--a-ink:#000;--a-text:#141416;--a-gray:#8E8E93;--a-gray2:#6B6B70;--a-line:#E6E6EA;
   --a-card:#F6F6F6;--a-ctl:#EAEAEA;--a-ibg:#E6E6E6;--a-red:#FF2D55;--a-amber:#FF9500;--a-teal:#4DDDC7;
@@ -1151,10 +1152,9 @@ html.presenting,html.presenting body{overflow:hidden}
       <dl class="facts">
         <div><dt>Role</dt><dd>Lead product designer</dd></div>
         <div><dt>Company</dt><dd>People10 Technosoft</dd></div>
-        <div><dt>Team</dt><dd>My manager and me, with the developers</dd></div>
-        <div><dt>Platforms</dt><dd>Mobile app and admin web portal</dd></div>
-        <div><dt>Year</dt><dd>2018 to 2019</dd></div>
+        <div><dt>Team</dt><dd>A PM, 5 developers and me</dd></div>
         <div><dt>Status</dt><dd>Handed off to development</dd></div>
+        <div class="fx-wide"><dt>Platforms</dt><dd>Mobile app and admin web portal</dd></div>
       </dl>
       <div class="viewas">
         <span class="lbl">View as</span>
@@ -1176,7 +1176,7 @@ html.presenting,html.presenting body{overflow:hidden}
 <section class="short wrap" aria-label="The short version" data-slide data-title="The short version" data-kicker="The short version">
   <div class="short-grid">
     <div><h2><i aria-hidden="true"></i>The problem</h2><p>The client needed squads to log suspect packages in a structured way, pull in nearby squads and record how each one ended. The information is sensitive, so the system had to stay closed to the public.</p></div>
-    <div><h2><i aria-hidden="true"></i>What I did</h2><p>With my manager, proposed the design process and got it agreed. Researched the context, defined roles and permissions, worked through every flow on the whiteboard with the team and developers, then designed both products: structure, flows, screens and guidelines.</p></div>
+    <div><h2><i aria-hidden="true"></i>What I did</h2><p>Proposed the design process with the team and got it agreed. Researched the context, defined roles and permissions, worked through every flow on the whiteboard with the team and developers, then designed both products: structure, flows, screens and guidelines.</p></div>
     <div><h2><i aria-hidden="true"></i>What I handed off</h2><p>A mobile app with eight core features for technicians and non-technicians, an admin web portal for accounts and squads, and visual guidelines for both.</p></div>
   </div>
   <nav class="jump" aria-label="Key decisions">
@@ -1258,7 +1258,7 @@ html.presenting,html.presenting body{overflow:hidden}
     <header class="ch-head" data-slide data-title="Process">
       <span class="ch-tag"><span class="ch-n">02</span>Process</span>
       <h2 class="h2">There was no design process, so we proposed one</h2>
-      <p class="lede">No process had been defined for the project. My manager and I drafted one and convinced the authorities it suited the work before a single screen was drawn.</p>
+      <p class="lede">No process had been defined for the project, so we drafted one and convinced the authorities it suited the work before a single screen was drawn.</p>
     </header>
     <div class="part" data-slide data-title="The loop we agreed on">
       <div class="proc" id="proc">
@@ -1421,7 +1421,7 @@ html.presenting,html.presenting body{overflow:hidden}
     <div class="part" id="language" data-slide data-title="Visual language">
       <div class="lang">
         <div class="blk c-colors">
-          <header><h3>Colour</h3><p>From the 2018 guidelines</p></header>
+          <header><h3>Colour</h3><p>From the original guidelines</p></header>
           <div class="sw-row">
             <div class="sw"><i style="background:#0207B8"><em>12.2:1</em></i><b>Emphasis button</b><span>#0207B8. Primary actions and the chosen option.</span></div>
             <div class="sw"><i style="background:#171717"><em>17.9:1</em></i><b>Background</b><span>#171717. Dark bars in the app and the admin portal.</span></div>
@@ -1466,7 +1466,7 @@ html.presenting,html.presenting body{overflow:hidden}
       <header class="ch-head" data-slide data-title="The app" data-bg="stage">
         <span class="ch-tag"><span class="ch-n">05</span>The app</span>
         <h2 class="h2">One decision at a time</h2>
-        <p class="lede">Scroll through the core features. The phone is a live rebuild of the 2018 screens, re-moulded for iPhone 16 Plus, so you can tap through it at any point.</p>
+        <p class="lede">Scroll through the core features. The phone is a live rebuild of the original screens, re-moulded for iPhone 16 Plus, so you can tap through it at any point.</p>
       </header>
       <div class="walk">
         <div class="walk-steps" id="steps">
@@ -1659,7 +1659,7 @@ html.presenting,html.presenting body{overflow:hidden}
     </div>
     <footer class="foot">
       <span>Anurag Kumar, product designer</span>
-      <span>CPINS was designed at People10 Technosoft. The screens here are rebuilt from the 2018 designs at iPhone 16 Plus size, 430 by 932 points.</span>
+      <span>CPINS was designed at People10 Technosoft. The screens here are rebuilt from the original designs at iPhone 16 Plus size, 430 by 932 points.</span>
     </footer>
   </div>
 </section>
@@ -1714,7 +1714,7 @@ html.presenting,html.presenting body{overflow:hidden}
 <script>
 /* =====================================================================
    CPINS app, re-moulded for iPhone 16 Plus (430 x 932 pt).
-   Every screen is the 2018 design rebuilt in HTML so it can be tapped:
+   Every screen is the original design rebuilt in HTML so it can be tapped:
    the feed, create, detail, take action, comments, map, filters,
    subscriptions and notifications. One Phone instance = one device.
    ===================================================================== */
@@ -1798,13 +1798,13 @@ html.presenting,html.presenting body{overflow:hidden}
     return {
       incidents: [
         { id: 'a', team: 'Team Alpha', status: 'active', title: 'Suspect package observed', addr: 'Northeast Avenue', squad: 'Boston Squad : 234', time: '9:00 AM, Today', photos: ['street', 'device', 'squad'], type: 'PBIED', mine: true, pin: [49, 41],
-          when: '10/15/2018 18:30', squadName: 'Massachusetts State Police', tech: 'Joe Smith', contact: '508-123-4567', func: 'Timer', address: '12 Northeast Avenue, Boston',
+          when: 'Today, 09:00', squadName: 'Massachusetts State Police', tech: 'Joe Smith', contact: '508-123-4567', func: 'Timer', address: '12 Northeast Avenue, Boston',
           desc: 'Black cylindrical object, about 30 cm, taped at one end and left beside the north entrance. Reported by building security. Area cordoned and the street closed to traffic.' },
         { id: 'b', team: 'Team Alpha', status: 'pending', title: 'Suspect package observed', addr: 'Atlantic Avenue', squad: 'Boston Squad : 234', time: '8:10 AM, Today', photos: ['street', 'device2'], type: 'Package', mine: true, pin: [78, 50],
-          when: '10/15/2018 08:10', squadName: 'Massachusetts State Police', tech: 'Joe Smith', contact: '508-123-4567', func: 'Unknown', address: '440 Atlantic Avenue, Boston',
+          when: 'Today, 08:10', squadName: 'Massachusetts State Police', tech: 'Joe Smith', contact: '508-123-4567', func: 'Unknown', address: '440 Atlantic Avenue, Boston',
           desc: 'Unattended case near the ferry terminal steps. Owner not traced yet. X-ray requested; area held until it is cleared.' },
         { id: 'c', team: 'Team Bravo', status: 'resolved', title: 'Unattended bag', addr: 'Summer Street', squad: 'Boston Squad : 117', time: 'Yesterday, 6:40 PM', photos: ['squad'], type: 'Unknown', mine: false, pin: [22, 47],
-          when: '10/14/2018 18:40', squadName: 'Massachusetts State Police', tech: 'Ana Ruiz', contact: '508-555-0142', func: 'Unknown', address: '1 Summer Street, Boston',
+          when: 'Yesterday, 18:40', squadName: 'Massachusetts State Police', tech: 'Ana Ruiz', contact: '508-555-0142', func: 'Unknown', address: '1 Summer Street, Boston',
           desc: 'Backpack left at a bus shelter. Owner identified on camera and contacted. Closed as no device.' }
       ],
       comments: {
@@ -1980,7 +1980,7 @@ html.presenting,html.presenting body{overflow:hidden}
       '<div class="v-body" data-lenis-prevent>' +
       '<div class="map cr-map">' + mapSVG() + '<div class="msearch">' + I.search + '<span>Boston</span></div><span class="pin" style="left:50%;top:56%">' + pinSVG(PIN_C.blue) + '</span><span class="me" style="left:44%;top:72%"></span><span class="locb">' + I.locate + '</span></div>' +
       '<div class="form">' +
-      '<h5>Set date and time</h5><div class="dt"><span>Date</span><i>10 Jan 2019</i><span>Time</span><i>18:30 GMT</i></div>' +
+      '<h5>Set date and time</h5><div class="dt"><span>Date</span><i>Thu, 10 Jan</i><span>Time</span><i>09:41</i></div>' +
       '<h5>Enter the details</h5><div class="ta-in">What did you see? Where exactly is it?</div>' +
       '<h5>Package type</h5>' + tiles('type', [['Package', 'pkg'], ['RCIED', 'rc'], ['VBIED', 'car'], ['PBIED', 'pb'], ['Unknown', 'unk']], d.type) + tog('hoax', 'Hoax', 'False alarm', d.hoax) +
       '<h5>Function type</h5>' + tiles('func', [['Remote', 'remote'], ['Timer', 'timer'], ['Victim', 'victim'], ['Unknown', 'unk']], d.func) +
@@ -2283,7 +2283,7 @@ html.presenting,html.presenting body{overflow:hidden}
         s.made++;
         var nid = 'n' + s.made;
         s.incidents.unshift({ id: nid, team: 'Team Alpha', status: 'active', title: 'Suspect package observed', addr: 'Downtown Crossing', squad: 'Boston Squad : 234', time: 'Just now', photos: dr.photos.length ? dr.photos.slice(0, 3) : ['street'], type: dr.type, mine: true, pin: [40, 30],
-          when: '01/10/2019 18:30', squadName: 'Massachusetts State Police', tech: 'Joe Smith', contact: '508-123-4567', func: dr.func || 'Unknown', address: 'Washington Street, Boston', desc: 'New report from the scene. Details to follow.' });
+          when: 'Today, 09:41', squadName: 'Massachusetts State Police', tech: 'Joe Smith', contact: '508-123-4567', func: dr.func || 'Unknown', address: 'Washington Street, Boston', desc: 'New report from the scene. Details to follow.' });
         s.notifs.unshift({ g: 'New', c: 'o', who: 'You', what: 'created an incident', t: 'Just now', id: nid });
         s.draft = null;
         this.stack = ['feed']; this.swap(this.render('feed'), 'pop');
