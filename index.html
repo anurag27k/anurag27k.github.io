@@ -558,82 +558,110 @@
   .work-tab[aria-selected="true"]:hover { color: var(--on-accent); }
 
   .work-panel { display: none; }
-  .work-panel.active { display: block; animation: panelIn 600ms var(--ease); }
-  @keyframes panelIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+  .work-panel.active { display: block; }
 
-  .work-item {
+  /* ---- the projects: two columns of equal tiles ----
+     Every cover is a 3:2 plate, so the frames keep that ratio and nothing is
+     cropped. A tab with an odd count opens with a lead (.work-card--lead) that
+     takes the full row: its cover gets two-thirds of the width and its copy
+     sits at the foot of the plate. Digital has four, so it's a plain 2x2;
+     Physical has three, so it's a lead and a pair. */
+  .work-grid {
+    --wgap: clamp(20px, 2.2vw, 32px);
     display: grid;
-    grid-template-columns: 54px 148px minmax(0, 1fr) minmax(0, 1fr) 104px;
-    grid-template-areas: "num thumb head desc meta";
-    gap: 26px;
-    padding: 32px 0;
-    border-top: 1px solid var(--hairline);
-    align-items: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--wgap);
+    row-gap: clamp(56px, 6vw, 96px);
+  }
+  .work-card {
     position: relative;
-    transition: padding 600ms var(--ease);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
   }
-  .work-item:last-child { border-bottom: 1px solid var(--hairline); }
-  .work-item::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent, var(--accent-wash), transparent);
-    opacity: 0;
-    transition: opacity 500ms var(--ease);
-    pointer-events: none;
+  .work-card--lead {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    column-gap: var(--wgap);
   }
-  .work-item:hover::after { opacity: 1; }
-  a.work-item:hover { padding-left: 18px; }
-  a.work-item:hover .work-title { color: var(--accent); }
-  a.work-item:hover .work-num { color: var(--accent); }
-  .work-item.is-soon { opacity: 0.62; cursor: default; }
+  .work-panel.active .work-card { animation: cardIn 900ms var(--ease) both; }
+  .work-panel.active .work-card:nth-child(2) { animation-delay: 90ms; }
+  .work-panel.active .work-card:nth-child(3) { animation-delay: 180ms; }
+  .work-panel.active .work-card:nth-child(4) { animation-delay: 270ms; }
+  @keyframes cardIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
 
-  @media (max-width: 1080px) {
-    .work-item {
-      grid-template-columns: 48px 126px minmax(0, 1fr) 96px;
-      grid-template-areas: "num thumb head meta";
-      gap: 22px;
-    }
-    .work-desc { display: none; }
+  /* the plate */
+  .work-cover {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    border-radius: 6px;
+    overflow: hidden;
+    isolation: isolate;                 /* keeps the zoom clipped to the radius in Safari */
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    transition: border-color 450ms var(--ease);
   }
-  @media (max-width: 900px) {
-    .work-item {
-      grid-template-columns: 104px minmax(0, 1fr);
-      grid-template-areas:
-        "num   num"
-        "thumb head";
-      gap: 6px 18px;
-      padding: 24px 0;
-    }
-    .work-meta-right { display: none; }
-    a.work-item:hover { padding-left: 0; }
+  .work-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.86);
+    transform: scale(1.001);
+    transition: filter 700ms var(--ease), transform 1200ms var(--ease);
   }
-  @media (max-width: 480px) {
-    .work-item { grid-template-columns: 92px minmax(0, 1fr); gap: 4px 14px; }
-    .work-meta { font-size: 10px; gap: 9px; }
-  }
+  /* on the dark page the plates rest a step down; hover brings them up */
+  html[data-theme="dark"] .work-cover img { filter: saturate(0.82) brightness(0.86); }
+  a.work-card:hover .work-cover { border-color: var(--accent); }
+  a.work-card:hover .work-cover img { filter: none; transform: scale(1.035); }
+  a.work-card:focus-visible { outline: none; }
+  a.work-card:focus-visible .work-cover { outline: 2px solid var(--accent); outline-offset: 4px; }
 
-  .work-num {
-    grid-area: num;
+  /* the copy */
+  .work-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-top: 22px;
+  }
+  .work-card--lead .work-body { padding-top: 0; }
+
+  .work-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding-bottom: 14px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--hairline);
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: var(--ink-soft);
-    letter-spacing: 0.06em;
-    align-self: start;
-    padding-top: 8px;
-    transition: color 400ms;
   }
-  .work-head { grid-area: head; min-width: 0; }
+  .work-num { letter-spacing: 0.06em; transition: color 400ms; }
+  .work-kind .yr { color: var(--ink); font-weight: 500; }
+
   .work-title {
     font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(1.4rem, 2.6vw, 2.3rem);
+    font-size: clamp(1.6rem, 2.4vw, 2.3rem);
     line-height: 1.05;
     letter-spacing: -0.022em;
-    margin: 0 0 8px;
+    margin: 0 0 14px;
+    text-wrap: balance;
     transition: color 400ms;
   }
   .work-title .em { font-style: italic; }
+  .work-title .nw { white-space: nowrap; }   /* keep hyphenated terms whole */
+  .work-card--lead .work-title {
+    margin-top: auto;                   /* the lead's copy sits at the foot of its plate */
+    font-size: clamp(2.1rem, 3.6vw, 3.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
   .work-meta {
     display: flex;
     gap: 14px;
@@ -645,52 +673,61 @@
     color: var(--ink-soft);
   }
   .work-meta .sep { color: var(--accent); }
-  .work-desc { grid-area: desc; font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); max-width: 48ch; }
-  .work-meta-right {
-    grid-area: meta;
-    text-align: right;
+  .work-desc { margin: 18px 0 0; font-size: 15px; line-height: 1.58; color: var(--ink-soft); max-width: 46ch; }
+
+  .work-cta {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    align-self: flex-start;
+    margin-top: auto;
+    padding-top: 26px;
     font-family: var(--mono);
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--ink-soft);
-    line-height: 1.6;
+    color: var(--ink);
   }
-  .work-meta-right .yr { color: var(--ink); font-weight: 500; }
+  .work-card--lead .work-cta { margin-top: 0; padding-top: 30px; }
+  .work-cta .arr { display: inline-block; color: var(--accent); transition: transform 450ms var(--ease); }
+  a.work-card:hover .work-title,
+  a.work-card:hover .work-num { color: var(--accent); }
+  a.work-card:hover .work-cta .arr { transform: translateX(6px); }
 
-  /* Cover art, shown upfront - hover deepens it rather than revealing it */
-  .work-thumb {
-    grid-area: thumb;
-    position: relative;
-    aspect-ratio: 3 / 2;
-    border-radius: 4px;
-    overflow: hidden;
-    background: var(--surface-2);
-    border: 1px solid var(--hairline);
-    transition: border-color 450ms var(--ease);
-  }
-  .work-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.78;
-    filter: saturate(0.45) contrast(1.02);
-    transform: scale(1.01);
-    transition: opacity 600ms var(--ease), filter 600ms var(--ease), transform 900ms var(--ease);
-  }
-  a.work-item:hover .work-thumb { border-color: var(--accent); }
-  a.work-item:hover .work-thumb img { opacity: 1; filter: none; transform: scale(1.07); }
-  .work-thumb-soon {
+  /* a project whose page isn't up yet: a drawn plate stands in for the cover */
+  .work-card.is-soon { cursor: default; }
+  .work-card.is-soon .work-title { color: var(--ink-soft); }
+  .work-cover--soon { background: var(--surface); border-style: dashed; border-color: var(--hairline-strong); }
+  .work-cover--soon svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .work-cover--soon .ln      { fill: none; stroke: var(--ink); stroke-opacity: 0.28; stroke-width: 1; vector-effect: non-scaling-stroke; }
+  .work-cover--soon .ln-soft { fill: none; stroke: var(--ink); stroke-opacity: 0.12; stroke-width: 1; vector-effect: non-scaling-stroke; }
+  .work-cover--soon .acc     { fill: none; stroke: var(--accent); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+  .work-cover--soon .pin     { fill: var(--surface); stroke: var(--ink); stroke-opacity: 0.4; stroke-width: 1.3; vector-effect: non-scaling-stroke; }
+  .work-cover--soon .acc-f   { fill: var(--accent); }
+  .work-soon-tag {
     position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
+    top: 16px;
+    left: 16px;
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--ink-faint);
-    background: repeating-linear-gradient(-45deg, transparent 0 9px, var(--hairline) 9px 10px);
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    background: var(--chip-bg);
+    padding: 6px 10px;
+    border-radius: 999px;
+  }
+
+  @media (max-width: 900px) {
+    .work-card--lead { display: flex; flex-direction: column; }
+    .work-card--lead .work-body { padding-top: 22px; }
+    .work-card--lead .work-title { margin-top: 0; font-size: clamp(2rem, 5.4vw, 2.8rem); line-height: 1.02; }
+    .work-card--lead .work-cta { margin-top: auto; padding-top: 26px; }
+  }
+  @media (max-width: 700px) {
+    .work-grid { grid-template-columns: minmax(0, 1fr); row-gap: 56px; }
+    .work-title { font-size: 1.8rem; }
+    .work-desc { font-size: 14.5px; }
   }
 
   /* ======== CURRENTLY ======== */
@@ -1332,7 +1369,7 @@
   <div class="wrap">
     <div class="label reveal"><span class="num">02</span> Selected Work</div>
     <div class="head-row">
-      <h2 class="h2 reveal">Six projects across <span class="em">enterprise</span>, <span class="em">academia</span>, and the edge of <span class="em">AI.</span></h2>
+      <h2 class="h2 reveal">Seven projects across <span class="em">enterprise</span>, <span class="em">academia</span>, and the edge of <span class="em">AI.</span></h2>
       <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="portal" aria-hidden="true"></canvas></div>
     </div>
 
@@ -1343,90 +1380,117 @@
 
     <!-- DIGITAL -->
     <div class="work-panel active" id="panel-digital" role="tabpanel" aria-labelledby="tab-digital">
+      <div class="work-grid">
 
-      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/custom_llm_metrics.html">
-        <div class="work-num">→ 01</div>
-        <div class="work-thumb">
-          <img src="https://anurag27k.github.io/img/snbanner1.png" alt="Custom LLM-based metrics, ServiceNow" loading="lazy" decoding="async"/>
-        </div>
-        <div class="work-head">
-          <h3 class="work-title">Custom <span class="em">LLM-based</span> metrics</h3>
-          <div class="work-meta"><span>ServiceNow</span><span class="sep">/</span><span>Now Assist Skill Kit</span></div>
-        </div>
-        <p class="work-desc">Letting teams author their own LLM-judged metrics — defining criteria, scoring scales and rationale — so evaluation reflects the business, not just the benchmark.</p>
-        <div class="work-meta-right"><span class="yr">2025–26</span><br/>Work</div>
-      </a>
+        <a class="work-card interactive" href="https://anurag27k.github.io/subpages/custom_llm_metrics.html">
+          <div class="work-cover">
+            <img src="https://anurag27k.github.io/img/snbanner1.png" alt="Custom LLM-based metrics, ServiceNow" loading="lazy" decoding="async"/>
+          </div>
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">→ 01</span><span class="work-kind"><span class="yr">2025–26</span> · Work</span></div>
+            <h3 class="work-title">Custom <span class="em nw">LLM-based</span> metrics</h3>
+            <div class="work-meta"><span>ServiceNow</span><span class="sep">/</span><span>Now Assist Skill Kit</span></div>
+            <p class="work-desc">Letting teams author their own LLM-judged metrics — defining criteria, scoring scales and rationale — so evaluation reflects the business, not just the benchmark.</p>
+            <span class="work-cta">Read case study <span class="arr">→</span></span>
+          </div>
+        </a>
 
-      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/ground_truth.html">
-        <div class="work-num">→ 02</div>
-        <div class="work-thumb">
-          <img src="https://anurag27k.github.io/img/snbanner2.png" alt="Ground truth based agentic evaluation, ServiceNow" loading="lazy" decoding="async"/>
-        </div>
-        <div class="work-head">
-          <h3 class="work-title">Ground truth based <span class="em">agentic evaluation</span></h3>
-          <div class="work-meta"><span>ServiceNow</span><span class="sep">/</span><span>Now Assist Skill Kit</span></div>
-        </div>
-        <p class="work-desc">Designing how teams author ground truth, compare agent trajectories against it, and read the result well enough to ship — or block — an AI agent.</p>
-        <div class="work-meta-right"><span class="yr">2025–26</span><br/>Work</div>
-      </a>
+        <a class="work-card interactive" href="https://anurag27k.github.io/subpages/ground_truth.html">
+          <div class="work-cover">
+            <img src="https://anurag27k.github.io/img/snbanner2.png" alt="Ground truth based agentic evaluation, ServiceNow" loading="lazy" decoding="async"/>
+          </div>
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">→ 02</span><span class="work-kind"><span class="yr">2025–26</span> · Work</span></div>
+            <h3 class="work-title">Ground truth based <span class="em">agentic evaluation</span></h3>
+            <div class="work-meta"><span>ServiceNow</span><span class="sep">/</span><span>Now Assist Skill Kit</span></div>
+            <p class="work-desc">Designing how teams author ground truth, compare agent trajectories against it, and read the result well enough to ship — or block — an AI agent.</p>
+            <span class="work-cta">Read case study <span class="arr">→</span></span>
+          </div>
+        </a>
 
-      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/depositaccount.html">
-        <div class="work-num">→ 03</div>
-        <div class="work-thumb">
-          <img src="https://anurag27k.github.io/img/Oracle/DepositCover.png" alt="Redwood migration methodology, Oracle" loading="lazy" decoding="async"/>
-        </div>
-        <div class="work-head">
-          <h3 class="work-title">Redwood <span class="em">migration</span> methodology</h3>
-          <div class="work-meta"><span>Oracle</span><span class="sep">/</span><span>UX Designer</span></div>
-        </div>
-        <p class="work-desc">A repeatable methodology for migrating sub-applications onto the Redwood design system — audit, IA, component mapping and rollout, deep-dived on one sub-application.</p>
-        <div class="work-meta-right"><span class="yr">2022–24</span><br/>Work</div>
-      </a>
+        <a class="work-card interactive" href="https://anurag27k.github.io/subpages/depositaccount.html">
+          <div class="work-cover">
+            <img src="https://anurag27k.github.io/img/Oracle/DepositCover.png" alt="Redwood migration methodology, Oracle" loading="lazy" decoding="async"/>
+          </div>
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">→ 03</span><span class="work-kind"><span class="yr">2022–24</span> · Work</span></div>
+            <h3 class="work-title">Redwood <span class="em">migration</span> methodology</h3>
+            <div class="work-meta"><span>Oracle</span><span class="sep">/</span><span>UX Designer</span></div>
+            <p class="work-desc">A repeatable methodology for migrating sub-applications onto the Redwood design system — audit, IA, component mapping and rollout, deep-dived on one sub-application.</p>
+            <span class="work-cta">Read case study <span class="arr">→</span></span>
+          </div>
+        </a>
 
+        <a class="work-card interactive" href="https://anurag27k.github.io/subpages/CPINS.html">
+          <div class="work-cover">
+            <img src="https://anurag27k.github.io/img/cpins/CPINScover.png" alt="CPINS incident app for bomb squads, People10" loading="lazy" decoding="async"/>
+          </div>
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">→ 04</span><span class="work-kind"><span class="yr">2018–19</span> · Work</span></div>
+            <h3 class="work-title">CPINS&nbsp;— incident app for <span class="em">bomb squads</span></h3>
+            <div class="work-meta"><span>People10</span><span class="sep">/</span><span>Lead product designer</span></div>
+            <p class="work-desc">Lets bomb squads report a suspect package, pull in nearby squads and record how each one ends — plus the admin portal that keeps the network closed to outsiders.</p>
+            <span class="work-cta">Read case study <span class="arr">→</span></span>
+          </div>
+        </a>
+
+      </div>
     </div>
 
     <!-- PHYSICAL -->
     <div class="work-panel" id="panel-physical" role="tabpanel" aria-labelledby="tab-physical" hidden>
+      <div class="work-grid">
 
-      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/armarker.html">
-        <div class="work-num">→ 01</div>
-        <div class="work-thumb">
-          <img src="https://anurag27k.github.io/img/p3/lattice.png" alt="Lattice construction in AR, IDC IIT Bombay" loading="lazy" decoding="async"/>
-        </div>
-        <div class="work-head">
-          <h3 class="work-title">Lattice construction <span class="em">in AR</span></h3>
-          <div class="work-meta"><span>IDC, IIT Bombay</span><span class="sep">/</span><span>Research</span></div>
-        </div>
-        <p class="work-desc">Construction of atomic lattices using marker-based AR, exploring modularity and inter-marker interaction. Presented at VRST '22, Tsukuba.</p>
-        <div class="work-meta-right"><span class="yr">2022</span><br/>Published</div>
-      </a>
+        <a class="work-card work-card--lead interactive" href="https://anurag27k.github.io/subpages/armarker.html">
+          <div class="work-cover">
+            <img src="https://anurag27k.github.io/img/p3/lattice.png" alt="Lattice construction in AR, IDC IIT Bombay" loading="lazy" decoding="async"/>
+          </div>
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">→ 01</span><span class="work-kind"><span class="yr">2022</span> · Published</span></div>
+            <h3 class="work-title">Lattice construction <span class="em">in AR</span></h3>
+            <div class="work-meta"><span>IDC, IIT Bombay</span><span class="sep">/</span><span>Research</span></div>
+            <p class="work-desc">Construction of atomic lattices using marker-based AR, exploring modularity and inter-marker interaction. Presented at VRST '22, Tsukuba.</p>
+            <span class="work-cta">Read case study <span class="arr">→</span></span>
+          </div>
+        </a>
 
-      <div class="work-item is-soon">
-        <div class="work-num">→ 02</div>
-        <div class="work-thumb">
-          <span class="work-thumb-soon">Soon</span>
+        <div class="work-card is-soon">
+          <div class="work-cover work-cover--soon" aria-hidden="true">
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+              <path class="ln-soft" d="M60 64H248M60 96H248M60 128H248"/>
+              <path class="ln" d="M60 40V156H252"/>
+              <path class="acc" d="M80 134L106 112L132 120L158 88L184 100L210 64L236 74"/>
+              <g class="pin">
+                <circle cx="80" cy="134" r="4.2"/><circle cx="106" cy="112" r="4.2"/><circle cx="132" cy="120" r="4.2"/>
+                <circle cx="158" cy="88" r="4.2"/><circle cx="184" cy="100" r="4.2"/><circle cx="236" cy="74" r="4.2"/>
+              </g>
+              <circle class="acc" cx="210" cy="64" r="10" stroke-opacity="0.5"/>
+              <circle class="acc-f" cx="210" cy="64" r="4.6"/>
+            </svg>
+            <span class="work-soon-tag">Case study soon</span>
+          </div>
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">→ 02</span><span class="work-kind"><span class="yr">2020</span> · Page soon</span></div>
+            <h3 class="work-title">Grapho&nbsp;— <span class="em">line chart</span> accessibility</h3>
+            <div class="work-meta"><span>IDC, IIT Bombay</span><span class="sep">/</span><span>Tangible UX</span></div>
+            <p class="work-desc">A tangible system that lets visually-impaired users perceive, create and modify line charts. India HCI 2020.</p>
+          </div>
         </div>
-        <div class="work-head">
-          <h3 class="work-title">Grapho — <span class="em">line chart</span> accessibility</h3>
-          <div class="work-meta"><span>IDC, IIT Bombay</span><span class="sep">/</span><span>Tangible UX</span></div>
-        </div>
-        <p class="work-desc">A tangible system that lets visually-impaired users perceive, create and modify line charts. India HCI 2020.</p>
-        <div class="work-meta-right"><span class="yr">2020</span><br/>Page soon</div>
+
+        <a class="work-card interactive" href="https://anurag27k.github.io/subpages/gappekadabba.html">
+          <div class="work-cover">
+            <img src="https://anurag27k.github.io/img/Gappe/gappekadabbacover.png" alt="Gappe ka dabba, IDC IIT Bombay" loading="lazy" decoding="async"/>
+          </div>
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">→ 03</span><span class="work-kind"><span class="yr">2021</span> · Studio</span></div>
+            <h3 class="work-title">Gappe ka <span class="em">dabba</span></h3>
+            <div class="work-meta"><span>IDC, IIT Bombay</span><span class="sep">/</span><span>Tangible Interaction</span></div>
+            <p class="work-desc">A tangible device that treats sound as an object you can sense — bound by physics, gravity and gesture. A study in playful, embodied UX.</p>
+            <span class="work-cta">Read case study <span class="arr">→</span></span>
+          </div>
+        </a>
+
       </div>
-
-      <a class="work-item interactive" href="https://anurag27k.github.io/subpages/gappekadabba.html">
-        <div class="work-num">→ 03</div>
-        <div class="work-thumb">
-          <img src="https://anurag27k.github.io/img/Gappe/gappekadabbacover.png" alt="Gappe ka dabba, IDC IIT Bombay" loading="lazy" decoding="async"/>
-        </div>
-        <div class="work-head">
-          <h3 class="work-title">Gappe ka <span class="em">dabba</span></h3>
-          <div class="work-meta"><span>IDC, IIT Bombay</span><span class="sep">/</span><span>Tangible Interaction</span></div>
-        </div>
-        <p class="work-desc">A tangible device that treats sound as an object you can sense — bound by physics, gravity and gesture. A study in playful, embodied UX.</p>
-        <div class="work-meta-right"><span class="yr">2021</span><br/>Studio</div>
-      </a>
-
     </div>
   </div>
 </section>
@@ -1837,10 +1901,10 @@
   })();
 
   // ======== WORK THUMBS ========
-  /* covers are shown upfront now; if one 404s, fall back to the empty tile
-     rather than leaving a broken-image glyph in the row */
+  /* if a cover 404s, fall back to the empty plate rather than leaving a
+     broken-image glyph in the grid */
   (function () {
-    var imgs = document.querySelectorAll('.work-thumb img');
+    var imgs = document.querySelectorAll('.work-cover img');
     for (var i = 0; i < imgs.length; i++) {
       imgs[i].addEventListener('error', function () {
         if (this.parentNode) this.parentNode.removeChild(this);
