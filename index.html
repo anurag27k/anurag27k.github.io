@@ -9,8 +9,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<!-- display: Sunday Society, self-hosted from /fonts; Instrument Serif is its only fallback -->
-<link rel="preload" href="fonts/SundaySociety.otf" as="font" type="font/otf" crossorigin />
+<!-- display: Mileast (regular + italic), self-hosted from /fonts; Instrument Serif is its only fallback -->
+<link rel="preload" href="fonts/Mileast.otf" as="font" type="font/otf" crossorigin />
+<link rel="preload" href="fonts/Mileast%20Italic.otf" as="font" type="font/otf" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
@@ -26,19 +27,26 @@
 
 <style>
   /* ======== DISPLAY FACE ========
-     Sunday Society (Omzen Type), self-hosted at fonts/SundaySociety.otf. Instrument
-     Serif stands in while it loads. One upright style only, so accents stay upright. */
+     Mileast (Sronstudio), self-hosted at fonts/Mileast.otf with its italic. The italic
+     carries the accent phrases. Instrument Serif stands in while it loads. */
   @font-face {
-    font-family: 'Sunday Society';
-    src: url('fonts/SundaySociety.otf') format('opentype');
+    font-family: 'Mileast';
+    src: url('fonts/Mileast.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Mileast';
+    src: url('fonts/Mileast%20Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
     font-display: swap;
   }
 
   /* ======== TOKENS ======== */
   :root {
-    --display: 'Sunday Society', 'Instrument Serif', serif;
+    --display: 'Mileast', 'Instrument Serif', serif;
     --display-light: 400;     /* one weight in this face; kept as tokens for the fallback */
     --display-book: 400;
     --sans: 'DM Sans', system-ui, sans-serif;
@@ -476,7 +484,7 @@
     text-transform: lowercase;
   }
   @media (max-width: 600px) { .hero-headline { font-size: clamp(2.9rem, 17.5vw, 5rem); margin-top: 48px; } }
-  .hero-headline .em { font-style: normal; color: var(--accent); }
+  .hero-headline .em { font-style: italic; color: var(--accent); }
   .hero-line { display: block; overflow: hidden; margin-bottom: -0.14em; padding-bottom: 0.14em; padding-right: 0.08em; }
   .hero-line > span { display: inline-block; transform: translateY(112%) rotate(3deg); transform-origin: 0 100%; will-change: transform; }
   body.loaded .hero-line > span { animation: rise 1400ms var(--ease) forwards; }
@@ -633,7 +641,7 @@
     margin: 0 0 48px;
     max-width: 16ch;
   }
-  .h2 .em { font-style: normal; color: var(--accent); }
+  .h2 .em { font-style: italic; color: var(--accent); }
   /* balance the lines so no headline ends on a lone word */
   .h2, .about-lead, .mentor-title, .contact-headline { text-wrap: balance; }
 
@@ -829,7 +837,7 @@
     text-wrap: balance;
     transition: color 400ms;
   }
-  .work-title .em { font-style: normal; }
+  .work-title .em { font-style: italic; }
   .work-title .nw { white-space: nowrap; }   /* keep hyphenated terms whole */
   .work-card--lead .work-title {
     margin-top: auto;                   /* the lead's copy sits at the foot of its plate */
@@ -925,7 +933,7 @@
     letter-spacing: -0.012em;
     margin: 0 0 clamp(14px, 2.4vh, 24px);
   }
-  .about-lead .em { font-style: normal; color: var(--accent); }
+  .about-lead .em { font-style: italic; color: var(--accent); }
   .about-lead .nw { white-space: nowrap; }
   .about-body { font-size: 16.5px; line-height: 1.62; max-width: 62ch; }
   .about-body p { margin: 0; }
@@ -956,7 +964,7 @@
     line-height: 1.3;
     color: var(--ink);
   }
-  .about-fact dd .em { font-style: normal; color: var(--accent); }
+  .about-fact dd .em { font-style: italic; color: var(--accent); }
   .mo .about-facts:not(.in) .about-fact { background-size: 0% 1px; opacity: 0; transform: translateY(10px); transition: none; }
   .about-facts.in .about-fact:nth-child(2) { transition-delay: 90ms; }
   .about-facts.in .about-fact:nth-child(3) { transition-delay: 180ms; }
@@ -1116,7 +1124,7 @@
     margin: 0 0 12px;
     line-height: 1.12;
   }
-  .cap-title .em { font-style: normal; color: var(--accent); }
+  .cap-title .em { font-style: italic; color: var(--accent); }
   .cap-text { font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); }
 
   /* ======== EXPERIENCE ======== */
@@ -1143,7 +1151,7 @@
     letter-spacing: -0.004em;
     transition: color 350ms;
   }
-  .exp-co .em { font-style: normal; color: var(--accent); }
+  .exp-co .em { font-style: italic; color: var(--accent); }
   .exp-role { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); }
 
   .edu { border: 1px solid var(--hairline-strong); padding: 36px; border-radius: 6px; background: var(--surface); }
@@ -1160,7 +1168,7 @@
   }
   .edu-label::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
   .edu-deg { font-family: var(--display); font-weight: 400; font-size: 26px; line-height: 1.15; letter-spacing: -0.006em; margin: 0 0 10px; }
-  .edu-deg .em { font-style: normal; color: var(--accent); }
+  .edu-deg .em { font-style: italic; color: var(--accent); }
   .edu-school { font-size: 14.5px; color: var(--ink-soft); line-height: 1.5; }
   .edu-school + .edu-deg { margin-top: 28px; }
   .edu-stats {
@@ -1296,7 +1304,7 @@
     margin: 0 0 10px;
     transition: color 400ms;
   }
-  .lab-card-title .em { font-style: normal; }
+  .lab-card-title .em { font-style: italic; }
   .lab-grid .lab-card:hover .lab-card-title { color: var(--accent); }
   .lab-card-desc { margin: 0 0 24px; font-size: 14px; line-height: 1.6; color: var(--ink-soft); }
 
@@ -1376,7 +1384,7 @@
     margin: 0 0 8px;
     transition: color 350ms;
   }
-  .pub-title .em { font-style: normal; }
+  .pub-title .em { font-style: italic; }
   .pub-authors { font-size: 13px; color: var(--ink-soft); font-family: var(--mono); letter-spacing: 0.04em; }
   .pub-venue {
     text-align: right;
@@ -1416,7 +1424,7 @@
     letter-spacing: -0.004em;
     margin: 0 0 24px;
   }
-  .quote-body em { font-style: normal; color: var(--accent); }
+  .quote-body em { font-style: italic; color: var(--accent); }
   .quote-attr { display: flex; align-items: center; gap: 14px; }
   .quote-photo {
     width: 46px; height: 46px;
@@ -1463,7 +1471,7 @@
     margin: 0 0 24px;
     color: var(--on-accent);
   }
-  .mentor-title em { font-style: normal; }
+  .mentor-title em { font-style: italic; }
   .mentor-body { font-size: 16px; line-height: 1.55; color: rgba(var(--on-accent-rgb), 0.82); max-width: 44ch; }
   .mentor-list {
     display: grid;
@@ -1543,7 +1551,7 @@
     max-width: 12ch;
     text-transform: lowercase;
   }
-  .contact-headline em { font-style: normal; color: var(--accent); }
+  .contact-headline em { font-style: italic; color: var(--accent); }
   .contact-email-wrap { display: inline-block; position: relative; }
   .contact-email {
     position: relative;
@@ -1571,7 +1579,7 @@
   }
   .contact-email:hover { color: var(--accent); }
   .contact-email:hover::after { transform: scaleX(1); transform-origin: left center; }
-  .contact-email em { font-style: normal; color: var(--accent); }
+  .contact-email em { font-style: italic; color: var(--accent); }
 
   .contact-grid {
     margin-top: 110px;
@@ -1633,7 +1641,7 @@
     transform: translateY(20px);
     transition: opacity 500ms var(--ease) 250ms, transform 800ms var(--ease) 250ms;
   }
-  .curtain-title em, .curtain-title .em { font-style: normal; color: var(--accent); }
+  .curtain-title em, .curtain-title .em { font-style: italic; color: var(--accent); }
   .curtain-title .nw { white-space: nowrap; }
   body.leaving .curtain { transform: none; pointer-events: auto; }
   body.leaving .curtain-title { opacity: 1; transform: none; }
@@ -2123,7 +2131,7 @@
   <div class="wrap">
     <div class="label reveal"><span class="num">03</span> Capabilities</div>
     <div class="head-row">
-      <h2 class="h2" data-split>Where I <span class="em">operate</span> — and where I’m <span class="em">sharpest.</span></h2>
+      <h2 class="h2" data-split>Where I <span class="em">operate</span>&nbsp;— and where I’m <span class="em">sharpest.</span></h2>
       <div class="head-field reveal" data-d="1"><canvas class="tf" data-form="radar" aria-hidden="true"></canvas></div>
     </div>
 
