@@ -9,8 +9,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<!-- display: Cravelo, self-hosted from /fonts; Instrument Serif is its only fallback -->
-<link rel="preload" href="fonts/Cravelo.otf" as="font" type="font/otf" crossorigin />
+<!-- display: Sunday Society, self-hosted from /fonts; Instrument Serif is its only fallback -->
+<link rel="preload" href="fonts/SundaySociety.otf" as="font" type="font/otf" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
@@ -26,12 +26,11 @@
 
 <style>
   /* ======== DISPLAY FACE ========
-     Cravelo (Pandeka Studio), self-hosted at fonts/Cravelo.otf. The demo build has
-     letters only, so numbers and punctuation come from Instrument Serif, which is
-     also what shows while Cravelo loads. */
+     Sunday Society (Omzen Type), self-hosted at fonts/SundaySociety.otf. Instrument
+     Serif stands in while it loads. One upright style only, so accents stay upright. */
   @font-face {
-    font-family: 'Cravelo';
-    src: url('fonts/Cravelo.otf') format('opentype');
+    font-family: 'Sunday Society';
+    src: url('fonts/SundaySociety.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -39,7 +38,7 @@
 
   /* ======== TOKENS ======== */
   :root {
-    --display: 'Cravelo', 'Instrument Serif', serif;
+    --display: 'Sunday Society', 'Instrument Serif', serif;
     --display-light: 400;     /* one weight in this face; kept as tokens for the fallback */
     --display-book: 400;
     --sans: 'DM Sans', system-ui, sans-serif;
